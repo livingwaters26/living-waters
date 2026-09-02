@@ -1,0 +1,22 @@
+dont mind changind a couple os
+
+I need current (2026), accurate facts on "spacedesk" — software that turns a secondary Windows/Linux/Android/iOS device into an actual extended virtual monitor for a primary Windows PC over WiFi/USB/LAN (true extended-desktop with window dragging across screens, via a virtual display driver on the primary PC + a receiver app on the secondary device), as opposed to remote-desktop/VNC-style mirroring.
+
+Please web search and report back briefly (under 200 words):
+1. Is spacedesk still actively available/maintained in 2026? What's the current app/product name and where do you get it (official site)?
+2. Does it support a Windows PC as the "primary" driving multiple secondary displays simultaneously (e.g. 3 secondary laptop screens at once)?
+3. Does it support Linux as either the primary or a secondary/receiver device, or is it Windows-primary + Windows/Android/iOS-receiver only?
+4. Roughly how's the experience described in terms of latency/lag for things like scrolling a code editor or dragging windows over LAN — is it considered good enough for real productivity use, or mainly for casual/media use?
+5. Is there a leading alternative worth mentioning if spacedesk has declined?
+
+Short "Sources:" list at the end is enough, no need for full citations in prose.
+I need current (2026), accurate facts on "spacedesk" — software that turns a secondary Windows/Linux/Android/iOS device into an actual extended virtual monitor for a primary Windows PC over WiFi/USB/LAN (true extended-desktop with window dragging across screens, via a virtual display driver on the primary PC + a receiver app on the secondary device), as opposed to remote-desktop/VNC-style mirroring.
+
+Please web search and report back briefly (under 200 words):
+1. Is spacedesk still actively available/maintained in 2026? What's the current app/product name and where do you get it (official site)?
+2. Does it support a Windows PC as the "primary" driving multiple secondary displays simultaneously (e.g. 3 secondary laptop screens at once)?
+3. Does it support Linux as either the primary or a secondary/receiver device, or is it Windows-primary + Windows/Android/iOS-receiver only?
+4. Roughly how's the experience described in terms of latency/lag for things like scrolling a code editor or dragging windows over LAN — is it considered good enough for real productivity use, or mainly for casual/media use?
+5. Is there a leading alternative worth mentioning if spacedesk has declined?
+
+Short "Sources:" list at the end is enough, no need for full citations in prose.

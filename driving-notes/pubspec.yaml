@@ -1,0 +1,65 @@
+name: driving_notes
+description: Driving Notes - Offline scripture / audio note-taking app with sessions, captions, and voice notes for Android. (duplicate of Commute Notes for parallel work)
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # Audio playback
+  just_audio: ^0.9.40
+  audio_session: ^0.1.21
+
+  # File picking & paths
+  file_picker: ^10.1.2
+  path_provider: ^2.1.4
+  path: ^1.9.0
+
+  # State management
+  flutter_riverpod: ^2.5.1
+
+  # UI
+  google_fonts: ^6.2.1
+  intl: ^0.19.0
+  uuid: ^4.4.0
+
+  # Permissions
+  permission_handler: ^11.3.1
+
+  # Offline speech-to-text (real scripture captions)
+  whisper_ggml: ^2.6.0
+
+  # Voice notes (record spoken notes, then transcribed with Whisper)
+  record: ^7.1.1
+
+  # Text-to-speech (reads real scripture text aloud - no MP3 needed)
+  flutter_tts: ^4.2.5
+
+  # Keeps the screen from timing out during a long Whisper caption run, so
+  # you can start one, walk away, and it won't get suspended partway
+  wakelock_plus: ^1.2.8
+
+  # Saves notes as a small standalone text file and hands it to Android's
+  # normal "save/share" sheet (Files, Drive, email, etc.) - no PDF library,
+  # no extra storage footprint beyond the actual note text.
+  # Pinned to 12.x (not the newest 13.x) because 13.1.0+ needs a newer win32
+  # than file_picker ^10.1.2 allows, which breaks `pub get` on Windows even
+  # though win32 is only used for the Windows desktop target, not Android.
+  # 12.0.2 still has the same SharePlus.instance.share(ShareParams(...)) API
+  # this app uses, so no code changes needed.
+  share_plus: ^12.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/

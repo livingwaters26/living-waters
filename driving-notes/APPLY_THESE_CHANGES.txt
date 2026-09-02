@@ -1,0 +1,35 @@
+DRIVING NOTES - full rename + taller reading box
+================================================
+
+This is the complete set for C:\src\driving_notes
+
+WHAT IS INCLUDED
+----------------
+1. Full rename: Commute Notes → Driving Notes
+   - App name, class, package id (com.example.driving_notes)
+   - Green icon + matching teal-green theme color
+2. Reading / caption box is taller (260 → 310) on BOTH players
+   - player_screen.dart (audio / MP3 player)
+   - tts_player_screen.dart (computer-voice player)
+   - Shows one extra line of text, same look as your screenshot
+
+HOW TO APPLY
+------------
+1. Work only in C:\src\driving_notes
+
+2. Delete the old package folder:
+      rmdir /s /q android\app\src\main\kotlin\com\example\commute_notes
+
+3. Copy everything from this zip over C:\src\driving_notes
+   (lib\, android\app\, pubspec.yaml, run_app.bat, rebuild.bat)
+
+4. Rebuild from inside the Driving Notes folder:
+      C:\src\flutter\bin\flutter.bat clean
+      pause
+      C:\src\flutter\bin\flutter.bat pub get
+      pause
+      C:\src\flutter\bin\flutter.bat run --release -d R52YA02836J
+
+Both apps can now live on the tablet:
+  - Commute Notes (blue icon)
+  - Driving Notes (green icon, taller reading text)

@@ -1,0 +1,10 @@
+<!-- 
+  After you run `flutter create .`, open:
+  android/app/src/main/AndroidManifest.xml
+
+  Paste these lines near the top, inside <manifest>, BEFORE <application>:
+-->
+
+<uses-permission android:name="android.permission.RECORD_AUDIO"/>
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
