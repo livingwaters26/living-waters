@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" class="v19-type-1">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thought Organizer — Study Hub</title>
+<link rel="stylesheet" href="../lib/hub-ui.css">
+<style>
+  body{ margin:0; font-family:var(--v19-sans); color:var(--v19-ink); background:var(--v19-paper); }
+  header.to-head{
+    display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;
+    padding:16px 20px; background:var(--v19-ink); color:var(--v19-paper);
+    border-bottom:2px solid var(--v19-brass);
+  }
+  header.to-head h1{ font:600 1.15rem/1 var(--v19-serif); margin:0; letter-spacing:.01em; }
+  header.to-head .sub{ font:400 12px/1.4 var(--v19-mono); color:#B9C0CC; }
+  header.to-head a{ color:var(--v19-brass-lt); font-size:.85rem; margin-left:auto; }
+
+  .to-tabs{ display:flex; gap:2px; padding:0 20px; background:var(--v19-vellum); border-bottom:1px solid var(--v19-rule); }
+  .to-tab{
+    font:600 12px/1 var(--v19-sans); background:none; border:0; border-bottom:3px solid transparent;
+    padding:13px 16px; cursor:pointer; color:var(--v19-ink-soft);
+  }
+  .to-tab[aria-selected="true"]{ color:var(--v19-ink); border-bottom-color:var(--v19-brass); }
+  .to-tab:focus-visible{ outline:2px solid var(--v19-brass); outline-offset:-2px; }
+
+  .to-pane{ padding:20px; max-width:1100px; }
+  .to-pane[hidden]{ display:none; }
+
+  textarea.to-input{
+    width:100%; min-height:110px; box-sizing:border-box;
+    font:400 1rem/1.6 var(--v19-serif); color:var(--v19-ink);
+    padding:14px; border:1px solid var(--v19-rule); border-left:4px solid var(--v19-brass);
+    border-radius:0 4px 4px 0; background:var(--v19-paper); resize:vertical;
+  }
+  textarea.to-input:focus{ outline:2px solid var(--v19-brass); outline-offset:1px; }
+  .to-row{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-top:10px; }
+  input.to-tagbox{
+    font:400 13px/1 var(--v19-mono); padding:9px 10px;
+    border:1px solid var(--v19-rule); border-radius:3px; min-width:200px;
+  }
+  .to-hint{ font:400 12px/1.5 var(--v19-sans); color:var(--v19-ink-soft); }
+
+  .to-list{ list-style:none; padding:0; margin:18px 0 0; }
+  .to-item{
+    background:var(--v19-vellum); border:1px solid var(--v19-rule);
+    border-left:3px solid var(--v19-indigo); border-radius:0 3px 3px 0;
+    padding:11px 13px; margin-bottom:8px;
+  }
+  .to-item .meta{ font:600 10px/1 var(--v19-mono); letter-spacing:.09em; text-transform:uppercase; color:var(--v19-ink-soft); }
+  .to-item .body{ font:400 .95rem/1.55 var(--v19-serif); margin:6px 0 0; white-space:pre-wrap; }
+  .to-item .acts{ margin-top:8px; display:flex; gap:6px; flex-wrap:wrap; }
+  .to-item button{ font:600 11px/1 var(--v19-sans); background:none; border:1px solid var(--v19-rule); border-radius:3px; padding:5px 8px; cursor:pointer; }
+  .to-item button:hover{ border-color:var(--v19-brass); }
+  .to-chip{ display:inline-block; font:600 10px/1 var(--v19-mono); background:var(--v19-brass-lt); padding:4px 6px; border-radius:2px; margin-right:4px; }
+
+  .to-empty{ font:400 .95rem/1.6 var(--v19-sans); color:var(--v19-ink-soft); border:1px dashed var(--v19-rule); border-radius:4px; padding:22px; text-align:center; }
+
+  /* map */
+  #map-wrap{ border:1px solid var(--v19-rule); border-radius:4px; background:
+      repeating-linear-gradient(0deg,#FBFAF7 0 23px,#F0ECE2 23px 24px); overflow:hidden; touch-action:none; }
+  #map{ display:block; width:100%; height:min(62vh,560px); }
+  .node rect{ fill:var(--v19-paper); stroke:var(--v19-indigo); stroke-width:1.5; }
+  .node.root rect{ stroke:var(--v19-brass); stroke-width:3; }
+  .node text{ font:600 12px var(--v19-sans); fill:var(--v19-ink); pointer-events:none; }
+  .node.sel rect{ stroke:var(--v19-brass); stroke-width:3; }
+  .edge{ stroke:var(--v19-ink-soft); stroke-width:1.4; fill:none; opacity:.6; }
+
+  /* search */
+  input.to-search{
+    width:100%; box-sizing:border-box; font:400 1rem/1 var(--v19-sans);
+    padding:13px 14px; border:1px solid var(--v19-rule); border-radius:4px;
+  }
+  .to-hit{ border-bottom:1px solid var(--v19-rule); padding:12px 0; }
+  .to-hit h4{ margin:0 0 3px; font:600 .95rem/1.4 var(--v19-sans); }
+  .to-hit .where{ font:600 10px/1 var(--v19-mono); letter-spacing:.09em; text-transform:uppercase; color:var(--v19-indigo); }
+  .to-hit p{ margin:5px 0 0; font:400 .9rem/1.55 var(--v19-serif); color:var(--v19-ink-soft); }
+  .to-hit mark{ background:#F6EBC8; }
+  .to-score{ float:right; font:600 10px var(--v19-mono); color:var(--v19-ink-soft); }
+</style>
+</head>
+<body>
+
+<header class="to-head">
+  <h1>Thought Organizer</h1>
+  <span class="sub">offline · saved on this device only</span>
+  <a href="../index.html">← back to reader</a>
+</header>
+
+<div class="to-tabs" role="tablist">
+  <button class="to-tab" role="tab" aria-selected="true"  data-pane="scratch">Scratchpad</button>
+  <button class="to-tab" role="tab" aria-selected="false" data-pane="map">Rabbit-hole map</button>
+  <button class="to-tab" role="tab" aria-selected="false" data-pane="search">Search everything</button>
+</div>
+
+<!-- ============ SCRATCHPAD ============ -->
+<section class="to-pane" data-pane="scratch">
+  <textarea class="to-input" id="scratch" placeholder="What are you chasing? Half-formed questions are fine — that's the point."></textarea>
+  <div class="to-row">
+    <input class="to-tagbox" id="tags" placeholder="tags: isaiah, servant songs">
+    <input class="to-tagbox" id="ref" placeholder="passage: Isa 53:5">
+    <button class="v19-btn" id="save">Save thought</button>
+    <button class="v19-btn" id="mic" title="Dictate">🎙 Dictate</button>
+    <span class="to-hint" id="mic-note"></span>
+  </div>
+  <p class="to-hint">Thoughts saved from the reader's insight rail land here too.</p>
+  <ul class="to-list" id="thoughts"></ul>
+</section>
+
+<!-- ============ MAP ============ -->
+<section class="to-pane" data-pane="map" hidden>
+  <div class="to-row" style="margin:0 0 12px">
+    <button class="v19-btn" id="add-child">Add branch from selected</button>
+    <button class="v19-btn" id="rename-node">Rename</button>
+    <button class="v19-btn" id="del-node">Delete branch</button>
+    <button class="v19-btn" id="reset-map">Start a new map</button>
+    <span class="to-hint">Tap a node to select. Drag to move. Each branch is one step further down the hole.</span>
+  </div>
+  <div id="map-wrap"><svg id="map" role="img" aria-label="Thought map"></svg></div>
+  <p class="to-hint" id="map-trail"></p>
+</section>
+
+<!-- ============ SEARCH ============ -->
+<section class="to-pane" data-pane="search">
+  <input class="to-search" id="q" placeholder="Search your notes and the whole project — try: propitiation, mercy seat, gap theory">
+  <p class="to-hint">Matches on meaning as well as wording: related terms are expanded before the search runs, so “atonement” also finds “propitiation” and “mercy seat”.</p>
+  <div id="hits"></div>
+</section>
+
+<script src="../data/passage-data.js"></script>
+<script>
+(function(){
+  "use strict";
+  var $ = function(s){ return document.querySelector(s); };
+  var store = {
+    get:function(k,d){ try{var v=localStorage.getItem(k);return v===null?d:v;}catch(e){return d;} },
+    set:function(k,v){ try{localStorage.setItem(k,v);}catch(e){} }
+  };
+  var esc = function(s){ return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); };
+
+  /* ---------- tabs ---------- */
+  document.querySelectorAll(".to-tab").forEach(function(t){
+    t.addEventListener("click", function(){
+      document.querySelectorAll(".to-tab").forEach(function(x){ x.setAttribute("aria-selected","false"); });
+      t.setAttribute("aria-selected","true");
+      document.querySelectorAll(".to-pane").forEach(function(p){
+        p.hidden = p.getAttribute("data-pane") !== t.dataset.pane;
+      });
+      if (t.dataset.pane === "map") drawMap();
+    });
+  });
+
+  /* ================= SCRATCHPAD ================= */
+  var TKEY = "v19.thoughts";
+  function thoughts(){ try{ return JSON.parse(store.get(TKEY,"[]"))||[]; }catch(e){ return []; } }
+  function setThoughts(l){ store.set(TKEY, JSON.stringify(l)); }
+
+  function renderThoughts(){
+    var l = thoughts().slice().reverse(), el = $("#thoughts");
+    if(!l.length){ el.innerHTML = '<li class="to-empty">Nothing logged yet. Type the question you can\'t let go of and save it.</li>'; return; }
+    el.innerHTML = l.map(function(t){
+      return '<li class="to-item" data-id="'+t.id+'">'+
+        '<div class="meta">'+ new Date(t.at).toLocaleString() +
+        (t.ref?' · '+esc(t.ref):'') + (t.source?' · via '+esc(t.source):'') +'</div>'+
+        '<p class="body">'+esc(t.text)+'</p>'+
+        (t.tags&&t.tags.length?'<div style="margin-top:6px">'+t.tags.map(function(x){return '<span class="to-chip">'+esc(x)+'</span>';}).join('')+'</div>':'')+
+        '<div class="acts"><button data-act="map">Send to map</button><button data-act="del">Delete</button></div></li>';
+    }).join("");
+  }
+
+  $("#thoughts").addEventListener("click", function(e){
+    var b = e.target.closest("button"); if(!b) return;
+    var id = b.closest(".to-item").dataset.id;
+    var list = thoughts(), t = list.filter(function(x){ return x.id===id; })[0];
+    if(b.dataset.act === "del"){ setThoughts(list.filter(function(x){ return x.id!==id; })); renderThoughts(); }
+    if(b.dataset.act === "map" && t){ addNode(t.text.slice(0,42), selected); saveMap(); b.textContent="On the map ✓"; }
+  });
+
+  $("#save").addEventListener("click", function(){
+    var text = $("#scratch").value.trim(); if(!text) return;
+    var list = thoughts();
+    list.push({
+      id: "t"+Date.now()+Math.random().toString(36).slice(2,6),
+      at: new Date().toISOString(),
+      text: text,
+      ref: $("#ref").value.trim(),
+      tags: $("#tags").value.split(",").map(function(s){return s.trim();}).filter(Boolean),
+      source: "Scratchpad"
+    });
+    setThoughts(list);
+    $("#scratch").value=""; $("#tags").value=""; $("#ref").value="";
+    renderThoughts();
+  });
+
+  /* dictation — browser feature, needs no server but may need internet */
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if(!SR){ $("#mic").disabled = true; $("#mic-note").textContent = "Dictation isn't available in this browser."; }
+  else {
+    var rec = new SR(); rec.continuous = true; rec.interimResults = false;
+    var on = false;
+    rec.onresult = function(e){
+      for(var i=e.resultIndex;i<e.results.length;i++)
+        $("#scratch").value += (($("#scratch").value?" ":"") + e.results[i][0].transcript.trim());
+    };
+    rec.onerror = function(){ $("#mic-note").textContent = "Dictation stopped — most browsers need internet for it."; on=false; $("#mic").textContent="🎙 Dictate"; };
+    rec.onend = function(){ on=false; $("#mic").textContent="🎙 Dictate"; };
+    $("#mic").addEventListener("click", function(){
+      if(on){ rec.stop(); return; }
+      try{ rec.start(); on=true; $("#mic").textContent="⏹ Stop"; $("#mic-note").textContent="Listening…"; }
+      catch(e){ $("#mic-note").textContent="Couldn't start dictation."; }
+    });
+  }
+
+  /* ================= MAP ================= */
+  var MKEY = "v19.map";
+  var map = load();
+  var selected = map.nodes[0] ? map.nodes[0].id : null;
+
+  function load(){
+    try{ var m = JSON.parse(store.get(MKEY,"null")); if(m && m.nodes && m.nodes.length) return m; }catch(e){}
+    return { nodes:[{ id:"n0", label:"Start here", x:60, y:40, parent:null }], seq:1 };
+  }
+  function saveMap(){ store.set(MKEY, JSON.stringify(map)); drawMap(); }
+
+  function addNode(label, parentId){
+    var p = map.nodes.filter(function(n){ return n.id===parentId; })[0] || map.nodes[0];
+    var sibs = map.nodes.filter(function(n){ return n.parent===p.id; }).length;
+    var n = { id:"n"+(map.seq++), label:label||"New thought", parent:p.id,
+              x: p.x + 190, y: p.y + sibs*62 };
+    map.nodes.push(n); selected = n.id; return n;
+  }
+
+  function drawMap(){
+    var svg = $("#map"); if(!svg) return;
+    var W = svg.clientWidth || 900, H = svg.clientHeight || 480;
+    svg.setAttribute("viewBox","0 0 "+W+" "+H);
+    var out = "";
+    map.nodes.forEach(function(n){
+      if(!n.parent) return;
+      var p = map.nodes.filter(function(x){ return x.id===n.parent; })[0]; if(!p) return;
+      var x1=p.x+150, y1=p.y+16, x2=n.x, y2=n.y+16, mx=(x1+x2)/2;
+      out += '<path class="edge" d="M'+x1+','+y1+' C'+mx+','+y1+' '+mx+','+y2+' '+x2+','+y2+'"/>';
+    });
+    map.nodes.forEach(function(n){
+      var w = Math.min(190, Math.max(88, n.label.length*7.1 + 20));
+      out += '<g class="node'+(n.id===selected?" sel":"")+(n.parent?"":" root")+'" data-id="'+n.id+'" transform="translate('+n.x+','+n.y+')">'+
+             '<rect width="'+w+'" height="32" rx="4"/>'+
+             '<text x="10" y="21">'+esc(n.label.length>24?n.label.slice(0,23)+"…":n.label)+'</text></g>';
+    });
+    svg.innerHTML = out;
+    trail();
+  }
+
+  function trail(){
+    var chain = [], cur = map.nodes.filter(function(n){ return n.id===selected; })[0];
+    while(cur){ chain.unshift(cur.label); cur = map.nodes.filter(function(n){ return n.id===cur.parent; })[0]; }
+    $("#map-trail").textContent = chain.length>1 ? "Trail: " + chain.join("  →  ") : "";
+  }
+
+  /* select + drag */
+  (function(){
+    var svg = $("#map"), drag = null;
+    svg.addEventListener("pointerdown", function(e){
+      var g = e.target.closest(".node"); if(!g) return;
+      selected = g.dataset.id;
+      var n = map.nodes.filter(function(x){ return x.id===selected; })[0];
+      var r = svg.getBoundingClientRect();
+      drag = { n:n, dx: e.clientX - r.left - n.x, dy: e.clientY - r.top - n.y, moved:false };
+      svg.setPointerCapture(e.pointerId); drawMap();
+    });
+    svg.addEventListener("pointermove", function(e){
+      if(!drag) return;
+      var r = svg.getBoundingClientRect();
+      drag.n.x = Math.max(4, e.clientX - r.left - drag.dx);
+      drag.n.y = Math.max(4, e.clientY - r.top - drag.dy);
+      drag.moved = true; drawMap();
+    });
+    svg.addEventListener("pointerup", function(){ if(drag && drag.moved) saveMap(); drag = null; });
+  })();
+
+  $("#add-child").addEventListener("click", function(){
+    var label = prompt("Where does this thought lead?"); if(!label) return;
+    addNode(label.trim(), selected); saveMap();
+  });
+  $("#rename-node").addEventListener("click", function(){
+    var n = map.nodes.filter(function(x){ return x.id===selected; })[0]; if(!n) return;
+    var v = prompt("Rename this branch:", n.label); if(v===null) return;
+    n.label = v.trim() || n.label; saveMap();
+  });
+  $("#del-node").addEventListener("click", function(){
+    if(!selected || selected==="n0") return;
+    var kill = {}; kill[selected]=1; var changed=true;
+    while(changed){ changed=false;
+      map.nodes.forEach(function(n){ if(n.parent && kill[n.parent] && !kill[n.id]){ kill[n.id]=1; changed=true; } });
+    }
+    map.nodes = map.nodes.filter(function(n){ return !kill[n.id]; });
+    selected = map.nodes[0].id; saveMap();
+  });
+  $("#reset-map").addEventListener("click", function(){
+    if(!confirm("Clear the whole map? Your saved thoughts are not affected.")) return;
+    map = { nodes:[{ id:"n0", label:"Start here", x:60, y:40, parent:null }], seq:1 };
+    selected = "n0"; saveMap();
+  });
+
+  /* ================= SEARCH ================= */
+  /* The project index. Rooms you add later go in this array —
+     one line each — and they become searchable immediately.     */
+  var ROOMS = [
+    { where:"Old Testament", title:"Isaiah", body:"servant songs suffering servant Immanuel remnant Cyrus new heavens new earth messianic prophecy", href:"" },
+    { where:"Old Testament", title:"Micah", body:"Bethlehem ruler shepherd justice mercy walk humbly messianic birth", href:"" },
+    { where:"Old Testament", title:"Daniel", body:"seventy weeks son of man four kingdoms little horn resurrection millennial reign", href:"" },
+    { where:"Old Testament", title:"Zechariah", body:"pierced fountain opened branch king on a donkey passion death burial resurrection", href:"" },
+    { where:"Old Testament", title:"Genesis", body:"creation ex nihilo image of God fall serpent protoevangelium flood covenant Abraham", href:"../commentary/genesis-deep-dive.html" },
+    { where:"New Testament", title:"Matthew", body:"kingdom of heaven fulfilment formula sermon on the mount beatitudes Peter confession passion great commission", href:"../commentary/matthew-deep-dive.html" },
+    { where:"New Testament", title:"John", body:"logos prologue signs I am sayings farewell discourse eternal life light darkness", href:"../commentary/john-deep-dive.html" },
+    { where:"New Testament", title:"Acts", body:"Pentecost Spirit baptism church expansion Jerusalem council Paul missionary journeys Rome", href:"../commentary/acts-deep-dive.html" },
+    { where:"New Testament", title:"Romans", body:"justification righteousness propitiation faith works of the law Israel election living sacrifice", href:"../commentary/romans-deep-dive.html" },
+    { where:"New Testament", title:"Revelation", body:"seven churches throne seals trumpets bowls beast millennium new Jerusalem preterist historicist idealist futurist", href:"../commentary/revelation-deep-dive.html" },
+    { where:"Topical", title:"Millennial Kingdom Prophecy", body:"premillennial amillennial postmillennial thousand years reign restoration", href:"" },
+    { where:"Topical", title:"Messianic Prophecy", body:"birth ministry passion death burial resurrection reign prophecy pairs", href:"" },
+    { where:"Doctrine", title:"Church History & Doctrinal Development", body:"councils Nicaea Chalcedon schism Reformation Trent Vatican II timeline doctrinal evolution", href:"" },
+    { where:"Doctrine", title:"Eucharist / Baptism / Faith and Works / TULIP", body:"real presence transubstantiation consubstantiation memorial paedobaptism credobaptism predestination election", href:"" },
+    { where:"Apocrypha", title:"Deuterocanon", body:"Tobit Judith Maccabees Wisdom Sirach Baruch canon Trent Reformation", href:"" }
+  ];
+
+  /* Fold in every passage record from the shared dataset. */
+  Object.keys(window.V19_PASSAGES||{}).forEach(function(k){
+    var r = window.V19_PASSAGES[k];
+    var text = [r.title, r.diffNote, r.consensus.verdict]
+      .concat(r.ticker.map(function(t){return t.text;}))
+      .concat(r.cards.map(function(c){return c.text;}))
+      .concat(r.scofield ? [r.scofield.note] : []).join(" ");
+    ROOMS.push({ where:"Passage", title:r.ref+" — "+r.title, body:text, href:"" });
+  });
+
+  /* Lightweight meaning expansion: a term pulls in its neighbours,
+     so you find the passage even when you searched the other word. */
+  var SYN = {
+    atonement:["propitiation","mercy seat","hilasterion","sacrifice","blood","expiation"],
+    justification:["righteousness","imputed","declared righteous","faith alone","forensic"],
+    creation:["genesis","beginning","ex nihilo","made","formed","cosmos"],
+    baptism:["water","immersion","remission","regeneration","chrismation"],
+    endtimes:["eschatology","millennium","second coming","new heaven","new earth","parousia"],
+    incarnation:["logos","word became flesh","prologue","son of god","deity of christ"],
+    kingdom:["reign","throne","millennial","kingdom of heaven","beatitudes"],
+    spirit:["holy spirit","holy ghost","pentecost","gift","paraclete"],
+    covenant:["promise","abraham","testament","dwell with them"],
+    sin:["fall","fell short","transgression","serpent","guilt"]
+  };
+  function expand(q){
+    var terms = q.toLowerCase().split(/\s+/).filter(Boolean), extra = [];
+    terms.forEach(function(t){
+      Object.keys(SYN).forEach(function(k){
+        if(k.indexOf(t)===0 || t.indexOf(k)===0) extra = extra.concat(SYN[k]);
+        SYN[k].forEach(function(s){ if(s.indexOf(t)>-1 && t.length>3){ extra.push(k); extra = extra.concat(SYN[k]); } });
+      });
+    });
+    return { terms:terms, all: terms.concat(extra) };
+  }
+
+  function search(q){
+    if(!q.trim()) return [];
+    var ex = expand(q), out = [];
+    var pool = ROOMS.concat(thoughts().map(function(t){
+      return { where:"Your notes", title:(t.ref||"Thought")+" · "+new Date(t.at).toLocaleDateString(),
+               body:t.text+" "+(t.tags||[]).join(" "), href:"" , mine:true };
+    }));
+    pool.forEach(function(r){
+      var hay = (r.title+" "+r.body).toLowerCase(), score = 0;
+      ex.terms.forEach(function(t){ if(hay.indexOf(t)>-1) score += 6; });
+      ex.all.forEach(function(t){ if(t.length>2 && hay.indexOf(t)>-1) score += 1; });
+      if(r.mine) score *= 1.3;                 /* your own thinking ranks first */
+      if(score>0) out.push({ r:r, score:score });
+    });
+    return out.sort(function(a,b){ return b.score-a.score; }).slice(0,25);
+  }
+
+  function highlight(text, terms){
+    var t = esc(text.slice(0,240));
+    terms.forEach(function(w){
+      if(w.length<3) return;
+      t = t.replace(new RegExp("("+w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","ig"),"<mark>$1</mark>");
+    });
+    return t + (text.length>240?"…":"");
+  }
+
+  $("#q").addEventListener("input", function(){
+    var q = $("#q").value, hits = search(q), el = $("#hits");
+    if(!q.trim()){ el.innerHTML = ""; return; }
+    if(!hits.length){
+      el.innerHTML = '<div class="to-empty">No match yet. Try a broader word — or save a thought about it and it becomes searchable.</div>';
+      return;
+    }
+    var terms = expand(q).terms;
+    el.innerHTML = hits.map(function(h){
+      var r = h.r;
+      return '<div class="to-hit"><span class="to-score">'+Math.round(h.score)+'</span>'+
+        '<span class="where">'+esc(r.where)+'</span>'+
+        '<h4>'+(r.href?'<a href="'+esc(r.href)+'">'+esc(r.title)+'</a>':esc(r.title))+'</h4>'+
+        '<p>'+highlight(r.body, terms)+'</p></div>';
+    }).join("");
+  });
+
+  renderThoughts();
+  drawMap();
+})();
+</script>
+</body>
+</html>

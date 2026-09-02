@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Death, Burial &amp;amp; Resurrection - Messianic Prophecy</title>
+<style>
+:root {
+  --bg-color: #0f172a; --card-bg: #1e293b; --accent-gold: #f59e0b; --accent-blue: #38bdf8;
+  --text-main: #f8fafc; --text-muted: #94a3b8; --border-color: #334155; --hebrew-gold: #fef08a;
+  --prophecy: #f59e0b; --fulfillment: #38bdf8;
+  --font-display: Georgia, 'Iowan Old Style', 'Palatino Linotype', Palatino, serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body { font-family: var(--font-body); background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; font-size: 1.07rem; -webkit-tap-highlight-color: transparent; }
+.container { width: 100%; max-width: 1100px; }
+.top-nav { width: 100%; margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+.back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-gold); text-decoration: none; font-weight: 600; background: var(--card-bg); padding: 10px 18px; border-radius: 20px; border: 1px solid var(--border-color); }
+.back-btn:hover, .back-btn:focus-visible { background: var(--accent-gold); color: #000; }
+.header { text-align: center; margin-bottom: 20px; }
+.header-icon { font-size: 2.6rem; margin-bottom: 6px; }
+.header h1 { font-family: var(--font-display); font-weight: 700; color: var(--accent-gold); font-size: 2.1rem; margin: 0 0 4px 0; }
+.header p { color: var(--text-muted); font-size: 1rem; margin: 0; }
+.intro-box { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px 20px; margin-bottom: 26px; color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; }
+.section-title { font-family: var(--font-display); font-weight: 700; color: var(--accent-blue); font-size: 1.3rem; margin: 30px 0 14px 0; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+.section-note { color: var(--text-muted); font-size: 0.85rem; margin: -6px 0 14px 0; line-height: 1.5; }
+.legend { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 14px; font-size: 0.82rem; color: var(--text-muted); }
+.legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 26px; }
+table.compare-table { width: 100%; border-collapse: collapse; min-width: 680px; background: var(--card-bg); }
+.compare-table th, .compare-table td { padding: 12px 14px; text-align: left; font-size: 0.85rem; vertical-align: top; border-bottom: 1px solid var(--border-color); }
+.compare-table th { font-family: var(--font-display); font-size: 0.9rem; color: var(--text-main); background: rgba(15,23,42,0.5); }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table td.topic { font-weight: 700; color: var(--text-main); white-space: nowrap; }
+.compare-table th.prophecy, .compare-table td.prophecy-cell { border-left: 3px solid var(--prophecy); }
+.compare-table th.fulfillment, .compare-table td.fulfillment-cell { border-left: 3px solid var(--fulfillment); }
+.compare-table td.ref { font-weight: 700; color: var(--accent-gold); }
+.passage-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px 22px; margin-bottom: 20px; }
+.passage-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+.passage-icon { font-size: 1.7rem; }
+.passage-title { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--accent-gold); margin: 0; flex: 1; min-width: 180px; }
+.pf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 12px; }
+@media (max-width: 620px) { .pf-grid { grid-template-columns: 1fr; } }
+.pf-col { border-radius: 10px; padding: 14px 16px; background: rgba(15,23,42,0.5); border-top: 3px solid; }
+.pf-col.prophecy { border-top-color: var(--prophecy); }
+.pf-col.fulfillment { border-top-color: var(--fulfillment); }
+.pf-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+.pf-col.prophecy .pf-label { color: var(--prophecy); }
+.pf-col.fulfillment .pf-label { color: var(--fulfillment); }
+.pf-ref-btn { background: none; border: none; padding: 0; font: inherit; font-weight: 700; color: var(--text-main); text-decoration: underline dotted; text-underline-offset: 3px; cursor: pointer; display: block; margin-bottom: 6px; }
+.pf-ref-btn:hover, .pf-ref-btn:focus-visible { color: var(--accent-gold); }
+.pf-text { font-size: 0.85rem; color: var(--text-muted); line-height: 1.55; }
+.pf-note { font-size: 0.85rem; color: var(--text-main); background: rgba(245,158,11,0.08); border-left: 3px solid var(--accent-gold); border-radius: 6px; padding: 10px 14px; }
+.verse-ref-btn { background: none; border: none; padding: 0; font: inherit; color: var(--accent-blue); text-decoration: underline dotted; text-underline-offset: 3px; cursor: pointer; }
+.verse-ref-btn:hover, .verse-ref-btn:focus-visible { color: var(--accent-gold); }
+.verse-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 999; align-items: center; justify-content: center; padding: 20px; }
+.verse-modal-overlay.open { display: flex; }
+.verse-modal { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 22px 24px; max-width: 480px; width: 100%; max-height: 78vh; overflow-y: auto; position: relative; }
+.verse-modal-close { position: absolute; top: 12px; right: 12px; background: var(--border-color); border: none; color: var(--text-main); border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 0.95rem; }
+.verse-modal-close:hover, .verse-modal-close:focus-visible { background: var(--accent-gold); color: #000; }
+.verse-modal-ref { font-family: var(--font-display); font-weight: 700; color: var(--accent-gold); font-size: 1.15rem; margin: 0 26px 12px 0; }
+.verse-modal-text { color: var(--text-main); line-height: 1.65; font-size: 0.95rem; margin: 0; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
+@media (max-width: 480px) { .header h1 { font-size: 1.7rem; } body { padding: 14px; } }
+
+/* === Reader Tools v1: highlighting, notes, inline dictionary === */
+.verse-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 999; align-items: center; justify-content: center; padding: 20px; }
+.verse-modal-overlay.open { display: flex; }
+.verse-modal { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 22px 24px; max-width: 480px; width: 100%; max-height: 78vh; overflow-y: auto; position: relative; }
+.verse-modal-close { position: absolute; top: 12px; right: 12px; background: var(--border-color); border: none; color: var(--text-main); border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 0.95rem; }
+.verse-modal-close:hover, .verse-modal-close:focus-visible { background: var(--accent-gold); color: #000; }
+.verse-modal-ref { font-family: var(--font-display); font-weight: 700; color: var(--accent-gold); font-size: 1.15rem; margin: 0 26px 12px 0; }
+.verse-modal-text { color: var(--text-main); line-height: 1.65; font-size: 0.95rem; margin: 0; }
+.rt-toolbar { position: absolute; display: none; z-index: 1200; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.4); padding: 6px; gap: 4px; }
+.rt-toolbar.open { display: flex; }
+.rt-toolbar button { background: none; border: none; color: var(--text-main); font-size: 0.82rem; padding: 6px 10px; border-radius: 6px; cursor: pointer; white-space: nowrap; }
+.rt-toolbar button:hover, .rt-toolbar button:focus-visible { background: var(--accent-gold); color: #000; }
+mark.rt-highlight { background: rgba(245,158,11,0.35); color: inherit; border-radius: 2px; padding: 0 1px; cursor: pointer; }
+mark.rt-note { background: rgba(56,189,248,0.3); color: inherit; border-radius: 2px; padding: 0 1px; cursor: pointer; border-bottom: 2px dotted var(--accent-blue); }
+.rt-fab { position: fixed; right: 18px; bottom: 18px; z-index: 1100; background: var(--accent-gold); color: #000; border: none; border-radius: 24px; padding: 12px 18px; font-weight: 700; font-size: 0.85rem; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.4); }
+.rt-fab:hover, .rt-fab:focus-visible { filter: brightness(1.08); }
+.rt-panel-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 1300; align-items: flex-end; justify-content: center; padding: 0; }
+.rt-panel-overlay.open { display: flex; }
+.rt-panel { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px 16px 0 0; padding: 20px; max-width: 560px; width: 100%; max-height: 70vh; overflow-y: auto; }
+.rt-panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.rt-panel-head h3 { font-family: var(--font-display); color: var(--accent-gold); margin: 0; font-size: 1.15rem; }
+.rt-panel-close { background: var(--border-color); border: none; color: var(--text-main); border-radius: 50%; width: 30px; height: 30px; cursor: pointer; }
+.rt-item { border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; }
+.rt-item-type { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+.rt-item-type.hl { color: var(--accent-gold); }
+.rt-item-type.note { color: var(--accent-blue); }
+.rt-item-text { font-size: 0.85rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px; }
+.rt-item-note { font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-bottom: 8px; }
+.rt-item-actions { display: flex; gap: 10px; }
+.rt-item-actions button { background: none; border: none; color: var(--accent-blue); font-size: 0.78rem; cursor: pointer; padding: 0; }
+.rt-item-actions button.rt-del { color: #f87171; }
+.rt-empty { color: var(--text-muted); font-size: 0.85rem; text-align: center; padding: 20px 0; }
+.rt-note-editor { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 1300; align-items: center; justify-content: center; padding: 20px; }
+.rt-note-editor.open { display: flex; }
+.rt-note-editor-box { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; max-width: 440px; width: 100%; }
+.rt-note-editor-box textarea { width: 100%; min-height: 90px; background: rgba(15,23,42,0.6); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-main); padding: 10px; font-family: inherit; font-size: 0.9rem; resize: vertical; }
+.rt-note-editor-box .rt-ne-btns { display: flex; gap: 10px; margin-top: 12px; justify-content: flex-end; }
+.rt-note-editor-box button { border: none; border-radius: 8px; padding: 8px 16px; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
+.rt-ne-save { background: var(--accent-gold); color: #000; }
+.rt-ne-cancel { background: var(--border-color); color: var(--text-main); }
+.def-term { border-bottom: 1px dotted var(--accent-blue); cursor: pointer; }
+.def-term:hover, .def-term:focus-visible { color: var(--accent-blue); }
+.fact-check-link { text-decoration: none; opacity: 0.7; font-size: 0.85em; margin-left: 3px; }
+.fact-check-link:hover, .fact-check-link:focus-visible { opacity: 1; }
+
+
+.research-link-box { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+.research-link-box a.research-link { color: var(--accent-blue); text-decoration: none; font-weight: 600; }
+.research-link-box a.research-link:hover, .research-link-box a.research-link:focus-visible { text-decoration: underline; }
+
+
+.cross-ref-box { background: rgba(56,189,248,0.06); border: 1px solid var(--border-color); border-left: 3px solid var(--accent-blue); border-radius: 10px; padding: 12px 16px; margin-bottom: 22px; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+.cross-ref-label { display: block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-blue); margin-bottom: 6px; }
+.cross-ref-box a { color: var(--accent-gold); text-decoration: none; font-weight: 600; }
+.cross-ref-box a:hover, .cross-ref-box a:focus-visible { text-decoration: underline; }
+
+</style>
+<link rel="stylesheet" href="../../../../lib/hub-ui.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Cinzel:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../lib/living-waters.css">
+</head>
+<body class="lw">
+<div id="lw-backdrop" class="lw-backdrop"></div>
+<div id="lw-photo-credit" class="lw-photo-credit"></div>
+
+<header class="w-full bg-slate-950/85 border-b border-sky-500/20 backdrop-blur-md sticky top-0 z-50">
+  <div class="bg-amber-500/10 border-b border-amber-500/10 text-amber-300 text-xs py-1 overflow-hidden">
+    <div id="lw-top-ticker" class="lw-marquee-track whitespace-nowrap flex items-center font-semibold tracking-wider"></div>
+  </div>
+  <div class="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between gap-3 flex-wrap">
+    <a href="../../../../index.html" class="flex items-center gap-2.5 no-underline">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-800 via-slate-600 to-amber-500 flex items-center justify-center border border-sky-300/30">
+        <i class="fa-solid fa-droplet text-white text-sm"></i>
+      </div>
+      <span class="lw-serif font-black text-base tracking-widest text-slate-100">LIVING WATERS</span>
+    </a>
+    <div class="flex gap-3 flex-wrap justify-end"><a href="../index.html" class="text-xs text-sky-300/90 hover:text-amber-300 no-underline font-semibold tracking-wide">⬅️ Messianic Prophecy</a><a href="passion.html" class="text-xs text-sky-300/90 hover:text-amber-300 no-underline font-semibold tracking-wide">⬅️ Passion</a><a href="reign.html" class="text-xs text-sky-300/90 hover:text-amber-300 no-underline font-semibold tracking-wide">Reign ➡️</a></div>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-6 py-10 w-full relative z-10">
+  <div class="text-center mb-8">
+    <div class="text-4xl mb-2">✝️</div>
+    <h1 class="lw-serif text-3xl md:text-4xl font-black text-slate-50 mb-2">Death, Burial &amp;amp; Resurrection</h1>
+    <p class="text-slate-300 text-base max-w-2xl mx-auto">Prophecies fulfilled at the cross, the tomb, and the empty tomb</p>
+  </div>
+<div class="intro-box">The crucifixion narrative contains the single densest cluster of Old Testament fulfillment in the entire Bible — much of it from Psalm 22 and Isaiah 53 alone — followed by the resurrection and ascension every tradition treats as the hinge of the Christian faith.</div><div class="cross-ref-box"><span class="cross-ref-label">🔗 Related</span>For Zechariah's "pierced" prophecy (12:10) in its own context, see <a href="../../../old-testament/zechariah/index.html">Zechariah</a> under Old Testament.</div>
+<div class="section-title">📊 Prophecy &amp; Fulfillment — Collection Chart</div>
+<p class="section-note">Every prophecy in this room, Old Testament promise beside New Testament fulfillment, at a glance. Full text and commentary for each is below.</p>
+<div class="legend">
+<span><span class="legend-dot" style="background:var(--prophecy)"></span>Old Testament Prophecy</span>
+<span><span class="legend-dot" style="background:var(--fulfillment)"></span>New Testament Fulfillment</span>
+</div>
+<div class="table-wrap">
+<table class="compare-table">
+<thead><tr><th>Topic</th><th class="prophecy">Prophecy</th><th class="fulfillment">Fulfillment</th></tr></thead>
+<tbody>
+<tr>
+<td class="topic">Hands and feet pierced</td>
+<td class="prophecy-cell"><span class="ref">Psalm 22:16</span><br/>David describes his hands and feet being pierced by a company of evildoers.</td>
+<td class="fulfillment-cell"><span class="ref">Luke 23:33; John 20:25</span><br/>Jesus is crucified, His hands and feet nailed — later confirmed by Thomas's own words.</td>
+</tr>
+<tr>
+<td class="topic">Mocked, wagging their heads</td>
+<td class="prophecy-cell"><span class="ref">Psalm 22:7–8</span><br/>Onlookers mock the suffering man, taunting him to let God rescue him.</td>
+<td class="fulfillment-cell"><span class="ref">Matthew 27:39–43</span><br/>Passersby at the cross mock Jesus in language echoing this psalm almost exactly.</td>
+</tr>
+<tr>
+<td class="topic">Garments divided by lot</td>
+<td class="prophecy-cell"><span class="ref">Psalm 22:18</span><br/>The sufferer's clothing is divided among his enemies by casting lots.</td>
+<td class="fulfillment-cell"><span class="ref">John 19:23–24</span><br/>John records Roman soldiers doing exactly this at the foot of the cross, and quotes the psalm directly.</td>
+</tr>
+<tr>
+<td class="topic">"My God, why hast thou forsaken me"</td>
+<td class="prophecy-cell"><span class="ref">Psalm 22:1</span><br/>The psalmist cries out to God, feeling utterly abandoned in his suffering.</td>
+<td class="fulfillment-cell"><span class="ref">Matthew 27:46</span><br/>Jesus quotes this exact opening line from the cross, in its original Aramaic/Hebrew form.</td>
+</tr>
+<tr>
+<td class="topic">Given vinegar and gall</td>
+<td class="prophecy-cell"><span class="ref">Psalm 69:21</span><br/>The sufferer is given bitter gall and sour vinegar instead of comfort.</td>
+<td class="fulfillment-cell"><span class="ref">Matthew 27:34, 48</span><br/>Both offerings — at the start and near the end of the crucifixion — appear in Matthew's account.</td>
+</tr>
+<tr>
+<td class="topic">Not a bone broken</td>
+<td class="prophecy-cell"><span class="ref">Psalm 34:20; Exodus 12:46</span><br/>God protects the righteous sufferer's body so that not one bone is broken.</td>
+<td class="fulfillment-cell"><span class="ref">John 19:33, 36</span><br/>Soldiers break the legs of the two thieves to hasten death, but skip Jesus, who is already dead.</td>
+</tr>
+<tr>
+<td class="topic">They shall look on him whom they pierced</td>
+<td class="prophecy-cell"><span class="ref">Zechariah 12:10</span><br/>A future day comes when Jerusalem looks on the one it pierced and mourns.</td>
+<td class="fulfillment-cell"><span class="ref">John 19:34, 37</span><br/>A Roman soldier pierces Jesus's side with a spear to confirm His death.</td>
+</tr>
+<tr>
+<td class="topic">A grave with the rich, though innocent</td>
+<td class="prophecy-cell"><span class="ref">Isaiah 53:9</span><br/>The innocent Servant, though executed among criminals, is buried with a rich man.</td>
+<td class="fulfillment-cell"><span class="ref">Matthew 27:57–60</span><br/>Jesus, crucified between two thieves, is buried in the tomb of the wealthy Joseph of Arimathea.</td>
+</tr>
+<tr>
+<td class="topic">Not abandoned to the grave</td>
+<td class="prophecy-cell"><span class="ref">Psalm 16:10</span><br/>David expresses confidence that God will not abandon him to death and decay.</td>
+<td class="fulfillment-cell"><span class="ref">Acts 2:25–31</span><br/>Peter's Pentecost sermon argues David's own tomb (still occupied) proves this points beyond David to the Messiah's resurrection.</td>
+</tr>
+<tr>
+<td class="topic">Ascended on high</td>
+<td class="prophecy-cell"><span class="ref">Psalm 68:18</span><br/>The victorious LORD ascends on high, leading captives and receiving gifts.</td>
+<td class="fulfillment-cell"><span class="ref">Ephesians 4:8; Acts 1:9–11</span><br/>Paul applies this directly to Christ's ascension and the spiritual gifts poured out on the church.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section-title">📖 Passages in Full</div>
+<div class="passage-card">
+<div class="passage-head"><span class="passage-icon">✝️</span><h3 class="passage-title">1. Hands and feet pierced <span style="color:var(--text-muted);font-weight:400;font-size:0.8em;">(Psalm 22:16 → Luke 23:33; John 20:25)</span></h3></div>
+<div class="pf-grid">
+<div class="pf-col prophecy"><div class="pf-label">Prophecy</div>
+<button class="pf-ref-btn" onclick="openVerseModal('Psalm 22:16', 'For dogs have compassed me: A company of evil-doers have inclosed me; They pierced my hands and my feet.')">Psalm 22:16</button>
+<div class="pf-text">For dogs have compassed me: A company of evil-doers have inclosed me; They pierced my hands and my feet.</div></div>
+<div class="pf-col fulfillment"><div class="pf-label">Fulfillment</div>
+<button class="pf-ref-btn" onclick="openVerseModal('Luke 23:33; John 20:25', 'And when they came unto the place which is called The skull, there they crucified him... Except I shall see in his hands the print of the nails, and put my finger into the print of the nails... I will not believe.')">Luke 23:33; John 20:25</button>
+<div class="pf-text">And when they came unto the place which is called The skull, there they crucified him... Except I shall see in his hands the print of the nails, and put my finger into the print of the nails... I will not believe.</div></div>
+</div>
+<div class="pf-note">Crucifixion as an execution method did not exist in David's era (it was developed by the Persians and perfected by the Romans centuries later) — making this psalm's specific imagery, written roughly 1,000 years before crucifixion existed, a frequently cited point in Christian apologetics.</div>
+</div>
+<div class="passage-card">
+<div class="passage-head"><span class="passage-icon">😂</span><h3 class="passage-title">2. Mocked, wagging their heads <span style="color:var(--text-muted);font-weight:400;font-size:0.8em;">(Psalm 22:7–8 → Matthew 27:39–43)</span></h3></div>
+<div class="pf-grid">
+<div class="pf-col prophecy"><div class="pf-label">Prophecy</div>
+<button class="pf-ref-btn" onclick="openVerseModal('Psalm 22:7–8', 'All they that see me laugh me to scorn: They shoot out the lip, they shake the head, saying, Commit thyself unto Jehovah; let him deliver him: Let him rescue him, seeing he delighteth in him.')">Psalm 22:7–8</button>
+<div class="pf-text">All they that see me laugh me to scorn: They shoot out the lip, they shake the head, saying, Commit thyself unto Jehovah; let him deliver him: Let him rescue him, seeing he delighteth in him.</div></div>
+<div class="pf-col fulfillment"><div class="pf-label">Fulfillment</div>
+<button class="pf-ref-btn" onclick="openVerseModal('Matthew 27:39–43', 'And they that passed by railed on him, wagging their heads, and saying... He trusteth on God; let him deliver him now, if he desireth him.')">Matthew 27:39–43</button>
+<div class="pf-text">And they that passed by railed on him, wagging their heads, and saying... He trusteth on God; let him deliver him now, if he desireth him.</div></div>
+</div>
+<div class="pf-note">Matthew records the mockers' words closely enough to the psalm's own phrasing that most interpreters believe the crowd, familiar with Psalm 22, was likely mocking Jesus with conscious awareness of the psalm itself.</div>
+</div>
+<div class="passage-card">
+<div class="passage-head"><span class="passage-icon">🎲</span><h3 class="passage-title">3. Garments divided by lot <span style="color:var(--text-muted);font-weight:400;font-size:0.8em;">(Psalm 22:18 → John 19:23–24)</span></h3></div>
+<div class="pf-grid">
+<div class="pf-col prophecy"><div class="pf-label">Prophecy</div>
+<button class="pf-ref-btn" onclick="openVerseModal('Psalm 22:18', 'They part my garments among them, And upon my vesture do they cast lots.')">Psalm 22:18</button>
+<div class="pf-text">They part my garments among them, And upon my vesture do they cast lots.</div></div>
+<div class="pf-col fulfillment"><div class="pf-label">Fulfillment</div>
+<button class="pf-ref-btn" onclick="openVerseModal('John 19:23–24', 'They said therefore one to another, Let us not rend it, but cast lots for it, whose it shall be: that the scripture might be fulfilled, which saith, They parted my garments among them, And upon my vesture did they cast lots.')">John 19:23–24</button>
+<div class="pf-text">They said therefore one to another, Let us not rend it, but cast lots for it, whose it shall be: that the scripture might be fulfilled, which saith, They parted my garments among them, And upon my vesture did they cast lots.</div></div>
+</div>
+<div class="pf-note">John is the only Gospel writer who explicitly cites this psalm text by name at this exact moment — an intentional, direct citation rather than an implied allusion.</div>
+</div>
+<div class="passage-card">
+<div class="passage-head"><span class="passage-icon">😢</span><h3 class="passage-title">4. "My God, why hast thou forsaken me" <span style="color:var(--text-muted);font-weight:400;font-size:0.8em;">(Psalm 22:1 → Matthew 27:46)</span></h3></div>
+<div class="pf-grid">
+<div class="pf-col prophecy"><div class="pf-label">Prophecy</div>
+<button class="pf-ref-btn" onclick="openVerseModal('Psalm 22:1', 'My God, my God, why hast thou forsaken me? Why art thou so far from helping me, and from the words of my groaning?')">Psalm 22:1</button>
+<div class="pf-text">My God, my God, why hast thou forsaken me? Why art thou so far from helping me, and from the words of my groaning?</div></div>
+<div class="pf-col fulfillment"><div class="pf-label">Fulfillment</div>
+<button class="pf-ref-btn" onclick="openVerseModal('Matthew 27:46', 'And about the ninth hour Jesus cried with a loud voice, saying, Eli, Eli, lama sabachthani? that is, My God, my God, why hast thou forsaken me?')">Matthew 27:46</button>
+<div class="pf-text">And about the ninth hour Jesus cried with a loud voice, saying, Eli, Eli, lama sabachthani? that is, My God, my God, why hast thou forsaken me?</div></div>
+</div>
+<div class="pf-note">Psalm 22 turns from anguish (vv.1–21) to triumphant praise and worldwide worship (vv.22–31) — many interpreters across traditions believe Jesus, by quoting the opening line, was invoking the entire psalm's trajectory from abandonment to vindication, not despair alone.</div>
+</div>
+<div class="passage-card">
+<div class="passage-head"><span class="passage-icon">🍷</span><h3 class="passage-title">5. Given vinegar and gall <span style="color:var(--text-muted);font-weight:400;font-size:0.8em;">(Psalm 69:21 → Matthew 27:34, 48)</span></h3></div>
+<div class="pf-grid">
+<div class="pf-col prophecy"><div class="pf-label">Prophecy</div>
+<button class="pf-ref-btn" onclick="openVerseModal('Psalm 69:21', 'They gave me also gall for my food; And in my thirst they gave me vinegar to drink.')">Psalm 69:21</button>
+<div class="pf-text">They gave me also gall for my food; And in my thirst they gave me vinegar to drink.</div></div>
+<div class="pf-col fulfillment"><div class="pf-label">Fulfillment</div>
+<button class="pf-ref-btn" onclick="openVerseModal('Matthew 27:34, 48', 'They gave him wine to drink mingled with gall... and one of them straightway ran, and took a sponge, and filled it with vinegar, and put it on a reed, and gave him to drink.')">Matthew 27:34, 48</button>
+<div class="pf-text">They gave him wine to drink mingled with gall... and one of them straightway ran, and took a sponge, and filled it with vinegar, and put it on a reed, and gave him to drink.</div></div>
+</div>
+<div class="pf-note">Matthew records two separate offerings (27:34, an early gall-laced wine He refuses, and 27:48, vinegar near the end He appears to accept) — most harmonizations see these as two distinct moments each independently echoing this psalm.</div>
+</div>
+<div class="passage-card">
+<div class="passage-head"><span class="passage-icon">🦴</span><h3 class="passage-title">6. Not a bone broken <span style="color:var(--text-muted);font-weight:400;font-size:0.8em;">(Psalm 34:20; Exodus 12:46 → John 19:33, 36)</span></h3></div>
+<div class="pf-grid">
+<div class="pf-col prophecy"><div class="pf-label">Prophecy</div>
+<button class="pf-ref-btn" onclick="openVerseModal('Psalm 34:20; Exodus 12:46', 'He keepeth all his bones: Not one of them is broken.')">Psalm 34:20; Exodus 12:46</button>
+<div class="pf-text">He keepeth all his bones: Not one of them is broken.</div></div>
+<div class="pf-col fulfillment"><div class="pf-label">Fulfillment</div>
+<button class="pf-ref-btn" onclick="openVerseModal('John 19:33, 36', 'But when they came to Jesus, and saw that he was dead already, they brake not his legs... For these things came to pass, that the scripture might be fulfilled, A bone of him shall not be broken.')">John 19:33, 36</button>
+<div class="pf-text">But when they came to Jesus, and saw that he was dead already, they brake not his legs... For these things came to pass, that the scripture might be fulfilled, A bone of him shall not be broken.</div></div>
+</div>
+<div class="pf-note">John ties this to both Psalm 34:20 and the Passover lamb regulation in Exodus 12:46 — reinforcing the Gospel's broader identification of Jesus as the true Passover Lamb, crucified during Passover week itself.</div>
+</div>
+<div class="passage-card">
+<div class="passage-head"><span class="passage-icon">🗡️</span><h3 class="passage-title">7. They shall look on him whom they pierced <span style="color:var(--text-muted);font-weight:400;font-size:0.8em;">(Zechariah 12:10 → John 19:34, 37)</span></h3></div>
+<div class="pf-grid">
+<div class="pf-col prophecy"><div class="pf-label">Prophecy</div>
+<button class="pf-ref-btn" onclick="openVerseModal('Zechariah 12:10', '...and they shall look unto me whom they have pierced; and they shall mourn for him, as one mourneth for his only son...')">Zechariah 12:10</button>
+<div class="pf-text">...and they shall look unto me whom they have pierced; and they shall mourn for him, as one mourneth for his only son...</div></div>
+<div class="pf-col fulfillment"><div class="pf-label">Fulfillment</div>
+<button class="pf-ref-btn" onclick="openVerseModal('John 19:34, 37', 'Howbeit one of the soldiers with a spear pierced his side... For these things came to pass, that the scripture might be fulfilled... They shall look on him whom they pierced.')">John 19:34, 37</button>
+<div class="pf-text">Howbeit one of the soldiers with a spear pierced his side... For these things came to pass, that the scripture might be fulfilled... They shall look on him whom they pierced.</div></div>
+</div>
+<div class="pf-note">This same verse is applied a second time, to the Second Coming, in Revelation 1:7 — one prophecy explicitly cited for two separate eschatological moments, first-century crucifixion and future return.</div>
+</div>
+<div class="passage-card">
+<div class="passage-head"><span class="passage-icon">⚰️</span><h3 class="passage-title">8. A grave with the rich, though innocent <span style="color:var(--text-muted);font-weight:400;font-size:0.8em;">(Isaiah 53:9 → Matthew 27:57–60)</span></h3></div>
+<div class="pf-grid">
+<div class="pf-col prophecy"><div class="pf-label">Prophecy</div>
+<button class="pf-ref-btn" onclick="openVerseModal('Isaiah 53:9', 'And they made his grave with the wicked, and with a rich man in his death; although he had done no violence, neither was any deceit in his mouth.')">Isaiah 53:9</button>
+<div class="pf-text">And they made his grave with the wicked, and with a rich man in his death; although he had done no violence, neither was any deceit in his mouth.</div></div>
+<div class="pf-col fulfillment"><div class="pf-label">Fulfillment</div>
+<button class="pf-ref-btn" onclick="openVerseModal('Matthew 27:57–60', 'And when even was come, there came a rich man from Arimathaea, named Joseph... and laid it in his own new tomb, which he had hewn out in the rock.')">Matthew 27:57–60</button>
+<div class="pf-text">And when even was come, there came a rich man from Arimathaea, named Joseph... and laid it in his own new tomb, which he had hewn out in the rock.</div></div>
+</div>
+<div class="pf-note">This verse holds together two burial details that would otherwise seem contradictory — dying among the wicked (the two thieves) yet buried with the rich (Joseph of Arimathea) — matched precisely by Matthew's account.</div>
+</div>
+<div class="passage-card">
+<div class="passage-head"><span class="passage-icon">🌅</span><h3 class="passage-title">9. Not abandoned to the grave <span style="color:var(--text-muted);font-weight:400;font-size:0.8em;">(Psalm 16:10 → Acts 2:25–31)</span></h3></div>
+<div class="pf-grid">
+<div class="pf-col prophecy"><div class="pf-label">Prophecy</div>
+<button class="pf-ref-btn" onclick="openVerseModal('Psalm 16:10', 'For thou wilt not leave my soul to Sheol; Neither wilt thou suffer thy holy one to see corruption.')">Psalm 16:10</button>
+<div class="pf-text">For thou wilt not leave my soul to Sheol; Neither wilt thou suffer thy holy one to see corruption.</div></div>
+<div class="pf-col fulfillment"><div class="pf-label">Fulfillment</div>
+<button class="pf-ref-btn" onclick="openVerseModal('Acts 2:25–31', 'He foreseeing this spake of the resurrection of the Christ, that neither was he left unto Hades, nor did his flesh see corruption.')">Acts 2:25–31</button>
+<div class="pf-text">He foreseeing this spake of the resurrection of the Christ, that neither was he left unto Hades, nor did his flesh see corruption.</div></div>
+</div>
+<div class="pf-note">Peter's argument is explicitly textual and logical, not just devotional: since David did decay in his tomb (Acts 2:29), David must have been speaking prophetically about someone else's resurrection — a key early apologetic argument for the empty tomb.</div>
+</div>
+<div class="passage-card">
+<div class="passage-head"><span class="passage-icon">🕊️</span><h3 class="passage-title">10. Ascended on high <span style="color:var(--text-muted);font-weight:400;font-size:0.8em;">(Psalm 68:18 → Ephesians 4:8; Acts 1:9–11)</span></h3></div>
+<div class="pf-grid">
+<div class="pf-col prophecy"><div class="pf-label">Prophecy</div>
+<button class="pf-ref-btn" onclick="openVerseModal('Psalm 68:18', 'Thou hast ascended on high, thou hast led away captives; Thou hast received gifts among men...')">Psalm 68:18</button>
+<div class="pf-text">Thou hast ascended on high, thou hast led away captives; Thou hast received gifts among men...</div></div>
+<div class="pf-col fulfillment"><div class="pf-label">Fulfillment</div>
+<button class="pf-ref-btn" onclick="openVerseModal('Ephesians 4:8; Acts 1:9–11', 'Wherefore he saith, When he ascended on high, he led captivity captive, And gave gifts unto men.')">Ephesians 4:8; Acts 1:9–11</button>
+<div class="pf-text">Wherefore he saith, When he ascended on high, he led captivity captive, And gave gifts unto men.</div></div>
+</div>
+<div class="pf-note">Paul adapts the psalm's wording from "received gifts" to "gave gifts" — a change every tradition addresses, generally understood as Paul drawing out the psalm's implication (a victorious king redistributes plunder to his own people) rather than misquoting it.</div>
+</div>
+
+<div class="verse-modal-overlay" id="verseModalOverlay" onclick="if(event.target===this) closeVerseModal()">
+<div aria-labelledby="verseModalRef" aria-modal="true" class="verse-modal" role="dialog">
+<button aria-label="Close" class="verse-modal-close" onclick="closeVerseModal()">✕</button>
+<p class="verse-modal-ref" id="verseModalRef"></p>
+<p class="verse-modal-text" id="verseModalText"></p>
+</div>
+</div>
+<script>
+function openVerseModal(ref, text) {
+  document.getElementById('verseModalRef').textContent = ref;
+  document.getElementById('verseModalText').textContent = text;
+  document.getElementById('verseModalOverlay').classList.add('open');
+}
+function closeVerseModal() { document.getElementById('verseModalOverlay').classList.remove('open'); }
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeVerseModal(); });
+</script>
+</main>
+
+<script src="../../../../lib/living-waters.js"></script>
+<script>
+lwInitBackdrop('lw-backdrop');
+lwBuildMarquee('lw-top-ticker', [
+  { icon: 'fa-solid fa-water text-sky-300', text: '[DEATH, BURIAL &AMP;AMP; RESURRECTION]: Prophecies fulfilled at the cross, the tomb, and the empty tomb' }
+]);
+</script>
+
+<div class="rt-toolbar" id="rtToolbar">
+<button id="rtBtnHighlight" type="button">🖍 Highlight</button>
+<button id="rtBtnNote" type="button">📝 Note</button>
+</div>
+<button class="rt-fab" id="rtFab" onclick="rtOpenPanel()" type="button">🖍 <span id="rtFabCount">0</span></button>
+<div class="rt-panel-overlay" id="rtPanelOverlay" onclick="if(event.target===this) rtClosePanel()">
+<div class="rt-panel">
+<div class="rt-panel-head"><h3>Highlights &amp; Notes — This Page</h3><button class="rt-panel-close" onclick="rtClosePanel()">✕</button></div>
+<div id="rtPanelList"></div>
+</div>
+</div>
+<div class="rt-note-editor" id="rtNoteEditor">
+<div class="rt-note-editor-box">
+<p style="color:var(--text-muted);font-size:0.85rem;margin:0 0 8px 0;">Note on: <span id="rtNoteEditorSnippet" style="color:var(--text-main);font-style:italic;"></span></p>
+<textarea id="rtNoteEditorText" placeholder="Your note..."></textarea>
+<div class="rt-ne-btns">
+<button class="rt-ne-cancel" onclick="rtCancelNote()" type="button">Cancel</button>
+<button class="rt-ne-save" onclick="rtSaveNote()" type="button">Save Note</button>
+</div>
+</div>
+</div>
+<div class="verse-modal-overlay" id="rtDefOverlay" onclick="if(event.target===this) rtCloseDef()" style="z-index:1400;">
+<div aria-modal="true" class="verse-modal" role="dialog">
+<button aria-label="Close" class="verse-modal-close" onclick="rtCloseDef()">✕</button>
+<p class="verse-modal-ref" id="rtDefTerm"></p>
+<p class="verse-modal-text" id="rtDefText"></p>
+</div>
+</div>
+<script>
+(function() {
+  var RT_PAGE = 'rt:' + location.pathname;
+  var pendingRange = null;
+
+  function rtLoad() {
+    try { return JSON.parse(localStorage.getItem(RT_PAGE) || '[]'); } catch(e) { return []; }
+  }
+  function rtSaveAll(items) {
+    try { localStorage.setItem(RT_PAGE, JSON.stringify(items)); } catch(e) {}
+    rtUpdateFab();
+  }
+  function rtUpdateFab() {
+    var el = document.getElementById('rtFabCount');
+    if (el) el.textContent = rtLoad().length;
+  }
+
+  function rtShowToolbar(x, y) {
+    var tb = document.getElementById('rtToolbar');
+    tb.style.left = x + 'px';
+    tb.style.top = y + 'px';
+    tb.classList.add('open');
+  }
+  function rtHideToolbar() {
+    document.getElementById('rtToolbar').classList.remove('open');
+  }
+
+  document.addEventListener('mouseup', function(e) {
+    if (e.target.closest('.rt-toolbar, .rt-note-editor, .rt-panel-overlay, .verse-modal-overlay')) return;
+    setTimeout(function() {
+      var sel = window.getSelection();
+      if (sel && sel.toString().trim().length > 2 && sel.rangeCount > 0) {
+        pendingRange = sel.getRangeAt(0).cloneRange();
+        var rect = pendingRange.getBoundingClientRect();
+        rtShowToolbar(window.scrollX + rect.left, window.scrollY + rect.top - 44);
+      } else {
+        rtHideToolbar();
+      }
+    }, 10);
+  });
+  document.addEventListener('mousedown', function(e) {
+    if (!e.target.closest('.rt-toolbar')) rtHideToolbar();
+  });
+
+  function rtWrapRange(range, cls, extraAttrs) {
+    try {
+      var mark = document.createElement('mark');
+      mark.className = cls;
+      if (extraAttrs) for (var k in extraAttrs) mark.setAttribute(k, extraAttrs[k]);
+      range.surroundContents(mark);
+      return mark;
+    } catch (e) {
+      // Multi-element selection: fall back to extracting + wrapping (loses inner tags, keeps text)
+      try {
+        var frag = range.extractContents();
+        var mark2 = document.createElement('mark');
+        mark2.className = cls;
+        if (extraAttrs) for (var k2 in extraAttrs) mark2.setAttribute(k2, extraAttrs[k2]);
+        mark2.appendChild(frag);
+        range.insertNode(mark2);
+        return mark2;
+      } catch (e2) { return null; }
+    }
+  }
+
+  document.getElementById('rtBtnHighlight').addEventListener('click', function() {
+    if (!pendingRange) return;
+    var text = pendingRange.toString();
+    var id = 'hl' + Date.now();
+    var mark = rtWrapRange(pendingRange.cloneRange(), 'rt-highlight', {'data-rt-id': id});
+    if (mark) {
+      mark.addEventListener('click', function() { rtOpenPanel(); });
+      var items = rtLoad();
+      items.push({id: id, type: 'highlight', text: text, ts: Date.now()});
+      rtSaveAll(items);
+    }
+    rtHideToolbar();
+    window.getSelection().removeAllRanges();
+  });
+
+  document.getElementById('rtBtnNote').addEventListener('click', function() {
+    if (!pendingRange) return;
+    document.getElementById('rtNoteEditorSnippet').textContent = '"' + pendingRange.toString().slice(0, 80) + (pendingRange.toString().length > 80 ? '…' : '') + '"';
+    document.getElementById('rtNoteEditorText').value = '';
+    document.getElementById('rtNoteEditor').classList.add('open');
+    rtHideToolbar();
+  });
+
+  window.rtCancelNote = function() {
+    document.getElementById('rtNoteEditor').classList.remove('open');
+    window.getSelection().removeAllRanges();
+  };
+  window.rtSaveNote = function() {
+    var noteText = document.getElementById('rtNoteEditorText').value.trim();
+    if (!pendingRange || !noteText) { rtCancelNote(); return; }
+    var text = pendingRange.toString();
+    var id = 'nt' + Date.now();
+    var mark = rtWrapRange(pendingRange.cloneRange(), 'rt-note', {'data-rt-id': id});
+    if (mark) {
+      mark.title = noteText;
+      mark.addEventListener('click', function() { rtOpenPanel(); });
+      var items = rtLoad();
+      items.push({id: id, type: 'note', text: text, note: noteText, ts: Date.now()});
+      rtSaveAll(items);
+    }
+    document.getElementById('rtNoteEditor').classList.remove('open');
+    window.getSelection().removeAllRanges();
+  };
+
+  window.rtOpenPanel = function() {
+    var items = rtLoad();
+    var list = document.getElementById('rtPanelList');
+    if (!items.length) {
+      list.innerHTML = '<p class="rt-empty">No highlights or notes on this page yet. Select any text to add one.</p>';
+    } else {
+      list.innerHTML = items.slice().reverse().map(function(it) {
+        return '<div class="rt-item">' +
+          '<div class="rt-item-type ' + (it.type === 'note' ? 'note' : 'hl') + '">' + (it.type === 'note' ? '📝 Note' : '🖍 Highlight') + '</div>' +
+          '<div class="rt-item-text">"' + it.text.replace(/</g,'&lt;') + '"</div>' +
+          (it.note ? '<div class="rt-item-note">' + it.note.replace(/</g,'&lt;') + '</div>' : '') +
+          '<div class="rt-item-actions"><button class="rt-del" onclick="rtDelete(\'' + it.id + '\')">Delete</button></div>' +
+          '</div>';
+      }).join('');
+    }
+    document.getElementById('rtPanelOverlay').classList.add('open');
+  };
+  window.rtClosePanel = function() {
+    document.getElementById('rtPanelOverlay').classList.remove('open');
+  };
+  window.rtDelete = function(id) {
+    var items = rtLoad().filter(function(it) { return it.id !== id; });
+    rtSaveAll(items);
+    var mark = document.querySelector('[data-rt-id="' + id + '"]');
+    if (mark) {
+      var parent = mark.parentNode;
+      while (mark.firstChild) parent.insertBefore(mark.firstChild, mark);
+      parent.removeChild(mark);
+    }
+    rtOpenPanel();
+  };
+
+  function rtRestoreOnLoad() {
+    var items = rtLoad();
+    if (!items.length) { rtUpdateFab(); return; }
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    items.forEach(function(it) {
+      if (document.querySelector('[data-rt-id="' + it.id + '"]')) return; // already there
+      var node;
+      walker.currentNode = document.body;
+      while ((node = walker.nextNode())) {
+        var idx = node.nodeValue.indexOf(it.text);
+        if (idx !== -1 && node.parentNode && !node.parentNode.closest('mark, script, style, .rt-toolbar, .rt-panel-overlay')) {
+          var range = document.createRange();
+          range.setStart(node, idx);
+          range.setEnd(node, idx + it.text.length);
+          var mark = rtWrapRange(range, it.type === 'note' ? 'rt-note' : 'rt-highlight', {'data-rt-id': it.id});
+          if (mark) {
+            if (it.note) mark.title = it.note;
+            mark.addEventListener('click', function() { rtOpenPanel(); });
+          }
+          break;
+        }
+      }
+    });
+    rtUpdateFab();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', rtRestoreOnLoad);
+  } else {
+    rtRestoreOnLoad();
+  }
+
+  window.rtCloseDef = function() {
+    document.getElementById('rtDefOverlay').classList.remove('open');
+  };
+  window.showDef = function(el) {
+    var term = el.getAttribute('data-term') || el.textContent;
+    var def = el.getAttribute('data-def') || '';
+    document.getElementById('rtDefTerm').textContent = term;
+    document.getElementById('rtDefText').textContent = def;
+    document.getElementById('rtDefOverlay').classList.add('open');
+  };
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { rtCloseDef(); rtClosePanel(); rtCancelNote(); }
+  });
+})();
+</script>
+<script src="../../../../data/passage-data.js"></script>
+<script src="../../../../lib/hub-ui.js"></script>
+<script src="../../../../lib/hub-modules.js"></script>
+</body>
+</html>

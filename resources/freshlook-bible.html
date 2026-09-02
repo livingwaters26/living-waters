@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FreshLook Bible | Living Waters</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Cinzel:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../lib/living-waters.css">
+</head>
+<body class="lw">
+
+<div id="lw-backdrop" class="lw-backdrop"></div>
+<div id="lw-photo-credit" class="lw-photo-credit"></div>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="w-full bg-slate-950/85 border-b border-sky-500/20 backdrop-blur-md sticky top-0 z-50">
+  <div class="bg-amber-500/10 border-b border-amber-500/10 text-amber-300 text-xs py-1 overflow-hidden">
+    <div id="lw-top-ticker" class="lw-marquee-track whitespace-nowrap flex items-center font-semibold tracking-wider"></div>
+  </div>
+  <div class="max-w-6xl mx-auto px-6 py-3.5 flex items-center justify-between gap-3">
+    <a href="../index.html" class="flex items-center gap-2.5 no-underline">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-800 via-slate-600 to-amber-500 flex items-center justify-center border border-sky-300/30 shadow-lg shadow-sky-950/50">
+        <i class="fa-solid fa-droplet text-white text-sm"></i>
+      </div>
+      <span class="lw-serif font-black text-base tracking-widest text-slate-100">LIVING WATERS</span>
+    </a>
+    <a href="../index.html" class="text-xs text-sky-300/90 hover:text-amber-300 no-underline font-semibold tracking-wide transition-colors">&larr; Back to Hub</a>
+  </div>
+</header>
+
+<!-- ═══════════ DAWN HORIZON HERO ═══════════ -->
+<div class="lw-horizon">
+  <div class="lw-horizon-sky"></div>
+  <div class="lw-horizon-rays"></div>
+  <div class="lw-horizon-glow"></div>
+  <svg class="lw-ridge-back" viewBox="0 0 1200 300" preserveAspectRatio="none">
+    <path fill="#0b2e28" d="M0,210 C60,180 110,175 160,195 C210,215 250,150 310,145 C370,140 400,190 460,185 C520,180 550,120 620,125 C690,130 715,175 780,178 C845,181 870,140 940,145 C1010,150 1040,190 1100,185 C1150,181 1170,160 1200,165 L1200,300 0,300 Z"/>
+  </svg>
+  <svg class="lw-ridge-mid" viewBox="0 0 1200 300" preserveAspectRatio="none">
+    <path fill="#062018" d="M0,250 C70,225 130,235 190,215 C250,195 290,240 350,235 C410,230 445,180 510,185 C575,190 600,230 660,232 C720,234 755,195 820,198 C885,201 915,240 980,238 C1045,236 1075,205 1140,210 C1170,213 1185,222 1200,225 L1200,300 0,300 Z"/>
+  </svg>
+  <svg class="lw-ridge-front" viewBox="0 0 1200 300" preserveAspectRatio="none">
+    <path fill="#040d0a" d="M0,300 L0,265 C55,245 100,255 155,238 C215,219 260,190 320,195 C385,200 410,240 470,238 C535,236 565,200 630,205 C695,210 720,245 780,244 C840,243 870,212 935,216 C1000,220 1030,250 1090,246 C1140,243 1165,228 1200,232 L1200,300 Z"/>
+  </svg>
+  <!-- Headline overlaid on horizon -->
+  <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6 z-10 -mt-8">
+    <div class="lw-stat-chip mb-3 lw-fade-up">
+      <i class="fa-solid fa-book-open text-xs"></i> Visual Study Resource
+    </div>
+    <h1 class="lw-serif text-3xl sm:text-4xl md:text-5xl font-black text-slate-50 leading-tight lw-fade-up-1" style="text-shadow:0 2px 24px rgba(4,13,10,0.9)">
+      See Scripture<br class="sm:hidden"> the Way It Was<br> Meant to Be Read
+    </h1>
+  </div>
+</div>
+
+<!-- ═══════════ MAIN CONTENT ═══════════ -->
+<main class="max-w-6xl mx-auto px-6 pb-16 w-full relative z-10 -mt-4">
+
+  <!-- WHAT / WHO card + Rotating insight carousel -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-14">
+
+    <!-- Left: what it is -->
+    <section class="lg:col-span-7 lw-fade-up-1">
+      <div class="lw-glass lw-glass-shimmer rounded-3xl p-8 h-full relative overflow-hidden">
+        <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-amber-500/8 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="flex items-center gap-3 mb-5">
+          <div class="lw-icon-badge lw-icon-badge-amber">
+            <i class="fa-solid fa-book-open"></i>
+          </div>
+          <div>
+            <div class="lw-section-eyebrow">Joshua Smith · 15-Year Project</div>
+            <h2 class="lw-serif text-2xl font-bold text-slate-100 leading-tight">The Bible Text, Visually Optimized</h2>
+          </div>
+        </div>
+
+        <blockquote class="lw-callout mb-5 text-base">
+          "The way we look at text on a page — or a screen — affects the way we understand it, and how we're able to teach it and present it to others."
+          <footer class="mt-2 text-xs text-amber-400/80 not-italic font-semibold tracking-wider uppercase">— Joshua Smith, FreshLook Bible</footer>
+        </blockquote>
+
+        <p class="text-slate-300 leading-relaxed mb-4">
+          It's not a new Bible or a new translation. It's the same King James Bible text — but laid out according to what every passage actually <em class="text-sky-300">is</em>. Poetry formatted as poetry. Lists as lists. Dialogue as dialogue. Genealogies as genealogies. Speeches and letters and law codes each given the visual treatment their content demands.
+        </p>
+        <p class="text-slate-300 leading-relaxed mb-6">
+          Smith went through every passage and every book and asked one question: <em class="text-amber-300">what should this text look like according to what it is?</em> After 15 years, that project is complete — and available in multiple formats.
+        </p>
+
+        <div class="flex flex-wrap gap-2">
+          <span class="lw-stat-chip"><i class="fa-solid fa-clock text-xs"></i> 15 Years</span>
+          <span class="lw-stat-chip"><i class="fa-solid fa-book text-xs"></i> Every Book of the Bible</span>
+          <span class="lw-stat-chip lw-stat-chip-amber"><i class="fa-solid fa-palette text-xs"></i> Color-Coded</span>
+          <span class="lw-stat-chip lw-stat-chip-amber"><i class="fa-solid fa-align-left text-xs"></i> KJV Text</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right: rotating carousel of insights -->
+    <section class="lg:col-span-5 flex flex-col justify-center lw-fade-up-2">
+      <div class="relative w-full">
+        <div class="absolute -inset-0.5 bg-gradient-to-r from-sky-500 via-amber-500 to-slate-500 rounded-3xl blur opacity-25 animate-pulse"></div>
+        <div class="relative lw-glass p-6 rounded-3xl border border-amber-500/30">
+          <div class="flex items-center justify-between border-b border-amber-500/20 pb-3 mb-4">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-book-bible text-amber-400"></i>
+              <span class="text-xs font-bold uppercase tracking-widest text-amber-300">What Makes It Different</span>
+            </div>
+            <span class="text-[10px] bg-slate-950 text-sky-300/80 px-2 py-0.5 rounded border border-sky-500/30">ROTATING</span>
+          </div>
+          <div class="min-h-[200px] flex flex-col justify-between">
+            <div>
+              <span id="lw-fresh-tag" class="text-sky-400 text-xs font-bold uppercase tracking-wider"></span>
+              <h3 id="lw-fresh-title" class="lw-serif text-xl font-bold text-amber-100 mt-1 mb-2"></h3>
+              <p id="lw-fresh-body" class="text-slate-300 text-sm leading-relaxed"></p>
+            </div>
+            <div class="lw-progress-track mt-6">
+              <div id="lw-fresh-progress" class="lw-progress-bar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="lw-divider"></div>
+
+  <!-- FORMATS — grid with enhanced cards -->
+  <div class="mb-12">
+    <div class="flex items-center gap-3 mb-6 lw-fade-up">
+      <div class="lw-icon-badge lw-icon-badge-teal w-10 h-10 rounded-xl"><i class="fa-solid fa-layer-group text-sm"></i></div>
+      <div>
+        <div class="lw-section-eyebrow">Available Formats</div>
+        <h2 class="lw-serif text-2xl font-bold text-slate-100 leading-tight">Six Ways to Engage Scripture</h2>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+      <!-- Digital Panorama -->
+      <div class="lw-format-card lw-gradient-border lw-fade-up-1">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="lw-icon-badge lw-icon-badge-teal">
+            <i class="fa-solid fa-tablet-screen-button"></i>
+          </div>
+          <div>
+            <div class="lw-section-eyebrow">Format 1</div>
+            <h3 class="lw-serif font-bold text-slate-100 text-lg leading-tight">Digital Panorama</h3>
+          </div>
+        </div>
+        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+          Every book of the Bible on its own page — the complete text, fully laid out. Zoom in to a comfortable reading size and scroll straight through, or zoom out to see the book's entire structure at a glance.
+        </p>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2 text-sm text-slate-300">
+            <i class="fa-solid fa-check text-sky-400 mt-0.5 shrink-0 text-xs"></i>
+            Table of contents — navigate between all 66 books instantly
+          </li>
+          <li class="flex items-start gap-2 text-sm text-slate-300">
+            <i class="fa-solid fa-check text-sky-400 mt-0.5 shrink-0 text-xs"></i>
+            Tap column bottom to jump to the next column
+          </li>
+          <li class="flex items-start gap-2 text-sm text-slate-300">
+            <i class="fa-solid fa-check text-sky-400 mt-0.5 shrink-0 text-xs"></i>
+            Color-coded by content type throughout
+          </li>
+        </ul>
+      </div>
+
+      <!-- Printed Panorama -->
+      <div class="lw-format-card lw-gradient-border lw-fade-up-2">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="lw-icon-badge lw-icon-badge-amber">
+            <i class="fa-solid fa-print"></i>
+          </div>
+          <div>
+            <div class="lw-section-eyebrow">Format 2</div>
+            <h3 class="lw-serif font-bold text-slate-100 text-lg leading-tight">Printed Panorama</h3>
+          </div>
+        </div>
+        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+          Each book on a single large sheet — the whole book visible at once so you can see how its outline and argument hold together from first verse to last. Galatians' three major sections. Daniel's interlocking visions. All of it on one page.
+        </p>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2 text-sm text-slate-300">
+            <i class="fa-solid fa-check text-amber-400 mt-0.5 shrink-0 text-xs"></i>
+            Rigid PVC substrate — lays completely flat, fully durable
+          </li>
+          <li class="flex items-start gap-2 text-sm text-slate-300">
+            <i class="fa-solid fa-check text-amber-400 mt-0.5 shrink-0 text-xs"></i>
+            Also available as large posters
+          </li>
+          <li class="flex items-start gap-2 text-sm text-slate-300">
+            <i class="fa-solid fa-check text-amber-400 mt-0.5 shrink-0 text-xs"></i>
+            Every book of the Bible available in this format
+          </li>
+        </ul>
+      </div>
+
+      <!-- Printed Books -->
+      <div class="lw-format-card lw-gradient-border lw-fade-up-3">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="lw-icon-badge lw-icon-badge-green">
+            <i class="fa-solid fa-books"></i>
+          </div>
+          <div>
+            <div class="lw-section-eyebrow">Format 3</div>
+            <h3 class="lw-serif font-bold text-slate-100 text-lg leading-tight">Printed Books</h3>
+          </div>
+        </div>
+        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+          All the FreshLook formatting available as printed books. Get Bible sections or individual books, in thinner or thicker editions — ideal for Sunday school classes, small groups, or personal study.
+        </p>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2 text-sm text-slate-300">
+            <i class="fa-solid fa-check text-slate-400 mt-0.5 shrink-0 text-xs"></i>
+            Thinner individual books — buy multiple copies for a class
+          </li>
+          <li class="flex items-start gap-2 text-sm text-slate-300">
+            <i class="fa-solid fa-check text-slate-400 mt-0.5 shrink-0 text-xs"></i>
+            Thicker collections for personal reading and deep study
+          </li>
+          <li class="flex items-start gap-2 text-sm text-slate-300">
+            <i class="fa-solid fa-check text-slate-400 mt-0.5 shrink-0 text-xs"></i>
+            Study and reading editions available
+          </li>
+        </ul>
+      </div>
+
+      <!-- Outreach Maps -->
+      <div class="lw-format-card lw-gradient-border lw-fade-up-4">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="lw-icon-badge lw-icon-badge-teal">
+            <i class="fa-solid fa-map-location-dot"></i>
+          </div>
+          <div>
+            <div class="lw-section-eyebrow">Ministry Resource</div>
+            <h3 class="lw-serif font-bold text-slate-100 text-lg leading-tight">FreshLook Outreach Maps</h3>
+          </div>
+        </div>
+        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+          Large laminated wall maps built for soul-winning and outreach. Satellite imagery detailed enough to see individual houses and read street names clearly — dry-erase surface so you can mark up progress and erase as you go.
+        </p>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2 text-sm text-slate-300">
+            <i class="fa-solid fa-check text-sky-400 mt-0.5 shrink-0 text-xs"></i>
+            Customized to your specific area — neighborhood, town, or county
+          </li>
+          <li class="flex items-start gap-2 text-sm text-slate-300">
+            <i class="fa-solid fa-check text-sky-400 mt-0.5 shrink-0 text-xs"></i>
+            Your logo, Bible verse, banner, scale, and size
+          </li>
+          <li class="flex items-start gap-2 text-sm text-slate-300">
+            <i class="fa-solid fa-check text-sky-400 mt-0.5 shrink-0 text-xs"></i>
+            Track progress visually as you reach a neighborhood with the Gospel
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="lw-divider"></div>
+
+  <!-- ADDITIONAL OFFERINGS -->
+  <div class="mb-12 lw-fade-up">
+    <div class="lw-section-eyebrow mb-1">Also Available</div>
+    <h2 class="lw-serif text-2xl font-bold text-slate-100 mb-5">Calendars &amp; Music</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+      <div class="lw-glass lw-gradient-border rounded-2xl px-6 py-5 flex items-start gap-4">
+        <div class="lw-icon-badge lw-icon-badge-amber w-12 h-12 rounded-xl text-xl shrink-0">
+          <i class="fa-solid fa-calendar-days"></i>
+        </div>
+        <div>
+          <h3 class="lw-serif font-bold text-slate-100 text-base mb-2">FreshLook Calendars</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">Specially designed calendars for Ministry organizations, schools, and church programs — ideal if you have major annual plans, sermon series, or events to coordinate visually across a year.</p>
+        </div>
+      </div>
+
+      <div class="lw-glass lw-gradient-border rounded-2xl px-6 py-5 flex items-start gap-4">
+        <div class="lw-icon-badge lw-icon-badge-green w-12 h-12 rounded-xl text-xl shrink-0">
+          <i class="fa-solid fa-music"></i>
+        </div>
+        <div>
+          <h3 class="lw-serif font-bold text-slate-100 text-base mb-2">Instrumental Hymns</h3>
+          <p class="text-slate-300 text-sm leading-relaxed">Finger-style acoustic guitar recordings of hymns — worshipful, unhurried background music for study or personal reflection. Available as physical CDs and digital downloads. Listen to samples at freshlookbible.com.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="lw-divider"></div>
+
+  <!-- HOW THIS CONNECTS TO YOUR STUDY -->
+  <div class="lw-glass lw-glass-shimmer rounded-3xl p-8 mb-12 relative overflow-hidden lw-fade-up">
+    <div class="absolute -left-12 -top-12 w-56 h-56 bg-sky-500/8 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -right-12 -bottom-12 w-56 h-56 bg-amber-500/6 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="flex items-center gap-3 mb-5">
+      <i class="fa-solid fa-water text-amber-400 text-2xl"></i>
+      <h2 class="lw-serif text-xl font-bold text-slate-100">How This Connects to Your Study</h2>
+    </div>
+    <p class="text-slate-300 leading-relaxed mb-3">
+      FreshLook Bible's core idea — that the way text is laid out changes how you understand it — runs parallel to the approach this whole site is built on. The Printed Panoramas are especially powerful alongside the verse-by-verse commentary rooms here: seeing a whole book's structure on one page changes how individual chapters read.
+    </p>
+    <p class="text-slate-300 leading-relaxed mb-6">
+      Use the Panorama to see where a passage sits inside the whole book. Use the commentary rooms here to go deep on that passage. The two work together.
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      <a href="../scripture-studies/index.html" class="lw-glass-teal rounded-xl px-4 py-3 text-center no-underline hover:bg-sky-500/15 transition group">
+        <div class="text-sky-300 text-xs font-bold uppercase tracking-wider mb-1.5 group-hover:text-amber-300 transition-colors">Scripture Studies</div>
+        <div class="text-slate-100 text-sm font-semibold">Book-by-Book Commentary</div>
+      </a>
+      <a href="../commentary/index.html" class="lw-glass-teal rounded-xl px-4 py-3 text-center no-underline hover:bg-sky-500/15 transition group">
+        <div class="text-sky-300 text-xs font-bold uppercase tracking-wider mb-1.5 group-hover:text-amber-300 transition-colors">Deep Dive</div>
+        <div class="text-slate-100 text-sm font-semibold">Commentary &amp; Tools</div>
+      </a>
+      <a href="../tools/commute-companion.html" class="lw-glass-teal rounded-xl px-4 py-3 text-center no-underline hover:bg-sky-500/15 transition group">
+        <div class="text-sky-300 text-xs font-bold uppercase tracking-wider mb-1.5 group-hover:text-amber-300 transition-colors">On the Road</div>
+        <div class="text-slate-100 text-sm font-semibold">Commute Companion</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="text-center py-4 lw-fade-up">
+    <p class="text-slate-400 text-sm mb-5">Joshua Smith has a live chat, phone number, and email on the site — happy to help with any format questions.</p>
+    <a href="https://www.freshlookbible.com" target="_blank" rel="noopener"
+       class="inline-flex items-center gap-3 bg-gradient-to-r from-sky-600 via-slate-600 to-sky-600 hover:from-sky-500 hover:to-slate-500 text-white font-bold px-8 py-4 rounded-full text-base border border-sky-300/40 transition-all hover:scale-105 no-underline shadow-2xl shadow-sky-950/70 lw-aura">
+      <i class="fa-solid fa-arrow-up-right-from-square text-amber-300 text-sm"></i>
+      Visit FreshLook Bible
+    </a>
+  </div>
+
+</main>
+
+<!-- ═══════════ BOTTOM TICKER ═══════════ -->
+<footer class="w-full bg-slate-950/90 border-t border-sky-500/30 py-3 sticky bottom-0 z-40">
+  <div class="flex items-center">
+    <div class="bg-gradient-to-r from-amber-600 to-amber-500 text-slate-950 font-black text-xs px-5 py-2 uppercase tracking-wider flex items-center gap-2 shadow-lg z-10 shrink-0">
+      <i class="fa-solid fa-file-lines text-slate-900"></i> Research Stream
+    </div>
+    <div class="overflow-hidden relative w-full">
+      <div id="lw-bottom-ticker" class="lw-marquee-track lw-slow whitespace-nowrap flex items-center gap-12 text-sm text-slate-100 font-medium"></div>
+    </div>
+  </div>
+</footer>
+
+<script src="../lib/living-waters.js"></script>
+<script>
+lwInitBackdrop('lw-backdrop');
+
+// Rotating "What Makes It Different" carousel
+lwInitCarousel([
+  {
+    tag: 'Visual Design',
+    title: 'Poetry Reads Like Poetry',
+    body: 'Every poetic passage — Psalms, Isaiah, the Song of Solomon — is formatted with the line breaks, parallelism, and stanza structure that make Hebrew poetry readable as poetry.'
+  },
+  {
+    tag: 'Structural Clarity',
+    title: 'See the Whole Book at Once',
+    body: 'Zoom out on a Digital Panorama and you can see Galatians\u2019 three major sections — or Daniel\u2019s four visions — as one coherent structure rather than chapter fragments.'
+  },
+  {
+    tag: 'Content Types',
+    title: 'Lists, Laws, Letters — Each Formatted Differently',
+    body: 'The Levitical law codes look different from Paul\u2019s letters, which look different from genealogies, which look different from the Gospels\u2019 dialogue. Every content type gets the layout it needs.'
+  },
+  {
+    tag: 'Ministry Use',
+    title: 'Built for Teaching, Not Just Reading',
+    body: 'When structure is visible on the page, it\u2019s easier to teach. The Sermon Builder and Small Group Curriculum Builder on this site pair directly with this approach — structure visible before you start.'
+  },
+  {
+    tag: 'Outreach',
+    title: 'Custom Maps Down to Your Street',
+    body: 'The Outreach Maps are satellite-imagery laminated and dry-erase — detailed enough to see individual houses, scaled and scoped to your specific neighborhood, town, or county.'
+  }
+], { tag: 'lw-fresh-tag', title: 'lw-fresh-title', body: 'lw-fresh-body', progress: 'lw-fresh-progress' }, 8000);
+
+lwBuildMarquee('lw-top-ticker', [
+  { icon: 'fa-solid fa-book-open text-amber-400', text: '[FRESHLOOK BIBLE]: The same KJV text \u2014 laid out according to what it actually is. Poetry as poetry. Lists as lists.' },
+  { icon: 'fa-solid fa-map-location-dot text-sky-300', text: '[OUTREACH MAPS]: Large laminated dry-erase satellite maps \u2014 customized to your neighborhood, town, or county.' },
+  { icon: 'fa-solid fa-music text-slate-300', text: '[HYMNS]: Finger-style instrumental guitar \u2014 available as CDs and digital downloads at freshlookbible.com.' },
+  { icon: 'fa-solid fa-print text-amber-400', text: '[PANORAMAS]: Every book of the Bible on one page \u2014 rigid PVC, completely flat, available as individual prints or posters.' }
+]);
+lwBuildMarquee('lw-bottom-ticker', [
+  { text: '<strong class="text-amber-300">[FRESHLOOK]:</strong> Joshua Smith \u2014 15 years formatting every passage of every book of the Bible according to its content type.' },
+  { text: '<strong class="text-amber-300">[PANORAMA]:</strong> See the whole book of Galatians on one page \u2014 introduction, three major sections, works of the flesh vs. fruit of the Spirit.' },
+  { text: '<strong class="text-amber-300">[DIGITAL]:</strong> Every book on its own page \u2014 zoom in to read, zoom out to see structure, navigate with the table of contents.' },
+  { text: '<strong class="text-amber-300">[PRINTED]:</strong> Rigid PVC substrate \u2014 lays flat, fully durable, available as individual books or thicker collections.' },
+  { text: '<strong class="text-amber-300">[MUSIC]:</strong> Finger-style hymn recordings \u2014 quiet and worshipful background for study or reflection.' }
+]);
+</script>
+</body>
+</html>

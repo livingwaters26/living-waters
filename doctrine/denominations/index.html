@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Denominations Compared | Living Waters</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Cinzel:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../lib/living-waters.css">
+<style>
+  .matrix-table { border-collapse: collapse; width: 100%; font-size: 0.72rem; }
+  .matrix-table th, .matrix-table td { border: 1px solid rgba(45,212,191,0.15); padding: 8px 10px; text-align: left; vertical-align: top; }
+  .matrix-table th { background: rgba(20,184,166,0.12); color: #5eead4; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.62rem; position: sticky; top: 0; }
+  .matrix-table td:first-child, .matrix-table th:first-child { position: sticky; left: 0; background: #0a1f18; font-weight: 700; color: #fbbf24; z-index: 2; }
+  .matrix-table th:first-child { z-index: 3; }
+  .matrix-scroll { overflow-x: auto; border-radius: 12px; border: 1px solid rgba(45,212,191,0.2); }
+</style>
+</head>
+<body class="lw">
+
+<div id="lw-backdrop" class="lw-backdrop"></div>
+<div id="lw-photo-credit" class="lw-photo-credit"></div>
+
+<header class="w-full bg-slate-950/85 border-b border-sky-500/20 backdrop-blur-md sticky top-0 z-50">
+  <div class="bg-amber-500/10 border-b border-amber-500/10 text-amber-300 text-xs py-1 overflow-hidden">
+    <div id="lw-top-ticker" class="lw-marquee-track whitespace-nowrap flex items-center font-semibold tracking-wider"></div>
+  </div>
+  <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between gap-3">
+    <a href="../../index.html" class="flex items-center gap-2.5 no-underline">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-800 via-slate-600 to-amber-500 flex items-center justify-center border border-sky-300/30">
+        <i class="fa-solid fa-droplet text-white text-sm"></i>
+      </div>
+      <span class="lw-serif font-black text-base tracking-widest text-slate-100">LIVING WATERS</span>
+    </a>
+    <a href="../index.html" class="text-xs text-sky-300/90 hover:text-amber-300 no-underline font-semibold tracking-wide">&larr; Back to Doctrine</a>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-6 py-10 w-full relative z-10">
+  <div class="text-center mb-8">
+    <div class="text-4xl mb-2">⛪</div>
+    <h1 class="lw-serif text-3xl md:text-4xl font-black text-slate-50 mb-2">Denominations Compared</h1>
+    <p class="text-slate-300 text-base max-w-2xl mx-auto">Eleven traditions, five core questions, presented side by side — each tradition's own strongest self-understanding, not a ranking.</p>
+  </div>
+
+  <div class="lw-glass-teal rounded-2xl p-5 mb-8 text-sm leading-relaxed text-slate-200">
+    🌳 <b class="text-amber-300">How these traditions branched:</b> the 1054 Great Schism split Rome from Constantinople (East/West). The 1517 Reformation split Western Christianity into Catholic and Protestant, with Protestantism itself fragmenting quickly — Lutheran (1520s), Reformed/Calvinist (1530s-40s), and the Radical Reformation's Anabaptists (1525) all emerged within a generation of each other. Anglicanism split from Rome separately (1534, Henry VIII) and later produced Methodism as an internal revival movement (1730s) that became its own denomination after Wesley's death. Baptists emerged from English Separatism (early 1600s). Pentecostalism is the newest major branch (Azusa Street, 1906), emerging out of the Holiness movement within Methodism. See the full visual family tree and this same story in more depth at <a class="text-amber-300 hover:underline font-semibold" href="../church-history.html">Church History &amp; Doctrinal Development</a>.
+  </div>
+
+  <h2 class="lw-serif text-xl font-bold text-sky-300 mb-4 border-b border-sky-500/20 pb-2">📊 Comparative Matrix</h2>
+  <div class="matrix-scroll mb-4" style="max-height: 480px; overflow-y: auto;">
+    <table class="matrix-table">
+      <thead>
+        <tr>
+          <th>Tradition</th>
+          <th>Authority / Scripture</th>
+          <th>Soteriology</th>
+          <th>Sacraments</th>
+          <th>Governance</th>
+          <th>Key Creeds/Documents</th>
+        </tr>
+      </thead>
+      <tbody class="text-slate-300">
+        <tr><td>Catholicism</td><td>Scripture + Sacred Tradition + Magisterium</td><td>Grace + cooperation (faith working through love)</td><td>7 sacraments; transubstantiation</td><td>Papal, hierarchical (Pope → bishops → priests)</td><td>Nicene Creed, Trent, Vatican I/II</td></tr>
+        <tr><td>Orthodoxy</td><td>Scripture within Holy Tradition; 7 Ecumenical Councils</td><td>Theosis (union with God) via grace + synergy</td><td>7 Mysteries; real presence, no fixed metaphysical formula</td><td>Conciliar; autocephalous national churches</td><td>Nicene Creed, 7 Ecumenical Councils</td></tr>
+        <tr><td>Anglicanism</td><td>Scripture primary, read through tradition + reason</td><td>Via Media — Reformed emphasis, Catholic structure</td><td>2 dominant (Baptism, Eucharist) + 5 "commonly called" sacraments</td><td>Episcopal; Archbishop of Canterbury as symbolic head</td><td>39 Articles, Book of Common Prayer</td></tr>
+        <tr><td>Lutheranism</td><td>Sola Scriptura</td><td>Sola Fide — justification by faith alone</td><td>Baptism + Eucharist; consubstantiation (real presence "in, with, under")</td><td>Varies — synodical/episcopal by region</td><td>Augsburg Confession, Luther's Catechisms</td></tr>
+        <tr><td>Reformed/Calvinism</td><td>Sola Scriptura</td><td>TULIP — unconditional election, sovereign grace</td><td>Baptism + Eucharist; spiritual (not physical) real presence</td><td>Presbyterian (elder-led, connectional)</td><td>Westminster Confession, Canons of Dort</td></tr>
+        <tr><td>Methodism</td><td>Scripture primary + "quadrilateral" (tradition, reason, experience)</td><td>Prevenient grace + Arminian synergism; entire sanctification possible</td><td>Baptism + Eucharist; memorial-leaning</td><td>Connectional; bishops in most branches</td><td>Wesley's Sermons, Articles of Religion</td></tr>
+        <tr><td>Baptist</td><td>Sola Scriptura, strong individual-interpretation emphasis</td><td>Varies — Reformed (Particular) to Arminian (General) Baptists</td><td>Believer's baptism by immersion only; memorial ordinances, not sacraments</td><td>Congregational; local church autonomy</td><td>1689 London Baptist Confession (among others)</td></tr>
+        <tr><td>Anabaptism</td><td>Sola Scriptura + strict church/state separation</td><td>Believer's faith + discipleship, visible holy community</td><td>Believer's baptism; ordinances as obedience, not means of grace</td><td>Congregational, strongly decentralized</td><td>Schleitheim Confession (1527)</td></tr>
+        <tr><td>Pentecostalism</td><td>Sola Scriptura + ongoing Spirit-led experience</td><td>Salvation + distinct "baptism in the Holy Spirit" experience</td><td>Baptism + Eucharist; ordinances, memorial-leaning</td><td>Varies widely — congregational to episcopal</td><td>Varies by denomination (Azusa Street as founding event, not a creed)</td></tr>
+        <tr><td>Non-Denominational</td><td>Sola Scriptura, minimal formal creedal statement</td><td>Varies by congregation, often broadly Evangelical</td><td>Baptism + Communion; ordinances, memorial-leaning</td><td>Congregational, independent</td><td>Usually a short statement of faith, not historic creeds</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="text-xs text-slate-500 mb-12">Scroll to see the full table on smaller screens. This summarizes each tradition's own mainstream self-understanding — internal variation exists within every tradition listed.</p>
+
+  <h2 class="lw-serif text-xl font-bold text-sky-300 mb-4 border-b border-sky-500/20 pb-2">📖 Individual Traditions</h2>
+  <div class="lw-section-grid">
+    <a href="catholicism.html" class="lw-section-card"><div class="lw-section-eyebrow">c. 1st c. / defined 1054, 1517</div><h3>Catholicism</h3><p>Petrine succession, the seven sacraments, and the Councils of Trent and Vatican I/II.</p></a>
+    <a href="orthodoxy.html" class="lw-section-card"><div class="lw-section-eyebrow">c. 1st c. / split 1054</div><h3>Eastern Orthodoxy</h3><p>The seven Ecumenical Councils, Hesychasm, and theosis.</p></a>
+    <a href="anglicanism.html" class="lw-section-card"><div class="lw-section-eyebrow">1534</div><h3>Anglicanism</h3><p>Henry VIII, Cranmer, the Via Media, and the Book of Common Prayer.</p></a>
+    <a href="lutheranism.html" class="lw-section-card"><div class="lw-section-eyebrow">1517-1530</div><h3>Lutheranism</h3><p>Martin Luther, the 95 Theses, the Diet of Worms, and sola fide.</p></a>
+    <a href="reformed-calvinism.html" class="lw-section-card"><div class="lw-section-eyebrow">1530s-40s</div><h3>Reformed / Calvinism</h3><p>John Calvin, the Synod of Dort's TULIP, and covenant theology.</p></a>
+    <a href="methodism.html" class="lw-section-card"><div class="lw-section-eyebrow">1730s</div><h3>Methodism</h3><p>John &amp; Charles Wesley, the Holy Club, and prevenient grace.</p></a>
+    <a href="baptist.html" class="lw-section-card"><div class="lw-section-eyebrow">Early 1600s</div><h3>Baptist</h3><p>English Separatists, believer's immersion, and local church autonomy.</p></a>
+    <a href="anabaptism.html" class="lw-section-card"><div class="lw-section-eyebrow">1525</div><h3>Anabaptism</h3><p>The Radical Reformation, pacifism, and Mennonite/Amish roots.</p></a>
+    <a href="pentecostalism.html" class="lw-section-card"><div class="lw-section-eyebrow">1906</div><h3>Pentecostalism</h3><p>Azusa Street, William Seymour, and baptism in the Holy Spirit.</p></a>
+    <a href="nondenominational.html" class="lw-section-card"><div class="lw-section-eyebrow">20th c.</div><h3>Non-Denominational</h3><p>Independent congregations deliberately outside formal denominational structures.</p></a>
+  </div>
+</main>
+
+<script src="../../lib/living-waters.js"></script>
+<script>
+lwInitBackdrop('lw-backdrop');
+lwBuildMarquee('lw-top-ticker', [
+  { icon: 'fa-solid fa-water text-sky-300', text: '[DENOMINATIONS]: 10 traditions compared across authority, soteriology, sacraments, governance, and key creeds' }
+]);
+</script>
+</body>
+</html>

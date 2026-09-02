@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sermon Builder - Study Hub</title>
+<style>
+:root {
+  --bg-color: #0f172a; --card-bg: #1e293b; --accent-gold: #f59e0b; --accent-blue: #38bdf8;
+  --text-main: #f8fafc; --text-muted: #94a3b8; --border-color: #334155;
+  --font-display: Georgia, 'Iowan Old Style', 'Palatino Linotype', Palatino, serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body { font-family: var(--font-body); background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; font-size: 1.06rem; }
+.container { width: 100%; max-width: 900px; }
+.top-nav { width: 100%; margin-bottom: 20px; }
+.back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-gold); text-decoration: none; font-weight: 600; background: var(--card-bg); padding: 10px 18px; border-radius: 20px; border: 1px solid var(--border-color); }
+.back-btn:hover, .back-btn:focus-visible { background: var(--accent-gold); color: #000; }
+.header { text-align: center; margin-bottom: 20px; }
+.header-icon { font-size: 2.6rem; margin-bottom: 8px; }
+.header h1 { font-family: var(--font-display); font-weight: 700; color: var(--accent-gold); font-size: 2rem; margin-bottom: 8px; }
+.header p { color: var(--text-muted); font-size: 0.95rem; max-width: 620px; margin: 0 auto; line-height: 1.55; }
+.section-title { font-family: var(--font-display); font-weight: 700; color: var(--accent-blue); font-size: 1.15rem; margin: 26px 0 10px 0; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+.card-block { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 18px 20px; margin-bottom: 18px; }
+.field-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent-blue); margin-bottom: 6px; display:block; }
+.field-input, .field-textarea { width: 100%; background: rgba(15,23,42,0.6); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-main); padding: 10px 12px; font-family: inherit; font-size: 0.92rem; margin-bottom: 14px; }
+.field-textarea { min-height: 90px; resize: vertical; }
+.hint { font-size: 0.78rem; color: var(--text-muted); margin: -8px 0 14px 0; line-height: 1.4; }
+.btn { border: none; border-radius: 8px; padding: 10px 18px; font-size: 0.88rem; font-weight: 700; cursor: pointer; font-family: inherit; }
+.btn-primary { background: var(--accent-gold); color: #000; }
+.btn-primary:hover, .btn-primary:focus-visible { filter: brightness(1.08); }
+.btn-secondary { background: var(--border-color); color: var(--text-main); }
+.btn-secondary:hover, .btn-secondary:focus-visible { background: var(--accent-blue); color: #000; }
+.btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+.vault-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--border-color); }
+.vault-item:last-child { border-bottom: none; }
+.vault-item input[type="checkbox"] { margin-top: 4px; }
+.vault-item-body { flex: 1; }
+.vault-item-page { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent-blue); margin-bottom: 2px; }
+.vault-item-text { font-size: 0.85rem; color: var(--text-main); line-height: 1.4; }
+.vault-item-note { font-size: 0.8rem; color: var(--text-muted); font-style: italic; margin-top: 3px; }
+.vault-empty { color: var(--text-muted); font-size: 0.88rem; text-align: center; padding: 16px 0; }
+.output-box { background: rgba(15,23,42,0.6); border: 1px solid var(--border-color); border-radius: 10px; padding: 16px; font-size: 0.88rem; line-height: 1.6; color: var(--text-main); white-space: pre-wrap; margin-bottom: 12px; max-height: 480px; overflow-y: auto; }
+.output-box.empty { color: var(--text-muted); font-style: italic; }
+.copy-confirm { font-size: 0.8rem; color: #34d399; margin-left: 8px; display:none; }
+.copy-confirm.show { display:inline; }
+.search-row { display:flex; gap:10px; margin-bottom: 6px; flex-wrap: wrap; }
+.search-row .field-input { flex: 1; min-width: 200px; margin-bottom: 0; }
+.result-card { background: rgba(15,23,42,0.5); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 16px; margin-bottom: 12px; }
+.result-title { font-family: var(--font-display); color: var(--accent-gold); font-size: 1rem; font-weight: 700; margin-bottom: 2px; }
+.result-book { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent-blue); margin-bottom: 6px; }
+.result-tldr { font-size: 0.88rem; color: var(--text-main); margin-bottom: 8px; }
+.result-views { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 8px; margin-bottom: 10px; }
+.result-view { background: rgba(255,255,255,0.03); border-radius: 6px; padding: 8px 10px; font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+.result-view b { color: var(--text-main); }
+.result-extra { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 10px; }
+.results-empty { color: var(--text-muted); font-size: 0.88rem; text-align: center; padding: 16px 0; }
+@media (max-width: 480px) { .header h1 { font-size: 1.6rem; } body { padding: 14px; } }
+</style>
+<link rel="stylesheet" href="../lib/hub-ui.css">
+</head>
+<body>
+<div class="container">
+<div class="top-nav"><a class="back-btn" href="../commentary/index.html">⬅️ Deep-Dive Commentary &amp; Tools</a></div>
+<div class="header">
+<div class="header-icon">🔎</div>
+<h1>Scripture Workspace, Sermon &amp; Small Group Curriculum Builder</h1>
+<p>Search by reference or by keyword — across the real Bible text, commentary, and cross-references already in this app, plus your own saved notes. Build a sermon outline or AI prompt from what you find, or generate a full multi-week small group curriculum below. Curriculum generation calls this server's own AI connection (same one Commute Companion uses) — it needs internet for that step even though the rest of the app is offline.</p>
+</div>
+
+<div class="section-title">0 · Search</div>
+<div class="card-block">
+<div class="search-row">
+<input class="field-input" id="fld-search" type="text" placeholder="Type a reference (e.g. Isaiah 9) or a keyword (e.g. atonement, kingdom, shepherd)">
+<button class="btn btn-primary" onclick="runSearch()">Search</button>
+</div>
+<div class="hint">Searches: the real ASV/KJV verse text embedded in this app, every book's commentary and cross-references, and your own notes/highlights — all on this device, nothing sent anywhere.</div>
+<div id="search-results"></div>
+</div>
+
+<div class="section-title">📓 Notes</div>
+<div class="card-block">
+<label class="field-label" for="fld-scratchpad">Quick notes while you work</label>
+<textarea class="field-textarea" id="fld-scratchpad" placeholder="Jot anything here — it saves automatically on this device." style="min-height:110px;"></textarea>
+<div class="hint">This is a running scratchpad, separate from the per-passage highlight notes in your Vault below. Saved automatically as you type.</div>
+</div>
+
+<div class="section-title">1 · Passage &amp; Focus</div>
+<div class="hint" style="margin-top:-4px;">Tip: hit "Use this passage" on any search result above to fill these in automatically.</div>
+
+<div class="card-block">
+<label class="field-label" for="fld-ref">Passage reference</label>
+<input class="field-input" id="fld-ref" type="text" placeholder="e.g. Isaiah 53:1-12">
+<label class="field-label" for="fld-text">Passage text (optional — paste it in if you want it embedded)</label>
+<textarea class="field-textarea" id="fld-text" placeholder="Paste the passage text here, or leave blank and just reference it by name."></textarea>
+<label class="field-label" for="fld-focus">Focus keywords or angle (optional)</label>
+<input class="field-input" id="fld-focus" type="text" placeholder="e.g. suffering with hope, substitutionary atonement, Good Friday">
+</div>
+
+<div class="section-title">2 · Your Highlight &amp; Note Vault</div>
+<div class="card-block">
+<div id="vault-list"></div>
+<div class="btn-row" style="margin-top:10px;">
+<button class="btn btn-secondary" onclick="vaultSelectAll(true)">Select all</button>
+<button class="btn btn-secondary" onclick="vaultSelectAll(false)">Select none</button>
+<button class="btn btn-secondary" onclick="loadVault()">Refresh</button>
+</div>
+<div class="hint" style="margin-top:10px;">Pulled automatically from every highlight and note you've saved anywhere in the app on this device (each page's 🔖 button). Nothing here is sent anywhere — it just gets folded into what you build below.</div>
+</div>
+
+<div class="section-title">3 · Build</div>
+<div class="card-block">
+<div class="btn-row">
+<button class="btn btn-primary" onclick="generateOutline()">📝 Generate Offline Outline</button>
+<button class="btn btn-primary" onclick="generatePrompt()">🤖 Prepare AI Prompt</button>
+</div>
+</div>
+
+<div id="outline-section" style="display:none;">
+<div class="section-title">📝 Offline Outline Scaffold</div>
+<div class="card-block">
+<div class="hint">This is a structural starting point built entirely offline from what you entered above — not a finished sermon. Use it as a skeleton to write from, or as the basis for the AI prompt below.</div>
+<div id="outline-output" class="output-box"></div>
+</div>
+</div>
+
+<div id="prompt-section" style="display:none;">
+<div class="section-title">🤖 AI Prompt — Ready to Export</div>
+<div class="card-block">
+<div class="hint">Copy this, or download it as a text file, and drop it into Claude, ChatGPT, or any AI tool you have access to. It carries your passage, your notes, and your focus so the sermon it writes is actually built from your study, not generic.</div>
+<div id="prompt-output" class="output-box empty">Click "Prepare AI Prompt" above first.</div>
+<div class="btn-row">
+<button class="btn btn-secondary" onclick="copyPrompt()">📋 Copy to clipboard</button>
+<span id="copy-confirm" class="copy-confirm">Copied!</span>
+<button class="btn btn-secondary" onclick="downloadPrompt()">⬇️ Download as .txt</button>
+</div>
+</div>
+</div>
+
+<div class="section-title">4 · Small Group Curriculum Builder</div>
+<div class="card-block">
+<div class="hint" style="margin-top:0;">Builds a real multi-week curriculum — Leader Guide, Icebreaker, Discussion Questions, and Participant Handout per session — using the same Session Architecture used for every existing curriculum in this app. This calls the AI directly (via this server's own connection) and writes the actual sessions, it doesn't just assemble a prompt.</div>
+<label class="field-label" for="fld-curr-topic">Passage or topic</label>
+<input class="field-input" id="fld-curr-topic" type="text" placeholder="e.g. Parables of Jesus, or a specific book/passage">
+<label class="field-label" for="fld-curr-weeks">Number of weeks</label>
+<input class="field-input" id="fld-curr-weeks" type="number" min="1" max="20" value="4">
+<label class="field-label" for="fld-curr-group">Group type</label>
+<select class="field-input" id="fld-curr-group">
+<option>General adult</option>
+<option>Youth</option>
+<option>Young adult</option>
+<option>Men's</option>
+<option>Women's</option>
+</select>
+<label class="field-label" for="fld-curr-commitment">Commitment level</label>
+<select class="field-input" id="fld-curr-commitment">
+<option value="standard">Standard</option>
+<option value="light">Light</option>
+<option value="deep-dive">Deep-dive</option>
+</select>
+<label class="field-label" for="fld-curr-notes">Notes to shape it (optional)</label>
+<textarea class="field-textarea" id="fld-curr-notes" placeholder="Anything specific you want emphasized, avoided, or tied to your Vault notes above."></textarea>
+<label style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--text-muted);margin:-4px 0 14px;">
+<input type="checkbox" id="fld-curr-audio"> Also generate a plain/audio-friendly variant (no tables or nested bullets — for future Commute Companion use)
+</label>
+<div class="btn-row">
+<button class="btn btn-primary" id="curr-generate-btn" onclick="generateCurriculum()">📚 Generate Curriculum</button>
+</div>
+</div>
+
+<div id="curriculum-section" style="display:none;">
+<div class="section-title">📚 Curriculum — Generated</div>
+<div class="card-block">
+<div id="curriculum-output" class="output-box empty">Not generated yet.</div>
+<div class="btn-row">
+<button class="btn btn-secondary" onclick="copyCurriculum()">📋 Copy to clipboard</button>
+<span id="curr-copy-confirm" class="copy-confirm">Copied!</span>
+<button class="btn btn-secondary" onclick="downloadCurriculum()">⬇️ Download as .md</button>
+<button class="btn btn-primary" onclick="sendCurriculumToPlanBuilder()">🗓️ Send to Reading Plan Builder →</button>
+</div>
+</div>
+</div>
+
+<div id="curriculum-audio-section" style="display:none;">
+<div class="section-title">🔊 Curriculum — Audio-Friendly Variant</div>
+<div class="card-block">
+<div class="hint" style="margin-top:0;">Plain declarative sentences, explicit spoken section markers, no tables or nested bullets — meant to feed cleanly into text-to-speech later.</div>
+<div id="curriculum-audio-output" class="output-box empty"></div>
+<div class="btn-row">
+<button class="btn btn-secondary" onclick="copyCurriculumAudio()">📋 Copy to clipboard</button>
+<span id="curr-audio-copy-confirm" class="copy-confirm">Copied!</span>
+<button class="btn btn-secondary" onclick="downloadCurriculumAudio()">⬇️ Download as .txt</button>
+</div>
+</div>
+</div>
+
+</div>
+<script>
+var vaultItems = [];
+var SEARCH_INDEX = window.SH_SEARCH_INDEX || [];
+var SCRATCH_KEY = 'sh-workspace-scratchpad';
+
+/* ---- quick notes scratchpad (separate from per-page rt: vault) ---- */
+function loadScratchpad() {
+  try {
+    var v = localStorage.getItem(SCRATCH_KEY);
+    if (v) document.getElementById('fld-scratchpad').value = v;
+  } catch (e) {}
+}
+function saveScratchpad() {
+  try { localStorage.setItem(SCRATCH_KEY, document.getElementById('fld-scratchpad').value); } catch (e) {}
+}
+
+/* ---- search: local index (app content + real Bible text) + your notes + web fallback ---- */
+function scoreEntry(entry, terms) {
+  var hay = entry.search;
+  var score = 0;
+  terms.forEach(function (t) {
+    if (!t) return;
+    var titleHay = (entry.title + ' ' + (entry.subtitle || '')).toLowerCase();
+    if (titleHay.indexOf(t) !== -1) score += 5;
+    var count = hay.split(t).length - 1;
+    score += count;
+  });
+  return score;
+}
+
+function searchLocalIndex(query) {
+  var terms = query.toLowerCase().split(/\s+/).filter(Boolean);
+  if (!terms.length) return [];
+  var scored = SEARCH_INDEX.map(function (e) { return { e: e, s: scoreEntry(e, terms) }; })
+    .filter(function (r) { return r.s > 0; })
+    .sort(function (a, b) { return b.s - a.s; })
+    .slice(0, 12);
+  return scored.map(function (r) { return r.e; });
+}
+
+function searchNotes(query) {
+  var terms = query.toLowerCase().split(/\s+/).filter(Boolean);
+  var hits = [];
+  try {
+    for (var i = 0; i < localStorage.length; i++) {
+      var key = localStorage.key(i);
+      if (key && key.indexOf('rt:') === 0) {
+        var arr = [];
+        try { arr = JSON.parse(localStorage.getItem(key) || '[]'); } catch (e2) { arr = []; }
+        arr.forEach(function (item) {
+          var hay = ((item.text || '') + ' ' + (item.note || '')).toLowerCase();
+          if (terms.some(function (t) { return hay.indexOf(t) !== -1; })) {
+            hits.push({ page: pageLabelFromPath(key.slice(3)), text: item.text, note: item.note, type: item.type });
+          }
+        });
+      }
+    }
+  } catch (e) {}
+  return hits;
+}
+
+function webSearchLink(query) {
+  var url = 'https://www.google.com/search?q=' + encodeURIComponent('Bible ' + query);
+  if (navigator.onLine === false) {
+    return '<span class="hint">Not found locally — search online requires a connection (currently offline).</span>';
+  }
+  return '<a class="btn btn-secondary" href="' + url + '" target="_blank" rel="noopener" style="text-decoration:none;display:inline-block;">🌐 Search online for "' + escHtml(query) + '" (opens in browser)</a>';
+}
+
+function runSearch() {
+  var query = document.getElementById('fld-search').value.trim();
+  var results = document.getElementById('search-results');
+  if (!query) { results.innerHTML = ''; return; }
+
+  var localHits = searchLocalIndex(query);
+  var noteHits = searchNotes(query);
+  var html = '';
+
+  if (!localHits.length && !noteHits.length) {
+    html += '<div class="results-empty">Nothing in this app matches "' + escHtml(query) + '".</div>';
+  }
+
+  localHits.forEach(function (e) {
+    var sourceTag = e.source === 'bible-text' ? 'FROM THIS APP — ' + e.translation + ' TEXT' : 'FROM THIS APP — COMMENTARY';
+    html += '<div class="result-card">';
+    html += '<div class="result-book">' + sourceTag + '</div>';
+    html += '<div class="result-title">' + escHtml(e.title) + (e.subtitle ? ' — ' + escHtml(e.subtitle) : '') + '</div>';
+    if (e.bibleText) {
+      html += '<div class="result-tldr">' + escHtml(e.bibleText.length > 300 ? e.bibleText.slice(0, 300) + '…' : e.bibleText) + '</div>';
+    }
+    e.tldrs.forEach(function (t) { html += '<div class="result-tldr">' + escHtml(t) + '</div>'; });
+    if (e.views && e.views.length) {
+      html += '<div class="result-views">';
+      e.views.forEach(function (v) {
+        var parts = v.split(': ');
+        html += '<div class="result-view"><b>' + escHtml(parts[0]) + ':</b> ' + escHtml(parts.slice(1).join(': ')) + '</div>';
+      });
+      html += '</div>';
+    }
+    if (e.crossRefs && e.crossRefs.length) html += '<div class="result-extra">🔗 ' + escHtml(e.crossRefs[0]) + '</div>';
+    if (e.history && e.history.length) html += '<div class="result-extra">🏛️ ' + escHtml(e.history[0]) + '</div>';
+    var isFile = e.url && e.url.indexOf('.html') !== -1;
+    html += '<div class="btn-row">';
+    if (isFile) html += '<a class="btn btn-secondary" href="../' + e.url + '" style="text-decoration:none;">Open page →</a>';
+    function attrSafe(s) {
+      return JSON.stringify(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+    html += '<button class="btn btn-primary" onclick="usePassage(' + attrSafe(e.title + (e.subtitle ? ' — ' + e.subtitle : '')) + ', ' + attrSafe(e.bibleText || e.tldrs[0] || '') + ')">Use this passage</button>';
+    html += '</div></div>';
+  });
+
+  if (noteHits.length) {
+    html += '<div class="result-card">';
+    html += '<div class="result-book">FROM YOUR OWN NOTES</div>';
+    noteHits.forEach(function (n) {
+      html += '<div class="vault-item-page" style="margin-top:8px;">' + escHtml(n.page) + '</div>';
+      html += '<div class="result-tldr">"' + escHtml(n.text) + '"' + (n.note ? ' — ' + escHtml(n.note) : '') + '</div>';
+    });
+    html += '</div>';
+  }
+
+  html += '<div class="result-card" style="text-align:center;">' + webSearchLink(query) + '</div>';
+
+  results.innerHTML = html;
+}
+
+function usePassage(ref, text) {
+  document.getElementById('fld-ref').value = ref;
+  if (text) document.getElementById('fld-text').value = text;
+  document.getElementById('fld-ref').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+document.getElementById('fld-search').addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') runSearch();
+});
+document.getElementById('fld-scratchpad').addEventListener('input', saveScratchpad);
+
+
+
+function pageLabelFromPath(path) {
+  var parts = path.split('/').filter(Boolean);
+  var last = parts[parts.length - 1] || path;
+  var book = parts.length >= 2 ? parts[parts.length - 3] || parts[parts.length - 2] : '';
+  var clean = last.replace('.html', '').replace(/^ch0?/, ' ');
+  var label = (book ? book.charAt(0).toUpperCase() + book.slice(1) + ' ' : '') + clean;
+  return label.replace(/\s+/g, ' ').trim() || path;
+}
+
+function loadVault() {
+  vaultItems = [];
+  try {
+    for (var i = 0; i < localStorage.length; i++) {
+      var key = localStorage.key(i);
+      if (key && key.indexOf('rt:') === 0) {
+        var path = key.slice(3);
+        var arr = [];
+        try { arr = JSON.parse(localStorage.getItem(key) || '[]'); } catch (e) { arr = []; }
+        arr.forEach(function (item, idx) {
+          vaultItems.push({
+            id: key + '::' + idx,
+            page: pageLabelFromPath(path),
+            type: item.type || 'highlight',
+            text: item.text || '',
+            note: item.note || '',
+            checked: true
+          });
+        });
+      }
+    }
+  } catch (e) { /* localStorage unavailable */ }
+  renderVault();
+}
+
+function renderVault() {
+  var list = document.getElementById('vault-list');
+  if (!vaultItems.length) {
+    list.innerHTML = '<div class="vault-empty">No saved highlights or notes found yet on this device. Go highlight or note something in any book room, then come back and hit Refresh.</div>';
+    return;
+  }
+  list.innerHTML = vaultItems.map(function (it, i) {
+    return '<div class="vault-item">' +
+      '<input type="checkbox" ' + (it.checked ? 'checked' : '') + ' onchange="vaultItems[' + i + '].checked = this.checked">' +
+      '<div class="vault-item-body">' +
+        '<div class="vault-item-page">' + escHtml(it.page) + ' · ' + (it.type === 'note' ? 'Note' : 'Highlight') + '</div>' +
+        '<div class="vault-item-text">' + escHtml(it.text) + '</div>' +
+        (it.note ? '<div class="vault-item-note">' + escHtml(it.note) + '</div>' : '') +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function vaultSelectAll(val) {
+  vaultItems.forEach(function (it) { it.checked = val; });
+  renderVault();
+}
+
+function escHtml(s) {
+  return String(s).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+
+function selectedNotes() {
+  return vaultItems.filter(function (it) { return it.checked; });
+}
+
+function generateOutline() {
+  var ref = document.getElementById('fld-ref').value.trim() || '(passage not entered)';
+  var focus = document.getElementById('fld-focus').value.trim();
+  var notes = selectedNotes();
+
+  var out = '';
+  out += 'SERMON SCAFFOLD — ' + ref + '\n';
+  out += '='.repeat(('SERMON SCAFFOLD — ' + ref).length) + '\n\n';
+  out += 'Angle: ' + (focus || '(none specified — pick one before you preach this)') + '\n\n';
+  out += 'I. OPENING HOOK\n   [ Start with a question, story, or image connected to: ' + (focus || ref) + ' ]\n\n';
+  out += 'II. CONTEXT\n   [ Who, when, and why this passage was written — 2-3 minutes, not more ]\n\n';
+  out += 'III. THREE MAIN POINTS\n';
+  out += '   1. [ First movement of the passage — what does the text actually say? ]\n';
+  out += '   2. [ Second movement — where is the tension, the turn, or the cost? ]\n';
+  out += '   3. [ Third movement — where does this land, and what does it ask of the hearer? ]\n\n';
+  if (notes.length) {
+    out += 'IV. WORK IN YOUR OWN NOTES\n';
+    notes.forEach(function (n) {
+      out += '   • (' + n.page + ') "' + n.text + '"' + (n.note ? ' — ' + n.note : '') + '\n';
+    });
+    out += '\n';
+  }
+  out += 'V. APPLICATION\n   [ One specific, doable next step for the congregation this week ]\n\n';
+  out += 'VI. CLOSING\n   [ Return to the opening hook or image; end on the passage\'s own note, not a new idea ]\n';
+
+  document.getElementById('outline-output').textContent = out;
+  document.getElementById('outline-section').style.display = 'block';
+  document.getElementById('outline-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function buildPromptText() {
+  var ref = document.getElementById('fld-ref').value.trim() || '(not specified)';
+  var text = document.getElementById('fld-text').value.trim();
+  var focus = document.getElementById('fld-focus').value.trim();
+  var notes = selectedNotes();
+
+  var p = '';
+  p += 'You are helping me prepare a sermon. Please write a complete, ready-to-preach sermon manuscript of about 30 minutes of spoken material.\n\n';
+  p += 'PASSAGE: ' + ref + '\n';
+  if (text) p += '\nPASSAGE TEXT:\n' + text + '\n';
+  p += '\nFOCUS / ANGLE: ' + (focus || 'Not specified — use your judgment based on the passage itself.') + '\n';
+  if (notes.length) {
+    p += '\nMY OWN STUDY NOTES AND HIGHLIGHTS (please weave these in where relevant, in my voice, not as a bolted-on list):\n';
+    notes.forEach(function (n) {
+      p += '- (' + n.page + ') "' + n.text + '"' + (n.note ? ' — my note: ' + n.note : '') + '\n';
+    });
+  }
+  p += '\nPlease structure the sermon with:\n';
+  p += '- An opening hook or illustration that earns attention in the first 30 seconds\n';
+  p += '- Brief historical/cultural context for the passage\n';
+  p += '- A clear structure of about 3 main points, each grounded directly in the text\n';
+  p += '- Practical, specific application for a general congregation\n';
+  p += '- A closing that returns to the opening image and ends on the passage\'s own note\n';
+  p += '- Suggested visual aids at each point — a historical map, a timeline reference, or an image that would help a congregation follow along\n\n';
+  p += 'Keep the tone pastoral and the language accessible — avoid academic jargon unless you define it in passing. Write it as a manuscript I could preach from, not just an outline.';
+  return p;
+}
+
+function generatePrompt() {
+  var p = buildPromptText();
+  var box = document.getElementById('prompt-output');
+  box.textContent = p;
+  box.classList.remove('empty');
+  document.getElementById('prompt-section').style.display = 'block';
+  document.getElementById('prompt-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function copyPrompt() {
+  var box = document.getElementById('prompt-output');
+  if (!box.textContent || box.classList.contains('empty')) { generatePrompt(); }
+  var text = document.getElementById('prompt-output').textContent;
+  var done = function () {
+    var c = document.getElementById('copy-confirm');
+    c.classList.add('show');
+    setTimeout(function () { c.classList.remove('show'); }, 1800);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done).catch(function () { fallbackCopy(text, done); });
+  } else {
+    fallbackCopy(text, done);
+  }
+}
+
+function fallbackCopy(text, done) {
+  var ta = document.createElement('textarea');
+  ta.value = text; ta.style.position = 'fixed'; ta.style.left = '-9999px';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); done(); } catch (e) {}
+  document.body.removeChild(ta);
+}
+
+function downloadPrompt() {
+  var box = document.getElementById('prompt-output');
+  if (!box.textContent || box.classList.contains('empty')) { generatePrompt(); }
+  var text = document.getElementById('prompt-output').textContent;
+  var ref = document.getElementById('fld-ref').value.trim().replace(/[^a-z0-9]+/gi, '-').toLowerCase() || 'sermon-prompt';
+  var blob = new Blob([text], { type: 'text/plain' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url; a.download = ref + '-ai-prompt.txt';
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  loadVault(); loadScratchpad();
+  var params = new URLSearchParams(window.location.search);
+  var ref = params.get('ref');
+  if (ref) { document.getElementById('fld-ref').value = ref; }
+});
+
+// ---------------------------------------------------------------------
+// Small Group Curriculum Builder — real generation via /api/chat
+// ---------------------------------------------------------------------
+
+var lastCurriculumText = '';
+var lastCurriculumAudioText = '';
+
+function commitmentNote(level) {
+  if (level === 'light') return 'Light commitment: shorter discussion (2-3 questions, drop the deeper/theological question), simpler handout. Keep the full session structure, just compressed.';
+  if (level === 'deep-dive') return 'Deep-dive commitment: include the optional deeper/theological question, and add one additional cross-reference or word-study note per session for those who want to go further.';
+  return 'Standard commitment: 3-4 discussion questions including the optional deeper/theological question.';
+}
+
+function buildCurriculumSystemPrompt(weeks, groupType, commitment) {
+  return 'You are building a real, ready-to-use small group Bible study curriculum — not a description of one. ' +
+    'Write ' + weeks + ' full sessions for a ' + groupType + ' group. ' + commitmentNote(commitment) + '\n\n' +
+    'For EACH week, follow this exact template:\n\n' +
+    'WEEK [N]: [Title]\nPassage: [Reference]\n\n' +
+    'LEADER GUIDE\n- Session goal (1 sentence)\n- Key background leader should know before teaching\n- Pacing notes (suggested minutes per section)\n\n' +
+    'ICEBREAKER\n- [Low-commitment opening question or activity, thematically linked]\n\n' +
+    'DISCUSSION QUESTIONS\n1. [Observation question — what does the text say]\n2. [Interpretation question — what does it mean]\n3. [Application question — so what, now what]\n4. [Optional deeper/theological question, standard+ commitment only]\n\n' +
+    'PARTICIPANT HANDOUT\n- Passage text reference\n- 2-3 reflection questions for take-home\n- One memory verse or key phrase\n\n' +
+    'Ground every session in the actual text and real historical/theological context. Stay neutral on contested interpretive questions unless the group type clearly calls for a specific tradition. Do not pad with filler — every line should be usable as-is by a real leader.';
+}
+
+function buildCurriculumUserPrompt(topic, weeks, notes) {
+  var p = 'Topic/passage for this curriculum: ' + topic + '\nNumber of weeks: ' + weeks + '.';
+  if (notes && notes.trim()) p += '\nAdditional notes to shape it: ' + notes.trim();
+  p += '\n\nWrite all ' + weeks + ' full weeks now, in order, using the exact template given.';
+  return p;
+}
+
+async function callChatAPI(systemPrompt, userPrompt, maxTokens) {
+  var response = await fetch('/api/chat', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-6',
+      max_tokens: maxTokens,
+      system: systemPrompt,
+      messages: [{ role: 'user', content: userPrompt }]
+    })
+  });
+  var data = await response.json();
+  if (data.error) { throw new Error(data.error.message || JSON.stringify(data.error)); }
+  return (data.content || []).filter(function (b) { return b.type === 'text'; }).map(function (b) { return b.text; }).join('\n');
+}
+
+async function generateCurriculum() {
+  var topic = document.getElementById('fld-curr-topic').value.trim();
+  var weeks = parseInt(document.getElementById('fld-curr-weeks').value || '4');
+  var groupType = document.getElementById('fld-curr-group').value;
+  var commitment = document.getElementById('fld-curr-commitment').value;
+  var notes = document.getElementById('fld-curr-notes').value;
+  var wantAudio = document.getElementById('fld-curr-audio').checked;
+
+  if (!topic) { alert('Enter a passage or topic first.'); return; }
+  weeks = Math.max(1, Math.min(20, weeks));
+
+  var btn = document.getElementById('curr-generate-btn');
+  btn.disabled = true; btn.textContent = 'Generating…';
+
+  var curriculumBox = document.getElementById('curriculum-output');
+  document.getElementById('curriculum-section').style.display = 'block';
+  curriculumBox.classList.remove('empty');
+  curriculumBox.textContent = 'Writing ' + weeks + ' session' + (weeks > 1 ? 's' : '') + '… this can take a little while for longer curricula.';
+
+  try {
+    var system = buildCurriculumSystemPrompt(weeks, groupType, commitment);
+    var user = buildCurriculumUserPrompt(topic, weeks, notes);
+    var maxTokens = Math.min(8000, 500 + weeks * 550);
+    var text = await callChatAPI(system, user, maxTokens);
+    lastCurriculumText = text;
+    curriculumBox.textContent = text;
+
+    if (wantAudio) {
+      var audioBox = document.getElementById('curriculum-audio-output');
+      document.getElementById('curriculum-audio-section').style.display = 'block';
+      audioBox.classList.remove('empty');
+      audioBox.textContent = 'Writing the audio-friendly variant…';
+      var audioSystem = 'Rewrite the following small group curriculum as a plain-text, audio-friendly variant: ' +
+        'no tables, no nested bullets, short declarative sentences, and explicit spoken section markers ' +
+        '("Week one...", "Leader guide...", "Icebreaker...", "Discussion question one...", "Participant handout...") ' +
+        'so it can be fed directly to text-to-speech without reformatting. Keep all the real content, just restructure how it reads aloud.';
+      var audioText = await callChatAPI(audioSystem, text, maxTokens);
+      lastCurriculumAudioText = audioText;
+      audioBox.textContent = audioText;
+    }
+  } catch (e) {
+    curriculumBox.textContent = 'Something went wrong generating this: ' + e.message + '\n\nMake sure server.py is running with ANTHROPIC_API_KEY set, and that this device has internet access.';
+  } finally {
+    btn.disabled = false; btn.textContent = '📚 Generate Curriculum';
+  }
+}
+
+function copyCurriculum() {
+  if (!lastCurriculumText) return;
+  var done = function () {
+    var c = document.getElementById('curr-copy-confirm');
+    c.classList.add('show');
+    setTimeout(function () { c.classList.remove('show'); }, 1800);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(lastCurriculumText).then(done).catch(function () { fallbackCopy(lastCurriculumText, done); });
+  } else {
+    fallbackCopy(lastCurriculumText, done);
+  }
+}
+
+function downloadCurriculum() {
+  if (!lastCurriculumText) return;
+  var topic = document.getElementById('fld-curr-topic').value.trim().replace(/[^a-z0-9]+/gi, '-').toLowerCase() || 'small-group-curriculum';
+  var blob = new Blob([lastCurriculumText], { type: 'text/markdown' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url; a.download = topic + '-curriculum.md';
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function copyCurriculumAudio() {
+  if (!lastCurriculumAudioText) return;
+  var done = function () {
+    var c = document.getElementById('curr-audio-copy-confirm');
+    c.classList.add('show');
+    setTimeout(function () { c.classList.remove('show'); }, 1800);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(lastCurriculumAudioText).then(done).catch(function () { fallbackCopy(lastCurriculumAudioText, done); });
+  } else {
+    fallbackCopy(lastCurriculumAudioText, done);
+  }
+}
+
+function sendCurriculumToPlanBuilder() {
+  if (!lastCurriculumText) { alert('Generate a curriculum first.'); return; }
+  var topic = document.getElementById('fld-curr-topic').value.trim();
+  var weeks = document.getElementById('fld-curr-weeks').value;
+  localStorage.setItem('sh-curriculum-handoff', JSON.stringify({ topic: topic, weeks: weeks, text: lastCurriculumText }));
+  window.location.href = 'plan-builder.html';
+}
+
+function downloadCurriculumAudio() {
+  if (!lastCurriculumAudioText) return;
+  var topic = document.getElementById('fld-curr-topic').value.trim().replace(/[^a-z0-9]+/gi, '-').toLowerCase() || 'small-group-curriculum';
+  var blob = new Blob([lastCurriculumAudioText], { type: 'text/plain' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url; a.download = topic + '-curriculum-audio.txt';
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+<script src="../data/search-index.js"></script>
+<script src="../data/passage-data.js"></script>
+<script src="../lib/hub-ui.js"></script>
+<script src="../lib/hub-modules.js"></script>
+</body>
+</html>

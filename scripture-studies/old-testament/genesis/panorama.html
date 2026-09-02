@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genesis — Panorama | Living Waters</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Cinzel:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../lib/living-waters.css">
+</head>
+<body class="lw fl-white-page">
+
+<div id="lw-backdrop" class="lw-backdrop"></div>
+<div id="lw-photo-credit" class="lw-photo-credit"></div>
+
+<!-- HEADER -->
+<header class="w-full bg-slate-950/85 border-b border-sky-500/20 backdrop-blur-md sticky top-0 z-50">
+  <div class="bg-amber-500/10 border-b border-amber-500/10 text-amber-300 text-xs py-1 overflow-hidden">
+    <div id="lw-top-ticker" class="lw-marquee-track whitespace-nowrap flex items-center font-semibold tracking-wider"></div>
+  </div>
+  <div class="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between gap-3">
+    <a href="../../../index.html" class="flex items-center gap-2.5 no-underline">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-800 via-slate-600 to-amber-500 flex items-center justify-center border border-sky-300/30">
+        <i class="fa-solid fa-droplet text-white text-sm"></i>
+      </div>
+      <span class="lw-serif font-black text-base tracking-widest text-slate-100">LIVING WATERS</span>
+    </a>
+    <a href="index.html" class="text-xs text-sky-300/90 hover:text-amber-300 no-underline font-semibold tracking-wide">&larr; Genesis</a>
+  </div>
+</header>
+
+<!-- INTRO -->
+<div class="max-w-4xl mx-auto px-6 pt-8 pb-2 text-center">
+  <div class="lw-stat-chip lw-stat-chip-amber mb-3"><i class="fa-solid fa-check"></i> Complete — All 50 Chapters</div>
+  <h1 class="lw-serif text-2xl md:text-3xl font-black text-stone-900 mb-1">Genesis, at a Glance</h1>
+  <p class="text-stone-500 text-sm max-w-2xl mx-auto">Every chapter of Genesis is here in full panorama, KJV text throughout. Tap any cell below to jump straight to it.</p>
+</div>
+
+<!-- SHAPE VIEW (zoom-out map of the whole book) -->
+<div class="fl-shape-wrap">
+  <div class="fl-shape-grid" id="fl-shape-grid"></div>
+  <div class="fl-shape-legend" style="color:#78716c;">
+    <span><i style="background:linear-gradient(135deg,#38bdf8,#f59e0b)"></i>Full panorama</span>
+    <span><i style="background:rgba(148,163,184,0.08);border:1px dashed rgba(148,163,184,0.3)"></i>Not yet built</span>
+  </div>
+</div>
+
+<!-- TOOLBAR: zoom + legend -->
+<div class="fl-toolbar">
+  <div class="fl-zoom-group">
+    <span class="text-xs text-stone-400 mr-1 hidden sm:inline">Text size</span>
+    <button class="fl-zoom-btn" id="fl-zoom-out" aria-label="Zoom out">&minus;</button>
+    <span class="fl-zoom-label" id="fl-zoom-label">100%</span>
+    <button class="fl-zoom-btn" id="fl-zoom-in" aria-label="Zoom in">+</button>
+  </div>
+  <div class="fl-legend">
+    <span class="fl-legend-chip"><span class="fl-legend-dot" style="background:#b45309"></span>God</span>
+    <span class="fl-legend-chip"><span class="fl-legend-dot" style="background:#0e7490"></span>Time</span>
+    <span class="fl-legend-chip"><span class="fl-legend-dot" style="background:#1d4ed8"></span>People</span>
+    <span class="fl-legend-chip"><span class="fl-legend-dot" style="background:#15803d"></span>Place</span>
+  </div>
+</div>
+
+<!-- PERSISTENT MINI TABLE OF CONTENTS -->
+<nav class="fl-mini-toc" id="fl-mini-toc" aria-label="Chapter quick-jump">
+  <span class="fl-mini-toc-label">Genesis</span>
+</nav>
+
+<!-- CONTINUOUS READING AREA -->
+<main class="fl-passage" id="fl-passage">
+
+  <section id="ch1" class="fl-reading" style="padding-top:22px;">
+    <a href="../../periods/early-world.html" class="fl-period-tag fl-period-early-world" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Early World &middot; Genesis 1&ndash;11</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 1 <span class="text-sm font-normal text-stone-400">&middot; The Creation of the Heavens and the Earth</span></h2>
+
+    <div data-lw-chapter="genesis-1"></div>
+  </section>
+
+  <section id="ch2" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/early-world.html" class="fl-period-tag fl-period-early-world" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Early World &middot; Genesis 1&ndash;11</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 2 <span class="text-sm font-normal text-stone-400">&middot; The Planting of Eden &amp; the Creation of Woman</span></h2>
+
+    <div data-lw-chapter="genesis-2"></div>
+  </section>
+
+  <section id="ch3" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/early-world.html" class="fl-period-tag fl-period-early-world" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Early World &middot; Genesis 1&ndash;11</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 3 <span class="text-sm font-normal text-stone-400">&middot; The Fall of Man</span></h2>
+
+    <div data-lw-chapter="genesis-3"></div>
+  </section>
+
+  <section id="ch4" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/early-world.html" class="fl-period-tag fl-period-early-world" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Early World &middot; Genesis 1&ndash;11</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 4 <span class="text-sm font-normal text-stone-400">&middot; Cain and Abel</span></h2>
+
+    <div data-lw-chapter="genesis-4"></div>
+  </section>
+
+  <section id="ch5" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/early-world.html" class="fl-period-tag fl-period-early-world" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Early World &middot; Genesis 1&ndash;11</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 5 <span class="text-sm font-normal text-stone-400">&middot; The Generations of Adam to Noah</span></h2>
+
+    <div data-lw-chapter="genesis-5"></div>
+  </section>
+
+  <section id="ch6" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/early-world.html" class="fl-period-tag fl-period-early-world" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Early World &middot; Genesis 1&ndash;11</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 6 <span class="text-sm font-normal text-stone-400">&middot; Noah and the Coming Flood</span></h2>
+
+    <div data-lw-chapter="genesis-6"></div>
+  </section>
+
+  <section id="ch7" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/early-world.html" class="fl-period-tag fl-period-early-world" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Early World &middot; Genesis 1&ndash;11</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 7 <span class="text-sm font-normal text-stone-400">&middot; The Flood Begins</span></h2>
+
+    <div data-lw-chapter="genesis-7"></div>
+  </section>
+
+  <section id="ch8" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/early-world.html" class="fl-period-tag fl-period-early-world" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Early World &middot; Genesis 1&ndash;11</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 8 <span class="text-sm font-normal text-stone-400">&middot; The Flood Recedes</span></h2>
+
+    <div data-lw-chapter="genesis-8"></div>
+  </section>
+
+  <section id="ch9" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/early-world.html" class="fl-period-tag fl-period-early-world" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Early World &middot; Genesis 1&ndash;11</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 9 <span class="text-sm font-normal text-stone-400">&middot; God's Covenant with Noah</span></h2>
+
+    <div data-lw-chapter="genesis-9"></div>
+  </section>
+
+  <section id="ch10" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/early-world.html" class="fl-period-tag fl-period-early-world" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Early World &middot; Genesis 1&ndash;11</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 10 <span class="text-sm font-normal text-stone-400">&middot; The Table of Nations</span></h2>
+
+    <div data-lw-chapter="genesis-10"></div>
+  </section>
+
+  <section id="ch11" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/early-world.html" class="fl-period-tag fl-period-early-world" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Early World &middot; Genesis 1&ndash;11</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 11 <span class="text-sm font-normal text-stone-400">&middot; The Tower of Babel &amp; the Line to Abram</span></h2>
+
+    <div data-lw-chapter="genesis-11"></div>
+  </section>
+
+  <section id="ch12" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 12 <span class="text-sm font-normal text-stone-400">&middot; The Call of Abram</span></h2>
+
+    <div data-lw-chapter="genesis-12"></div>
+  </section>
+
+  <section id="ch13" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 13 <span class="text-sm font-normal text-stone-400">&middot; Abram and Lot Separate</span></h2>
+
+    <div data-lw-chapter="genesis-13"></div>
+  </section>
+
+  <section id="ch14" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 14 <span class="text-sm font-normal text-stone-400">&middot; Abram Rescues Lot &amp; Meets Melchizedek</span></h2>
+
+    <div data-lw-chapter="genesis-14"></div>
+  </section>
+
+  <section id="ch15" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 15 <span class="text-sm font-normal text-stone-400">&middot; God's Covenant with Abram</span></h2>
+
+    <div data-lw-chapter="genesis-15"></div>
+  </section>
+
+  <section id="ch16" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 16 <span class="text-sm font-normal text-stone-400">&middot; Hagar and Ishmael</span></h2>
+
+    <div data-lw-chapter="genesis-16"></div>
+  </section>
+
+  <section id="ch17" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 17 <span class="text-sm font-normal text-stone-400">&middot; The Covenant of Circumcision</span></h2>
+
+    <div data-lw-chapter="genesis-17"></div>
+  </section>
+
+  <section id="ch18" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 18 <span class="text-sm font-normal text-stone-400">&middot; The Three Visitors &amp; Abraham's Intercession</span></h2>
+
+    <div data-lw-chapter="genesis-18"></div>
+  </section>
+
+  <section id="ch19" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 19 <span class="text-sm font-normal text-stone-400">&middot; The Destruction of Sodom &amp; Gomorrah</span></h2>
+
+    <div data-lw-chapter="genesis-19"></div>
+  </section>
+
+  <section id="ch20" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 20 <span class="text-sm font-normal text-stone-400">&middot; Abraham and Abimelech</span></h2>
+
+    <div data-lw-chapter="genesis-20"></div>
+  </section>
+
+  <section id="ch21" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 21 <span class="text-sm font-normal text-stone-400">&middot; The Birth of Isaac; Hagar Sent Away</span></h2>
+
+    <div data-lw-chapter="genesis-21"></div>
+  </section>
+
+  <section id="ch22" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 22 <span class="text-sm font-normal text-stone-400">&middot; The Sacrifice of Isaac</span></h2>
+
+    <div data-lw-chapter="genesis-22"></div>
+  </section>
+
+  <section id="ch23" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 23 <span class="text-sm font-normal text-stone-400">&middot; The Death of Sarah</span></h2>
+
+    <div data-lw-chapter="genesis-23"></div>
+  </section>
+
+  <section id="ch24" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 24 <span class="text-sm font-normal text-stone-400">&middot; A Bride for Isaac</span></h2>
+
+    <div data-lw-chapter="genesis-24"></div>
+  </section>
+
+  <section id="ch25" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 25 <span class="text-sm font-normal text-stone-400">&middot; The Death of Abraham; Esau and Jacob</span></h2>
+
+    <div data-lw-chapter="genesis-25"></div>
+  </section>
+
+  <section id="ch26" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 26 <span class="text-sm font-normal text-stone-400">&middot; Isaac at Gerar</span></h2>
+
+    <div data-lw-chapter="genesis-26"></div>
+  </section>
+
+  <section id="ch27" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 27 <span class="text-sm font-normal text-stone-400">&middot; Jacob Deceives Isaac &amp; Receives the Blessing</span></h2>
+
+    <div data-lw-chapter="genesis-27"></div>
+  </section>
+
+  <section id="ch28" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 28 <span class="text-sm font-normal text-stone-400">&middot; Jacob's Ladder</span></h2>
+
+    <div data-lw-chapter="genesis-28"></div>
+  </section>
+
+  <section id="ch29" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 29 <span class="text-sm font-normal text-stone-400">&middot; Jacob, Rachel, and Leah</span></h2>
+
+    <div data-lw-chapter="genesis-29"></div>
+  </section>
+
+  <section id="ch30" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 30 <span class="text-sm font-normal text-stone-400">&middot; Jacob's Children &amp; Flocks Increase</span></h2>
+
+    <div data-lw-chapter="genesis-30"></div>
+  </section>
+
+  <section id="ch31" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 31 <span class="text-sm font-normal text-stone-400">&middot; Jacob Flees from Laban</span></h2>
+
+    <div data-lw-chapter="genesis-31"></div>
+  </section>
+
+  <section id="ch32" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 32 <span class="text-sm font-normal text-stone-400">&middot; Jacob Wrestles with God</span></h2>
+
+    <div data-lw-chapter="genesis-32"></div>
+  </section>
+
+  <section id="ch33" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 33 <span class="text-sm font-normal text-stone-400">&middot; Jacob and Esau Reconciled</span></h2>
+
+    <div data-lw-chapter="genesis-33"></div>
+  </section>
+
+  <section id="ch34" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 34 <span class="text-sm font-normal text-stone-400">&middot; Dinah and the Shechemites</span></h2>
+
+    <div data-lw-chapter="genesis-34"></div>
+  </section>
+
+  <section id="ch35" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 35 <span class="text-sm font-normal text-stone-400">&middot; Jacob Returns to Bethel; the Death of Rachel and Isaac</span></h2>
+
+    <div data-lw-chapter="genesis-35"></div>
+  </section>
+
+  <section id="ch36" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 36 <span class="text-sm font-normal text-stone-400">&middot; The Generations of Esau</span></h2>
+
+    <div data-lw-chapter="genesis-36"></div>
+  </section>
+
+  <section id="ch37" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 37 <span class="text-sm font-normal text-stone-400">&middot; Joseph and His Brothers</span></h2>
+
+    <div data-lw-chapter="genesis-37"></div>
+  </section>
+
+  <section id="ch38" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 38 <span class="text-sm font-normal text-stone-400">&middot; Judah and Tamar</span></h2>
+
+    <div data-lw-chapter="genesis-38"></div>
+  </section>
+
+  <section id="ch39" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 39 <span class="text-sm font-normal text-stone-400">&middot; Joseph in Potiphar's House</span></h2>
+
+    <div data-lw-chapter="genesis-39"></div>
+  </section>
+
+  <section id="ch40" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 40 <span class="text-sm font-normal text-stone-400">&middot; The Butler and the Baker</span></h2>
+
+    <div data-lw-chapter="genesis-40"></div>
+  </section>
+
+  <section id="ch41" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 41 <span class="text-sm font-normal text-stone-400">&middot; Pharaoh's Dreams; Joseph Made Ruler of Egypt</span></h2>
+
+    <div data-lw-chapter="genesis-41"></div>
+  </section>
+
+  <section id="ch42" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 42 <span class="text-sm font-normal text-stone-400">&middot; Joseph's Brothers Go to Egypt</span></h2>
+
+    <div data-lw-chapter="genesis-42"></div>
+  </section>
+
+  <section id="ch43" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 43 <span class="text-sm font-normal text-stone-400">&middot; The Brothers Return to Egypt with Benjamin</span></h2>
+
+    <div data-lw-chapter="genesis-43"></div>
+  </section>
+
+  <section id="ch44" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 44 <span class="text-sm font-normal text-stone-400">&middot; Joseph's Silver Cup</span></h2>
+
+    <div data-lw-chapter="genesis-44"></div>
+  </section>
+
+  <section id="ch45" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 45 <span class="text-sm font-normal text-stone-400">&middot; Joseph Makes Himself Known to His Brothers</span></h2>
+
+    <div data-lw-chapter="genesis-45"></div>
+  </section>
+
+  <section id="ch46" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 46 <span class="text-sm font-normal text-stone-400">&middot; Jacob's Family Goes Down to Egypt</span></h2>
+
+    <div data-lw-chapter="genesis-46"></div>
+  </section>
+
+  <section id="ch47" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 47 <span class="text-sm font-normal text-stone-400">&middot; Jacob Settles in Goshen</span></h2>
+
+    <div data-lw-chapter="genesis-47"></div>
+  </section>
+
+  <section id="ch48" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 48 <span class="text-sm font-normal text-stone-400">&middot; Jacob Blesses Ephraim and Manasseh</span></h2>
+
+    <div data-lw-chapter="genesis-48"></div>
+  </section>
+
+  <section id="ch49" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 49 <span class="text-sm font-normal text-stone-400">&middot; Jacob Blesses His Twelve Sons</span></h2>
+
+    <div data-lw-chapter="genesis-49"></div>
+  </section>
+
+  <section id="ch50" class="fl-reading" style="padding-top:10px;">
+    <a href="../../periods/patriarchs.html" class="fl-period-tag fl-period-patriarchs" style="text-decoration:none;"><i class="fa-solid fa-earth-americas"></i> Patriarchs &middot; Genesis 12&ndash;50</a>
+    <h2 class="lw-serif text-xl font-bold text-stone-900 mb-3">Chapter 50 <span class="text-sm font-normal text-stone-400">&middot; The Death of Jacob and Joseph</span></h2>
+
+    <div data-lw-chapter="genesis-50"></div>
+  </section>
+
+</main>
+
+<script src="../../../lib/living-waters.js"></script>
+<script src="../../../data/panorama-data.js"></script>
+<script src="../../../lib/panorama-render.js"></script>
+<script>
+  // Verse counts per chapter, derived from the real data at build time.
+  // A 0 means that chapter isn't written yet.
+  var verseCounts = [34,22,24,26,32,22,24,22,29,32,32,20,18,24,21,16,27,33,38,18,34,24,20,67,34,35,46,22,35,43,55,32,20,31,29,43,36,30,23,23,57,38,34,34,28,34,31,22,33,26];
+  var bookName = "Genesis";
+  var built = {};
+  [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50].forEach(function(n){ built[n] = 'panorama'; });
+
+  var grid = document.getElementById('fl-shape-grid');
+  verseCounts.forEach(function(count, idx){
+    var chNum = idx + 1;
+    var status = built[chNum];
+    var cell = document.createElement(status ? 'a' : 'div');
+    cell.className = 'fl-shape-cell ' + (status ? 'fl-shape-panorama' : 'fl-shape-empty');
+    cell.style.flexGrow = Math.max(count, 10);
+    cell.textContent = chNum;
+    cell.title = bookName + ' ' + chNum + (status ? '' : ' — not yet built');
+    if (status) { cell.href = '#ch' + chNum; }
+    grid.appendChild(cell);
+  });
+
+  // Persistent mini-TOC — built chapters only
+  var miniToc = document.getElementById('fl-mini-toc');
+  var miniChips = [];
+  Object.keys(built).forEach(function(chNum){
+    var chip = document.createElement('a');
+    chip.className = 'fl-mini-toc-chip';
+    chip.href = '#ch' + chNum;
+    chip.textContent = chNum;
+    chip.style.background = 'linear-gradient(135deg,#38bdf8,#f59e0b)';
+    chip.style.color = '#0c1220';
+    chip.dataset.ch = chNum;
+    miniToc.appendChild(chip);
+    miniChips.push(chip);
+  });
+
+  // Scroll-spy: highlight whichever chapter section is in view
+  var sections = Object.keys(built).map(function(n){ return document.getElementById('ch' + n); }).filter(Boolean);
+  function updateCurrent(){
+    var pos = window.scrollY + 120;
+    var current = sections[0];
+    sections.forEach(function(sec){ if (sec.offsetTop <= pos) current = sec; });
+    miniChips.forEach(function(chip){
+      chip.classList.toggle('fl-mini-current', current && chip.dataset.ch === current.id.replace('ch',''));
+    });
+  }
+  window.addEventListener('scroll', updateCurrent, { passive: true });
+  updateCurrent();
+
+  // Zoom controls
+  (function(){
+    var scale = 1;
+    var min = 0.75, max = 1.6, step = 0.1;
+    var label = document.getElementById('fl-zoom-label');
+    var passage = document.getElementById('fl-passage');
+    function apply(){
+      passage.style.setProperty('--fl-scale', scale.toFixed(2));
+      label.textContent = Math.round(scale * 100) + '%';
+    }
+    document.getElementById('fl-zoom-in').addEventListener('click', function(){
+      scale = Math.min(max, +(scale + step).toFixed(2)); apply();
+    });
+    document.getElementById('fl-zoom-out').addEventListener('click', function(){
+      scale = Math.max(min, +(scale - step).toFixed(2)); apply();
+    });
+    apply();
+  })();
+</script>
+
+</body>
+</html>

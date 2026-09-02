@@ -1,0 +1,2557 @@
+[
+  {
+    "day": 1,
+    "period": "Early World",
+    "first_reading": "Genesis 1-2",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 19"
+  },
+  {
+    "day": 2,
+    "period": "Early World",
+    "first_reading": "Genesis 3-4",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 104"
+  },
+  {
+    "day": 3,
+    "period": "Early World",
+    "first_reading": "Genesis 5-6",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 136"
+  },
+  {
+    "day": 4,
+    "period": "Early World",
+    "first_reading": "Genesis 7-9",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 1"
+  },
+  {
+    "day": 5,
+    "period": "Early World",
+    "first_reading": "Genesis 10-11",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 2"
+  },
+  {
+    "day": 6,
+    "period": "Patriarchs",
+    "first_reading": "Genesis 12-13",
+    "second_reading": "Job 1-2",
+    "psalm_proverbs": "Proverbs 1:1-7"
+  },
+  {
+    "day": 7,
+    "period": "Patriarchs",
+    "first_reading": "Genesis 14-15",
+    "second_reading": "Job 3-4",
+    "psalm_proverbs": "Proverbs 1:8-19"
+  },
+  {
+    "day": 8,
+    "period": "Patriarchs",
+    "first_reading": "Genesis 16-17",
+    "second_reading": "Job 5-6",
+    "psalm_proverbs": "Proverbs 1:20-33"
+  },
+  {
+    "day": 9,
+    "period": "Patriarchs",
+    "first_reading": "Genesis 18-19",
+    "second_reading": "Job 7-8",
+    "psalm_proverbs": "Proverbs 2:1-5"
+  },
+  {
+    "day": 10,
+    "period": "Patriarchs",
+    "first_reading": "Genesis 20-21",
+    "second_reading": "Job 9-10",
+    "psalm_proverbs": "Proverbs 2:6-8"
+  },
+  {
+    "day": 11,
+    "period": "Patriarchs",
+    "first_reading": "Genesis 22-23",
+    "second_reading": "Job 11-12",
+    "psalm_proverbs": "Proverbs 2:9-15"
+  },
+  {
+    "day": 12,
+    "period": "Patriarchs",
+    "first_reading": "Genesis 24",
+    "second_reading": "Job 13-14",
+    "psalm_proverbs": "Proverbs 2:16-19"
+  },
+  {
+    "day": 13,
+    "period": "Patriarchs",
+    "first_reading": "Genesis 25-26",
+    "second_reading": "Job 15-16",
+    "psalm_proverbs": "Proverbs 2:20-22"
+  },
+  {
+    "day": 14,
+    "period": "Patriarchs",
+    "first_reading": "Genesis 27-28",
+    "second_reading": "Job 17-18",
+    "psalm_proverbs": "Proverbs 3:1-4"
+  },
+  {
+    "day": 15,
+    "period": "Patriarchs",
+    "first_reading": "Genesis 29-30",
+    "second_reading": "Job 19-20",
+    "psalm_proverbs": "Proverbs 3:5-8"
+  },
+  {
+    "day": 16,
+    "period": "Patriarchs",
+    "first_reading": "Genesis 31-32",
+    "second_reading": "Job 21-22",
+    "psalm_proverbs": "Proverbs 3:9-12"
+  },
+  {
+    "day": 17,
+    "period": "Patriarchs",
+    "first_reading": "Genesis 33-34",
+    "second_reading": "Job 23-24",
+    "psalm_proverbs": "Proverbs 3:13-18"
+  },
+  {
+    "day": 18,
+    "period": "Patriarchs",
+    "first_reading": "Genesis 35-36",
+    "second_reading": "Job 25-26",
+    "psalm_proverbs": "Proverbs 3:19-24"
+  },
+  {
+    "day": 19,
+    "period": "Patriarchs",
+    "first_reading": "Genesis 37",
+    "second_reading": "Job 27-28",
+    "psalm_proverbs": "Proverbs 3:25-27"
+  },
+  {
+    "day": 20,
+    "period": "Patriarchs",
+    "first_reading": "Genesis 38",
+    "second_reading": "Job 29-30",
+    "psalm_proverbs": "Proverbs 3:28-32"
+  },
+  {
+    "day": 21,
+    "period": "Patriarchs",
+    "first_reading": "Genesis 39-40",
+    "second_reading": "Job 31-32",
+    "psalm_proverbs": "Proverbs 3:33-35"
+  },
+  {
+    "day": 22,
+    "period": "Patriarchs",
+    "first_reading": "Genesis 41-42",
+    "second_reading": "Job 33-34",
+    "psalm_proverbs": "Proverbs 4:1-9"
+  },
+  {
+    "day": 23,
+    "period": "Patriarchs",
+    "first_reading": "Genesis 43-44",
+    "second_reading": "Job 35-36",
+    "psalm_proverbs": "Proverbs 4:10-19"
+  },
+  {
+    "day": 24,
+    "period": "Patriarchs",
+    "first_reading": "Genesis 45-46",
+    "second_reading": "Job 37-38",
+    "psalm_proverbs": "Proverbs 4:20-27"
+  },
+  {
+    "day": 25,
+    "period": "Patriarchs",
+    "first_reading": "Genesis 47-48",
+    "second_reading": "Job 39-40",
+    "psalm_proverbs": "Psalm 16"
+  },
+  {
+    "day": 26,
+    "period": "Patriarchs",
+    "first_reading": "Genesis 49-50",
+    "second_reading": "Job 41-42",
+    "psalm_proverbs": "Psalm 17"
+  },
+  {
+    "day": 27,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 1-2",
+    "second_reading": "Leviticus 1",
+    "psalm_proverbs": "Psalm 44"
+  },
+  {
+    "day": 28,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 3",
+    "second_reading": "Leviticus 2-3",
+    "psalm_proverbs": "Psalm 45"
+  },
+  {
+    "day": 29,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 4-5",
+    "second_reading": "Leviticus 4",
+    "psalm_proverbs": "Psalm 46"
+  },
+  {
+    "day": 30,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 6-7",
+    "second_reading": "Leviticus 5",
+    "psalm_proverbs": "Psalm 47"
+  },
+  {
+    "day": 31,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 8",
+    "second_reading": "Leviticus 6",
+    "psalm_proverbs": "Psalm 48"
+  },
+  {
+    "day": 32,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 9",
+    "second_reading": "Leviticus 7",
+    "psalm_proverbs": "Psalm 49"
+  },
+  {
+    "day": 33,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 10-11",
+    "second_reading": "Leviticus 8",
+    "psalm_proverbs": "Psalm 50"
+  },
+  {
+    "day": 34,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 12",
+    "second_reading": "Leviticus 9",
+    "psalm_proverbs": "Psalm 114"
+  },
+  {
+    "day": 35,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 13-14",
+    "second_reading": "Leviticus 10",
+    "psalm_proverbs": "Psalm 53"
+  },
+  {
+    "day": 36,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 15-16",
+    "second_reading": "Leviticus 11",
+    "psalm_proverbs": "Psalm 71"
+  },
+  {
+    "day": 37,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 17-18",
+    "second_reading": "Leviticus 12",
+    "psalm_proverbs": "Psalm 73"
+  },
+  {
+    "day": 38,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 19-20",
+    "second_reading": "Leviticus 13",
+    "psalm_proverbs": "Psalm 74"
+  },
+  {
+    "day": 39,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 21",
+    "second_reading": "Leviticus 14",
+    "psalm_proverbs": "Psalm 75"
+  },
+  {
+    "day": 40,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 22",
+    "second_reading": "Leviticus 15",
+    "psalm_proverbs": "Psalm 76"
+  },
+  {
+    "day": 41,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 23",
+    "second_reading": "Leviticus 16",
+    "psalm_proverbs": "Psalm 77"
+  },
+  {
+    "day": 42,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 24",
+    "second_reading": "Leviticus 17-18",
+    "psalm_proverbs": "Psalm 78"
+  },
+  {
+    "day": 43,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 25-26",
+    "second_reading": "Leviticus 19",
+    "psalm_proverbs": "Psalm 79"
+  },
+  {
+    "day": 44,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 27-28",
+    "second_reading": "Leviticus 20",
+    "psalm_proverbs": "Psalm 119:1-88"
+  },
+  {
+    "day": 45,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 29",
+    "second_reading": "Leviticus 21",
+    "psalm_proverbs": "Psalm 119:89-176"
+  },
+  {
+    "day": 46,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 30-31",
+    "second_reading": "Leviticus 22",
+    "psalm_proverbs": "Psalm 115"
+  },
+  {
+    "day": 47,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 32",
+    "second_reading": "Leviticus 23",
+    "psalm_proverbs": "Psalm 80"
+  },
+  {
+    "day": 48,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 33-34",
+    "second_reading": "Leviticus 24",
+    "psalm_proverbs": "Psalm 81"
+  },
+  {
+    "day": 49,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 35-36",
+    "second_reading": "Leviticus 25",
+    "psalm_proverbs": "Psalm 82"
+  },
+  {
+    "day": 50,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 37-38",
+    "second_reading": "Leviticus 26",
+    "psalm_proverbs": "Psalm 83"
+  },
+  {
+    "day": 51,
+    "period": "Egypt and Exodus",
+    "first_reading": "Exodus 39-40",
+    "second_reading": "Leviticus 27",
+    "psalm_proverbs": "Psalm 84"
+  },
+  {
+    "day": 52,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 1",
+    "second_reading": "Deuteronomy 1",
+    "psalm_proverbs": "Psalm 85"
+  },
+  {
+    "day": 53,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 2",
+    "second_reading": "Deuteronomy 2",
+    "psalm_proverbs": "Psalm 87"
+  },
+  {
+    "day": 54,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 3",
+    "second_reading": "Deuteronomy 3",
+    "psalm_proverbs": "Psalm 88"
+  },
+  {
+    "day": 55,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 4",
+    "second_reading": "Deuteronomy 4",
+    "psalm_proverbs": "Psalm 89"
+  },
+  {
+    "day": 56,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 5",
+    "second_reading": "Deuteronomy 5",
+    "psalm_proverbs": "Psalm 90"
+  },
+  {
+    "day": 57,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 6",
+    "second_reading": "Deuteronomy 6",
+    "psalm_proverbs": "Psalm 91"
+  },
+  {
+    "day": 58,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 7",
+    "second_reading": "Deuteronomy 7",
+    "psalm_proverbs": "Psalm 92"
+  },
+  {
+    "day": 59,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 8-9",
+    "second_reading": "Deuteronomy 8",
+    "psalm_proverbs": "Psalm 93"
+  },
+  {
+    "day": 60,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 10",
+    "second_reading": "Deuteronomy 9",
+    "psalm_proverbs": "Psalm 10"
+  },
+  {
+    "day": 61,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 11",
+    "second_reading": "Deuteronomy 10",
+    "psalm_proverbs": "Psalm 33"
+  },
+  {
+    "day": 62,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 12-13",
+    "second_reading": "Deuteronomy 11",
+    "psalm_proverbs": "Psalm 94"
+  },
+  {
+    "day": 63,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 14",
+    "second_reading": "Deuteronomy 12",
+    "psalm_proverbs": "Psalm 95"
+  },
+  {
+    "day": 64,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 15",
+    "second_reading": "Deuteronomy 13-14",
+    "psalm_proverbs": "Psalm 96"
+  },
+  {
+    "day": 65,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 16",
+    "second_reading": "Deuteronomy 15-16",
+    "psalm_proverbs": "Psalm 97"
+  },
+  {
+    "day": 66,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 17",
+    "second_reading": "Deuteronomy 17-18",
+    "psalm_proverbs": "Psalm 98"
+  },
+  {
+    "day": 67,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 18",
+    "second_reading": "Deuteronomy 19-20",
+    "psalm_proverbs": "Psalm 99"
+  },
+  {
+    "day": 68,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 19-20",
+    "second_reading": "Deuteronomy 21",
+    "psalm_proverbs": "Psalm 100"
+  },
+  {
+    "day": 69,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 21",
+    "second_reading": "Deuteronomy 22",
+    "psalm_proverbs": "Psalm 102"
+  },
+  {
+    "day": 70,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 22",
+    "second_reading": "Deuteronomy 23",
+    "psalm_proverbs": "Psalm 105"
+  },
+  {
+    "day": 71,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 23",
+    "second_reading": "Deuteronomy 24-25",
+    "psalm_proverbs": "Psalm 106"
+  },
+  {
+    "day": 72,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 24-25",
+    "second_reading": "Deuteronomy 26",
+    "psalm_proverbs": "Psalm 107"
+  },
+  {
+    "day": 73,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 26",
+    "second_reading": "Deuteronomy 27",
+    "psalm_proverbs": "Psalm 111"
+  },
+  {
+    "day": 74,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 27-28",
+    "second_reading": "Deuteronomy 28",
+    "psalm_proverbs": "Psalm 112"
+  },
+  {
+    "day": 75,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 29-30",
+    "second_reading": "Deuteronomy 29",
+    "psalm_proverbs": "Psalm 113"
+  },
+  {
+    "day": 76,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 31",
+    "second_reading": "Deuteronomy 30",
+    "psalm_proverbs": "Psalm 116"
+  },
+  {
+    "day": 77,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 32",
+    "second_reading": "Deuteronomy 31",
+    "psalm_proverbs": "Psalm 117"
+  },
+  {
+    "day": 78,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 33",
+    "second_reading": "Deuteronomy 32",
+    "psalm_proverbs": "Psalm 118"
+  },
+  {
+    "day": 79,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 34",
+    "second_reading": "Deuteronomy 33",
+    "psalm_proverbs": "Psalm 120"
+  },
+  {
+    "day": 80,
+    "period": "Desert Wanderings",
+    "first_reading": "Numbers 35-36",
+    "second_reading": "Deuteronomy 34",
+    "psalm_proverbs": "Psalm 121"
+  },
+  {
+    "day": 81,
+    "period": "Conquest and Judges",
+    "first_reading": "Joshua 1-4",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 123"
+  },
+  {
+    "day": 82,
+    "period": "Conquest and Judges",
+    "first_reading": "Joshua 5-7",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 125"
+  },
+  {
+    "day": 83,
+    "period": "Conquest and Judges",
+    "first_reading": "Joshua 8-9",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 126"
+  },
+  {
+    "day": 84,
+    "period": "Conquest and Judges",
+    "first_reading": "Joshua 10-11",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 128"
+  },
+  {
+    "day": 85,
+    "period": "Conquest and Judges",
+    "first_reading": "Joshua 12-14",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 129"
+  },
+  {
+    "day": 86,
+    "period": "Conquest and Judges",
+    "first_reading": "Joshua 15-18",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 130"
+  },
+  {
+    "day": 87,
+    "period": "Conquest and Judges",
+    "first_reading": "Joshua 19-21",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 131"
+  },
+  {
+    "day": 88,
+    "period": "Conquest and Judges",
+    "first_reading": "Joshua 22-24",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 132"
+  },
+  {
+    "day": 89,
+    "period": "Conquest and Judges",
+    "first_reading": "Judges 1-3",
+    "second_reading": "Ruth 1",
+    "psalm_proverbs": "Psalm 133"
+  },
+  {
+    "day": 90,
+    "period": "Conquest and Judges",
+    "first_reading": "Judges 4-5",
+    "second_reading": "Ruth 2",
+    "psalm_proverbs": "Psalm 134"
+  },
+  {
+    "day": 91,
+    "period": "Conquest and Judges",
+    "first_reading": "Judges 6-8",
+    "second_reading": "Ruth 3",
+    "psalm_proverbs": "Psalm 135"
+  },
+  {
+    "day": 92,
+    "period": "Conquest and Judges",
+    "first_reading": "Judges 9-11",
+    "second_reading": "Ruth 4",
+    "psalm_proverbs": "Psalm 137"
+  },
+  {
+    "day": 93,
+    "period": "Conquest and Judges",
+    "first_reading": "Judges 12-15",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 146"
+  },
+  {
+    "day": 94,
+    "period": "Conquest and Judges",
+    "first_reading": "Judges 16-18",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 147"
+  },
+  {
+    "day": 95,
+    "period": "Conquest and Judges",
+    "first_reading": "Judges 19-21",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 148"
+  },
+  {
+    "day": 96,
+    "period": "Conquest and Judges",
+    "first_reading": "1 Samuel 1-2",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 149"
+  },
+  {
+    "day": 97,
+    "period": "Conquest and Judges",
+    "first_reading": "1 Samuel 3-5",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 150"
+  },
+  {
+    "day": 98,
+    "period": "Conquest and Judges",
+    "first_reading": "1 Samuel 6-8",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 86"
+  },
+  {
+    "day": 99,
+    "period": "Messianic Checkpoint",
+    "first_reading": "John 1-3",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 5:1-6"
+  },
+  {
+    "day": 100,
+    "period": "Messianic Checkpoint",
+    "first_reading": "John 4-6",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 5:7-14"
+  },
+  {
+    "day": 101,
+    "period": "Messianic Checkpoint",
+    "first_reading": "John 7-9",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 5:15-23"
+  },
+  {
+    "day": 102,
+    "period": "Messianic Checkpoint",
+    "first_reading": "John 10-12",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 6:1-11"
+  },
+  {
+    "day": 103,
+    "period": "Messianic Checkpoint",
+    "first_reading": "John 13-15",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 6:12-19"
+  },
+  {
+    "day": 104,
+    "period": "Messianic Checkpoint",
+    "first_reading": "John 16-18",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 6:20-24"
+  },
+  {
+    "day": 105,
+    "period": "Messianic Checkpoint",
+    "first_reading": "John 19-21",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 6:25-35"
+  },
+  {
+    "day": 106,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Samuel 9-10",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 50"
+  },
+  {
+    "day": 107,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Samuel 11-12",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 55"
+  },
+  {
+    "day": 108,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Samuel 13-14",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 58"
+  },
+  {
+    "day": 109,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Samuel 15-16",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 61"
+  },
+  {
+    "day": 110,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Samuel 17",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 12"
+  },
+  {
+    "day": 111,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Samuel 18-19",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 59"
+  },
+  {
+    "day": 112,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Samuel 20",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 142"
+  },
+  {
+    "day": 113,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Samuel 21-22",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 52"
+  },
+  {
+    "day": 114,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Samuel 23",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 54"
+  },
+  {
+    "day": 115,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Samuel 24",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 57"
+  },
+  {
+    "day": 116,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Samuel 25",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 63"
+  },
+  {
+    "day": 117,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Samuel 26",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 56"
+  },
+  {
+    "day": 118,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Samuel 27-28",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 34"
+  },
+  {
+    "day": 119,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Samuel 29-31",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 18"
+  },
+  {
+    "day": 120,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 1",
+    "second_reading": "1 Chronicles 1",
+    "psalm_proverbs": "Psalm 13"
+  },
+  {
+    "day": 121,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 2",
+    "second_reading": "1 Chronicles 2",
+    "psalm_proverbs": "Psalm 24"
+  },
+  {
+    "day": 122,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 3",
+    "second_reading": "1 Chronicles 3-4",
+    "psalm_proverbs": "Psalm 25"
+  },
+  {
+    "day": 123,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 4",
+    "second_reading": "1 Chronicles 5-6",
+    "psalm_proverbs": "Psalm 26"
+  },
+  {
+    "day": 124,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 5",
+    "second_reading": "1 Chronicles 7-8",
+    "psalm_proverbs": "Psalm 27"
+  },
+  {
+    "day": 125,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 6-7",
+    "second_reading": "1 Chronicles 9",
+    "psalm_proverbs": "Psalm 89"
+  },
+  {
+    "day": 126,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 8",
+    "second_reading": "1 Chronicles 10-11",
+    "psalm_proverbs": "Psalm 60"
+  },
+  {
+    "day": 127,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 9",
+    "second_reading": "1 Chronicles 12",
+    "psalm_proverbs": "Psalm 28"
+  },
+  {
+    "day": 128,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 10",
+    "second_reading": "1 Chronicles 13",
+    "psalm_proverbs": "Psalm 31"
+  },
+  {
+    "day": 129,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 11",
+    "second_reading": "1 Chronicles 14-15",
+    "psalm_proverbs": "Psalm 32"
+  },
+  {
+    "day": 130,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 12",
+    "second_reading": "1 Chronicles 16",
+    "psalm_proverbs": "Psalm 51"
+  },
+  {
+    "day": 131,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 13",
+    "second_reading": "1 Chronicles 17",
+    "psalm_proverbs": "Psalm 35"
+  },
+  {
+    "day": 132,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 14",
+    "second_reading": "1 Chronicles 18",
+    "psalm_proverbs": "Psalm 14"
+  },
+  {
+    "day": 133,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 15",
+    "second_reading": "1 Chronicles 19-20",
+    "psalm_proverbs": "Psalm 3"
+  },
+  {
+    "day": 134,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 16",
+    "second_reading": "1 Chronicles 21",
+    "psalm_proverbs": "Psalm 15"
+  },
+  {
+    "day": 135,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 17",
+    "second_reading": "1 Chronicles 22",
+    "psalm_proverbs": "Psalm 36"
+  },
+  {
+    "day": 136,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 18",
+    "second_reading": "1 Chronicles 23",
+    "psalm_proverbs": "Psalm 37"
+  },
+  {
+    "day": 137,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 19",
+    "second_reading": "1 Chronicles 24",
+    "psalm_proverbs": "Psalm 38"
+  },
+  {
+    "day": 138,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 20",
+    "second_reading": "1 Chronicles 25",
+    "psalm_proverbs": "Psalm 39"
+  },
+  {
+    "day": 139,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 21",
+    "second_reading": "1 Chronicles 26",
+    "psalm_proverbs": "Psalm 40"
+  },
+  {
+    "day": 140,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 22",
+    "second_reading": "1 Chronicles 27",
+    "psalm_proverbs": "Psalm 41"
+  },
+  {
+    "day": 141,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 23",
+    "second_reading": "1 Chronicles 28",
+    "psalm_proverbs": "Psalm 42"
+  },
+  {
+    "day": 142,
+    "period": "Royal Kingdom",
+    "first_reading": "2 Samuel 24",
+    "second_reading": "1 Chronicles 29",
+    "psalm_proverbs": "Psalm 30"
+  },
+  {
+    "day": 143,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Kings 1",
+    "second_reading": "2 Chronicles 1",
+    "psalm_proverbs": "Psalm 43"
+  },
+  {
+    "day": 144,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Kings 2",
+    "second_reading": "2 Chronicles 2-3",
+    "psalm_proverbs": "Psalm 62"
+  },
+  {
+    "day": 145,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Kings 3",
+    "second_reading": "2 Chronicles 4-5",
+    "psalm_proverbs": "Psalm 64"
+  },
+  {
+    "day": 146,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Kings 4",
+    "second_reading": "2 Chronicles 6",
+    "psalm_proverbs": "Psalm 65"
+  },
+  {
+    "day": 147,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Kings 5",
+    "second_reading": "2 Chronicles 7-8",
+    "psalm_proverbs": "Psalm 66"
+  },
+  {
+    "day": 148,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Kings 6",
+    "second_reading": "2 Chronicles 9",
+    "psalm_proverbs": "Psalm 4"
+  },
+  {
+    "day": 149,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Kings 7",
+    "second_reading": "Ecclesiastes 1-2",
+    "psalm_proverbs": "Psalm 5"
+  },
+  {
+    "day": 150,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Kings 8",
+    "second_reading": "Ecclesiastes 3-5",
+    "psalm_proverbs": "Psalm 6"
+  },
+  {
+    "day": 151,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Kings 9",
+    "second_reading": "Ecclesiastes 6-7",
+    "psalm_proverbs": "Psalm 7"
+  },
+  {
+    "day": 152,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Kings 10",
+    "second_reading": "Ecclesiastes 8-9",
+    "psalm_proverbs": "Psalm 8"
+  },
+  {
+    "day": 153,
+    "period": "Royal Kingdom",
+    "first_reading": "1 Kings 11",
+    "second_reading": "Ecclesiastes 10-12",
+    "psalm_proverbs": "Psalm 9"
+  },
+  {
+    "day": 154,
+    "period": "Messianic Checkpoint",
+    "first_reading": "Mark 1-2",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 11"
+  },
+  {
+    "day": 155,
+    "period": "Messianic Checkpoint",
+    "first_reading": "Mark 3-4",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 20"
+  },
+  {
+    "day": 156,
+    "period": "Messianic Checkpoint",
+    "first_reading": "Mark 5-6",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 21"
+  },
+  {
+    "day": 157,
+    "period": "Messianic Checkpoint",
+    "first_reading": "Mark 7-8",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 23"
+  },
+  {
+    "day": 158,
+    "period": "Messianic Checkpoint",
+    "first_reading": "Mark 9-10",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 29"
+  },
+  {
+    "day": 159,
+    "period": "Messianic Checkpoint",
+    "first_reading": "Mark 11-12",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 67"
+  },
+  {
+    "day": 160,
+    "period": "Messianic Checkpoint",
+    "first_reading": "Mark 13-14",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 68"
+  },
+  {
+    "day": 161,
+    "period": "Messianic Checkpoint",
+    "first_reading": "Mark 15-16",
+    "second_reading": null,
+    "psalm_proverbs": "Psalm 22"
+  },
+  {
+    "day": 162,
+    "period": "Divided Kingdom",
+    "first_reading": "1 Kings 12",
+    "second_reading": "2 Chronicles 10-11",
+    "psalm_proverbs": "Song of Solomon 1"
+  },
+  {
+    "day": 163,
+    "period": "Divided Kingdom",
+    "first_reading": "1 Kings 13",
+    "second_reading": "2 Chronicles 12-13",
+    "psalm_proverbs": "Song of Solomon 2"
+  },
+  {
+    "day": 164,
+    "period": "Divided Kingdom",
+    "first_reading": "1 Kings 14",
+    "second_reading": "2 Chronicles 14-15",
+    "psalm_proverbs": "Song of Solomon 3"
+  },
+  {
+    "day": 165,
+    "period": "Divided Kingdom",
+    "first_reading": "1 Kings 15-16",
+    "second_reading": "2 Chronicles 16-17",
+    "psalm_proverbs": "Song of Solomon 4"
+  },
+  {
+    "day": 166,
+    "period": "Divided Kingdom",
+    "first_reading": "1 Kings 17-18",
+    "second_reading": "2 Chronicles 18-19",
+    "psalm_proverbs": "Song of Solomon 5"
+  },
+  {
+    "day": 167,
+    "period": "Divided Kingdom",
+    "first_reading": "1 Kings 19-20",
+    "second_reading": "2 Chronicles 20",
+    "psalm_proverbs": "Song of Solomon 6"
+  },
+  {
+    "day": 168,
+    "period": "Divided Kingdom",
+    "first_reading": "1 Kings 21",
+    "second_reading": "2 Chronicles 21-22",
+    "psalm_proverbs": "Song of Solomon 7"
+  },
+  {
+    "day": 169,
+    "period": "Divided Kingdom",
+    "first_reading": "1 Kings 22",
+    "second_reading": "2 Chronicles 23",
+    "psalm_proverbs": "Song of Solomon 8"
+  },
+  {
+    "day": 170,
+    "period": "Divided Kingdom",
+    "first_reading": "2 Kings 1",
+    "second_reading": "2 Chronicles 24",
+    "psalm_proverbs": "Psalm 69"
+  },
+  {
+    "day": 171,
+    "period": "Divided Kingdom",
+    "first_reading": "2 Kings 2",
+    "second_reading": "2 Chronicles 25",
+    "psalm_proverbs": "Psalm 70"
+  },
+  {
+    "day": 172,
+    "period": "Divided Kingdom",
+    "first_reading": "2 Kings 3",
+    "second_reading": "2 Chronicles 26-27",
+    "psalm_proverbs": "Psalm 72"
+  },
+  {
+    "day": 173,
+    "period": "Divided Kingdom",
+    "first_reading": "2 Kings 4",
+    "second_reading": "2 Chronicles 28",
+    "psalm_proverbs": "Psalm 127"
+  },
+  {
+    "day": 174,
+    "period": "Divided Kingdom",
+    "first_reading": "2 Kings 5",
+    "second_reading": "Hosea 1-3",
+    "psalm_proverbs": "Psalm 101"
+  },
+  {
+    "day": 175,
+    "period": "Divided Kingdom",
+    "first_reading": "2 Kings 6-7",
+    "second_reading": "Hosea 4-7",
+    "psalm_proverbs": "Psalm 103"
+  },
+  {
+    "day": 176,
+    "period": "Divided Kingdom",
+    "first_reading": "2 Kings 8",
+    "second_reading": "Hosea 8-10",
+    "psalm_proverbs": "Psalm 108"
+  },
+  {
+    "day": 177,
+    "period": "Divided Kingdom",
+    "first_reading": "2 Kings 9",
+    "second_reading": "Hosea 11-14",
+    "psalm_proverbs": "Psalm 109"
+  },
+  {
+    "day": 178,
+    "period": "Divided Kingdom",
+    "first_reading": "2 Kings 10",
+    "second_reading": "Amos 1-3",
+    "psalm_proverbs": "Psalm 110"
+  },
+  {
+    "day": 179,
+    "period": "Divided Kingdom",
+    "first_reading": "2 Kings 11-12",
+    "second_reading": "Amos 4-6",
+    "psalm_proverbs": "Psalm 122"
+  },
+  {
+    "day": 180,
+    "period": "Divided Kingdom",
+    "first_reading": "2 Kings 13-14",
+    "second_reading": "Amos 7-9",
+    "psalm_proverbs": "Psalm 124"
+  },
+  {
+    "day": 181,
+    "period": "Divided Kingdom",
+    "first_reading": "2 Kings 15",
+    "second_reading": "Jonah 1-4",
+    "psalm_proverbs": "Psalm 138"
+  },
+  {
+    "day": 182,
+    "period": "Divided Kingdom",
+    "first_reading": "2 Kings 16",
+    "second_reading": "Micah 1-4",
+    "psalm_proverbs": "Psalm 139"
+  },
+  {
+    "day": 183,
+    "period": "Divided Kingdom",
+    "first_reading": "2 Kings 17",
+    "second_reading": "Micah 5-7",
+    "psalm_proverbs": "Psalm 140"
+  },
+  {
+    "day": 184,
+    "period": "Exile",
+    "first_reading": "2 Kings 18",
+    "second_reading": "2 Chronicles 29",
+    "psalm_proverbs": "Psalm 141"
+  },
+  {
+    "day": 185,
+    "period": "Exile",
+    "first_reading": "2 Kings 19",
+    "second_reading": "2 Chronicles 30",
+    "psalm_proverbs": "Psalm 143"
+  },
+  {
+    "day": 186,
+    "period": "Exile",
+    "first_reading": "2 Kings 20",
+    "second_reading": "2 Chronicles 31",
+    "psalm_proverbs": "Psalm 144"
+  },
+  {
+    "day": 187,
+    "period": "Exile",
+    "first_reading": "2 Kings 21",
+    "second_reading": "2 Chronicles 32",
+    "psalm_proverbs": "Psalm 145"
+  },
+  {
+    "day": 188,
+    "period": "Exile",
+    "first_reading": "2 Kings 22",
+    "second_reading": "2 Chronicles 33",
+    "psalm_proverbs": "Proverbs 7"
+  },
+  {
+    "day": 189,
+    "period": "Exile",
+    "first_reading": "2 Kings 23",
+    "second_reading": "2 Chronicles 34",
+    "psalm_proverbs": "Proverbs 8:1-21"
+  },
+  {
+    "day": 190,
+    "period": "Exile",
+    "first_reading": "2 Kings 24",
+    "second_reading": "2 Chronicles 35",
+    "psalm_proverbs": "Proverbs 8:22-36"
+  },
+  {
+    "day": 191,
+    "period": "Exile",
+    "first_reading": "2 Kings 25",
+    "second_reading": "2 Chronicles 36",
+    "psalm_proverbs": "Proverbs 9:1-6"
+  },
+  {
+    "day": 192,
+    "period": "Exile",
+    "first_reading": "Isaiah 1-2",
+    "second_reading": "Tobit 1-2",
+    "psalm_proverbs": "Proverbs 9:7-12"
+  },
+  {
+    "day": 193,
+    "period": "Exile",
+    "first_reading": "Isaiah 3-4",
+    "second_reading": "Tobit 3-4",
+    "psalm_proverbs": "Proverbs 9:13-18"
+  },
+  {
+    "day": 194,
+    "period": "Exile",
+    "first_reading": "Isaiah 5-6",
+    "second_reading": "Tobit 5-6",
+    "psalm_proverbs": "Proverbs 10:1-4"
+  },
+  {
+    "day": 195,
+    "period": "Exile",
+    "first_reading": "Isaiah 7-8",
+    "second_reading": "Tobit 7-9",
+    "psalm_proverbs": "Proverbs 10:5-8"
+  },
+  {
+    "day": 196,
+    "period": "Exile",
+    "first_reading": "Isaiah 9-10",
+    "second_reading": "Tobit 10-12",
+    "psalm_proverbs": "Proverbs 10:9-12"
+  },
+  {
+    "day": 197,
+    "period": "Exile",
+    "first_reading": "Isaiah 11-13",
+    "second_reading": "Tobit 13-14",
+    "psalm_proverbs": "Proverbs 10:13-16"
+  },
+  {
+    "day": 198,
+    "period": "Exile",
+    "first_reading": "Isaiah 14-15",
+    "second_reading": "Joel 1-2",
+    "psalm_proverbs": "Proverbs 10:17-20"
+  },
+  {
+    "day": 199,
+    "period": "Exile",
+    "first_reading": "Isaiah 16-17",
+    "second_reading": "Joel 3",
+    "psalm_proverbs": "Proverbs 10:21-24"
+  },
+  {
+    "day": 200,
+    "period": "Exile",
+    "first_reading": "Isaiah 18-20",
+    "second_reading": "Nahum 1-2",
+    "psalm_proverbs": "Proverbs 10:25-28"
+  },
+  {
+    "day": 201,
+    "period": "Exile",
+    "first_reading": "Isaiah 21-22",
+    "second_reading": "Nahum 3",
+    "psalm_proverbs": "Proverbs 10:29-32"
+  },
+  {
+    "day": 202,
+    "period": "Exile",
+    "first_reading": "Isaiah 23-24",
+    "second_reading": "Habakkuk 1-2",
+    "psalm_proverbs": "Proverbs 11:1-4"
+  },
+  {
+    "day": 203,
+    "period": "Exile",
+    "first_reading": "Isaiah 25-27",
+    "second_reading": "Habakkuk 3",
+    "psalm_proverbs": "Proverbs 11:5-8"
+  },
+  {
+    "day": 204,
+    "period": "Exile",
+    "first_reading": "Isaiah 28-29",
+    "second_reading": "Zephaniah 1-2",
+    "psalm_proverbs": "Proverbs 11:9-12"
+  },
+  {
+    "day": 205,
+    "period": "Exile",
+    "first_reading": "Isaiah 30-31",
+    "second_reading": "Zephaniah 3",
+    "psalm_proverbs": "Proverbs 11:13-16"
+  },
+  {
+    "day": 206,
+    "period": "Exile",
+    "first_reading": "Isaiah 32-33",
+    "second_reading": "Baruch 1-2",
+    "psalm_proverbs": "Proverbs 11:17-20"
+  },
+  {
+    "day": 207,
+    "period": "Exile",
+    "first_reading": "Isaiah 34-36",
+    "second_reading": "Baruch 3-4",
+    "psalm_proverbs": "Proverbs 11:21-24"
+  },
+  {
+    "day": 208,
+    "period": "Exile",
+    "first_reading": "Isaiah 37-38",
+    "second_reading": "Baruch 5-6",
+    "psalm_proverbs": "Proverbs 11:25-28"
+  },
+  {
+    "day": 209,
+    "period": "Exile",
+    "first_reading": "Isaiah 39-40",
+    "second_reading": "Ezekiel 1",
+    "psalm_proverbs": "Proverbs 11:29-31"
+  },
+  {
+    "day": 210,
+    "period": "Exile",
+    "first_reading": "Isaiah 41-42",
+    "second_reading": "Ezekiel 2-3",
+    "psalm_proverbs": "Proverbs 12:1-4"
+  },
+  {
+    "day": 211,
+    "period": "Exile",
+    "first_reading": "Isaiah 43-44",
+    "second_reading": "Ezekiel 4-5",
+    "psalm_proverbs": "Proverbs 12:5-8"
+  },
+  {
+    "day": 212,
+    "period": "Exile",
+    "first_reading": "Isaiah 45-46",
+    "second_reading": "Ezekiel 6-7",
+    "psalm_proverbs": "Proverbs 12:9-12"
+  },
+  {
+    "day": 213,
+    "period": "Exile",
+    "first_reading": "Isaiah 47-48",
+    "second_reading": "Ezekiel 8-9",
+    "psalm_proverbs": "Proverbs 12:13-16"
+  },
+  {
+    "day": 214,
+    "period": "Exile",
+    "first_reading": "Isaiah 49-50",
+    "second_reading": "Ezekiel 10-11",
+    "psalm_proverbs": "Proverbs 12:17-20"
+  },
+  {
+    "day": 215,
+    "period": "Exile",
+    "first_reading": "Isaiah 51-52",
+    "second_reading": "Ezekiel 12-13",
+    "psalm_proverbs": "Proverbs 12:21-24"
+  },
+  {
+    "day": 216,
+    "period": "Exile",
+    "first_reading": "Isaiah 53-54",
+    "second_reading": "Ezekiel 14-15",
+    "psalm_proverbs": "Proverbs 12:25-28"
+  },
+  {
+    "day": 217,
+    "period": "Exile",
+    "first_reading": "Isaiah 55-56",
+    "second_reading": "Ezekiel 16",
+    "psalm_proverbs": "Proverbs 13:1-4"
+  },
+  {
+    "day": 218,
+    "period": "Exile",
+    "first_reading": "Isaiah 57-58",
+    "second_reading": "Ezekiel 17-18",
+    "psalm_proverbs": "Proverbs 13:5-8"
+  },
+  {
+    "day": 219,
+    "period": "Exile",
+    "first_reading": "Isaiah 59-60",
+    "second_reading": "Ezekiel 19",
+    "psalm_proverbs": "Proverbs 13:9-12"
+  },
+  {
+    "day": 220,
+    "period": "Exile",
+    "first_reading": "Isaiah 61-62",
+    "second_reading": "Ezekiel 20",
+    "psalm_proverbs": "Proverbs 13:13-16"
+  },
+  {
+    "day": 221,
+    "period": "Exile",
+    "first_reading": "Isaiah 63-64",
+    "second_reading": "Ezekiel 21-22",
+    "psalm_proverbs": "Proverbs 13:17-20"
+  },
+  {
+    "day": 222,
+    "period": "Exile",
+    "first_reading": "Isaiah 65",
+    "second_reading": "Ezekiel 23-24",
+    "psalm_proverbs": "Proverbs 13:21-25"
+  },
+  {
+    "day": 223,
+    "period": "Exile",
+    "first_reading": "Isaiah 66",
+    "second_reading": "Ezekiel 25-26",
+    "psalm_proverbs": "Proverbs 14:1-4"
+  },
+  {
+    "day": 224,
+    "period": "Exile",
+    "first_reading": "Jeremiah 1",
+    "second_reading": "Ezekiel 27",
+    "psalm_proverbs": "Proverbs 14:5-8"
+  },
+  {
+    "day": 225,
+    "period": "Exile",
+    "first_reading": "Jeremiah 2",
+    "second_reading": "Ezekiel 28",
+    "psalm_proverbs": "Proverbs 14:9-12"
+  },
+  {
+    "day": 226,
+    "period": "Exile",
+    "first_reading": "Jeremiah 3",
+    "second_reading": "Ezekiel 29-30",
+    "psalm_proverbs": "Proverbs 14:13-16"
+  },
+  {
+    "day": 227,
+    "period": "Exile",
+    "first_reading": "Jeremiah 4",
+    "second_reading": "Ezekiel 31-32",
+    "psalm_proverbs": "Proverbs 14:17-20"
+  },
+  {
+    "day": 228,
+    "period": "Exile",
+    "first_reading": "Jeremiah 5",
+    "second_reading": "Ezekiel 33",
+    "psalm_proverbs": "Proverbs 14:21-24"
+  },
+  {
+    "day": 229,
+    "period": "Exile",
+    "first_reading": "Jeremiah 6",
+    "second_reading": "Ezekiel 34-35",
+    "psalm_proverbs": "Proverbs 14:25-28"
+  },
+  {
+    "day": 230,
+    "period": "Exile",
+    "first_reading": "Jeremiah 7",
+    "second_reading": "Ezekiel 36",
+    "psalm_proverbs": "Proverbs 14:29-32"
+  },
+  {
+    "day": 231,
+    "period": "Exile",
+    "first_reading": "Jeremiah 8",
+    "second_reading": "Ezekiel 37-38",
+    "psalm_proverbs": "Proverbs 14:33-35"
+  },
+  {
+    "day": 232,
+    "period": "Exile",
+    "first_reading": "Jeremiah 9",
+    "second_reading": "Ezekiel 39",
+    "psalm_proverbs": "Proverbs 15:1-4"
+  },
+  {
+    "day": 233,
+    "period": "Exile",
+    "first_reading": "Jeremiah 10-11",
+    "second_reading": "Ezekiel 40",
+    "psalm_proverbs": "Proverbs 15:5-8"
+  },
+  {
+    "day": 234,
+    "period": "Exile",
+    "first_reading": "Jeremiah 12-13",
+    "second_reading": "Ezekiel 41-42",
+    "psalm_proverbs": "Proverbs 15:9-12"
+  },
+  {
+    "day": 235,
+    "period": "Exile",
+    "first_reading": "Jeremiah 14-15",
+    "second_reading": "Ezekiel 43-44",
+    "psalm_proverbs": "Proverbs 15:13-16"
+  },
+  {
+    "day": 236,
+    "period": "Exile",
+    "first_reading": "Jeremiah 16-17",
+    "second_reading": "Ezekiel 45-46",
+    "psalm_proverbs": "Proverbs 15:17-20"
+  },
+  {
+    "day": 237,
+    "period": "Exile",
+    "first_reading": "Jeremiah 18-19",
+    "second_reading": "Ezekiel 47-48",
+    "psalm_proverbs": "Proverbs 15:21-24"
+  },
+  {
+    "day": 238,
+    "period": "Exile",
+    "first_reading": "Jeremiah 20-21",
+    "second_reading": "Daniel 1-2",
+    "psalm_proverbs": "Proverbs 15:25-28"
+  },
+  {
+    "day": 239,
+    "period": "Exile",
+    "first_reading": "Jeremiah 22",
+    "second_reading": "Daniel 3",
+    "psalm_proverbs": "Proverbs 15:29-33"
+  },
+  {
+    "day": 240,
+    "period": "Exile",
+    "first_reading": "Jeremiah 23",
+    "second_reading": "Daniel 4-5",
+    "psalm_proverbs": "Proverbs 16:1-4"
+  },
+  {
+    "day": 241,
+    "period": "Exile",
+    "first_reading": "Jeremiah 24-25",
+    "second_reading": "Daniel 6-7",
+    "psalm_proverbs": "Proverbs 16:5-8"
+  },
+  {
+    "day": 242,
+    "period": "Exile",
+    "first_reading": "Jeremiah 26-27",
+    "second_reading": "Daniel 8-9",
+    "psalm_proverbs": "Proverbs 16:9-12"
+  },
+  {
+    "day": 243,
+    "period": "Exile",
+    "first_reading": "Jeremiah 28-29",
+    "second_reading": "Daniel 10-11",
+    "psalm_proverbs": "Proverbs 16:13-16"
+  },
+  {
+    "day": 244,
+    "period": "Exile",
+    "first_reading": "Jeremiah 30",
+    "second_reading": "Daniel 12-13",
+    "psalm_proverbs": "Proverbs 16:17-20"
+  },
+  {
+    "day": 245,
+    "period": "Exile",
+    "first_reading": "Jeremiah 31",
+    "second_reading": "Daniel 14",
+    "psalm_proverbs": "Proverbs 16:21-24"
+  },
+  {
+    "day": 246,
+    "period": "Exile",
+    "first_reading": "Jeremiah 32",
+    "second_reading": "Judith 1-2",
+    "psalm_proverbs": "Proverbs 16:25-28"
+  },
+  {
+    "day": 247,
+    "period": "Exile",
+    "first_reading": "Jeremiah 33-34",
+    "second_reading": "Judith 3-5",
+    "psalm_proverbs": "Proverbs 16:29-33"
+  },
+  {
+    "day": 248,
+    "period": "Exile",
+    "first_reading": "Jeremiah 35-36",
+    "second_reading": "Judith 6-7",
+    "psalm_proverbs": "Proverbs 17:1-4"
+  },
+  {
+    "day": 249,
+    "period": "Exile",
+    "first_reading": "Jeremiah 37-38",
+    "second_reading": "Judith 8-9",
+    "psalm_proverbs": "Proverbs 17:5-8"
+  },
+  {
+    "day": 250,
+    "period": "Exile",
+    "first_reading": "Jeremiah 39-40",
+    "second_reading": "Judith 10-11",
+    "psalm_proverbs": "Proverbs 17:9-12"
+  },
+  {
+    "day": 251,
+    "period": "Exile",
+    "first_reading": "Jeremiah 41-42",
+    "second_reading": "Judith 12-14",
+    "psalm_proverbs": "Proverbs 17:13-16"
+  },
+  {
+    "day": 252,
+    "period": "Exile",
+    "first_reading": "Jeremiah 43-44",
+    "second_reading": "Judith 15-16",
+    "psalm_proverbs": "Proverbs 17:17-20"
+  },
+  {
+    "day": 253,
+    "period": "Exile",
+    "first_reading": "Jeremiah 45-46",
+    "second_reading": "Lamentations 1",
+    "psalm_proverbs": "Proverbs 17:21-24"
+  },
+  {
+    "day": 254,
+    "period": "Exile",
+    "first_reading": "Jeremiah 47-48",
+    "second_reading": "Lamentations 2",
+    "psalm_proverbs": "Proverbs 18:1-4"
+  },
+  {
+    "day": 255,
+    "period": "Exile",
+    "first_reading": "Jeremiah 49-50",
+    "second_reading": "Lamentations 3",
+    "psalm_proverbs": "Proverbs 18:5-8"
+  },
+  {
+    "day": 256,
+    "period": "Exile",
+    "first_reading": "Jeremiah 51",
+    "second_reading": "Lamentations 4-5",
+    "psalm_proverbs": "Proverbs 18:9-12"
+  },
+  {
+    "day": 257,
+    "period": "Exile",
+    "first_reading": "Jeremiah 52",
+    "second_reading": "Obadiah 1",
+    "psalm_proverbs": "Proverbs 18:13-16"
+  },
+  {
+    "day": 258,
+    "period": "Messianic Checkpoint",
+    "first_reading": "Matthew 1-4",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 18:17-20"
+  },
+  {
+    "day": 259,
+    "period": "Messianic Checkpoint",
+    "first_reading": "Matthew 5-7",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 18:21-24"
+  },
+  {
+    "day": 260,
+    "period": "Messianic Checkpoint",
+    "first_reading": "Matthew 8-10",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 19:1-4"
+  },
+  {
+    "day": 261,
+    "period": "Messianic Checkpoint",
+    "first_reading": "Matthew 11-13",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 19:5-8"
+  },
+  {
+    "day": 262,
+    "period": "Messianic Checkpoint",
+    "first_reading": "Matthew 14-17",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 19:9-12"
+  },
+  {
+    "day": 263,
+    "period": "Messianic Checkpoint",
+    "first_reading": "Matthew 18-21",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 19:13-16"
+  },
+  {
+    "day": 264,
+    "period": "Messianic Checkpoint",
+    "first_reading": "Matthew 22-24",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 19:17-20"
+  },
+  {
+    "day": 265,
+    "period": "Messianic Checkpoint",
+    "first_reading": "Matthew 25-26",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 19:21-24"
+  },
+  {
+    "day": 266,
+    "period": "Messianic Checkpoint",
+    "first_reading": "Matthew 27-28",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 19:25-29"
+  },
+  {
+    "day": 267,
+    "period": "Return",
+    "first_reading": "Ezra 1-2",
+    "second_reading": "Haggai 1-2",
+    "psalm_proverbs": "Proverbs 20:1-3"
+  },
+  {
+    "day": 268,
+    "period": "Return",
+    "first_reading": "Ezra 3-4",
+    "second_reading": "Zechariah 1-3",
+    "psalm_proverbs": "Proverbs 20:4-7"
+  },
+  {
+    "day": 269,
+    "period": "Return",
+    "first_reading": "Ezra 5-6",
+    "second_reading": "Zechariah 4-6",
+    "psalm_proverbs": "Proverbs 20:8-11"
+  },
+  {
+    "day": 270,
+    "period": "Return",
+    "first_reading": "Ezra 7-8",
+    "second_reading": "Zechariah 7-8",
+    "psalm_proverbs": "Proverbs 20:12-15"
+  },
+  {
+    "day": 271,
+    "period": "Return",
+    "first_reading": "Ezra 9-10",
+    "second_reading": "Zechariah 9-11",
+    "psalm_proverbs": "Proverbs 20:16-19"
+  },
+  {
+    "day": 272,
+    "period": "Return",
+    "first_reading": "Nehemiah 1-2",
+    "second_reading": "Zechariah 12-13",
+    "psalm_proverbs": "Proverbs 20:20-22"
+  },
+  {
+    "day": 273,
+    "period": "Return",
+    "first_reading": "Nehemiah 3",
+    "second_reading": "Zechariah 14",
+    "psalm_proverbs": "Proverbs 20:23-26"
+  },
+  {
+    "day": 274,
+    "period": "Return",
+    "first_reading": "Nehemiah 4-5",
+    "second_reading": "Esther 1-2",
+    "psalm_proverbs": "Proverbs 20:27-30"
+  },
+  {
+    "day": 275,
+    "period": "Return",
+    "first_reading": "Nehemiah 6-7",
+    "second_reading": "Esther 3, 13",
+    "psalm_proverbs": "Proverbs 21:1-4"
+  },
+  {
+    "day": 276,
+    "period": "Return",
+    "first_reading": "Nehemiah 8",
+    "second_reading": "Esther 4, 14",
+    "psalm_proverbs": "Proverbs 21:5-8"
+  },
+  {
+    "day": 277,
+    "period": "Return",
+    "first_reading": "Nehemiah 9",
+    "second_reading": "Esther 15, 6-7",
+    "psalm_proverbs": "Proverbs 21:9-12"
+  },
+  {
+    "day": 278,
+    "period": "Return",
+    "first_reading": "Nehemiah 10",
+    "second_reading": "Esther 8, 16",
+    "psalm_proverbs": "Proverbs 21:13-16"
+  },
+  {
+    "day": 279,
+    "period": "Return",
+    "first_reading": "Nehemiah 11",
+    "second_reading": "Esther 9-11",
+    "psalm_proverbs": "Proverbs 21:17-20"
+  },
+  {
+    "day": 280,
+    "period": "Return",
+    "first_reading": "Nehemiah 12",
+    "second_reading": "Esther 10-12",
+    "psalm_proverbs": "Proverbs 21:21-24"
+  },
+  {
+    "day": 281,
+    "period": "Return",
+    "first_reading": "Nehemiah 13",
+    "second_reading": "Malachi 1-4",
+    "psalm_proverbs": "Proverbs 21:25-28"
+  },
+  {
+    "day": 282,
+    "period": "Maccabean Revolt",
+    "first_reading": "1 Maccabees 1",
+    "second_reading": "Sirach 1-3",
+    "psalm_proverbs": "Proverbs 21:29-31"
+  },
+  {
+    "day": 283,
+    "period": "Maccabean Revolt",
+    "first_reading": "1 Maccabees 2",
+    "second_reading": "Sirach 4-6",
+    "psalm_proverbs": "Proverbs 22:1-4"
+  },
+  {
+    "day": 284,
+    "period": "Maccabean Revolt",
+    "first_reading": "1 Maccabees 3",
+    "second_reading": "Sirach 7-9",
+    "psalm_proverbs": "Proverbs 22:5-8"
+  },
+  {
+    "day": 285,
+    "period": "Maccabean Revolt",
+    "first_reading": "1 Maccabees 4",
+    "second_reading": "Sirach 10-12",
+    "psalm_proverbs": "Proverbs 22:9-12"
+  },
+  {
+    "day": 286,
+    "period": "Maccabean Revolt",
+    "first_reading": "1 Maccabees 5",
+    "second_reading": "Sirach 13-15",
+    "psalm_proverbs": "Proverbs 22:13-16"
+  },
+  {
+    "day": 287,
+    "period": "Maccabean Revolt",
+    "first_reading": "1 Maccabees 6",
+    "second_reading": "Sirach 16-18",
+    "psalm_proverbs": "Proverbs 22:17-21"
+  },
+  {
+    "day": 288,
+    "period": "Maccabean Revolt",
+    "first_reading": "1 Maccabees 7",
+    "second_reading": "Sirach 19-21",
+    "psalm_proverbs": "Proverbs 22:22-25"
+  },
+  {
+    "day": 289,
+    "period": "Maccabean Revolt",
+    "first_reading": "1 Maccabees 8",
+    "second_reading": "Sirach 22-23",
+    "psalm_proverbs": "Proverbs 22:26-29"
+  },
+  {
+    "day": 290,
+    "period": "Maccabean Revolt",
+    "first_reading": "1 Maccabees 9",
+    "second_reading": "Sirach 24-25",
+    "psalm_proverbs": "Proverbs 23:1-4"
+  },
+  {
+    "day": 291,
+    "period": "Maccabean Revolt",
+    "first_reading": "1 Maccabees 10",
+    "second_reading": "Sirach 26-27",
+    "psalm_proverbs": "Proverbs 23:5-8"
+  },
+  {
+    "day": 292,
+    "period": "Maccabean Revolt",
+    "first_reading": "1 Maccabees 11",
+    "second_reading": "Sirach 28-29",
+    "psalm_proverbs": "Proverbs 23:9-12"
+  },
+  {
+    "day": 293,
+    "period": "Maccabean Revolt",
+    "first_reading": "1 Maccabees 12",
+    "second_reading": "Sirach 30-31",
+    "psalm_proverbs": "Proverbs 23:13-16"
+  },
+  {
+    "day": 294,
+    "period": "Maccabean Revolt",
+    "first_reading": "1 Maccabees 13",
+    "second_reading": "Sirach 32-33",
+    "psalm_proverbs": "Proverbs 23:17-21"
+  },
+  {
+    "day": 295,
+    "period": "Maccabean Revolt",
+    "first_reading": "1 Maccabees 14",
+    "second_reading": "Sirach 34-35",
+    "psalm_proverbs": "Proverbs 23:22-25"
+  },
+  {
+    "day": 296,
+    "period": "Maccabean Revolt",
+    "first_reading": "1 Maccabees 15",
+    "second_reading": "Sirach 36-37",
+    "psalm_proverbs": "Proverbs 23:26-28"
+  },
+  {
+    "day": 297,
+    "period": "Maccabean Revolt",
+    "first_reading": "1 Maccabees 16",
+    "second_reading": "Sirach 38-39",
+    "psalm_proverbs": "Proverbs 23:29-35"
+  },
+  {
+    "day": 298,
+    "period": "Maccabean Revolt",
+    "first_reading": "2 Maccabees 1",
+    "second_reading": "Sirach 40-41",
+    "psalm_proverbs": "Proverbs 24:1-7"
+  },
+  {
+    "day": 299,
+    "period": "Maccabean Revolt",
+    "first_reading": "2 Maccabees 2",
+    "second_reading": "Sirach 42-44",
+    "psalm_proverbs": "Proverbs 24:8-9"
+  },
+  {
+    "day": 300,
+    "period": "Maccabean Revolt",
+    "first_reading": "2 Maccabees 3",
+    "second_reading": "Sirach 45-46",
+    "psalm_proverbs": "Proverbs 24:10-12"
+  },
+  {
+    "day": 301,
+    "period": "Maccabean Revolt",
+    "first_reading": "2 Maccabees 4",
+    "second_reading": "Sirach 47-49",
+    "psalm_proverbs": "Proverbs 24:13-16"
+  },
+  {
+    "day": 302,
+    "period": "Maccabean Revolt",
+    "first_reading": "2 Maccabees 5",
+    "second_reading": "Sirach 50-51",
+    "psalm_proverbs": "Proverbs 24:17-20"
+  },
+  {
+    "day": 303,
+    "period": "Maccabean Revolt",
+    "first_reading": "2 Maccabees 6",
+    "second_reading": "Wisdom 1-2",
+    "psalm_proverbs": "Proverbs 24:21-26"
+  },
+  {
+    "day": 304,
+    "period": "Maccabean Revolt",
+    "first_reading": "2 Maccabees 7",
+    "second_reading": "Wisdom 3-4",
+    "psalm_proverbs": "Proverbs 24:27-29"
+  },
+  {
+    "day": 305,
+    "period": "Maccabean Revolt",
+    "first_reading": "2 Maccabees 8",
+    "second_reading": "Wisdom 5-6",
+    "psalm_proverbs": "Proverbs 24:30-34"
+  },
+  {
+    "day": 306,
+    "period": "Maccabean Revolt",
+    "first_reading": "2 Maccabees 9",
+    "second_reading": "Wisdom 7-8",
+    "psalm_proverbs": "Proverbs 25:1-3"
+  },
+  {
+    "day": 307,
+    "period": "Maccabean Revolt",
+    "first_reading": "2 Maccabees 10",
+    "second_reading": "Wisdom 9-10",
+    "psalm_proverbs": "Proverbs 25:4-7"
+  },
+  {
+    "day": 308,
+    "period": "Maccabean Revolt",
+    "first_reading": "2 Maccabees 11",
+    "second_reading": "Wisdom 11-12",
+    "psalm_proverbs": "Proverbs 25:8-10"
+  },
+  {
+    "day": 309,
+    "period": "Maccabean Revolt",
+    "first_reading": "2 Maccabees 12",
+    "second_reading": "Wisdom 13-14",
+    "psalm_proverbs": "Proverbs 25:11-14"
+  },
+  {
+    "day": 310,
+    "period": "Maccabean Revolt",
+    "first_reading": "2 Maccabees 13",
+    "second_reading": "Wisdom 15-16",
+    "psalm_proverbs": "Proverbs 25:15-17"
+  },
+  {
+    "day": 311,
+    "period": "Maccabean Revolt",
+    "first_reading": "2 Maccabees 14",
+    "second_reading": "Wisdom 17-18",
+    "psalm_proverbs": "Proverbs 25:18-20"
+  },
+  {
+    "day": 312,
+    "period": "Maccabean Revolt",
+    "first_reading": "2 Maccabees 15",
+    "second_reading": "Wisdom 19",
+    "psalm_proverbs": "Proverbs 25:21-23"
+  },
+  {
+    "day": 313,
+    "period": "Messianic Fulfillment",
+    "first_reading": "Luke 1-2",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 25:24-26"
+  },
+  {
+    "day": 314,
+    "period": "Messianic Fulfillment",
+    "first_reading": "Luke 3-5",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 25:27-28"
+  },
+  {
+    "day": 315,
+    "period": "Messianic Fulfillment",
+    "first_reading": "Luke 6-8",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 26:1-3"
+  },
+  {
+    "day": 316,
+    "period": "Messianic Fulfillment",
+    "first_reading": "Luke 9-10",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 26:4-6"
+  },
+  {
+    "day": 317,
+    "period": "Messianic Fulfillment",
+    "first_reading": "Luke 11-12",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 26:7-9"
+  },
+  {
+    "day": 318,
+    "period": "Messianic Fulfillment",
+    "first_reading": "Luke 13-16",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 26:10-12"
+  },
+  {
+    "day": 319,
+    "period": "Messianic Fulfillment",
+    "first_reading": "Luke 17-19",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 26:13-16"
+  },
+  {
+    "day": 320,
+    "period": "Messianic Fulfillment",
+    "first_reading": "Luke 20-22:38",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 26:17-19"
+  },
+  {
+    "day": 321,
+    "period": "Messianic Fulfillment",
+    "first_reading": "Luke 22:39-24",
+    "second_reading": null,
+    "psalm_proverbs": "Proverbs 26:20-23"
+  },
+  {
+    "day": 322,
+    "period": "The Church",
+    "first_reading": "Acts 1",
+    "second_reading": "Romans 1",
+    "psalm_proverbs": "Proverbs 26:24-26"
+  },
+  {
+    "day": 323,
+    "period": "The Church",
+    "first_reading": "Acts 2",
+    "second_reading": "Romans 2-3",
+    "psalm_proverbs": "Proverbs 26:27-28"
+  },
+  {
+    "day": 324,
+    "period": "The Church",
+    "first_reading": "Acts 3",
+    "second_reading": "Romans 4-5",
+    "psalm_proverbs": "Proverbs 27:1-3"
+  },
+  {
+    "day": 325,
+    "period": "The Church",
+    "first_reading": "Acts 4",
+    "second_reading": "Romans 6-7",
+    "psalm_proverbs": "Proverbs 27:4-6"
+  },
+  {
+    "day": 326,
+    "period": "The Church",
+    "first_reading": "Acts 5",
+    "second_reading": "Romans 8",
+    "psalm_proverbs": "Proverbs 27:7-9"
+  },
+  {
+    "day": 327,
+    "period": "The Church",
+    "first_reading": "Acts 6",
+    "second_reading": "Romans 9-10",
+    "psalm_proverbs": "Proverbs 27:10-12"
+  },
+  {
+    "day": 328,
+    "period": "The Church",
+    "first_reading": "Acts 7",
+    "second_reading": "Romans 11-12",
+    "psalm_proverbs": "Proverbs 27:13-14"
+  },
+  {
+    "day": 329,
+    "period": "The Church",
+    "first_reading": "Acts 8",
+    "second_reading": "Romans 13-14",
+    "psalm_proverbs": "Proverbs 27:15-17"
+  },
+  {
+    "day": 330,
+    "period": "The Church",
+    "first_reading": "Acts 9",
+    "second_reading": "Romans 15-16",
+    "psalm_proverbs": "Proverbs 27:18-20"
+  },
+  {
+    "day": 331,
+    "period": "The Church",
+    "first_reading": "Acts 10",
+    "second_reading": "1 Corinthians 1-2",
+    "psalm_proverbs": "Proverbs 27:21-22"
+  },
+  {
+    "day": 332,
+    "period": "The Church",
+    "first_reading": "Acts 11",
+    "second_reading": "1 Corinthians 3-4",
+    "psalm_proverbs": "Proverbs 27:23-27"
+  },
+  {
+    "day": 333,
+    "period": "The Church",
+    "first_reading": "Acts 12",
+    "second_reading": "1 Corinthians 5-6",
+    "psalm_proverbs": "Proverbs 28:1-3"
+  },
+  {
+    "day": 334,
+    "period": "The Church",
+    "first_reading": "Acts 13",
+    "second_reading": "1 Corinthians 7-8",
+    "psalm_proverbs": "Proverbs 28:4-6"
+  },
+  {
+    "day": 335,
+    "period": "The Church",
+    "first_reading": "Acts 14",
+    "second_reading": "1 Corinthians 9-10",
+    "psalm_proverbs": "Proverbs 28:7-9"
+  },
+  {
+    "day": 336,
+    "period": "The Church",
+    "first_reading": "Acts 15",
+    "second_reading": "1 Corinthians 11-12",
+    "psalm_proverbs": "Proverbs 28:10-12"
+  },
+  {
+    "day": 337,
+    "period": "The Church",
+    "first_reading": "Acts 16",
+    "second_reading": "1 Corinthians 13-14",
+    "psalm_proverbs": "Proverbs 28:13-15"
+  },
+  {
+    "day": 338,
+    "period": "The Church",
+    "first_reading": "Acts 17",
+    "second_reading": "1 Corinthians 15",
+    "psalm_proverbs": "Proverbs 28:16-18"
+  },
+  {
+    "day": 339,
+    "period": "The Church",
+    "first_reading": "Acts 18",
+    "second_reading": "1 Corinthians 16",
+    "psalm_proverbs": "Proverbs 28:19-21"
+  },
+  {
+    "day": 340,
+    "period": "The Church",
+    "first_reading": "Acts 19",
+    "second_reading": "2 Corinthians 1-2",
+    "psalm_proverbs": "Proverbs 28:22-24"
+  },
+  {
+    "day": 341,
+    "period": "The Church",
+    "first_reading": "Acts 20",
+    "second_reading": "2 Corinthians 3-5",
+    "psalm_proverbs": "Proverbs 28:25-28"
+  },
+  {
+    "day": 342,
+    "period": "The Church",
+    "first_reading": "Acts 21",
+    "second_reading": "2 Corinthians 6-8",
+    "psalm_proverbs": "Proverbs 29:1-4"
+  },
+  {
+    "day": 343,
+    "period": "The Church",
+    "first_reading": "Acts 22",
+    "second_reading": "2 Corinthians 9-11",
+    "psalm_proverbs": "Proverbs 29:5-7"
+  },
+  {
+    "day": 344,
+    "period": "The Church",
+    "first_reading": "Acts 23",
+    "second_reading": "2 Corinthians 12-13",
+    "psalm_proverbs": "Proverbs 29:8-11"
+  },
+  {
+    "day": 345,
+    "period": "The Church",
+    "first_reading": "Acts 24",
+    "second_reading": "Galatians 1-3",
+    "psalm_proverbs": "Proverbs 29:12-14"
+  },
+  {
+    "day": 346,
+    "period": "The Church",
+    "first_reading": "Acts 25",
+    "second_reading": "Galatians 4-6",
+    "psalm_proverbs": "Proverbs 29:15-17"
+  },
+  {
+    "day": 347,
+    "period": "The Church",
+    "first_reading": "Acts 26",
+    "second_reading": "Ephesians 1-3",
+    "psalm_proverbs": "Proverbs 29:18-21"
+  },
+  {
+    "day": 348,
+    "period": "The Church",
+    "first_reading": "Acts 27",
+    "second_reading": "Ephesians 4-6",
+    "psalm_proverbs": "Proverbs 29:22-24"
+  },
+  {
+    "day": 349,
+    "period": "The Church",
+    "first_reading": "Acts 28",
+    "second_reading": "Philippians 1-2",
+    "psalm_proverbs": "Proverbs 29:25-27"
+  },
+  {
+    "day": 350,
+    "period": "The Church",
+    "first_reading": "James 1-2",
+    "second_reading": "Philippians 3-4",
+    "psalm_proverbs": "Proverbs 30: 1-6"
+  },
+  {
+    "day": 351,
+    "period": "The Church",
+    "first_reading": "James 3-5",
+    "second_reading": "Colossians 1-2",
+    "psalm_proverbs": "Proverbs 30:7-9"
+  },
+  {
+    "day": 352,
+    "period": "The Church",
+    "first_reading": "1 Peter 1-2",
+    "second_reading": "Colossians 3-4",
+    "psalm_proverbs": "Proverbs 30:10-14"
+  },
+  {
+    "day": 353,
+    "period": "The Church",
+    "first_reading": "1 Peter 3-5",
+    "second_reading": "1 Thessalonians 1-3",
+    "psalm_proverbs": "Proverbs 30:15-16"
+  },
+  {
+    "day": 354,
+    "period": "The Church",
+    "first_reading": "2 Peter 1-3",
+    "second_reading": "1 Thessalonians 4-5",
+    "psalm_proverbs": "Proverbs 30:17-19"
+  },
+  {
+    "day": 355,
+    "period": "The Church",
+    "first_reading": "1 John 1-3",
+    "second_reading": "2 Thessalonians 1-3",
+    "psalm_proverbs": "Proverbs 30:20-23"
+  },
+  {
+    "day": 356,
+    "period": "The Church",
+    "first_reading": "1 John 4-5",
+    "second_reading": "1 Timothy 1-3",
+    "psalm_proverbs": "Proverbs 30:24-28"
+  },
+  {
+    "day": 357,
+    "period": "The Church",
+    "first_reading": "2 John, 3 John",
+    "second_reading": "1 Timothy 4-6",
+    "psalm_proverbs": "Proverbs 30:29-33"
+  },
+  {
+    "day": 358,
+    "period": "The Church",
+    "first_reading": "Jude",
+    "second_reading": "2 Timothy 1-2",
+    "psalm_proverbs": "Proverbs 31: 1-7"
+  },
+  {
+    "day": 359,
+    "period": "The Church",
+    "first_reading": "Revelation 1-3",
+    "second_reading": "2 Timothy 3-4",
+    "psalm_proverbs": "Proverbs 31:8-9"
+  },
+  {
+    "day": 360,
+    "period": "The Church",
+    "first_reading": "Revelation 4-7",
+    "second_reading": "Titus 1-3",
+    "psalm_proverbs": "Proverbs 31:10-15"
+  },
+  {
+    "day": 361,
+    "period": "The Church",
+    "first_reading": "Revelation 8-11",
+    "second_reading": "Philemon",
+    "psalm_proverbs": "Proverbs 31:16-18"
+  },
+  {
+    "day": 362,
+    "period": "The Church",
+    "first_reading": "Revelation 12-14",
+    "second_reading": "Hebrews 1-4",
+    "psalm_proverbs": "Proverbs 31:19-22"
+  },
+  {
+    "day": 363,
+    "period": "The Church",
+    "first_reading": "Revelation 15-17",
+    "second_reading": "Hebrews 5-8",
+    "psalm_proverbs": "Proverbs 31:23-25"
+  },
+  {
+    "day": 364,
+    "period": "The Church",
+    "first_reading": "Revelation 18-20",
+    "second_reading": "Hebrews 9-10",
+    "psalm_proverbs": "Proverbs 31:26-29"
+  },
+  {
+    "day": 365,
+    "period": "The Church",
+    "first_reading": "Revelation 21-22",
+    "second_reading": "Hebrews 11-13",
+    "psalm_proverbs": "Proverbs 31:30-31"
+  }
+]

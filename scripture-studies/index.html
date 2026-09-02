@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Scripture Studies | Living Waters</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Cinzel:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../lib/living-waters.css">
+</head>
+<body class="lw">
+
+<div id="lw-backdrop" class="lw-backdrop"></div>
+<div id="lw-photo-credit" class="lw-photo-credit"></div>
+
+<header class="w-full bg-slate-950/85 border-b border-sky-500/20 backdrop-blur-md sticky top-0 z-50">
+  <div class="bg-amber-500/10 border-b border-amber-500/10 text-amber-300 text-xs py-1 overflow-hidden">
+    <div id="lw-top-ticker" class="lw-marquee-track whitespace-nowrap flex items-center font-semibold tracking-wider"></div>
+  </div>
+  <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between gap-3">
+    <a href="../index.html" class="flex items-center gap-2.5 no-underline">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-800 via-slate-600 to-amber-500 flex items-center justify-center border border-sky-300/30">
+        <i class="fa-solid fa-droplet text-white text-sm"></i>
+      </div>
+      <span class="lw-serif font-black text-base tracking-widest text-slate-100">LIVING WATERS</span>
+    </a>
+    <a href="../index.html" class="text-xs text-sky-300/90 hover:text-amber-300 no-underline font-semibold tracking-wide">&larr; Back to Hub</a>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-6 py-10 w-full relative z-10">
+  <div class="text-center mb-10">
+    <div class="lw-section-eyebrow">Book by Book</div>
+    <h1 class="lw-serif text-3xl md:text-4xl font-black text-slate-50 mb-2">Scripture Studies</h1>
+    <p class="text-slate-300 text-base max-w-2xl mx-auto">Verse-by-verse commentary through both testaments, compared across traditions — plus the topical studies that cut across individual books.</p>
+  </div>
+
+  <div class="lw-section-grid">
+    <a class="lw-section-card" href="old-testament/index.html">
+      <div class="lw-section-eyebrow">39 Books</div>
+      <h3>Old Testament</h3>
+      <p>All 39 Old Testament books — 17 built in full, the rest linked and queued.</p>
+    </a>
+    <a class="lw-section-card" href="new-testament/index.html">
+      <div class="lw-section-eyebrow">27 Books</div>
+      <h3>New Testament</h3>
+      <p>All 27 New Testament books — 5 built in full, the rest linked and queued.</p>
+    </a>
+    <a class="lw-section-card" href="topical-studies/index.html">
+      <div class="lw-section-eyebrow">Open Questions</div>
+      <h3>Topical Studies</h3>
+      <p>Parables, Messianic Prophecy, and the Millennial Kingdom — topics studied on their own terms, across books.</p>
+    </a>
+  </div>
+</main>
+
+<script src="../lib/living-waters.js"></script>
+<script>
+lwInitBackdrop('lw-backdrop');
+lwBuildMarquee('lw-top-ticker', [
+  { icon: 'fa-solid fa-water text-sky-300', text: '[SCRIPTURE STUDIES]: Old Testament, New Testament, and Topical Studies \u2014 all under one roof' }
+]);
+</script>
+</body>
+</html>

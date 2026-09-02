@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIVING WATERS | A Personal Theology Study Engine</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Cinzel:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="lib/living-waters.css">
+</head>
+<body class="lw select-none">
+
+<div id="lw-backdrop" class="lw-backdrop"></div>
+<div id="lw-photo-credit" class="lw-photo-credit"></div>
+
+<!-- 1. TOP TICKER + BRAND HEADER -->
+<header class="w-full bg-slate-950/85 border-b border-sky-500/20 backdrop-blur-md sticky top-0 z-50">
+  <div class="bg-amber-500/10 border-b border-amber-500/10 text-amber-300 text-xs py-1 overflow-hidden">
+    <div id="lw-top-ticker" class="lw-marquee-track whitespace-nowrap flex items-center font-semibold tracking-wider"></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between flex-wrap gap-3">
+    <div class="flex items-center gap-3.5">
+      <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sky-800 via-slate-600 to-amber-500 flex items-center justify-center shadow-lg shadow-sky-950/60 border border-sky-300/30">
+        <i class="fa-solid fa-droplet text-white text-2xl"></i>
+      </div>
+      <div>
+        <h1 class="lw-serif font-black text-2xl tracking-widest text-slate-100 flex items-center gap-2">LIVING WATERS</h1>
+        <p class="text-[10px] text-sky-300/90 tracking-widest uppercase font-semibold">A Personal Theology Study Engine</p>
+      </div>
+    </div>
+    <a href="tools/commute-companion.html" class="lw-aura bg-gradient-to-r from-sky-600 to-slate-600 hover:from-sky-500 hover:to-slate-500 text-white font-bold px-5 py-2.5 rounded-full flex items-center gap-2.5 transition-all transform hover:scale-105 border border-sky-300/40 no-underline">
+      <i class="fa-solid fa-microphone-lines text-amber-300 text-base animate-pulse"></i>
+      <span class="text-xs uppercase tracking-wider">Talk to AI</span>
+    </a>
+  </div>
+</header>
+
+<div class="lw-horizon">
+  <div class="lw-horizon-sky"></div>
+  <div class="lw-horizon-rays"></div>
+  <div class="lw-horizon-glow"></div>
+  <svg class="lw-ridge-back" viewBox="0 0 1200 300" preserveAspectRatio="none">
+    <path fill="#0b2e28" d="M0,210 C60,180 110,175 160,195 C210,215 250,150 310,145 C370,140 400,190 460,185 C520,180 550,120 620,125 C690,130 715,175 780,178 C845,181 870,140 940,145 C1010,150 1040,190 1100,185 C1150,181 1170,160 1200,165 L1200,300 0,300 Z"/>
+  </svg>
+  <svg class="lw-ridge-mid" viewBox="0 0 1200 300" preserveAspectRatio="none">
+    <path fill="#062018" d="M0,250 C70,225 130,235 190,215 C250,195 290,240 350,235 C410,230 445,180 510,185 C575,190 600,230 660,232 C720,234 755,195 820,198 C885,201 915,240 980,238 C1045,236 1075,205 1140,210 C1170,213 1185,222 1200,225 L1200,300 0,300 Z"/>
+  </svg>
+  <svg class="lw-ridge-front" viewBox="0 0 1200 300" preserveAspectRatio="none">
+    <path fill="#040d0a" d="M0,300 L0,265 C55,245 100,255 155,238 C215,219 260,190 320,195 C385,200 410,240 470,238 C535,236 565,200 630,205 C695,210 720,245 780,244 C840,243 870,212 935,216 C1000,220 1030,250 1090,246 C1140,243 1165,228 1200,232 L1200,300 Z"/>
+  </svg>
+</div>
+
+<!-- 2. MAIN STAGE -->
+<main class="max-w-7xl mx-auto px-6 py-10 w-full -mt-8 relative z-10">
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-14">
+
+    <!-- TODAY'S FOCUS -->
+    <section class="lg:col-span-7 flex flex-col gap-6">
+      <div class="lw-glass p-8 rounded-3xl relative overflow-hidden">
+        <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl"></div>
+        <div class="flex justify-between items-center mb-5 flex-wrap gap-2">
+          <span class="bg-sky-500/20 text-sky-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-sky-500/30 flex items-center gap-1.5">
+            <i class="fa-solid fa-book-bible text-sky-400"></i> Today's Focus
+          </span>
+          <button onclick="lwReadAloud('lw-focus-text')" class="bg-slate-950/80 hover:bg-slate-900 text-amber-300 px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2 border border-amber-500/30 transition shadow-md">
+            <i class="fa-solid fa-volume-high"></i><span>Read Aloud</span>
+          </button>
+        </div>
+        <h2 id="lw-focus-title" class="lw-serif text-3xl font-extrabold text-slate-50 mb-4 leading-snug">Loading today's reading…</h2>
+        <p id="lw-focus-text" class="text-slate-200 text-lg leading-relaxed mb-8 font-light">Connecting to your reading plan.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <a id="lw-focus-companion-link" href="tools/commute-companion.html" class="lw-glass-teal hover:bg-sky-500/20 p-4 rounded-2xl flex items-center justify-center gap-2.5 text-center transition no-underline">
+            <i class="fa-solid fa-car text-lg text-slate-300"></i>
+            <span class="text-xs font-bold text-slate-100">Discuss in Commute Companion</span>
+          </a>
+          <a id="lw-focus-search-link" href="tools/sermon-builder.html" class="lw-glass-teal hover:bg-sky-500/20 p-4 rounded-2xl flex items-center justify-center gap-2.5 text-center transition no-underline">
+            <i class="fa-solid fa-magnifying-glass text-lg text-slate-300"></i>
+            <span class="text-xs font-bold text-slate-100">Search in Workspace</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROTATING THEOLOGICAL INSIGHTS -->
+    <section class="lg:col-span-5 flex flex-col justify-center">
+      <div class="relative w-full">
+        <div class="absolute -inset-0.5 bg-gradient-to-r from-sky-500 via-slate-500 to-amber-500 rounded-3xl blur opacity-30"></div>
+        <div class="relative lw-glass p-6 rounded-3xl border border-sky-500/30">
+          <div class="flex items-center justify-between border-b border-sky-500/20 pb-3 mb-4">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-water text-amber-400"></i>
+              <span class="text-xs font-bold uppercase tracking-widest text-sky-300">Living Water — Across Scripture</span>
+            </div>
+            <span class="text-[10px] bg-slate-950 text-sky-300/80 px-2 py-0.5 rounded border border-sky-500/30">ROTATING</span>
+          </div>
+          <div class="min-h-[180px] flex flex-col justify-between">
+            <div>
+              <span id="lw-card-tag" class="text-amber-400 text-xs font-bold uppercase tracking-wider"></span>
+              <h3 id="lw-card-title" class="lw-serif text-xl font-bold text-slate-100 mt-1 mb-2"></h3>
+              <p id="lw-card-body" class="text-slate-300 text-sm leading-relaxed"></p>
+            </div>
+            <div class="lw-progress-track mt-6">
+              <div id="lw-card-progress" class="lw-progress-bar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- SECTION NAVIGATION -->
+  <div class="lw-section-grid">
+    <a class="lw-section-card" href="scripture-studies/index.html">
+      <div class="lw-section-eyebrow">Book by Book</div>
+      <h3>Scripture Studies</h3>
+      <p>Verse-by-verse commentary through books of the Bible, compared across interpretive traditions.</p>
+    </a>
+    <a class="lw-section-card" href="doctrine/index.html">
+      <div class="lw-section-eyebrow">Traditions Compared</div>
+      <h3>Doctrine &amp; Denominations</h3>
+      <p>The sacraments, baptism, faith and works, and how different traditions understand them.</p>
+    </a>
+    <a class="lw-section-card" href="apocrypha/index.html">
+      <div class="lw-section-eyebrow">Deuterocanonical</div>
+      <h3>The Apocrypha</h3>
+      <p>Catholic, Orthodox, and Protestant views on the status of these books.</p>
+    </a>
+    <a class="lw-section-card" href="commentary/index.html">
+      <div class="lw-section-eyebrow">Deep Dive</div>
+      <h3>Commentary &amp; Tools</h3>
+      <p>Context, key themes, and verse-by-verse notes — plus the Sermon/Curriculum Builder and Thought Organizer.</p>
+    </a>
+    <a class="lw-section-card" href="tools/commute-companion.html">
+      <div class="lw-section-eyebrow">On the Road</div>
+      <h3>Commute Companion</h3>
+      <p>A real spoken-style AI discussion of today's reading — any active plan.</p>
+    </a>
+    <a class="lw-section-card" href="journal/index.html">
+      <div class="lw-section-eyebrow">Kept, Never Deleted</div>
+      <h3>My Study Journal</h3>
+      <p>Saved discussions and passage commentary from Commute Companion sessions.</p>
+    </a>
+    <a class="lw-section-card" href="tools/plan-builder.html">
+      <div class="lw-section-eyebrow">Any Length, Any Schedule</div>
+      <h3>Reading Plan Builder</h3>
+      <p>Build a real reading plan — 3 days or 6 months — for Commute Companion to walk through.</p>
+    </a>
+    <a class="lw-section-card" href="resources/freshlook-bible.html">
+      <div class="lw-section-eyebrow">Visual Study Resource</div>
+      <h3>FreshLook Bible</h3>
+      <p>The KJV text laid out according to what it actually is — poetry as poetry, lists as lists, panorama format for every book.</p>
+    </a>
+  </div>
+</main>
+
+<!-- 3. BOTTOM RESEARCH TICKER -->
+<footer class="w-full bg-slate-950/90 border-t border-sky-500/30 py-3 sticky bottom-0 z-40">
+  <div class="flex items-center">
+    <div class="bg-gradient-to-r from-amber-600 to-amber-500 text-slate-950 font-black text-xs px-5 py-2 uppercase tracking-wider flex items-center gap-2 shadow-lg z-10 shrink-0">
+      <i class="fa-solid fa-file-lines text-slate-900"></i> Research Stream
+    </div>
+    <div class="overflow-hidden relative w-full">
+      <div id="lw-bottom-ticker" class="lw-marquee-track lw-slow whitespace-nowrap flex items-center gap-12 text-sm text-slate-100 font-medium"></div>
+    </div>
+  </div>
+</footer>
+
+<script src="lib/living-waters.js"></script>
+<script>
+lwInitBackdrop('lw-backdrop');
+
+// Rotating insight carousel — real, uncontroversial cross-references tying the
+// "Living Waters" theme through Scripture, matched to modules already in this app.
+lwInitCarousel([
+  {
+    tag: 'Covenant Theology',
+    title: 'A River From Eden',
+    body: 'Genesis 2:10 opens Scripture with a river flowing out of Eden to water the garden — the first of the "living waters" images that run through the whole canon.'
+  },
+  {
+    tag: 'Messianic Symbolism',
+    title: 'The Fountain Opened',
+    body: 'Zechariah 13:1 speaks of a fountain opened to the house of David to cleanse sin and impurity — thematically tied to this app\u2019s Messianic Prophecy module.'
+  },
+  {
+    tag: 'Hermeneutical Bridge',
+    title: 'Streams From Within',
+    body: 'In John 7:37-39, Jesus applies temple water imagery to the Holy Spirit indwelling believers — see the Gospel of John room under Scripture Studies.'
+  },
+  {
+    tag: 'Prophetic Vision',
+    title: 'The River From the Throne',
+    body: 'Ezekiel 47 and Revelation 22:1-2 both picture a river flowing from God\u2019s throne, healing everything it touches — covered in the Millennial Kingdom module.'
+  }
+], { tag: 'lw-card-tag', title: 'lw-card-title', body: 'lw-card-body', progress: 'lw-card-progress' }, 9000);
+
+// Live "today" content for both the top ticker and the Today's Focus card
+(async function () {
+  var today = await lwFetchTodayReading();
+  var titleEl = document.getElementById('lw-focus-title');
+  var textEl = document.getElementById('lw-focus-text');
+  var searchLink = document.getElementById('lw-focus-search-link');
+
+  var topEntries = [
+    { icon: 'fa-solid fa-water text-sky-300', text: '[LIVING WATERS]: A personal theology study engine — Blue Ridge &amp; Nantahala country' },
+    { icon: 'fa-solid fa-scroll text-amber-400', text: '[COMMENTARY]: Revelation \u2014 full 22-chapter commentary, four interpretive lenses' }
+  ];
+
+  if (today) {
+    var refs = today.readings.join(' \u00b7 ');
+    titleEl.textContent = today.planName + ' \u2014 ' + today.sessionLabel + ' ' + today.sessionNum + (today.title ? ' \u2014 ' + today.title : '');
+    textEl.textContent = refs || 'Open Commute Companion to see today\u2019s full reading.';
+    if (searchLink) searchLink.href = 'tools/sermon-builder.html?ref=' + encodeURIComponent(today.readings[0] || '');
+    topEntries.unshift({ icon: 'fa-solid fa-book-bible text-sky-300', text: '[TODAY]: ' + today.planName + ' \u2014 ' + today.sessionLabel + ' ' + today.sessionNum + ': ' + refs });
+  } else {
+    titleEl.textContent = 'No reading plan loaded yet';
+    textEl.textContent = 'Add one in the Reading Plan Builder, or make sure server.py is running.';
+  }
+
+  lwBuildMarquee('lw-top-ticker', topEntries);
+})();
+
+lwBuildMarquee('lw-bottom-ticker', [
+  { text: '<strong class="text-amber-300">[HEBREW LEXICON]:</strong> \u2018Mayim Chayim\u2019 \u2014 living water, flowing naturally from a source, as opposed to still water in a cistern.' },
+  { text: '<strong class="text-amber-300">[CANONICAL HARMONY]:</strong> Ezekiel 47, Zechariah 14:8, and Revelation 22:1-2 all picture a river flowing out from God\u2019s presence.' },
+  { text: '<strong class="text-amber-300">[LOCAL]:</strong> This app is built in the Nantahala/Blue Ridge headwaters country \u2014 the Tusquitee Ranger District office sits in Murphy, NC.' },
+  { text: '<strong class="text-amber-300">[EXPLORE]:</strong> See the full Messianic Prophecy and Millennial Kingdom modules under Topical Studies.' }
+]);
+</script>
+</body>
+</html>

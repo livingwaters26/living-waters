@@ -1,0 +1,516 @@
+/* ============================================================
+   LIVING WATERS — shared design system
+   Teal/emerald/amber, misty Blue Ridge/Nantahala atmosphere.
+   Built on top of Tailwind (CDN) utility classes — this file only
+   covers what Tailwind utilities can't: animations, glass effects,
+   the rotating photo backdrop, and the section-card grid.
+   ============================================================ */
+
+:root {
+  --lw-bg: #0a1120;
+  --lw-panel: rgba(15, 23, 42, 0.75);
+  --lw-line: rgba(56, 189, 248, 0.22);
+  --lw-teal: #38bdf8;
+  --lw-amber: #f59e0b;
+  --font-serif-lw: 'Cinzel', serif;
+  --font-body-lw: 'Plus Jakarta Sans', sans-serif;
+}
+
+body.lw {
+  font-family: var(--font-body-lw);
+  background-color: var(--lw-bg);
+  color: #f1f5f9;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Ambient depth gradient — visible on every subpage even without photo backdrop */
+body.lw::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 25% 15%, rgba(13,148,136,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 75% 85%, rgba(245,158,11,0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 40%, rgba(71,85,105,0.05) 0%, transparent 45%);
+}
+
+.lw-serif { font-family: var(--font-serif-lw); }
+
+/* ---------- Entrance animations ---------- */
+@keyframes lw-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.lw-fade-up   { animation: lw-fade-up 0.5s ease-out both; }
+.lw-fade-up-1 { animation: lw-fade-up 0.5s ease-out 0.05s both; }
+.lw-fade-up-2 { animation: lw-fade-up 0.5s ease-out 0.12s both; }
+.lw-fade-up-3 { animation: lw-fade-up 0.5s ease-out 0.19s both; }
+.lw-fade-up-4 { animation: lw-fade-up 0.5s ease-out 0.26s both; }
+.lw-fade-up-5 { animation: lw-fade-up 0.5s ease-out 0.33s both; }
+.lw-fade-up-6 { animation: lw-fade-up 0.5s ease-out 0.40s both; }
+
+/* ---------- Dawn horizon device: dark sky breaking into light at the ridgeline ---------- */
+.lw-horizon { position: relative; width: 100%; height: 260px; overflow: hidden; }
+.lw-horizon-sky {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(4,13,10,0) 0%, rgba(245,158,11,0.14) 55%, rgba(245,158,11,0.32) 100%);
+}
+.lw-horizon-rays {
+  position: absolute; left: 50%; bottom: 0; width: 1400px; height: 1400px; transform: translateX(-50%);
+  background: repeating-conic-gradient(from 0deg at 50% 100%, rgba(245,158,11,0.11) 0deg 6deg, rgba(245,158,11,0) 6deg 14deg);
+  opacity: 0.55; animation: lw-rays-drift 40s linear infinite;
+}
+@keyframes lw-rays-drift { from { transform: translateX(-50%) rotate(0deg); } to { transform: translateX(-50%) rotate(360deg); } }
+.lw-horizon-glow {
+  position: absolute; left: 50%; bottom: -42%; width: 900px; height: 420px; transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(245,158,11,0.55) 0%, rgba(56,189,248,0.28) 42%, rgba(4,13,10,0) 72%);
+  filter: blur(4px); animation: lw-glow-pulse 6s ease-in-out infinite;
+}
+@keyframes lw-glow-pulse { 0%, 100% { opacity: 0.8; } 50% { opacity: 1; } }
+.lw-ridge-back, .lw-ridge-mid, .lw-ridge-front { position: absolute; bottom: -2px; left: 0; width: 100%; height: 70%; }
+.lw-ridge-back { opacity: 0.9; }
+
+/* ---------- Rotating photo backdrop ---------- */
+.lw-backdrop { position: fixed; inset: 0; z-index: -2; overflow: hidden; background: #040d0a; }
+.lw-backdrop::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(4,13,10,0.88), rgba(8,24,19,0.95));
+  z-index: 1;
+}
+.lw-backdrop img.lw-broken { display: none; }
+.lw-photo-credit {
+  position: fixed; bottom: 54px; right: 14px; z-index: 2;
+  font-size: 0.65rem; color: rgba(241,245,249,0.55); font-family: var(--font-body-lw);
+  background: rgba(4,13,10,0.5); padding: 3px 9px; border-radius: 6px; backdrop-filter: blur(4px);
+}
+
+/* ---------- Glass panels ---------- */
+.lw-glass {
+  background: var(--lw-panel);
+  backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--lw-line);
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.75), inset 0 1px 0 rgba(56,189,248,0.08);
+}
+.lw-glass-teal {
+  background: linear-gradient(135deg, rgba(20,184,166,0.18) 0%, rgba(13,148,136,0.05) 100%);
+  border: 1px solid rgba(56,189,248,0.3);
+}
+
+/* Glass with animated top-edge shimmer */
+.lw-glass-shimmer { position: relative; overflow: hidden; }
+.lw-glass-shimmer::after {
+  content: '';
+  position: absolute; top: 0; left: -100%; width: 60%; height: 1px;
+  background: linear-gradient(to right, transparent, rgba(56,189,248,0.7), rgba(245,158,11,0.5), transparent);
+  animation: lw-shimmer-sweep 4s ease-in-out infinite;
+}
+@keyframes lw-shimmer-sweep {
+  0%   { left: -60%; opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+/* ---------- Gradient-border cards ---------- */
+.lw-gradient-border {
+  position: relative;
+  background: var(--lw-panel);
+  border-radius: 20px;
+}
+.lw-gradient-border::before {
+  content: '';
+  position: absolute; inset: -1px; border-radius: 21px;
+  background: linear-gradient(135deg, rgba(56,189,248,0.55), rgba(245,158,11,0.45), rgba(71,85,105,0.35));
+  z-index: -1;
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.lw-gradient-border:hover::before { opacity: 1; }
+
+/* ---------- Stat / highlight chips ---------- */
+.lw-stat-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(56,189,248,0.10); border: 1px solid rgba(56,189,248,0.28);
+  border-radius: 999px; padding: 6px 14px;
+  font-size: 0.72rem; font-weight: 700; color: #2dd4bf; letter-spacing: 0.06em;
+  text-transform: uppercase; font-family: var(--font-body-lw);
+}
+.lw-stat-chip-amber {
+  background: rgba(245,158,11,0.12); border-color: rgba(245,158,11,0.3); color: #f59e0b;
+}
+
+/* ---------- Glowing divider ---------- */
+.lw-divider {
+  height: 1px; margin: 2.5rem 0;
+  background: linear-gradient(to right, transparent, rgba(56,189,248,0.4), rgba(245,158,11,0.3), transparent);
+}
+
+/* ---------- Tickers / marquees ---------- */
+@keyframes lw-marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
+.lw-marquee-track { display: flex; width: 200%; animation: lw-marquee 34s linear infinite; }
+.lw-marquee-track.lw-slow { animation-duration: 46s; }
+.lw-marquee-track:hover { animation-play-state: paused; }
+
+/* ---------- Voice / aura pulse ---------- */
+.lw-aura { box-shadow: 0 0 25px rgba(56,189,248,0.4); animation: lw-aura-pulse 2.5s infinite alternate; }
+@keyframes lw-aura-pulse {
+  from { box-shadow: 0 0 12px rgba(56,189,248,0.3); }
+  to   { box-shadow: 0 0 32px rgba(56,189,248,0.75); }
+}
+
+/* ---------- Rotating insight carousel progress bar ---------- */
+.lw-progress-track { width: 100%; background: #022c22; height: 6px; border-radius: 999px; overflow: hidden; border: 1px solid var(--lw-line); }
+.lw-progress-bar { background: linear-gradient(to right, #2dd4bf, #f59e0b); height: 100%; width: 0%; transition: width .1s linear; }
+
+/* ---------- Section-card grid (site navigation) ---------- */
+.lw-section-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+.lw-section-card {
+  display: block; padding: 22px 22px 20px; border-radius: 20px;
+  background: var(--lw-panel); border: 1px solid var(--lw-line);
+  text-decoration: none; color: inherit;
+  transition: transform .22s ease, border-color .22s ease, background .22s ease, box-shadow .22s ease;
+  box-shadow: 0 4px 20px -6px rgba(0,0,0,0.55);
+  position: relative; overflow: hidden;
+}
+/* Teal-wash overlay on hover */
+.lw-section-card::before {
+  content: ''; position: absolute; inset: 0; border-radius: 20px;
+  background: linear-gradient(135deg, rgba(56,189,248,0.08) 0%, transparent 65%);
+  opacity: 0; transition: opacity 0.25s ease;
+}
+/* Amber top-edge accent line */
+.lw-section-card::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; border-radius: 20px 20px 0 0;
+  background: linear-gradient(to right, rgba(245,158,11,0.6), rgba(56,189,248,0.4));
+  opacity: 0; transition: opacity 0.25s ease;
+}
+.lw-section-card:hover, .lw-section-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(56,189,248,0.5);
+  background: rgba(20,184,166,0.1);
+  box-shadow: 0 12px 36px -8px rgba(56,189,248,0.18), 0 4px 20px -6px rgba(0,0,0,0.5);
+}
+.lw-section-card:hover::before,  .lw-section-card:focus-visible::before  { opacity: 1; }
+.lw-section-card:hover::after,   .lw-section-card:focus-visible::after   { opacity: 1; }
+
+.lw-section-eyebrow {
+  font-family: var(--font-body-lw); font-size: 0.66rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase; color: #f59e0b; margin-bottom: 8px;
+}
+.lw-section-card h3 { font-family: var(--font-serif-lw); font-weight: 700; font-size: 1.3rem; color: #ecfdf5; margin: 0 0 8px; }
+.lw-section-card p  { font-size: 0.9rem; line-height: 1.55; color: rgba(226,232,240,0.75); margin: 0; }
+
+/* ---------- Format / feature cards (used on resource pages) ---------- */
+.lw-format-card {
+  background: var(--lw-panel);
+  border: 1px solid var(--lw-line);
+  border-radius: 20px; padding: 24px;
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 8px 28px -8px rgba(0,0,0,0.6);
+  transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+  position: relative; overflow: hidden;
+}
+.lw-format-card::before {
+  content: ''; position: absolute; inset: 0; border-radius: 20px;
+  background: linear-gradient(135deg, rgba(56,189,248,0.07) 0%, transparent 60%);
+  opacity: 0; transition: opacity 0.25s ease;
+}
+.lw-format-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(56,189,248,0.45);
+  box-shadow: 0 16px 40px -8px rgba(56,189,248,0.15), 0 4px 20px -6px rgba(0,0,0,0.5);
+}
+.lw-format-card:hover::before { opacity: 1; }
+
+/* ---------- Icon badge ---------- */
+.lw-icon-badge {
+  display: flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px; border-radius: 14px; flex-shrink: 0;
+  border: 1px solid; font-size: 1.1rem;
+}
+.lw-icon-badge-teal  { background: rgba(56,189,248,0.14); border-color: rgba(56,189,248,0.32); color: #2dd4bf; }
+.lw-icon-badge-amber { background: rgba(245,158,11,0.14); border-color: rgba(245,158,11,0.32); color: #f59e0b; }
+.lw-icon-badge-green { background: rgba(71,85,105,0.14); border-color: rgba(71,85,105,0.32); color: #34d399; }
+
+/* ---------- Callout / quote block ---------- */
+.lw-callout {
+  border-left: 3px solid var(--lw-amber);
+  padding: 14px 18px;
+  background: rgba(245,158,11,0.06);
+  border-radius: 0 12px 12px 0;
+  font-style: italic;
+  color: rgba(253,230,138,0.9);
+  line-height: 1.65;
+}
+
+@media (max-width: 640px) {
+  .lw-photo-credit { display: none; }
+  .lw-horizon { height: 180px; }
+}
+
+/* ============================================================
+   FRESHLOOK PANORAMA — literary-type-aware scripture layout
+   Inspired by FreshLook Bible's "visually optimized" concept:
+   each passage is laid out according to what it actually is.
+   ============================================================ */
+
+.fl-toolbar {
+  position: sticky; top: 0; z-index: 40;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  flex-wrap: wrap;
+  background: rgba(4,13,10,0.92);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--lw-line);
+  padding: 10px 20px;
+}
+.fl-zoom-group { display: flex; align-items: center; gap: 6px; }
+.fl-zoom-btn {
+  width: 30px; height: 30px; border-radius: 8px;
+  background: rgba(56,189,248,0.10); border: 1px solid var(--lw-line);
+  color: #2dd4bf; font-weight: 700; font-size: 0.95rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s ease, transform .15s ease;
+}
+.fl-zoom-btn:hover { background: rgba(56,189,248,0.22); transform: translateY(-1px); }
+.fl-zoom-label { font-size: 0.7rem; color: rgba(226,232,240,0.6); min-width: 34px; text-align: center; }
+
+.fl-legend { display: flex; flex-wrap: wrap; gap: 6px 10px; }
+.fl-legend-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+  color: rgba(226,232,240,0.72); cursor: default;
+}
+.fl-legend-dot { width: 9px; height: 9px; border-radius: 3px; flex-shrink: 0; }
+
+/* Passage container — font size scales via CSS var set by JS */
+.fl-passage {
+  max-width: 760px; margin: 0 auto; padding: 28px 20px 80px;
+  font-size: calc(1rem * var(--fl-scale, 1));
+  line-height: 1.85;
+}
+
+/* Base block shared by every literary-type module */
+.fl-block {
+  position: relative;
+  margin: 0 0 14px;
+  padding: 12px 16px 12px 18px;
+  border-left: 3px solid transparent;
+  border-radius: 0 10px 10px 0;
+  font-family: 'Georgia', 'Iowan Old Style', serif;
+  color: #e6f0ec;
+}
+.fl-block-label {
+  display: block;
+  font-family: var(--font-body-lw); font-size: 0.6rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .1em;
+  margin-bottom: 4px; opacity: 0.75;
+}
+.fl-vnum {
+  font-family: var(--font-body-lw); font-size: 0.62em; font-weight: 800;
+  vertical-align: super; margin-right: 2px; opacity: 0.65;
+}
+
+/* Narrative — the default, continuous prose */
+.fl-narrative { border-left-color: rgba(148,163,184,0.4); background: rgba(148,163,184,0.05); }
+.fl-narrative .fl-block-label { color: #94a3b8; }
+
+/* Divine speech / direct discourse */
+.fl-speech { border-left-color: var(--lw-amber); background: rgba(245,158,11,0.07); font-style: italic; }
+.fl-speech .fl-block-label { color: #f59e0b; }
+
+/* Refrain — repeated formulaic phrases */
+.fl-refrain {
+  border-left-color: var(--lw-teal); background: rgba(56,189,248,0.08);
+  font-family: var(--font-body-lw); font-weight: 600; letter-spacing: .01em;
+  text-align: center; font-style: normal;
+}
+.fl-refrain .fl-block-label { color: #2dd4bf; text-align: center; }
+
+/* List / catalog */
+.fl-list { border-left-color: #a78bfa; background: rgba(167,139,250,0.07); }
+.fl-list .fl-block-label { color: #a78bfa; }
+.fl-list ul, .fl-list ol { margin: 4px 0 0 1.1em; padding: 0; }
+.fl-list li { margin-bottom: 4px; }
+
+/* Genealogy — chain layout, not buried prose */
+.fl-genealogy { border-left-color: #fb923c; background: rgba(251,146,60,0.07); }
+.fl-genealogy .fl-block-label { color: #fb923c; }
+.fl-genealogy .fl-chain { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-family: var(--font-body-lw); font-size: 0.92em; }
+.fl-genealogy .fl-chain .fl-arrow { opacity: 0.45; }
+
+/* Dialogue / speeches between people */
+.fl-dialogue { border-left-color: #60a5fa; background: rgba(96,165,250,0.07); }
+.fl-dialogue .fl-block-label { color: #60a5fa; }
+.fl-dialogue .fl-speaker { font-family: var(--font-body-lw); font-weight: 800; font-size: 0.82em; text-transform: uppercase; letter-spacing: .04em; color: #93c5fd; margin-right: 6px; }
+
+/* Law code / commandments */
+.fl-law { border-left-color: #ef4444; background: rgba(239,68,68,0.06); }
+.fl-law .fl-block-label { color: #f87171; }
+.fl-law ol { margin: 4px 0 0 1.2em; padding: 0; }
+.fl-law li { margin-bottom: 6px; }
+
+/* Poetry / oracle — stanza breaks, indented parallel lines */
+.fl-poetry { border-left-color: #34d399; background: rgba(52,211,153,0.07); font-style: italic; }
+.fl-poetry .fl-block-label { color: #34d399; }
+.fl-poetry .fl-line { display: block; }
+.fl-poetry .fl-line + .fl-line { margin-left: 1.4em; }
+.fl-poetry .fl-stanza + .fl-stanza { margin-top: 10px; }
+
+/* Letter — salutation / body / closing */
+.fl-letter { border-left-color: #f472b6; background: rgba(244,114,182,0.07); }
+.fl-letter .fl-block-label { color: #f472b6; }
+.fl-letter .fl-salutation, .fl-letter .fl-closing { font-style: italic; opacity: 0.9; }
+
+@media (max-width: 640px) {
+  .fl-toolbar { padding: 8px 14px; }
+  .fl-legend-full { display: none; }
+}
+
+/* ---------- Panorama shape view (whole-book zoom-out map) ---------- */
+.fl-shape-wrap { max-width: 900px; margin: 0 auto; padding: 18px 20px 22px; }
+.fl-shape-grid {
+  display: flex; flex-wrap: wrap; gap: 4px;
+}
+.fl-shape-cell {
+  height: 34px; min-width: 14px; border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-body-lw); font-size: 0.62rem; font-weight: 700;
+  color: rgba(4,13,10,0.75);
+  text-decoration: none;
+  transition: transform .15s ease, filter .15s ease;
+  cursor: pointer;
+}
+.fl-shape-cell:hover { transform: translateY(-3px); filter: brightness(1.15); }
+.fl-shape-cell.fl-shape-panorama { background: linear-gradient(135deg, #38bdf8, #f59e0b); color: #0c1220; }
+.fl-shape-cell.fl-shape-classic { background: rgba(148,163,184,0.35); color: #0b1f18; }
+.fl-shape-cell.fl-shape-empty {
+  background: rgba(148,163,184,0.08); border: 1px dashed rgba(148,163,184,0.25);
+  color: rgba(148,163,184,0.4); cursor: default;
+}
+.fl-shape-empty:hover { transform: none; filter: none; }
+.fl-shape-legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 10px; font-size: 0.68rem; color: rgba(226,232,240,0.65); }
+.fl-shape-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.fl-shape-legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+
+.fl-classic-card {
+  max-width: 760px; margin: 0 auto 14px; padding: 16px 18px;
+  border: 1px dashed rgba(148,163,184,0.3); border-radius: 12px;
+  background: rgba(148,163,184,0.04);
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+}
+.fl-classic-card .fl-classic-label { font-family: var(--font-body-lw); font-size: 0.62rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: #94a3b8; }
+.fl-classic-card a { font-size: 0.78rem; color: #2dd4bf; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.fl-classic-card a:hover { color: #f59e0b; }
+.fl-white-page .fl-classic-card { border-color: #e2ddd0; background: rgba(56,189,248,0.04); }
+.fl-white-page .fl-classic-card .fl-classic-label { color: #a8a29e; }
+.fl-white-page .fl-classic-card div > div.text-sm { color: #57534e; }
+.fl-white-page .fl-classic-card a { color: #0369a1; }
+.fl-white-page .fl-classic-card a:hover { color: #b45309; }
+
+/* ---------- Persistent mini table-of-contents (structural nav) ---------- */
+.fl-mini-toc {
+  position: sticky; top: 56px; z-index: 39;
+  display: flex; gap: 6px; overflow-x: auto; white-space: nowrap;
+  padding: 8px 16px; background: rgba(253,252,249,0.97);
+  border-bottom: 1px solid #e2ddd0;
+  -webkit-overflow-scrolling: touch;
+}
+.fl-mini-toc::-webkit-scrollbar { height: 4px; }
+.fl-mini-toc-chip {
+  flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center;
+  min-width: 26px; height: 26px; padding: 0 8px; border-radius: 999px;
+  font-family: var(--font-body-lw); font-size: 0.68rem; font-weight: 800;
+  text-decoration: none; transition: transform .15s ease;
+}
+.fl-mini-toc-chip:hover { transform: translateY(-1px); }
+.fl-mini-toc-chip.fl-mini-current { outline: 2px solid #1a1a1a; outline-offset: 1px; }
+.fl-mini-toc-label { flex-shrink: 0; font-size: 0.62rem; color: #a8a29e; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; align-self: center; margin-right: 4px; }
+
+/* ============================================================
+   FRESHLOOK PANORAMA — WHITE READING MODE
+   White background, black text, inline word-level color coding.
+   Two independent color layers, kept visually separate:
+   1. Period tag (Jeff Cavins' 12 salvation-history periods) —
+      one badge per section, not per word.
+   2. Context-clue word coloring (who/what/where/when/God) —
+      inline spans within the running text.
+   ============================================================ */
+.fl-white-page { background: #fdfcf9; color: #1a1a1a; min-height: 100vh; }
+.fl-white-page .fl-toolbar { background: rgba(253,252,249,0.95); border-bottom: 1px solid #e2ddd0; }
+.fl-white-page .fl-zoom-btn { background: rgba(56,189,248,0.08); border-color: #cbd5e1; color: #0369a1; }
+.fl-white-page .fl-zoom-label { color: #57534e; }
+.fl-white-page .fl-legend-chip { color: #57534e; }
+
+/* Period tag — one per section, sized like a small ribbon */
+.fl-period-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-body-lw); font-size: 0.64rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .08em;
+  padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+  color: #fff;
+}
+.fl-period-early-world { background: #2dd4bf; }       /* turquoise — earth from space */
+.fl-period-patriarchs { background: #7f1d3a; }         /* burgundy — blood covenant */
+.fl-period-egypt-exodus { background: #b91c1c; }       /* red — the Red Sea */
+.fl-period-desert { background: #b08a5a; }             /* tan — the desert */
+.fl-period-conquest-judges { background: #15803d; }    /* green — hills of Canaan */
+.fl-period-royal-kingdom { background: #7e22ce; }      /* purple — royalty */
+.fl-period-divided-kingdom { background: #1c1917; }    /* black — darkening period */
+.fl-period-exile { background: #7dd3fc; color: #0c4a6e; } /* baby blue — Babylon */
+.fl-period-return { background: #eab308; color: #1c1917; } /* yellow — brighter days */
+.fl-period-maccabean { background: #ea580c; }          /* orange — purified lamps */
+.fl-period-messianic { background: #f59e0b; color: #1c1917; } /* gold — the Magi */
+.fl-period-church { background: #fff; color: #1c1917; border: 1px solid #d6d3d1; } /* white — the Bride */
+
+/* Running-text reading container */
+.fl-reading { max-width: 720px; margin: 0 auto; padding: 8px 6px 40px; }
+.fl-reading .fl-chapter-label { font-family: 'Cinzel', serif; font-weight: 800; color: #1a1a1a; font-size: 1.15rem; margin: 26px 0 10px; }
+.fl-reading p {
+  font-family: 'Georgia', 'Iowan Old Style', serif;
+  font-size: calc(1.05rem * var(--fl-scale, 1));
+  line-height: 1.9; color: #262220; margin: 0 0 18px;
+}
+.fl-reading .fl-vnum { font-family: var(--font-body-lw); font-size: 0.62em; font-weight: 800; color: #a8a29e; vertical-align: super; margin-right: 2px; }
+
+/* Inline context-clue word coloring */
+.fl-w-god { color: #b45309; font-weight: 700; }             /* God/divine references — deep gold */
+.fl-w-time { color: #0e7490; font-weight: 600; }             /* time markers — teal-blue */
+.fl-w-people { color: #1d4ed8; font-weight: 600; }            /* people/pronouns for people — blue */
+.fl-w-place { color: #15803d; font-weight: 600; }             /* place — green */
+
+/* ============================================================
+   PERIOD INTRO PAGES — Summary/Narrative articles per Cavins
+   period, modeled on the physical Great Adventure Bible layout.
+   ============================================================ */
+.fl-period-page { background: #fdfcf9; color: #262220; min-height: 100vh; }
+.fl-period-spectrum { display: flex; height: 8px; border-radius: 4px; overflow: hidden; max-width: 720px; margin: 0 auto; }
+.fl-period-spectrum span { flex: 1; opacity: 0.28; }
+.fl-period-spectrum span.fl-active { opacity: 1; }
+.fl-period-hero-band { padding: 10px 0; text-align: center; }
+.fl-period-hero-band h1 { font-family: 'Cinzel', serif; font-weight: 900; font-size: 2rem; letter-spacing: .03em; color: #1a1a1a; margin: 10px 0 0; }
+.fl-period-art { max-width: 780px; margin: 20px auto; border-radius: 4px; overflow: hidden; border: 2px solid #1a1a1a; }
+.fl-period-art img { width: 100%; display: block; }
+.fl-period-art figcaption { background: #1a1a1a; color: #f5f0e6; font-size: 0.72rem; text-align: center; padding: 6px; }
+.fl-period-article { max-width: 780px; margin: 0 auto; padding: 8px 20px 20px; }
+.fl-period-article h3 { font-family: 'Cinzel', serif; font-weight: 800; font-size: 1.1rem; margin: 22px 0 8px; color: #1a1a1a; }
+.fl-period-article p { font-family: Georgia, serif; font-size: 0.95rem; line-height: 1.75; color: #3a352e; margin: 0 0 12px; }
+
+.fl-key-event {
+  display: flex; gap: 14px; align-items: flex-start;
+  border: 1px solid #d6d3d1; border-radius: 10px; padding: 14px 16px; margin: 14px 0;
+  background: #fff;
+}
+.fl-key-event-pin {
+  flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 800; font-size: 0.85rem; font-family: var(--font-body-lw);
+}
+.fl-key-event-title { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1rem; color: #1a1a1a; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.fl-key-event-ref { font-family: var(--font-body-lw); font-size: 0.72rem; color: #a8a29e; font-weight: 600; }
+.fl-key-event-body { font-size: 0.88rem; color: #57534e; line-height: 1.6; margin-top: 4px; }
+
+@media (max-width: 640px) {
+  .fl-reading { padding: 8px 16px 40px; }
+}

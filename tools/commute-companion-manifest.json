@@ -1,0 +1,18 @@
+{
+  "name": "Commute Companion",
+  "short_name": "Commute",
+  "description": "Discuss today's Bible in a Year reading with an AI companion, then get a summary.",
+  "start_url": "/tools/commute-companion.html",
+  "display": "standalone",
+  "background_color": "#0E121C",
+  "theme_color": "#0E121C",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "commute-companion-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

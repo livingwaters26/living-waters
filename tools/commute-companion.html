@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Commute Companion — Study Hub</title>
+<link rel="manifest" href="commute-companion-manifest.json">
+<meta name="theme-color" content="#0E121C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,500;1,9..144,600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dark:#0E121C; --dark2:#161B28; --gold:#C9A227; --gold-soft:#D9BB5C;
+    --parchment:#F7EEDC; --ink:#211C14; --text:#D9DCE6; --text-soft:#8B93AC;
+    --line: rgba(201,162,39,0.28);
+    --font-display:'Fraunces',Georgia,serif; --font-body:'Source Serif 4',Georgia,serif; --font-ui:'Space Grotesk',sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--dark);color:var(--text);font-family:var(--font-body);-webkit-text-size-adjust:100%;}
+  .wrap{max-width:640px;margin:0 auto;padding:22px 18px 90px;}
+  .back{display:block;font-family:var(--font-ui);font-size:0.75rem;color:var(--text-soft);text-decoration:none;margin-bottom:10px;}
+  .back:hover{color:var(--gold-soft);}
+  header{text-align:center;margin-bottom:18px;}
+  .eyebrow{font-family:var(--font-ui);font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-soft);}
+  h1{font-family:var(--font-display);font-weight:600;font-size:1.9rem;margin:8px 0 4px;color:var(--parchment);}
+
+  .planpick{margin:14px 0 6px;font-family:var(--font-ui);font-size:0.78rem;color:var(--text-soft);text-align:center;}
+  .planpick label{display:block;margin-bottom:6px;text-transform:uppercase;letter-spacing:.1em;font-size:0.68rem;}
+  select#planSelect{width:100%;background:var(--dark2);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:10px 12px;font-family:var(--font-ui);font-size:0.9rem;}
+
+  .daypick{display:flex;align-items:center;justify-content:center;gap:10px;margin:14px 0 6px;font-family:var(--font-ui);font-size:0.85rem;color:var(--text-soft);}
+  .daypick input{width:60px;background:var(--dark2);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:6px 8px;text-align:center;font-family:var(--font-ui);}
+  .daypick button{background:var(--dark2);border:1px solid var(--line);border-radius:8px;color:var(--gold-soft);padding:6px 12px;font-family:var(--font-ui);font-size:0.75rem;cursor:pointer;}
+
+  .readings{background:var(--dark2);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0 20px;}
+  .readings .tag{font-family:var(--font-ui);font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:6px;}
+  .readings .refs{font-family:var(--font-display);font-style:italic;font-size:1.2rem;color:var(--parchment);}
+  .stage{display:none;}
+  .stage.active{display:block;}
+
+  #startBtn{width:100%;padding:18px;border-radius:16px;border:none;background:var(--gold);color:#1a1408;font-family:var(--font-ui);font-weight:700;font-size:1.05rem;cursor:pointer;}
+  #startBtn:hover{filter:brightness(1.06);}
+  #startBtn:disabled{opacity:0.5;cursor:default;}
+
+  .chatbox{background:var(--dark2);border:1px solid var(--line);border-radius:16px;padding:14px;min-height:280px;max-height:52vh;overflow-y:auto;margin-bottom:12px;}
+  .msg{margin-bottom:14px;line-height:1.55;font-size:1rem;}
+  .msg.user{color:var(--parchment);}
+  .msg .who{font-family:var(--font-ui);font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-soft);margin-bottom:3px;}
+  .msg.user .who{color:var(--gold-soft);}
+  .composer{display:flex;gap:8px;}
+  .composer textarea{flex:1;background:var(--dark2);border:1px solid var(--line);border-radius:12px;color:var(--text);padding:12px 14px;font-family:var(--font-body);font-size:1rem;resize:none;min-height:48px;}
+  .iconbtn{width:48px;height:48px;flex-shrink:0;border-radius:12px;border:1px solid var(--line);background:var(--dark2);color:var(--gold-soft);font-size:1.2rem;cursor:pointer;}
+  .iconbtn.active{background:var(--gold);color:#1a1408;}
+  .sendbtn{width:48px;height:48px;flex-shrink:0;border-radius:12px;border:none;background:var(--gold);color:#1a1408;font-weight:700;cursor:pointer;}
+  .row{display:flex;gap:8px;margin-top:8px;}
+  .toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-family:var(--font-ui);font-size:0.78rem;color:var(--text-soft);}
+  .toolbar label{display:flex;align-items:center;gap:6px;cursor:pointer;}
+
+  #endBtn{width:100%;padding:14px;border-radius:14px;border:1px solid var(--line);background:transparent;color:var(--gold-soft);font-family:var(--font-ui);font-weight:600;font-size:0.92rem;cursor:pointer;margin-top:14px;}
+
+  .summary-card{background:var(--parchment);color:var(--ink);border-radius:16px;padding:24px 22px;margin-top:16px;}
+  .summary-card h2{font-family:var(--font-display);font-weight:600;font-size:1.3rem;margin:0 0 4px;}
+  .summary-card .label{font-family:var(--font-ui);font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#9A3324;margin:18px 0 8px;}
+  .summary-card .label:first-of-type{margin-top:6px;}
+  .summary-card p{line-height:1.6;font-size:1rem;margin:0 0 10px;}
+  .summary-actions{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;}
+  .summary-actions button{flex:1;min-width:120px;padding:12px;border-radius:10px;border:1px solid #C9A227;background:transparent;color:#7a5f18;font-family:var(--font-ui);font-weight:600;font-size:0.85rem;cursor:pointer;}
+  .summary-actions button.primary{background:#C9A227;color:#1a1408;}
+
+  .loading{display:flex;align-items:center;gap:8px;color:var(--text-soft);font-family:var(--font-ui);font-size:0.85rem;padding:10px 0;}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--gold-soft);animation:pulse 1.2s infinite ease-in-out;}
+  .dot:nth-child(2){animation-delay:.2s;} .dot:nth-child(3){animation-delay:.4s;}
+  @keyframes pulse{0%,100%{opacity:.3;}50%{opacity:1;}}
+
+  .note{font-family:var(--font-ui);font-size:0.72rem;color:var(--text-soft);text-align:center;margin-top:10px;line-height:1.5;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="../index.html">← Study Hub</a>
+  <header>
+    <div class="eyebrow">Commute Companion</div>
+    <h1>Today's Reading</h1>
+    <div class="planpick">
+      <label for="planSelect">Plan</label>
+      <select id="planSelect"></select>
+      <div style="margin-top:6px;"><a href="plan-builder.html" style="color:var(--gold-soft);font-size:0.72rem;text-decoration:none;">＋ Manage / add plans →</a></div>
+    </div>
+    <div class="daypick">
+      <span id="sessionLabel">Session</span>
+      <input type="number" id="dayInput" min="1" />
+      <button id="dayGo" class="iconbtn" style="width:auto;padding:0 12px;font-family:var(--font-ui);font-size:0.75rem;">Go</button>
+      <button id="todayBtn">Today</button>
+    </div>
+  </header>
+
+  <div class="readings" id="readingsBox">Loading…</div>
+
+  <div class="stage active" id="stageStart">
+    <button id="startBtn">Start Discussion</button>
+    <div class="note">This runs a real conversation with Claude, grounded in today's passages —
+      not a script, not borrowed from any podcast. Type or use the mic. Works best stationary
+      (not literally hands-free while driving yet).</div>
+  </div>
+
+  <div class="stage" id="stageChat">
+    <div class="toolbar">
+      <label><input type="checkbox" id="speakToggle" checked/> Read replies aloud</label>
+      <span id="turnCount">0 exchanges</span>
+    </div>
+    <div class="chatbox" id="chatbox"></div>
+    <div class="composer">
+      <textarea id="userInput" placeholder="Type your thought, or tap the mic…"></textarea>
+      <button class="iconbtn" id="micBtn" title="Voice input">🎙️</button>
+      <button class="sendbtn" id="sendBtn">→</button>
+    </div>
+    <button id="endBtn">End Discussion &amp; Summarize</button>
+  </div>
+
+  <div class="stage" id="stageSummary"></div>
+</div>
+
+<script>
+let PLANS = [];       // [{plan_id, name, cadence, current_session, session_count}, ...]
+let ACTIVE_PLAN = null; // full plan detail incl. sessions[]
+let currentEntry = null; // {session, title, readings:[...], notes}
+let messages = []; // {role:'user'|'assistant', content:string}
+
+const dayInput = document.getElementById('dayInput');
+const readingsBox = document.getElementById('readingsBox');
+const planSelect = document.getElementById('planSelect');
+const sessionLabel = document.getElementById('sessionLabel');
+const startBtn = document.getElementById('startBtn');
+
+async function loadPlanList(){
+  const res = await fetch('/api/plans');
+  const data = await res.json();
+  PLANS = data.plans || [];
+  planSelect.innerHTML = PLANS.map(p => `<option value="${p.plan_id}">${p.name}</option>`).join('');
+  const savedPlan = localStorage.getItem('cc_active_plan');
+  const initial = PLANS.find(p => p.plan_id === savedPlan) || PLANS[0];
+  if (initial){
+    planSelect.value = initial.plan_id;
+    await loadPlan(initial.plan_id, initial.current_session);
+  }
+}
+
+async function loadPlan(planId, sessionToShow){
+  const res = await fetch('/api/plans/' + encodeURIComponent(planId));
+  ACTIVE_PLAN = await res.json();
+  localStorage.setItem('cc_active_plan', planId);
+  sessionLabel.textContent = ACTIVE_PLAN.cadence === 'daily' ? 'Day' : 'Session';
+  dayInput.max = ACTIVE_PLAN.sessions.length;
+  loadSession(sessionToShow || ACTIVE_PLAN.current_session || 1);
+}
+
+function loadSession(n){
+  if (!ACTIVE_PLAN) return;
+  currentEntry = ACTIVE_PLAN.sessions.find(s => s.session === n) || ACTIVE_PLAN.sessions[0];
+  dayInput.value = currentEntry.session;
+  const refs = (currentEntry.readings || []).join(' · ');
+  readingsBox.innerHTML = '<div class="tag">' + sessionLabel.textContent + ' ' + currentEntry.session +
+    (currentEntry.title ? ' — ' + currentEntry.title : '') + '</div><div class="refs">' + refs + '</div>';
+}
+
+planSelect.onchange = () => {
+  const p = PLANS.find(pp => pp.plan_id === planSelect.value);
+  loadPlan(planSelect.value, p ? p.current_session : 1);
+};
+document.getElementById('dayGo').onclick = () => loadSession(parseInt(dayInput.value || 1));
+document.getElementById('todayBtn').onclick = () => {
+  const p = PLANS.find(pp => pp.plan_id === planSelect.value);
+  if (p) loadSession(p.current_session);
+};
+
+loadPlanList();
+
+function switchStage(id){
+  document.querySelectorAll('.stage').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+async function callClaude(msgs, systemPrompt, maxTokens){
+  // Calls YOUR OWN server (server.py), which holds the real API key.
+  // Never call api.anthropic.com directly from browser JS you host yourself —
+  // that would expose your key to anyone who views the page source.
+  const response = await fetch("/api/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      model: "claude-sonnet-4-6",
+      max_tokens: maxTokens || 1000,
+      system: systemPrompt,
+      messages: msgs
+    })
+  });
+  const data = await response.json();
+  if (data.error) { return 'Error: ' + (data.error.message || JSON.stringify(data.error)); }
+  const text = (data.content || []).filter(b => b.type === 'text').map(b => b.text).join('\n');
+  return text || "(no response)";
+}
+
+function refsString(){
+  return (currentEntry.readings || []).join(', ');
+}
+
+const DISCUSSION_SYSTEM = () => `You are a warm, sharp, well-read Bible study companion having a spoken-style conversation
+during someone's commute about today's reading: ${refsString()} (${ACTIVE_PLAN.name}, ${sessionLabel.textContent} ${currentEntry.session}${currentEntry.title ? ', ' + currentEntry.title : ''}).
+
+Rules:
+- Keep replies short and conversational — 2 to 5 sentences, like a real back-and-forth, not a lecture or essay.
+- Ground everything in the actual text and its real historical/theological context.
+- Do NOT imitate, reference, or take the style of any specific existing Bible podcast, commentator, or personality.
+  Give your own original observations.
+- Ask a genuine follow-up question sometimes to keep it a real discussion, not a monologue.
+- If the person goes quiet or says something brief, offer a new angle on the passage rather than repeating yourself.`;
+
+function addMsg(role, text){
+  const box = document.getElementById('chatbox');
+  const div = document.createElement('div');
+  div.className = 'msg ' + role;
+  div.innerHTML = '<div class="who">' + (role === 'user' ? 'You' : 'Companion') + '</div>' + text.replace(/\n/g,'<br>');
+  box.appendChild(div);
+  box.scrollTop = box.scrollHeight;
+}
+
+function addLoading(){
+  const box = document.getElementById('chatbox');
+  const div = document.createElement('div');
+  div.className = 'loading'; div.id = 'loadingIndicator';
+  div.innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>';
+  box.appendChild(div); box.scrollTop = box.scrollHeight;
+}
+function removeLoading(){ const el = document.getElementById('loadingIndicator'); if (el) el.remove(); }
+
+function speak(text){
+  if (!document.getElementById('speakToggle').checked) return;
+  if (!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.rate = 1.0;
+  window.speechSynthesis.speak(u);
+}
+
+document.getElementById('startBtn').onclick = async () => {
+  switchStage('stageChat');
+  addLoading();
+  const opener = await callClaude(
+    [{role:'user', content:'Open our discussion on today\\'s reading with a short, genuine hook — one interesting angle or tension in the text, then a question to get me talking. Keep it brief.'}],
+    DISCUSSION_SYSTEM(), 300
+  );
+  removeLoading();
+  messages.push({role:'assistant', content: opener});
+  addMsg('assistant', opener);
+  speak(opener);
+};
+
+async function sendMessage(text){
+  if (!text.trim()) return;
+  messages.push({role:'user', content: text});
+  addMsg('user', text);
+  document.getElementById('userInput').value = '';
+  document.getElementById('turnCount').textContent = Math.ceil(messages.length/2) + ' exchanges';
+  addLoading();
+  const reply = await callClaude(messages, DISCUSSION_SYSTEM(), 400);
+  removeLoading();
+  messages.push({role:'assistant', content: reply});
+  addMsg('assistant', reply);
+  speak(reply);
+}
+
+document.getElementById('sendBtn').onclick = () => sendMessage(document.getElementById('userInput').value);
+document.getElementById('userInput').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); sendMessage(document.getElementById('userInput').value); }
+});
+
+// Voice input (best-effort; Chrome/Safari support varies)
+let recog = null;
+try{
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (SR){
+    recog = new SR();
+    recog.continuous = false; recog.interimResults = false; recog.lang = 'en-US';
+    recog.onresult = (e) => {
+      const text = e.results[0][0].transcript;
+      document.getElementById('userInput').value = text;
+      document.getElementById('micBtn').classList.remove('active');
+    };
+    recog.onend = () => document.getElementById('micBtn').classList.remove('active');
+  }
+}catch(e){}
+document.getElementById('micBtn').onclick = () => {
+  if (!recog){ alert('Voice input not supported in this browser — typing works fine.'); return; }
+  document.getElementById('micBtn').classList.add('active');
+  recog.start();
+};
+
+document.getElementById('endBtn').onclick = async () => {
+  switchStage('stageSummary');
+  document.getElementById('stageSummary').innerHTML = '<div class="loading" style="justify-content:center;"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>';
+  const transcript = messages.map(m => (m.role === 'user' ? 'Me: ' : 'Companion: ') + m.content).join('\n\n');
+  const summaryPrompt = `Here is the transcript of a discussion about today's Bible reading (${refsString()}, ${ACTIVE_PLAN.name}, ${sessionLabel.textContent} ${currentEntry.session}):
+
+${transcript}
+
+Produce exactly two sections, plain text, no markdown symbols:
+SUMMARY: a short summary (3-5 sentences) of what was actually discussed, focused on the human's own thoughts and questions, not just the passage.
+COMMENTARY: a brief, original synopsis (4-6 sentences) of today's passage itself — key point, one piece of context, one connection worth remembering. Do not imitate any existing podcast or commentator.`;
+  const result = await callClaude([{role:'user', content: summaryPrompt}], "You produce clean, well-organized study summaries.", 700);
+
+  const parts = result.split(/COMMENTARY:/i);
+  const summaryText = (parts[0] || '').replace(/SUMMARY:/i,'').trim();
+  const commentaryText = (parts[1] || '').trim();
+
+  document.getElementById('stageSummary').innerHTML = `
+    <div class="summary-card">
+      <h2>${sessionLabel.textContent} ${currentEntry.session} — Recap</h2>
+      <div class="label">Our Discussion</div>
+      <p>${summaryText.replace(/\n/g,'<br>')}</p>
+      <div class="label">Passage Commentary</div>
+      <p>${commentaryText.replace(/\n/g,'<br>')}</p>
+      <div class="summary-actions">
+        <button id="saveBtn" class="primary">Save to My Study</button>
+        <button id="copyBtn">Copy</button>
+        <button id="newBtn">New Discussion</button>
+      </div>
+    </div>`;
+  document.getElementById('copyBtn').onclick = () => {
+    navigator.clipboard.writeText(sessionLabel.textContent + ' ' + currentEntry.session + ' Recap\n\nOur Discussion:\n' + summaryText + '\n\nPassage Commentary:\n' + commentaryText);
+    document.getElementById('copyBtn').textContent = 'Copied ✓';
+  };
+  document.getElementById('saveBtn').onclick = async () => {
+    const btn = document.getElementById('saveBtn');
+    btn.disabled = true; btn.textContent = 'Saving…';
+    try{
+      const res = await fetch('/api/journal/save', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          plan_id: ACTIVE_PLAN.plan_id,
+          session: currentEntry.session,
+          refs: currentEntry.readings || [],
+          summary: summaryText,
+          commentary: commentaryText
+        })
+      });
+      const data = await res.json();
+      if (data.error){ btn.textContent = 'Save failed'; return; }
+      btn.textContent = 'Saved ✓';
+    }catch(e){
+      btn.textContent = 'Save failed — offline?';
+    }
+  };
+  document.getElementById('newBtn').onclick = () => {
+    messages = [];
+    document.getElementById('chatbox').innerHTML = '';
+    document.getElementById('turnCount').textContent = '0 exchanges';
+    switchStage('stageStart');
+  };
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+/* ============================================================
+   Study Hub — Illuminated design system
+   Shared across every page. Palette: night-to-dawn gradient,
+   antique gold, oxblood rubrication, rolling Blue Ridge horizon.
+   Fonts: Fraunces (display) / Source Serif 4 (body) / Space Grotesk (UI)
+   ============================================================ */
+
+:root{
+  --ilm-dark:      #0E121C;
+  --ilm-dark-deep: #070910;
+  --ilm-gold:      #C9A227;
+  --ilm-gold-soft: #D9BB5C;
+  --ilm-glow:      #F6E7C1;
+  --ilm-rubric:    #9A3324;
+  --ilm-ink:       #211C14;
+  --ilm-parchment: #F7EEDC;
+  --ilm-parchment-deep: #EFE1BF;
+  --ilm-on-dark:   #D9DCE6;
+  --ilm-on-dark-soft: #A9AFC4;
+  --ilm-hairline:  rgba(201,162,39,0.35);
+  --ilm-font-display: 'Fraunces', Georgia, serif;
+  --ilm-font-body: 'Source Serif 4', Georgia, serif;
+  --ilm-font-ui:   'Space Grotesk', -apple-system, sans-serif;
+}
+
+.ilm{
+  margin:0; font-family: var(--ilm-font-body); color: var(--ilm-on-dark);
+  -webkit-text-size-adjust: 100%;
+}
+.ilm-bg-full{
+  background:
+    radial-gradient(ellipse 900px 500px at 50% 0%, #1a2135 0%, transparent 60%),
+    linear-gradient(180deg, var(--ilm-dark-deep) 0%, var(--ilm-dark) 22%, #26314F 46%, #6B5A2E 68%, var(--ilm-parchment-deep) 84%, var(--ilm-parchment) 100%);
+}
+.ilm-bg-dark{ background: var(--ilm-dark); }
+
+.ilm-reveal{ opacity:0; transform: translateY(22px); transition: opacity .9s ease, transform .9s ease; }
+.ilm-reveal.in{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce){
+  .ilm-reveal{ opacity:1; transform:none; transition:none; }
+}
+
+/* ---- Top nav (replaces old back-btn) ---- */
+.ilm-nav{ display:flex; gap:10px; flex-wrap:wrap; padding: 18px 20px 0; max-width: 760px; margin:0 auto; }
+.ilm-back{
+  display:inline-flex; align-items:center; gap:8px; font-family: var(--ilm-font-ui);
+  font-size:0.82rem; font-weight:600; letter-spacing:0.03em; color: var(--ilm-gold-soft);
+  text-decoration:none; background: rgba(255,255,255,0.04); border:1px solid var(--ilm-hairline);
+  padding: 8px 16px; border-radius:20px;
+}
+.ilm-back:hover, .ilm-back:focus-visible{ background: var(--ilm-gold); color:#1a1408; }
+
+/* ---- Hero ---- */
+.ilm-hero{ padding: 60px 24px 44px; text-align:center; }
+.ilm-eyebrow{
+  font-family: var(--ilm-font-ui); font-size:0.72rem; font-weight:600;
+  letter-spacing:0.28em; text-transform:uppercase; color: var(--ilm-gold-soft); margin-bottom:20px;
+}
+.ilm-numeral{
+  font-family: var(--ilm-font-display); font-weight:300; font-style:italic; font-size:4.4rem; line-height:0.9;
+  color:transparent; -webkit-text-stroke: 1.2px var(--ilm-gold); margin:0 0 2px;
+}
+.ilm-h1{
+  font-family: var(--ilm-font-display); font-weight:600; font-size: clamp(2rem, 6vw, 2.9rem); line-height:1.05;
+  color: var(--ilm-glow); margin:0 0 12px; letter-spacing:-0.01em;
+}
+.ilm-subtitle{ font-family: var(--ilm-font-ui); font-size:0.92rem; color: var(--ilm-on-dark-soft); }
+.ilm-rule{ width:64px; height:1px; background: var(--ilm-gold); margin: 26px auto 0; opacity:0.7; position:relative; }
+.ilm-rule::before{
+  content:'✦'; position:absolute; top:-8px; left:50%; transform:translateX(-50%);
+  color: var(--ilm-gold); font-size:0.8rem; background: var(--ilm-dark); padding:0 8px;
+}
+
+/* ---- Mountain horizon (reusable, every hero) ---- */
+.ilm-horizon{ position:relative; height: 200px; overflow:hidden; margin-top:-8px; }
+.ilm-horizon svg{ position:absolute; bottom:0; left:0; width:100%; height:100%; }
+.ilm-ridge-back{ opacity:0.35; }
+.ilm-ridge-mid{ opacity:0.6; }
+.ilm-ridge-front path{ filter: drop-shadow(0 -1px 0 rgba(201,162,39,0.5)); }
+
+/* ---- Pull-quote / glow ---- */
+.ilm-pullquote-wrap{ padding: 30px 24px 56px; text-align:center; position:relative; }
+.ilm-glow-orb{
+  position:absolute; top:-6%; left:50%; width:320px; height:320px; transform:translate(-50%,-50%);
+  background: radial-gradient(circle, rgba(246,231,193,0.26) 0%, rgba(246,231,193,0) 70%);
+  filter: blur(6px); pointer-events:none; animation: ilm-breathe 7s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce){ .ilm-glow-orb{ animation:none; } }
+@keyframes ilm-breathe{ 0%,100%{ opacity:0.7; } 50%{ opacity:1; } }
+.ilm-pullquote{
+  position:relative; font-family: var(--ilm-font-display); font-style:italic; font-weight:500;
+  font-size: clamp(1.3rem, 4.5vw, 2rem); line-height:1.4; max-width:620px; margin:0 auto; color: var(--ilm-parchment);
+}
+.ilm-pullquote .ilm-ref{
+  display:block; margin-top:18px; font-family: var(--ilm-font-ui); font-style:normal;
+  font-size:0.75rem; letter-spacing:0.16em; text-transform:uppercase; color: var(--ilm-gold-soft);
+}
+
+/* ---- Parchment leaf (passage card) ---- */
+.ilm-leaf-wrap{ padding: 16px 20px 36px; display:flex; justify-content:center; }
+.ilm-leaf{
+  max-width: 720px; width:100%; background: var(--ilm-parchment); border-radius:4px;
+  padding: 44px 28px 38px; position:relative; box-shadow: 0 30px 70px rgba(0,0,0,0.35);
+}
+.ilm-corner{ position:absolute; width:30px; height:30px; opacity:0.6; }
+.ilm-corner svg{ width:100%; height:100%; }
+.ilm-corner.tl{ top:12px; left:12px; }
+.ilm-corner.tr{ top:12px; right:12px; transform:scaleX(-1); }
+.ilm-corner.bl{ bottom:12px; left:12px; transform:scaleY(-1); }
+.ilm-corner.br{ bottom:12px; right:12px; transform:scale(-1,-1); }
+
+.ilm-passage-label{
+  font-family: var(--ilm-font-ui); font-size:0.7rem; font-weight:600; letter-spacing:0.16em;
+  text-transform:uppercase; color: var(--ilm-rubric); text-align:center; margin-bottom:22px;
+}
+.ilm-dropcap-para{ color: var(--ilm-ink); font-size:1.15rem; line-height:1.75; }
+.ilm-dropcap{
+  float:left; font-family: var(--ilm-font-display); font-weight:600; font-size:4.6rem; line-height:0.78;
+  color: var(--ilm-gold); padding: 4px 10px 0 0; text-shadow: 1px 1px 0 rgba(0,0,0,0.08);
+}
+.ilm-vnum{
+  font-family: var(--ilm-font-ui); font-weight:600; font-size:0.65rem;
+  color: var(--ilm-rubric); vertical-align:super; margin: 0 3px 0 12px;
+}
+.ilm-vnum.first{ margin-left:0; }
+.ilm-translation-tag{
+  display:inline-block; font-family: var(--ilm-font-ui); font-size:0.65rem; font-weight:600;
+  letter-spacing:0.1em; color: var(--ilm-rubric); border:1px solid var(--ilm-rubric); border-radius:3px;
+  padding:2px 7px; margin-bottom:14px;
+}
+
+/* ---- Tiers (expand/collapse study cards) ---- */
+.ilm-tiers{ max-width:720px; margin: 6px auto 0; padding: 0 20px 30px; }
+.ilm-flourish{ text-align:center; margin: 30px 0; color: var(--ilm-gold-soft); opacity:0.8; font-size:1rem; letter-spacing:0.4em; }
+.ilm-tier{ background: rgba(15,20,32,0.55); border:1px solid var(--ilm-hairline); border-radius:14px; margin-bottom:14px; overflow:hidden; backdrop-filter: blur(2px); }
+.ilm-tier summary{
+  list-style:none; cursor:pointer; padding: 18px 20px; display:flex; align-items:center; justify-content:space-between; gap:14px;
+  font-family: var(--ilm-font-ui); font-weight:600; font-size:0.94rem; color: var(--ilm-glow);
+}
+.ilm-tier summary::-webkit-details-marker{ display:none; }
+.ilm-tier summary .ilm-num{ font-family: var(--ilm-font-display); font-style:italic; color: var(--ilm-gold); font-size:1.2rem; margin-right:8px; }
+.ilm-tier summary .ilm-chev{ color: var(--ilm-gold); font-size:1.1rem; transition: transform .25s ease; flex-shrink:0; }
+.ilm-tier[open] summary .ilm-chev{ transform: rotate(135deg); }
+.ilm-tier .ilm-body{ padding: 0 20px 22px 50px; font-size:1.02rem; line-height:1.7; color: var(--ilm-on-dark); }
+.ilm-tier .ilm-body p{ margin:0 0 14px; }
+
+/* ---- Index / listing grid (for section index pages) ---- */
+.ilm-index-wrap{ max-width: 900px; margin: 0 auto; padding: 10px 20px 60px; }
+.ilm-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:16px; margin-top: 30px; }
+.ilm-card{
+  display:block; text-decoration:none; background: rgba(255,255,255,0.035); border:1px solid var(--ilm-hairline);
+  border-radius:16px; padding: 24px 22px; transition: border-color .2s ease, transform .2s ease, background .2s ease;
+}
+.ilm-card:hover, .ilm-card:focus-visible{ border-color: var(--ilm-gold); background: rgba(201,162,39,0.06); transform: translateY(-2px); }
+.ilm-card .ilm-card-eyebrow{ font-family: var(--ilm-font-ui); font-size:0.66rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color: var(--ilm-gold-soft); margin-bottom:8px; }
+.ilm-card h3{ font-family: var(--ilm-font-display); font-weight:600; font-size:1.35rem; color: var(--ilm-glow); margin:0 0 8px; }
+.ilm-card p{ font-family: var(--ilm-font-body); font-size:0.94rem; line-height:1.55; color: var(--ilm-on-dark-soft); margin:0; }
+
+/* ---- Footer / colophon ---- */
+.ilm-footer{ text-align:center; padding: 20px 20px 56px; }
+.ilm-colophon{ font-family: var(--ilm-font-display); font-style:italic; color: var(--ilm-gold-soft); font-size:0.9rem; opacity:0.85; }
+.ilm-mountain-mark{ opacity:0.6; margin-bottom:10px; }
+
+@media (min-width: 860px){
+  .ilm-leaf{ padding: 56px 56px 48px; }
+  .ilm-dropcap{ font-size:5.6rem; }
+}

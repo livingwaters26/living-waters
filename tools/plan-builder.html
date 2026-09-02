@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reading Plan Builder - Study Hub</title>
+<style>
+:root {
+  --bg-color: #0f172a; --card-bg: #1e293b; --accent-gold: #f59e0b; --accent-blue: #38bdf8;
+  --text-main: #f8fafc; --text-muted: #94a3b8; --border-color: #334155;
+  --font-display: Georgia, 'Iowan Old Style', 'Palatino Linotype', Palatino, serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body { font-family: var(--font-body); background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; font-size: 1.06rem; }
+.container { width: 100%; max-width: 900px; }
+.top-nav { width: 100%; margin-bottom: 20px; }
+.back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-gold); text-decoration: none; font-weight: 600; background: var(--card-bg); padding: 10px 18px; border-radius: 20px; border: 1px solid var(--border-color); }
+.back-btn:hover, .back-btn:focus-visible { background: var(--accent-gold); color: #000; }
+.header { text-align: center; margin-bottom: 20px; }
+.header-icon { font-size: 2.6rem; margin-bottom: 8px; }
+.header h1 { font-family: var(--font-display); font-weight: 700; color: var(--accent-gold); font-size: 2rem; margin-bottom: 8px; }
+.header p { color: var(--text-muted); font-size: 0.95rem; max-width: 620px; margin: 0 auto; line-height: 1.55; }
+.section-title { font-family: var(--font-display); font-weight: 700; color: var(--accent-blue); font-size: 1.15rem; margin: 26px 0 10px 0; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+.card-block { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 18px 20px; margin-bottom: 18px; }
+.field-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent-blue); margin-bottom: 6px; display:block; }
+.field-input, .field-textarea, select.field-input { width: 100%; background: rgba(15,23,42,0.6); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-main); padding: 10px 12px; font-family: inherit; font-size: 0.92rem; margin-bottom: 14px; }
+.field-textarea { min-height: 90px; resize: vertical; }
+.hint { font-size: 0.78rem; color: var(--text-muted); margin: -8px 0 14px 0; line-height: 1.4; }
+.btn { border: none; border-radius: 8px; padding: 10px 18px; font-size: 0.88rem; font-weight: 700; cursor: pointer; font-family: inherit; }
+.btn-primary { background: var(--accent-gold); color: #000; }
+.btn-primary:hover, .btn-primary:focus-visible { filter: brightness(1.08); }
+.btn-secondary { background: var(--border-color); color: var(--text-main); }
+.btn-secondary:hover, .btn-secondary:focus-visible { background: var(--accent-blue); color: #000; }
+.btn-danger { background: #7f1d1d; color: #fff; }
+.btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+.dayrow { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+.dayrow label { display:flex; align-items:center; gap:5px; background:rgba(15,23,42,0.6); border:1px solid var(--border-color); border-radius:8px; padding:6px 10px; font-size:0.85rem; cursor:pointer; }
+.dayrow input[type="checkbox"] { margin:0; }
+.session-row { background: rgba(15,23,42,0.5); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 16px; margin-bottom: 12px; position:relative; }
+.session-row .snum { position:absolute; top:14px; right:16px; font-size:0.72rem; color:var(--text-muted); font-weight:700; }
+.session-row .field-input, .session-row .field-textarea { margin-bottom: 8px; }
+.session-row .field-input:last-of-type, .session-row .field-textarea:last-of-type { margin-bottom: 0; }
+.remove-session { background:none; border:none; color:#f87171; font-size:0.78rem; cursor:pointer; padding:0; margin-top:4px; }
+.plan-pick-row { display:flex; gap:10px; flex-wrap:wrap; align-items:flex-end; }
+.plan-pick-row .field-input { flex:1; min-width:200px; margin-bottom:0; }
+.status-msg { font-size:0.85rem; margin-top:10px; }
+.status-msg.ok { color:#34d399; }
+.status-msg.err { color:#f87171; }
+.import-note { background: rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.3); border-radius: 10px; padding:14px 16px; margin-bottom:16px; font-size:0.85rem; line-height:1.5; }
+@media (max-width: 480px) { .header h1 { font-size: 1.6rem; } body { padding: 14px; } }
+</style>
+<link rel="stylesheet" href="../lib/hub-ui.css">
+</head>
+<body>
+<div class="container">
+<div class="top-nav"><a class="back-btn" href="../commentary/index.html">⬅️ Deep-Dive Commentary &amp; Tools</a></div>
+<div class="header">
+<div class="header-icon">🗓️</div>
+<h1>Reading Plan Builder</h1>
+<p>Build a real reading plan for Commute Companion — any length, any meeting schedule. A 3-day study, a 4-week book study, a 6-month plan, or a full year like Bible in a Year. No fixed structure assumed.</p>
+</div>
+
+<div id="curriculum-import-note" class="import-note" style="display:none;">
+  <div id="curriculum-import-text"></div>
+  <div class="btn-row" style="margin-top:10px;">
+    <button class="btn btn-primary" onclick="importFromCurriculum()">📚 Turn this into a plan</button>
+    <button class="btn btn-secondary" onclick="dismissCurriculumImport()">Dismiss</button>
+  </div>
+</div>
+
+<div class="section-title">Load an existing plan to edit</div>
+<div class="card-block">
+<div class="plan-pick-row">
+<select class="field-input" id="fld-plan-picker"><option value="">— choose a plan —</option></select>
+<button class="btn btn-secondary" onclick="loadExistingPlan()">Load</button>
+<button class="btn btn-secondary" onclick="startNewPlan()">＋ New plan</button>
+</div>
+<div class="hint" style="margin-top:8px;">Loading a plan fills in the form below so you can edit and re-save it. Saving always writes to <code>data/plans/&lt;plan_id&gt;.json</code> — the same file the Commute Companion reads live.</div>
+</div>
+
+<div class="section-title">1 · Plan details</div>
+<div class="card-block">
+<label class="field-label" for="fld-name">Plan name</label>
+<input class="field-input" id="fld-name" type="text" placeholder="e.g. Jeremiah: A 4-Week Study">
+<label class="field-label" for="fld-planid">Plan ID (used in the file name — auto-fills from the name)</label>
+<input class="field-input" id="fld-planid" type="text" placeholder="e.g. jeremiah-4-week">
+<label class="field-label" for="fld-desc">Description (optional)</label>
+<textarea class="field-textarea" id="fld-desc" placeholder="A sentence or two describing the plan." style="min-height:60px;"></textarea>
+<label class="field-label" for="fld-start">Start date</label>
+<input class="field-input" id="fld-start" type="date">
+<label class="field-label">Cadence</label>
+<div class="dayrow">
+<label><input type="radio" name="cadence-mode" id="cadence-daily" value="daily" checked onchange="onCadenceChange()"> Daily</label>
+<label><input type="radio" name="cadence-mode" id="cadence-custom" value="custom" onchange="onCadenceChange()"> Specific days</label>
+</div>
+<div id="custom-days-row" class="dayrow" style="display:none;">
+<label><input type="checkbox" value="Sun"> Sun</label>
+<label><input type="checkbox" value="Mon"> Mon</label>
+<label><input type="checkbox" value="Tue"> Tue</label>
+<label><input type="checkbox" value="Wed"> Wed</label>
+<label><input type="checkbox" value="Thu"> Thu</label>
+<label><input type="checkbox" value="Fri"> Fri</label>
+<label><input type="checkbox" value="Sat"> Sat</label>
+</div>
+<div class="hint" style="margin-top:-8px;">"Daily" means one session per calendar day. "Specific days" (e.g. Tue/Thu for a 2x/week group) counts real meeting-day occurrences, not calendar days, when Commute Companion figures out which session you're on today.</div>
+</div>
+
+<div class="section-title">2 · Sessions</div>
+<div class="card-block">
+<div id="sessions-list"></div>
+<div class="btn-row">
+<button class="btn btn-secondary" onclick="addSession()">＋ Add session</button>
+<button class="btn btn-secondary" onclick="addBlankSessions()">＋ Add several…</button>
+</div>
+</div>
+
+<div class="section-title">3 · Import from a file</div>
+<div class="card-block">
+<div class="hint" style="margin-top:0;">Upload a plain-text or CSV reading plan and this parses it into sessions using this server's AI connection (needs internet for this step). CSV columns, if present: <code>session,title,readings,notes</code>. Plain text works too — just make sure each session/day is clearly on its own line.</div>
+<input class="field-input" id="fld-import-file" type="file" accept=".txt,.csv,.md">
+<div class="btn-row">
+<button class="btn btn-primary" id="import-btn" onclick="importFromFile()">🤖 Parse file into sessions</button>
+</div>
+<div class="hint">This adds parsed sessions to whatever's already in the form above — it won't erase sessions you've already entered. Review the result before saving; nothing is written to disk until you hit Save.</div>
+</div>
+
+<div class="section-title">4 · Save</div>
+<div class="card-block">
+<div class="btn-row">
+<button class="btn btn-primary" onclick="savePlan()">💾 Save Plan</button>
+</div>
+<div id="save-status" class="status-msg"></div>
+</div>
+
+</div>
+<script>
+var sessions = []; // {session, title, readings (array), notes}
+var nextSessionNum = 1;
+
+function slugify(s) {
+  return (s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'plan';
+}
+
+document.getElementById('fld-name').addEventListener('input', function () {
+  var idField = document.getElementById('fld-planid');
+  if (!idField.dataset.touched) idField.value = slugify(this.value);
+});
+document.getElementById('fld-planid').addEventListener('input', function () { this.dataset.touched = '1'; });
+
+function onCadenceChange() {
+  var custom = document.getElementById('cadence-custom').checked;
+  document.getElementById('custom-days-row').style.display = custom ? 'flex' : 'none';
+}
+
+function renderSessions() {
+  var list = document.getElementById('sessions-list');
+  if (sessions.length === 0) {
+    list.innerHTML = '<div class="hint" style="margin:0;">No sessions yet — add one, import a file below, or turn a Curriculum Builder result into sessions.</div>';
+    return;
+  }
+  list.innerHTML = sessions.map(function (s, i) {
+    return '<div class="session-row">' +
+      '<div class="snum">Session ' + s.session + '</div>' +
+      '<label class="field-label">Title</label>' +
+      '<input class="field-input" data-idx="' + i + '" data-f="title" value="' + escAttr(s.title) + '" oninput="updateSession(this)">' +
+      '<label class="field-label">Readings (comma-separated)</label>' +
+      '<input class="field-input" data-idx="' + i + '" data-f="readings" value="' + escAttr((s.readings || []).join(', ')) + '" oninput="updateSession(this)">' +
+      '<label class="field-label">Notes (optional)</label>' +
+      '<textarea class="field-textarea" data-idx="' + i + '" data-f="notes" style="min-height:50px;" oninput="updateSession(this)">' + escHtml(s.notes) + '</textarea>' +
+      '<button class="remove-session" onclick="removeSession(' + i + ')">✕ Remove this session</button>' +
+      '</div>';
+  }).join('');
+}
+
+function updateSession(el) {
+  var idx = parseInt(el.dataset.idx);
+  var field = el.dataset.f;
+  if (field === 'readings') {
+    sessions[idx].readings = el.value.split(',').map(function (r) { return r.trim(); }).filter(Boolean);
+  } else {
+    sessions[idx][field] = el.value;
+  }
+}
+
+function addSession() {
+  sessions.push({ session: nextSessionNum++, title: '', readings: [], notes: '' });
+  renderSessions();
+}
+
+function addBlankSessions() {
+  var n = parseInt(prompt('How many sessions to add?', '4') || '0');
+  if (!n || n < 1) return;
+  for (var i = 0; i < n; i++) { sessions.push({ session: nextSessionNum++, title: '', readings: [], notes: '' }); }
+  renderSessions();
+}
+
+function removeSession(idx) {
+  sessions.splice(idx, 1);
+  renumberSessions();
+  renderSessions();
+}
+
+function renumberSessions() {
+  sessions.forEach(function (s, i) { s.session = i + 1; });
+  nextSessionNum = sessions.length + 1;
+}
+
+function escHtml(s) {
+  return String(s || '').replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+function escAttr(s) { return escHtml(s); }
+
+function startNewPlan() {
+  document.getElementById('fld-name').value = '';
+  document.getElementById('fld-planid').value = '';
+  document.getElementById('fld-planid').dataset.touched = '';
+  document.getElementById('fld-desc').value = '';
+  document.getElementById('fld-start').value = '';
+  document.getElementById('cadence-daily').checked = true;
+  onCadenceChange();
+  document.querySelectorAll('#custom-days-row input[type="checkbox"]').forEach(function (c) { c.checked = false; });
+  sessions = [];
+  nextSessionNum = 1;
+  renderSessions();
+  document.getElementById('save-status').textContent = '';
+}
+
+async function loadPlanPicker() {
+  try {
+    var res = await fetch('/api/plans');
+    var data = await res.json();
+    var sel = document.getElementById('fld-plan-picker');
+    sel.innerHTML = '<option value="">— choose a plan —</option>' +
+      (data.plans || []).map(function (p) { return '<option value="' + p.plan_id + '">' + escHtml(p.name) + '</option>'; }).join('');
+  } catch (e) { /* offline or server not running yet — fine, just leave picker empty */ }
+}
+
+async function loadExistingPlan() {
+  var id = document.getElementById('fld-plan-picker').value;
+  if (!id) return;
+  var res = await fetch('/api/plans/' + encodeURIComponent(id));
+  var plan = await res.json();
+  if (plan.error) { alert(plan.error); return; }
+
+  document.getElementById('fld-name').value = plan.name || '';
+  document.getElementById('fld-planid').value = plan.plan_id || '';
+  document.getElementById('fld-planid').dataset.touched = '1';
+  document.getElementById('fld-desc').value = plan.description || '';
+  document.getElementById('fld-start').value = plan.start_date || '';
+
+  if (plan.cadence === 'daily') {
+    document.getElementById('cadence-daily').checked = true;
+  } else {
+    document.getElementById('cadence-custom').checked = true;
+    var days = plan.meeting_days || [];
+    document.querySelectorAll('#custom-days-row input[type="checkbox"]').forEach(function (c) { c.checked = days.indexOf(c.value) !== -1; });
+  }
+  onCadenceChange();
+
+  sessions = (plan.sessions || []).map(function (s) { return { session: s.session, title: s.title || '', readings: s.readings || [], notes: s.notes || '' }; });
+  nextSessionNum = sessions.length + 1;
+  renderSessions();
+  document.getElementById('save-status').textContent = '';
+}
+
+async function savePlan() {
+  var name = document.getElementById('fld-name').value.trim();
+  if (!name) { alert('Give the plan a name first.'); return; }
+  if (sessions.length === 0) { alert('Add at least one session first.'); return; }
+
+  var cadence = document.getElementById('cadence-daily').checked ? 'daily' : 'custom';
+  var meetingDays = [];
+  if (cadence === 'custom') {
+    document.querySelectorAll('#custom-days-row input[type="checkbox"]:checked').forEach(function (c) { meetingDays.push(c.value); });
+    if (meetingDays.length === 0) { alert('Pick at least one meeting day, or switch to Daily.'); return; }
+  } else {
+    meetingDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  }
+
+  var startDate = document.getElementById('fld-start').value || new Date().toISOString().slice(0, 10);
+
+  var payload = {
+    plan_id: document.getElementById('fld-planid').value.trim() || slugify(name),
+    name: name,
+    description: document.getElementById('fld-desc').value.trim(),
+    cadence: cadence,
+    start_date: startDate,
+    meeting_days: meetingDays,
+    sessions: sessions
+  };
+
+  var statusEl = document.getElementById('save-status');
+  statusEl.textContent = 'Saving…'; statusEl.className = 'status-msg';
+  try {
+    var res = await fetch('/api/plans/save', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    var data = await res.json();
+    if (data.error) { statusEl.textContent = 'Error: ' + data.error; statusEl.className = 'status-msg err'; return; }
+    statusEl.textContent = (data.created ? 'Created' : 'Updated') + ' "' + data.plan.name + '" — ' + data.plan.sessions.length + ' sessions. It now shows up in Commute Companion\'s plan switcher.';
+    statusEl.className = 'status-msg ok';
+    document.getElementById('fld-planid').value = data.plan.plan_id;
+    loadPlanPicker();
+  } catch (e) {
+    statusEl.textContent = 'Save failed — is server.py running? (' + e.message + ')';
+    statusEl.className = 'status-msg err';
+  }
+}
+
+// ---------------------------------------------------------------------
+// AI-assisted file import
+// ---------------------------------------------------------------------
+
+async function callChatAPI(systemPrompt, userPrompt, maxTokens) {
+  var response = await fetch('/api/chat', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-6',
+      max_tokens: maxTokens,
+      system: systemPrompt,
+      messages: [{ role: 'user', content: userPrompt }]
+    })
+  });
+  var data = await response.json();
+  if (data.error) { throw new Error(data.error.message || JSON.stringify(data.error)); }
+  return (data.content || []).filter(function (b) { return b.type === 'text'; }).map(function (b) { return b.text; }).join('\n');
+}
+
+var PARSE_SYSTEM = 'You convert a reading plan (pasted text or CSV) into strict JSON. ' +
+  'Output ONLY a JSON array, nothing else — no markdown fences, no preamble. ' +
+  'Each element: {"title": string, "readings": [string, ...], "notes": string}. ' +
+  'One element per session/day/week found in the source, in the order they appear. ' +
+  '"readings" should be the actual scripture references for that session, split into an array. ' +
+  'If a line has no clear title, use an empty string for title. If no notes, use an empty string. ' +
+  'Do not invent readings that are not in the source text.';
+
+function extractJsonArray(text) {
+  var start = text.indexOf('[');
+  var end = text.lastIndexOf(']');
+  if (start === -1 || end === -1) throw new Error('No JSON array found in the response.');
+  return JSON.parse(text.slice(start, end + 1));
+}
+
+async function importFromFile() {
+  var fileInput = document.getElementById('fld-import-file');
+  var file = fileInput.files[0];
+  if (!file) { alert('Choose a .txt, .csv, or .md file first.'); return; }
+
+  var btn = document.getElementById('import-btn');
+  btn.disabled = true; btn.textContent = 'Reading file…';
+
+  var text = await file.text();
+
+  btn.textContent = 'Parsing with AI…';
+  try {
+    var raw = await callChatAPI(PARSE_SYSTEM, text.slice(0, 20000), 4000);
+    var parsed = extractJsonArray(raw);
+    var startNum = sessions.length + 1;
+    parsed.forEach(function (p, i) {
+      sessions.push({
+        session: startNum + i,
+        title: p.title || '',
+        readings: Array.isArray(p.readings) ? p.readings : (p.readings ? [String(p.readings)] : []),
+        notes: p.notes || ''
+      });
+    });
+    renumberSessions();
+    renderSessions();
+    alert('Added ' + parsed.length + ' session' + (parsed.length === 1 ? '' : 's') + ' from the file. Review them below before saving.');
+  } catch (e) {
+    alert('Could not parse this file automatically: ' + e.message + '\n\nYou can still add sessions manually below.');
+  } finally {
+    btn.disabled = false; btn.textContent = '🤖 Parse file into sessions';
+    fileInput.value = '';
+  }
+}
+
+// ---------------------------------------------------------------------
+// Handoff from Small Group Curriculum Builder (tools/sermon-builder.html)
+// ---------------------------------------------------------------------
+
+var CURRICULUM_HANDOFF_KEY = 'sh-curriculum-handoff';
+
+function checkCurriculumHandoff() {
+  var raw = localStorage.getItem(CURRICULUM_HANDOFF_KEY);
+  if (!raw) return;
+  try {
+    var data = JSON.parse(raw);
+    document.getElementById('curriculum-import-text').textContent =
+      'A curriculum you generated ("' + (data.topic || 'Untitled') + '", ' + (data.weeks || '?') + ' weeks) is waiting to be turned into a plan.';
+    document.getElementById('curriculum-import-note').style.display = 'block';
+  } catch (e) { localStorage.removeItem(CURRICULUM_HANDOFF_KEY); }
+}
+
+async function importFromCurriculum() {
+  var raw = localStorage.getItem(CURRICULUM_HANDOFF_KEY);
+  if (!raw) return;
+  var data = JSON.parse(raw);
+
+  var note = document.getElementById('curriculum-import-note');
+  note.querySelector('#curriculum-import-text') && (note.querySelector('#curriculum-import-text').textContent = 'Parsing your curriculum into sessions…');
+
+  try {
+    var raw2 = await callChatAPI(PARSE_SYSTEM, data.text, 4000);
+    var parsed = extractJsonArray(raw2);
+
+    if (!document.getElementById('fld-name').value) {
+      document.getElementById('fld-name').value = data.topic || 'Small Group Study';
+      document.getElementById('fld-name').dispatchEvent(new Event('input'));
+    }
+    document.getElementById('cadence-custom').checked = true;
+    onCadenceChange();
+
+    var startNum = sessions.length + 1;
+    parsed.forEach(function (p, i) {
+      sessions.push({
+        session: startNum + i,
+        title: p.title || '',
+        readings: Array.isArray(p.readings) ? p.readings : (p.readings ? [String(p.readings)] : []),
+        notes: p.notes || ''
+      });
+    });
+    renumberSessions();
+    renderSessions();
+    dismissCurriculumImport();
+    alert('Turned ' + parsed.length + ' week(s) into sessions. Pick your meeting day(s) above, set a start date, and save.');
+  } catch (e) {
+    alert('Could not parse the curriculum automatically: ' + e.message);
+  }
+}
+
+function dismissCurriculumImport() {
+  localStorage.removeItem(CURRICULUM_HANDOFF_KEY);
+  document.getElementById('curriculum-import-note').style.display = 'none';
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  renderSessions();
+  loadPlanPicker();
+  checkCurriculumHandoff();
+});
+</script>
+</body>
+</html>

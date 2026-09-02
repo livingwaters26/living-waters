@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Church History &amp; Doctrinal Development - Doctrine &amp; Denominations</title>
+<style>
+:root {
+  --bg-color: #0f172a; --card-bg: #1e293b; --accent-gold: #f59e0b; --accent-blue: #38bdf8;
+  --text-main: #f8fafc; --text-muted: #94a3b8; --border-color: #334155; --neutral: #94a3b8;
+  --font-display: Georgia, 'Iowan Old Style', 'Palatino Linotype', Palatino, serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body { font-family: var(--font-body); background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; font-size: 1.07rem; }
+.container { width: 100%; max-width: 1050px; }
+.top-nav { width: 100%; margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+.back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-gold); text-decoration: none; font-weight: 600; background: var(--card-bg); padding: 10px 18px; border-radius: 20px; border: 1px solid var(--border-color); }
+.back-btn:hover, .back-btn:focus-visible { background: var(--accent-gold); color: #000; }
+.header { text-align: center; margin-bottom: 10px; }
+.header h1 { font-family: var(--font-display); font-weight: 700; color: var(--accent-gold); font-size: 2.15rem; margin-bottom: 8px; }
+.header p { color: var(--text-muted); font-size: 1rem; max-width: 680px; margin: 0 auto; line-height: 1.55; }
+.jump-nav { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 20px 0 30px 0; }
+.jump-link { font-size: 0.82rem; font-weight: 600; color: var(--accent-blue); text-decoration: none; border: 1px solid var(--border-color); border-radius: 16px; padding: 6px 14px; }
+.jump-link:hover, .jump-link:focus-visible { border-color: var(--accent-blue); }
+.section-title { font-family: var(--font-display); font-weight: 700; color: var(--accent-blue); font-size: 1.4rem; margin: 40px 0 8px 0; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; scroll-margin-top: 16px; }
+.section-note { color: var(--text-muted); font-size: 0.85rem; margin: 0 0 20px 0; line-height: 1.55; }
+.legend { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-bottom: 26px; font-size: 0.78rem; color: var(--text-muted); }
+.legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+.timeline { position: relative; padding-left: 28px; border-left: 2px solid var(--border-color); }
+.entry { position: relative; margin-bottom: 24px; }
+.entry::before { content: ''; position: absolute; left: -34px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--marker-color, var(--neutral)); border: 2px solid var(--bg-color); }
+.entry-date { font-family: var(--font-display); font-weight: 700; color: var(--accent-gold); font-size: 0.95rem; margin-bottom: 4px; }
+.entry-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 16px; }
+.entry-title { font-family: var(--font-display); font-weight: 700; font-size: 1.02rem; margin: 0 0 6px 0; color: var(--text-main); }
+.entry-body { font-size: 0.85rem; color: var(--text-muted); line-height: 1.55; }
+.entry-tag { display: inline-block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 10px; margin-bottom: 7px; }
+.matrix-wrap { overflow-x: auto; border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 10px; }
+table.matrix { width: 100%; border-collapse: collapse; min-width: 900px; background: var(--card-bg); }
+.matrix th, .matrix td { padding: 12px 14px; text-align: left; font-size: 0.82rem; vertical-align: top; border-bottom: 1px solid var(--border-color); line-height: 1.5; }
+.matrix th { font-family: var(--font-display); font-size: 0.85rem; color: var(--text-main); background: rgba(15,23,42,0.6); position: sticky; top: 0; }
+.matrix tr:last-child td { border-bottom: none; }
+.matrix td.doctrine { font-weight: 700; color: var(--accent-gold); min-width: 160px; }
+.matrix td.when { color: var(--accent-blue); font-weight: 600; white-space: nowrap; }
+.tree-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px 18px; margin-bottom: 12px; }
+.tree-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+.tree-icon { font-size: 1.4rem; }
+.tree-title { font-family: var(--font-display); font-weight: 700; color: var(--text-main); font-size: 1.05rem; margin: 0; flex: 1; }
+.tree-date { font-size: 0.72rem; color: var(--accent-blue); font-weight: 700; }
+.tree-body { font-size: 0.86rem; color: var(--text-muted); line-height: 1.55; margin: 0; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
+@media (max-width: 480px) { .header h1 { font-size: 1.6rem; } body { padding: 14px; } .timeline { padding-left: 22px; } .entry::before { left: -28px; } }
+
+/* === Reader Tools v1: highlighting, notes, inline dictionary === */
+.verse-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 999; align-items: center; justify-content: center; padding: 20px; }
+.verse-modal-overlay.open { display: flex; }
+.verse-modal { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 22px 24px; max-width: 480px; width: 100%; max-height: 78vh; overflow-y: auto; position: relative; }
+.verse-modal-close { position: absolute; top: 12px; right: 12px; background: var(--border-color); border: none; color: var(--text-main); border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 0.95rem; }
+.verse-modal-close:hover, .verse-modal-close:focus-visible { background: var(--accent-gold); color: #000; }
+.verse-modal-ref { font-family: var(--font-display); font-weight: 700; color: var(--accent-gold); font-size: 1.15rem; margin: 0 26px 12px 0; }
+.verse-modal-text { color: var(--text-main); line-height: 1.65; font-size: 0.95rem; margin: 0; }
+.rt-toolbar { position: absolute; display: none; z-index: 1200; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.4); padding: 6px; gap: 4px; }
+.rt-toolbar.open { display: flex; }
+.rt-toolbar button { background: none; border: none; color: var(--text-main); font-size: 0.82rem; padding: 6px 10px; border-radius: 6px; cursor: pointer; white-space: nowrap; }
+.rt-toolbar button:hover, .rt-toolbar button:focus-visible { background: var(--accent-gold); color: #000; }
+mark.rt-highlight { background: rgba(245,158,11,0.35); color: inherit; border-radius: 2px; padding: 0 1px; cursor: pointer; }
+mark.rt-note { background: rgba(56,189,248,0.3); color: inherit; border-radius: 2px; padding: 0 1px; cursor: pointer; border-bottom: 2px dotted var(--accent-blue); }
+.rt-fab { position: fixed; right: 18px; bottom: 18px; z-index: 1100; background: var(--accent-gold); color: #000; border: none; border-radius: 24px; padding: 12px 18px; font-weight: 700; font-size: 0.85rem; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.4); }
+.rt-fab:hover, .rt-fab:focus-visible { filter: brightness(1.08); }
+.rt-panel-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 1300; align-items: flex-end; justify-content: center; padding: 0; }
+.rt-panel-overlay.open { display: flex; }
+.rt-panel { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px 16px 0 0; padding: 20px; max-width: 560px; width: 100%; max-height: 70vh; overflow-y: auto; }
+.rt-panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.rt-panel-head h3 { font-family: var(--font-display); color: var(--accent-gold); margin: 0; font-size: 1.15rem; }
+.rt-panel-close { background: var(--border-color); border: none; color: var(--text-main); border-radius: 50%; width: 30px; height: 30px; cursor: pointer; }
+.rt-item { border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; }
+.rt-item-type { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+.rt-item-type.hl { color: var(--accent-gold); }
+.rt-item-type.note { color: var(--accent-blue); }
+.rt-item-text { font-size: 0.85rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px; }
+.rt-item-note { font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-bottom: 8px; }
+.rt-item-actions { display: flex; gap: 10px; }
+.rt-item-actions button { background: none; border: none; color: var(--accent-blue); font-size: 0.78rem; cursor: pointer; padding: 0; }
+.rt-item-actions button.rt-del { color: #f87171; }
+.rt-empty { color: var(--text-muted); font-size: 0.85rem; text-align: center; padding: 20px 0; }
+.rt-note-editor { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 1300; align-items: center; justify-content: center; padding: 20px; }
+.rt-note-editor.open { display: flex; }
+.rt-note-editor-box { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; max-width: 440px; width: 100%; }
+.rt-note-editor-box textarea { width: 100%; min-height: 90px; background: rgba(15,23,42,0.6); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-main); padding: 10px; font-family: inherit; font-size: 0.9rem; resize: vertical; }
+.rt-note-editor-box .rt-ne-btns { display: flex; gap: 10px; margin-top: 12px; justify-content: flex-end; }
+.rt-note-editor-box button { border: none; border-radius: 8px; padding: 8px 16px; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
+.rt-ne-save { background: var(--accent-gold); color: #000; }
+.rt-ne-cancel { background: var(--border-color); color: var(--text-main); }
+.def-term { border-bottom: 1px dotted var(--accent-blue); cursor: pointer; }
+.def-term:hover, .def-term:focus-visible { color: var(--accent-blue); }
+.fact-check-link { text-decoration: none; opacity: 0.7; font-size: 0.85em; margin-left: 3px; }
+.fact-check-link:hover, .fact-check-link:focus-visible { opacity: 1; }
+
+
+.research-link-box { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+.research-link-box a.research-link { color: var(--accent-blue); text-decoration: none; font-weight: 600; }
+.research-link-box a.research-link:hover, .research-link-box a.research-link:focus-visible { text-decoration: underline; }
+
+
+.sc-unavailable{color:#8a8578;font-style:italic;cursor:default;opacity:.75;}
+.ref-populated{margin-top:.6rem;padding:.75rem .9rem;background:rgba(255,255,255,.04);border-left:3px solid #c9a75e;border-radius:4px;}
+.ref-populated-title{font-family:Georgia,serif;font-weight:600;color:#c9a75e;margin-bottom:.35rem;}
+.ref-populated-extract{font-size:.92em;line-height:1.5;color:#d9d4c7;margin-bottom:.5rem;}
+.ref-link-sm{font-size:.85em;color:#c9a75e;text-decoration:none;border-bottom:1px dotted #c9a75e;}
+.ref-link-sm:hover{border-bottom-style:solid;}
+</style>
+<link rel="stylesheet" href="../lib/hub-ui.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Cinzel:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../lib/living-waters.css">
+</head>
+<body class="lw">
+<div id="lw-backdrop" class="lw-backdrop"></div>
+<div id="lw-photo-credit" class="lw-photo-credit"></div>
+
+<header class="w-full bg-slate-950/85 border-b border-sky-500/20 backdrop-blur-md sticky top-0 z-50">
+  <div class="bg-amber-500/10 border-b border-amber-500/10 text-amber-300 text-xs py-1 overflow-hidden">
+    <div id="lw-top-ticker" class="lw-marquee-track whitespace-nowrap flex items-center font-semibold tracking-wider"></div>
+  </div>
+  <div class="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between gap-3 flex-wrap">
+    <a href="../index.html" class="flex items-center gap-2.5 no-underline">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-800 via-slate-600 to-amber-500 flex items-center justify-center border border-sky-300/30">
+        <i class="fa-solid fa-droplet text-white text-sm"></i>
+      </div>
+      <span class="lw-serif font-black text-base tracking-widest text-slate-100">LIVING WATERS</span>
+    </a>
+    <div class="flex gap-3 flex-wrap justify-end"><a href="index.html" class="text-xs text-sky-300/90 hover:text-amber-300 no-underline font-semibold tracking-wide">⬅️ Doctrine &amp; Denominations</a><a href="../scripture-studies/topical-studies/millennial-kingdom/rooms/historical-development.html" class="text-xs text-sky-300/90 hover:text-amber-300 no-underline font-semibold tracking-wide">📊 Millennial-View Timeline</a></div>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-6 py-10 w-full relative z-10">
+  <div class="text-center mb-8">
+    
+    <h1 class="lw-serif text-3xl md:text-4xl font-black text-slate-50 mb-2">Church History &amp; Doctrinal Development</h1>
+    <p class="text-slate-300 text-base max-w-2xl mx-auto">How Christian doctrine took shape across two thousand years — the councils and creeds that defined it, what changed and why, and the family tree of who went where.</p>
+  </div>
+
+<div class="jump-nav">
+<a class="jump-link" href="#timeline">📅 Timeline</a>
+<a class="jump-link" href="#matrix">🔬 Doctrinal Evolution Matrix</a>
+<a class="jump-link" href="#tree">🌳 Denominational Family Tree</a>
+</div>
+<div class="section-title" id="timeline">📅 Church Eras &amp; Major Milestones</div>
+<p class="section-note">From the apostolic age to the present, the councils, creeds, and pivotal events that shaped the church every tradition traces its history back through.</p>
+<div class="legend">
+<span><span class="legend-dot" style="background:#94a3b8"></span>Apostolic / Ante-Nicene / Medieval</span>
+<span><span class="legend-dot" style="background:#38bdf8"></span>Ecumenical Council / Canon</span>
+<span><span class="legend-dot" style="background:#f472b6"></span>Controversy</span>
+<span><span class="legend-dot" style="background:#ef4444"></span>Schism</span>
+<span><span class="legend-dot" style="background:#f59e0b"></span>Reformation</span>
+<span><span class="legend-dot" style="background:#fbbf24"></span>Catholic Dogma</span>
+<span><span class="legend-dot" style="background:#a78bfa"></span>Modern Era</span>
+</div>
+<div class="timeline">
+<div class="entry" style="--marker-color:#94a3b8;">
+<div class="entry-date">c. 30–100 AD</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#94a3b826;color:#94a3b8;">Apostolic Age</span>
+<h3 class="entry-title">Apostolic Age <a class="fact-check-link" href="https://www.google.com/search?q=Apostolic%20Age%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">The church begins at Pentecost; the apostles and their immediate circle write the New Testament documents. Church government is simple — apostles, elders/overseers, deacons — with no fixed liturgy or developed hierarchy yet.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#94a3b8;">
+<div class="entry-date">70 AD</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#94a3b826;color:#94a3b8;">Apostolic Age</span>
+<h3 class="entry-title">Destruction of the Second Temple <a class="fact-check-link" href="https://www.google.com/search?q=Destruction%20of%20the%20Second%20Temple%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Rome destroys Jerusalem's Temple, ending the sacrificial system and accelerating the church's separation from Second Temple Judaism — a background event behind much of the New Testament's final composition.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#94a3b8;">
+<div class="entry-date">c. 100–313</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#94a3b826;color:#94a3b8;">Ante-Nicene</span>
+<h3 class="entry-title">Age of the Apologists &amp; Persecution <a class="fact-check-link" href="https://www.google.com/search?q=Age%20of%20the%20Apologists%20%26%20Persecution%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Under sporadic Roman persecution, writers like Ignatius of Antioch, Justin Martyr, Irenaeus, Tertullian, and Origen defend the faith and begin systematizing doctrine — but with no empire-wide creed or council yet to settle disputes.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#94a3b8;">
+<div class="entry-date">313</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#94a3b826;color:#94a3b8;">Ante-Nicene</span>
+<h3 class="entry-title">Edict of Milan <a class="fact-check-link" href="https://www.google.com/search?q=Edict%20of%20Milan%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Emperor Constantine legalizes Christianity throughout the Roman Empire, ending large-scale persecution and setting up the church's new, complicated relationship with imperial power.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#38bdf8;">
+<div class="entry-date">325</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#38bdf826;color:#38bdf8;">Ecumenical Council</span>
+<h3 class="entry-title">Council of Nicaea I <a class="fact-check-link" href="https://www.google.com/search?q=Council%20of%20Nicaea%20I%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Called by Constantine to settle the Arian controversy (was Christ created or eternally divine?). Produces the first form of the Nicene Creed, declaring the Son "of one substance" (homoousios) with the Father. Arius is condemned, though Arianism persists for decades.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#38bdf8;">
+<div class="entry-date">381</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#38bdf826;color:#38bdf8;">Ecumenical Council</span>
+<h3 class="entry-title">Council of Constantinople I <a class="fact-check-link" href="https://www.google.com/search?q=Council%20of%20Constantinople%20I%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Completes the Nicene Creed (the "Nicene-Constantinopolitan Creed" still used today), affirming the full deity of the Holy Spirit and condemning Apollinarianism (which denied Christ had a full human mind).</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#38bdf8;">
+<div class="entry-date">393–419</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#38bdf826;color:#38bdf8;">Canon</span>
+<h3 class="entry-title">Councils of Hippo &amp; Carthage <a class="fact-check-link" href="https://www.google.com/search?q=Councils%20of%20Hippo%20%26%20Carthage%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Regional North African councils, with Augustine's influence, affirm a 27-book New Testament canon matching today's Protestant and Catholic NT — though the Old Testament canon's exact boundaries (Apocrypha) remain unsettled between traditions for another thousand years.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#f472b6;">
+<div class="entry-date">412–430</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#f472b626;color:#f472b6;">Controversy</span>
+<h3 class="entry-title">Augustine vs. Pelagius <a class="fact-check-link" href="https://www.google.com/search?q=Augustine%20vs.%20Pelagius%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Augustine of Hippo argues humanity is fallen and cannot move toward God without prior grace; Pelagius argues humans can choose good unaided. Pelagianism is condemned (Council of Carthage 418, Ephesus 431), but the underlying grace-and-free-will question keeps resurfacing for the next 1,500 years — through Augustine/semi-Pelagianism, Calvin/Arminius, and beyond.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#38bdf8;">
+<div class="entry-date">431</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#38bdf826;color:#38bdf8;">Ecumenical Council</span>
+<h3 class="entry-title">Council of Ephesus <a class="fact-check-link" href="https://www.google.com/search?q=Council%20of%20Ephesus%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Condemns Nestorius, who was seen as dividing Christ into two separate persons (divine and human); affirms Mary as Theotokos ("God-bearer"), safeguarding the unity of Christ's person rather than primarily elevating Mary.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#38bdf8;">
+<div class="entry-date">451</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#38bdf826;color:#38bdf8;">Ecumenical Council</span>
+<h3 class="entry-title">Council of Chalcedon <a class="fact-check-link" href="https://www.google.com/search?q=Council%20of%20Chalcedon%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Defines Christ as one person in two natures, "without confusion, without change, without division, without separation" — the Chalcedonian Definition still held by Catholic, Orthodox, and Protestant churches alike. Those who rejected it (holding Christ has only one nature) become the Oriental Orthodox churches (Coptic, Armenian, Syriac, Ethiopian) — the first lasting major split in church history, five centuries before East and West divide.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#f472b6;">
+<div class="entry-date">529</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#f472b626;color:#f472b6;">Controversy</span>
+<h3 class="entry-title">Council of Orange <a class="fact-check-link" href="https://www.google.com/search?q=Council%20of%20Orange%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">A regional council steers a middle course on Augustine vs. Pelagius: grace must come first and is necessary for any move toward God (anti-Pelagian), without fully embracing Augustine's strongest predestinarian language — a compromise position that shapes medieval theology going forward.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#f472b6;">
+<div class="entry-date">589–800s</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#f472b626;color:#f472b6;">Controversy</span>
+<h3 class="entry-title">The Filioque Dispute Begins <a class="fact-check-link" href="https://www.google.com/search?q=The%20Filioque%20Dispute%20Begins%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">The Western church starts adding "and the Son" (filioque) to the Nicene Creed's line on the Spirit's procession, first at a regional Spanish council (Toledo, 589), later spread under Charlemagne. Rome itself resists the addition until the early 11th century — but once Rome adopts it too, the East regards it as both theologically wrong and a unilateral, uncouncil-sanctioned change to a universal creed.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#f472b6;">
+<div class="entry-date">726–843</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#f472b626;color:#f472b6;">Controversy</span>
+<h3 class="entry-title">The Iconoclasm Controversy <a class="fact-check-link" href="https://www.google.com/search?q=The%20Iconoclasm%20Controversy%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Byzantine emperors order the destruction of religious icons as idolatrous; Second Nicaea (787) restores icon veneration (distinguished from the worship due to God alone), a final reversal confirmed in 843 ("Triumph of Orthodoxy") — Eastern Orthodox worship's use of icons dates decisively from this resolution.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#ef4444;">
+<div class="entry-date">1054</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#ef444426;color:#ef4444;">Schism</span>
+<h3 class="entry-title">The Great Schism <a class="fact-check-link" href="https://www.google.com/search?q=The%20Great%20Schism%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Mutual excommunications between Rome and Constantinople formalize the East-West split, over the filioque clause, the scope of papal authority (Rome claiming universal jurisdiction, the East holding to a conciliar model among five patriarchs), and liturgical differences (leavened vs. unleavened communion bread, clerical celibacy rules). Repeated reunion attempts (Lyon 1274, Florence 1439) never take lasting hold.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#94a3b8;">
+<div class="entry-date">1095–1291</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#94a3b826;color:#94a3b8;">Medieval</span>
+<h3 class="entry-title">The Crusades <a class="fact-check-link" href="https://www.google.com/search?q=The%20Crusades%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">A series of papally-sanctioned military campaigns to recover the Holy Land; the sacking of Orthodox Constantinople itself by Western crusaders in 1204 deepens East-West mistrust for centuries.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#38bdf8;">
+<div class="entry-date">1215</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#38bdf826;color:#38bdf8;">Ecumenical Council</span>
+<h3 class="entry-title">Fourth Lateran Council <a class="fact-check-link" href="https://www.google.com/search?q=Fourth%20Lateran%20Council%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Formally defines transubstantiation using Aristotelian "substance and accident" categories (later systematized by Aquinas), and mandates annual confession and communion for all Catholics — a high-water mark of medieval papal authority under Innocent III.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#94a3b8;">
+<div class="entry-date">1309–1417</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#94a3b826;color:#94a3b8;">Medieval</span>
+<h3 class="entry-title">Avignon Papacy &amp; the Western Schism <a class="fact-check-link" href="https://www.google.com/search?q=Avignon%20Papacy%20%26%20the%20Western%20Schism%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Popes reside in Avignon under French influence (1309–1377), followed by a period with two and then three rival claimants to the papacy simultaneously (1378–1417) — resolved only by the Council of Constance, which also condemns and burns reformer Jan Hus (1415), a full century before Luther.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#f59e0b;">
+<div class="entry-date">1517</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#f59e0b26;color:#f59e0b;">Reformation</span>
+<h3 class="entry-title">Luther's Ninety-Five Theses <a class="fact-check-link" href="https://www.google.com/search?q=Luther%27s%20Ninety-Five%20Theses%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Martin Luther, an Augustinian monk, protests the sale of indulgences (payments reducing time in purgatory) at Wittenberg — the conventional starting point of the Protestant Reformation, though tensions had been building for a century (Wycliffe, Hus).</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#f59e0b;">
+<div class="entry-date">1525</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#f59e0b26;color:#f59e0b;">Reformation</span>
+<h3 class="entry-title">The Radical Reformation Begins <a class="fact-check-link" href="https://www.google.com/search?q=The%20Radical%20Reformation%20Begins%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">In Zurich, a group breaks from Zwingli's own reforms, rejecting infant baptism as unbiblical and baptizing each other as adult believers — the beginning of the Anabaptist ("re-baptizer") movement, persecuted by Catholics and mainstream Protestants alike for over a century.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#f59e0b;">
+<div class="entry-date">1530–1536</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#f59e0b26;color:#f59e0b;">Reformation</span>
+<h3 class="entry-title">Confessional Protestantism Takes Shape <a class="fact-check-link" href="https://www.google.com/search?q=Confessional%20Protestantism%20Takes%20Shape%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">The Augsburg Confession (1530) states Lutheran doctrine for the German princes; John Calvin publishes the first edition of his Institutes of the Christian Religion (1536) and later leads Geneva's reform — giving the Reformation its two major confessional streams, Lutheran and Reformed.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#f59e0b;">
+<div class="entry-date">1534</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#f59e0b26;color:#f59e0b;">Reformation</span>
+<h3 class="entry-title">The Church of England Breaks from Rome <a class="fact-check-link" href="https://www.google.com/search?q=The%20Church%20of%20England%20Breaks%20from%20Rome%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Henry VIII's Act of Supremacy separates the English church from papal authority (initially over his annulment, not primarily doctrine), creating Anglicanism — a tradition that would retain much Catholic liturgical and structural form while eventually absorbing Reformed theological influence.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#f59e0b;">
+<div class="entry-date">1545–1563</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#f59e0b26;color:#f59e0b;">Reformation</span>
+<h3 class="entry-title">Council of Trent <a class="fact-check-link" href="https://www.google.com/search?q=Council%20of%20Trent%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">The Catholic Church's formal, comprehensive response to the Reformation: reaffirms transubstantiation, purgatory, the necessity of both faith and works for justification, the equal authority of Scripture and unwritten Tradition, and the wider (Catholic) Old Testament canon including the Apocrypha — explicitly anathematizing the Reformers' sola fide and sola scriptura positions.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#f59e0b;">
+<div class="entry-date">1609</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#f59e0b26;color:#f59e0b;">Reformation</span>
+<h3 class="entry-title">The Baptist Movement Begins <a class="fact-check-link" href="https://www.google.com/search?q=The%20Baptist%20Movement%20Begins%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">John Smyth and Thomas Helwys, English Separatists exiled in Amsterdam, baptize each other as believers and found what becomes the Baptist tradition — congregational polity, believer's baptism, and (eventually) strong support for religious liberty and church-state separation.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#f59e0b;">
+<div class="entry-date">1618–1619</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#f59e0b26;color:#f59e0b;">Reformation</span>
+<h3 class="entry-title">The Synod of Dort <a class="fact-check-link" href="https://www.google.com/search?q=The%20Synod%20of%20Dort%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Convened to answer the Arminian "Remonstrance" against strict predestination, Dort formalizes what later becomes known as the five points of Calvinism ("TULIP") as confessional Reformed orthodoxy, sharpening the Calvinist/Arminian divide that still runs through Protestantism today.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#f59e0b;">
+<div class="entry-date">1648</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#f59e0b26;color:#f59e0b;">Post-Reformation</span>
+<h3 class="entry-title">Peace of Westphalia <a class="fact-check-link" href="https://www.google.com/search?q=Peace%20of%20Westphalia%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Ends Europe's devastating Wars of Religion; the principle that each ruler could set the religion of their territory (already established at Augsburg, 1555) is extended, effectively cementing Europe's Catholic/Lutheran/Reformed map for centuries and pushing further Reformation toward the New World.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#f59e0b;">
+<div class="entry-date">1738</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#f59e0b26;color:#f59e0b;">Post-Reformation</span>
+<h3 class="entry-title">Wesley's Evangelical Awakening <a class="fact-check-link" href="https://www.google.com/search?q=Wesley%27s%20Evangelical%20Awakening%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">John Wesley's Aldersgate conversion launches the Methodist movement within the Church of England — emphasizing personal conversion, sanctification, and disciplined "method" of spiritual life; Methodism formally separates from Anglicanism in America in 1784.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#a78bfa;">
+<div class="entry-date">1801–1830s</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#a78bfa26;color:#a78bfa;">Modern Era</span>
+<h3 class="entry-title">The Restoration Movement <a class="fact-check-link" href="https://www.google.com/search?q=The%20Restoration%20Movement%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Barton Stone and Thomas/Alexander Campbell, reacting against American denominational division, call for a return to simple New Testament Christianity without denominational labels — giving rise to the Churches of Christ, the Christian Church (Disciples of Christ), and influencing the later independent/non-denominational movement's basic instinct.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#fbbf24;">
+<div class="entry-date">1854 &amp;amp; 1870</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#fbbf2426;color:#fbbf24;">Catholic Dogma</span>
+<h3 class="entry-title">Marian &amp; Papal Dogmas <a class="fact-check-link" href="https://www.google.com/search?q=Marian%20%26%20Papal%20Dogmas%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Pope Pius IX defines the Immaculate Conception (Mary conceived without original sin, 1854) as dogma; the First Vatican Council defines papal infallibility, under specific conditions, in 1870 — both positions held by Catholics but not by Orthodox or Protestant churches.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#a78bfa;">
+<div class="entry-date">1906</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#a78bfa26;color:#a78bfa;">Modern Era</span>
+<h3 class="entry-title">Azusa Street &amp; Pentecostalism <a class="fact-check-link" href="https://www.google.com/search?q=Azusa%20Street%20%26%20Pentecostalism%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">A revival at a Los Angeles mission on Azusa Street, led by William Seymour, popularizes speaking in tongues and other "sign gifts" as normal Christian experience, launching the global Pentecostal movement out of the Wesleyan Holiness tradition — reintroducing continuationism into a Protestant mainstream that had largely become cessationist.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#a78bfa;">
+<div class="entry-date">1910–1915</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#a78bfa26;color:#a78bfa;">Modern Era</span>
+<h3 class="entry-title">The Fundamentalist–Modernist Controversy <a class="fact-check-link" href="https://www.google.com/search?q=The%20Fundamentalist%E2%80%93Modernist%20Controversy%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">A series of pamphlets called "The Fundamentals" defends core doctrines (biblical inerrancy, the virgin birth, substitutionary atonement, the bodily resurrection, and Christ's miracles) against theological liberalism — the origin of the term "fundamentalist," and a major fault line still shaping American Protestantism.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#fbbf24;">
+<div class="entry-date">1950</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#fbbf2426;color:#fbbf24;">Catholic Dogma</span>
+<h3 class="entry-title">The Assumption of Mary <a class="fact-check-link" href="https://www.google.com/search?q=The%20Assumption%20of%20Mary%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Pope Pius XII defines Mary's bodily assumption into heaven as dogma — again a Catholic-specific doctrine not shared by Orthodox tradition (which holds a similar but not formally dogmatized "Dormition") or by Protestants.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#a78bfa;">
+<div class="entry-date">1962–1965</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#a78bfa26;color:#a78bfa;">Modern Era</span>
+<h3 class="entry-title">The Second Vatican Council <a class="fact-check-link" href="https://www.google.com/search?q=The%20Second%20Vatican%20Council%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Catholicism's major 20th-century council: permits vernacular-language Mass (rather than Latin only), encourages ecumenical dialogue with other Christians, and revises the church's posture toward the modern world — without altering core dogmas like transubstantiation or papal authority.</p>
+</div>
+</div>
+<div class="entry" style="--marker-color:#a78bfa;">
+<div class="entry-date">1960s–present</div>
+<div class="entry-card">
+<span class="entry-tag" style="background:#a78bfa26;color:#a78bfa;">Modern Era</span>
+<h3 class="entry-title">The Charismatic Movement &amp; Non-Denominational Growth <a class="fact-check-link" href="https://www.google.com/search?q=The%20Charismatic%20Movement%20%26%20Non-Denominational%20Growth%20church%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></h3>
+<p class="entry-body">Pentecostal-style spiritual gifts spread into mainline Protestant and Catholic circles ("charismatic renewal"), while independent, congregationally-governed, deliberately non-denominational churches become one of the fastest-growing segments of American Christianity — the direct institutional descendants of the impulse behind the Restoration Movement over a century earlier.</p>
+</div>
+</div>
+</div>
+<div class="section-title" id="matrix">🔬 Doctrinal Evolution Matrix</div>
+<p class="section-note">For each major doctrinal development: what changed, who instituted or drove the change, when, and the political, cultural, or spiritual context that triggered it.</p>
+<div class="matrix-wrap">
+<table class="matrix">
+<thead><tr><th>Doctrine</th><th>What Changed</th><th>Who</th><th>When</th><th>Context / Trigger</th></tr></thead>
+<tbody>
+<tr>
+<td class="doctrine">Deity of Christ formally defined <a class="fact-check-link" href="https://www.google.com/search?q=Deity%20of%20Christ%20formally%20defined%20church%20doctrine%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></td>
+<td>The church moves from lived devotional practice to a precise creedal statement: the Son is "of one substance" (homoousios) with the Father, not a created being.</td>
+<td>Council of Nicaea (325), completed at Constantinople (381)</td>
+<td class="when">325–381</td>
+<td>The Arian controversy — the popular presbyter Arius taught the Son was the Father's first and greatest creation — threatened to split the newly-legalized imperial church; Constantine convened Nicaea to settle it.</td>
+</tr>
+<tr>
+<td class="doctrine">Christ's two natures defined <a class="fact-check-link" href="https://www.google.com/search?q=Christ%27s%20two%20natures%20defined%20church%20doctrine%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></td>
+<td>Christ is confessed as one person in two complete natures, divine and human, "without confusion, without change, without division, without separation."</td>
+<td>Council of Chalcedon</td>
+<td class="when">451</td>
+<td>Competing overcorrections to Arianism — Nestorius seeming to split Christ into two persons, Eutyches collapsing His two natures into one — required a precise formula; those who rejected it became the Oriental Orthodox churches.</td>
+</tr>
+<tr>
+<td class="doctrine">New Testament canon settled <a class="fact-check-link" href="https://www.google.com/search?q=New%20Testament%20canon%20settled%20church%20doctrine%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></td>
+<td>A 27-book New Testament list matching today's Bibles is affirmed by regional councils, ending centuries of local variation in which books were read as Scripture.</td>
+<td>Councils of Hippo (393) &amp; Carthage (397, 419), with Augustine's influence</td>
+<td class="when">393–419</td>
+<td>Widespread but not fully uniform NT usage across the early church, plus disputes over books like Hebrews, Revelation, and several general epistles, needed a regional (not universal) settling point.</td>
+</tr>
+<tr>
+<td class="doctrine">Old Testament canon splits by tradition <a class="fact-check-link" href="https://www.google.com/search?q=Old%20Testament%20canon%20splits%20by%20tradition%20church%20doctrine%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></td>
+<td>Catholic and Orthodox Bibles retain the Apocrypha/deuterocanonical books as Scripture; Protestant Reformers remove them from the canon proper (though Luther's Bible retained them as separate, useful-but-not-authoritative reading).</td>
+<td>Council of Trent formally dogmatizes the wider canon; Reformers narrow it</td>
+<td class="when">Trent, 1546 (Catholic); c. 1520s–1600s (Protestant)</td>
+<td>The Reformers followed the shorter Hebrew/Palestinian canon (also used by most Jewish tradition); Trent responded partly to Protestant rejection by formally dogmatizing the wider Greek/Alexandrian-derived canon Catholics had long used.</td>
+</tr>
+<tr>
+<td class="doctrine">Papal authority expands <a class="fact-check-link" href="https://www.google.com/search?q=Papal%20authority%20expands%20church%20doctrine%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></td>
+<td>The bishop of Rome moves from "first among equals" with a primacy of honor to claiming universal jurisdiction over the whole church, culminating in the dogma of papal infallibility under specific conditions.</td>
+<td>Gradual, with landmark moments under Leo I (5th c.) and Gregory VII (Investiture Controversy, 11th c.); formalized at Vatican I</td>
+<td class="when">5th century–1870</td>
+<td>Political power vacuums in the collapsing Western Roman Empire, the Investiture Controversy over appointing bishops, and later the need to answer post-Reformation and post-Enlightenment challenges to church authority.</td>
+</tr>
+<tr>
+<td class="doctrine">The filioque added to the Creed <a class="fact-check-link" href="https://www.google.com/search?q=The%20filioque%20added%20to%20the%20Creed%20church%20doctrine%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></td>
+<td>The Nicene Creed's Western text adds "and the Son" (filioque) to describe the Spirit's procession, a wording the East never accepted and had no part in approving.</td>
+<td>Regional Spanish council; later adopted by Rome</td>
+<td class="when">Toledo, 589; adopted by Rome c. 1014</td>
+<td>Partly anti-Arian pastoral concerns in Visigothic Spain, later politically pressed by Charlemagne's court to distinguish Western Christendom — becoming one of the two or three chief triggers of the 1054 Schism.</td>
+</tr>
+<tr>
+<td class="doctrine">Purgatory formally defined <a class="fact-check-link" href="https://www.google.com/search?q=Purgatory%20formally%20defined%20church%20doctrine%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></td>
+<td>An intermediate, purifying state after death for those who die in God's grace but still imperfectly purified becomes formal dogma, with indulgences developed as a way to reduce its duration.</td>
+<td>Second Council of Lyon (1274) and Council of Florence (1439); reaffirmed at Trent</td>
+<td class="when">1274–1563</td>
+<td>Centuries of devotional practice (prayers and Masses for the dead) and penitential theology needed formal definition, especially once Eastern objections and, much later, Protestant rejection required Rome to state the doctrine precisely.</td>
+</tr>
+<tr>
+<td class="doctrine">Transubstantiation formally defined <a class="fact-check-link" href="https://www.google.com/search?q=Transubstantiation%20formally%20defined%20church%20doctrine%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></td>
+<td>The bread and wine's "substance" is held to become Christ's actual body and blood while the "accidents" (appearance, taste) remain unchanged — using Aristotelian philosophical categories.</td>
+<td>Fourth Lateran Council; systematized by Thomas Aquinas</td>
+<td class="when">1215 (defined); 13th c. (systematized)</td>
+<td>The rise of Aristotelian philosophy in the medieval universities gave theologians new technical vocabulary to state precisely what earlier centuries had affirmed more simply as Christ's real presence.</td>
+</tr>
+<tr>
+<td class="doctrine">Indulgences develop and are challenged <a class="fact-check-link" href="https://www.google.com/search?q=Indulgences%20develop%20and%20are%20challenged%20church%20doctrine%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></td>
+<td>A system of reducing temporal punishment for sin (originally tied to real penance) develops into, in practice, payments that could be purchased — the specific abuse Luther protested.</td>
+<td>Medieval penitential system; challenged by Luther</td>
+<td class="when">Gradual development; challenged 1517</td>
+<td>Financing needs (notably rebuilding St. Peter's Basilica) combined with lax practice around Johann Tetzel's preaching in Germany, directly triggering the Ninety-Five Theses.</td>
+</tr>
+<tr>
+<td class="doctrine">Justification: imputed vs. infused righteousness <a class="fact-check-link" href="https://www.google.com/search?q=Justification%3A%20imputed%20vs.%20infused%20righteousness%20church%20doctrine%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></td>
+<td>Luther and the Reformers teach justification as an instantaneous forensic declaration based on Christ's righteousness credited (imputed) to the believer through faith alone; Rome holds righteousness is infused and grown through grace-enabled cooperation, faith and works together.</td>
+<td>Luther, Calvin (Reformers) vs. Council of Trent's Decree on Justification</td>
+<td class="when">1510s–1520s (Reformers); Trent, 1547</td>
+<td>Luther's own struggle with assurance of salvation as a monk, reading Romans and Habakkuk 2:4, produced the Reformation's central doctrine — Trent's decree explicitly anathematizes the Reformers' formulation in response.</td>
+</tr>
+<tr>
+<td class="doctrine">Sola Scriptura vs. Scripture-and-Tradition <a class="fact-check-link" href="https://www.google.com/search?q=Sola%20Scriptura%20vs.%20Scripture-and-Tradition%20church%20doctrine%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></td>
+<td>Reformers hold Scripture alone as the church's final authoritative rule; Rome holds Scripture and (unwritten, apostolic) Tradition together form one authoritative deposit, interpreted by the Magisterium.</td>
+<td>Reformers vs. Council of Trent, Fourth Session</td>
+<td class="when">1520s (Reformers); Trent, 1546</td>
+<td>The Reformers needed a principle to challenge papal and conciliar authority where it conflicted with their reading of Scripture; Trent responded by formally elevating unwritten Tradition to equal authority.</td>
+</tr>
+<tr>
+<td class="doctrine">Predestination and grace re-debated <a class="fact-check-link" href="https://www.google.com/search?q=Predestination%20and%20grace%20re-debated%20church%20doctrine%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></td>
+<td>Augustine's strong view of unconditional grace, softened by the semi-Augustinian Council of Orange, is revived in an even sharper form by Calvin, then formally systematized as "TULIP" against the Arminian Remonstrance.</td>
+<td>Augustine vs. Pelagius (5th c.); Calvin vs. Arminius/Remonstrants, formalized at the Synod of Dort</td>
+<td class="when">412–430 (Augustine/Pelagius); 1610–1619 (Calvinist/Arminian)</td>
+<td>Two nearly-identical debates a millennium apart: both times, a strong grace-first position was challenged by one emphasizing meaningful human freedom to respond, and both times a council sided with the grace-first position — though later history treats Dort's outcome as one Protestant option among several, not a universal church settlement.</td>
+</tr>
+<tr>
+<td class="doctrine">Baptism: infant vs. believer's <a class="fact-check-link" href="https://www.google.com/search?q=Baptism%3A%20infant%20vs.%20believer%27s%20church%20doctrine%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></td>
+<td>Infant baptism (paedobaptism), the default practice across Catholic, Orthodox, and most Reformation churches from the early centuries onward, is rejected as unbiblical by the Anabaptists in favor of baptizing only professing believers.</td>
+<td>Early church default; challenged by Anabaptists, later Baptists</td>
+<td class="when">Widespread by 2nd–3rd c.; challenged 1525 (Zurich), 1609 (Baptists)</td>
+<td>The Anabaptists' insistence on a visible, voluntary, adult-professing church (against the medieval assumption of a single Christian society baptized in infancy) made them targets of persecution by Catholics and mainstream Protestants alike for generations.</td>
+</tr>
+<tr>
+<td class="doctrine">Icon veneration contested and resolved <a class="fact-check-link" href="https://www.google.com/search?q=Icon%20veneration%20contested%20and%20resolved%20church%20doctrine%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></td>
+<td>Religious images are destroyed as idolatrous by iconoclast Byzantine emperors, then formally restored and theologically justified (image honored, not worshiped; honor passes to the prototype).</td>
+<td>Iconoclast emperors vs. Second Council of Nicaea</td>
+<td class="when">726–787 (first phase); resolved 843</td>
+<td>Renewed contact with aniconic Islam, plus genuine theological concern about idolatry, drove a century-long internal Byzantine crisis before icons were permanently restored to Eastern Orthodox worship.</td>
+</tr>
+<tr>
+<td class="doctrine">Spiritual gifts: cessationism vs. continuationism <a class="fact-check-link" href="https://www.google.com/search?q=Spiritual%20gifts%3A%20cessationism%20vs.%20continuationism%20church%20doctrine%20history" rel="noopener" target="_blank" title="Look this up (opens in browser)">🔍</a></td>
+<td>A largely cessationist Protestant mainstream (tongues and healing gifts ceased with the apostolic age) is challenged by a new Pentecostal movement insisting these gifts continue today.</td>
+<td>Azusa Street Revival, led by William Seymour</td>
+<td class="when">1906 onward</td>
+<td>Holiness-movement expectation of a "second blessing" of sanctification, combined with a hunger for revival experience, produced tongues-speaking and healing claims that spread globally within a few years — reopening a debate largely dormant since the early centuries of the church.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section-title" id="tree">🌳 Denominational Family Tree — Who Went Where, and Why</div>
+<p class="section-note">A roadmap of the major splits, in roughly chronological order, each with the core reason for the divide. See the Doctrine &amp; Denominations home for dedicated rooms on individual controversies (Eucharist, baptism, faith and works, predestination) as they're built out.</p>
+<div class="tree-card">
+<div class="tree-head"><span class="tree-icon">🏛️</span><h3 class="tree-title">The Undivided Church</h3><span class="tree-date">c. 30–1054</span></div>
+<p class="tree-body">One institutional church across the Roman world, sharing the ecumenical councils' creeds — already containing real regional diversity (Latin West vs. Greek East vs. the Syriac- and Coptic-speaking churches further east), but not yet formally divided.</p>
+</div>
+<div class="tree-card">
+<div class="tree-head"><span class="tree-icon">✂️</span><h3 class="tree-title">The Oriental Orthodox Split</h3><span class="tree-date">451</span></div>
+<p class="tree-body">Churches rejecting the Chalcedonian Definition — the Coptic Orthodox (Egypt), Armenian Apostolic, Syriac Orthodox, and Ethiopian Orthodox churches — separate from the imperial church centuries before East and West divide from each other. They remain distinct communions to this day.</p>
+</div>
+<div class="tree-card">
+<div class="tree-head"><span class="tree-icon">⚔️</span><h3 class="tree-title">East–West Schism → Eastern Orthodox &amp; Roman Catholic</h3><span class="tree-date">1054</span></div>
+<p class="tree-body">Mutual excommunications split the remaining church along the old Latin/Greek line. Eastern Orthodoxy keeps a conciliar model shared among patriarchs and rejects the filioque and papal universal jurisdiction; Roman Catholicism centers authority in the papacy.</p>
+</div>
+<div class="tree-card">
+<div class="tree-head"><span class="tree-icon">🔨</span><h3 class="tree-title">Roman Catholic → the Reformation</h3><span class="tree-date">1517 onward</span></div>
+<p class="tree-body">Luther's protest opens a floodgate. Rome remains Roman Catholic (reaffirming and clarifying its position at Trent); several new Protestant streams emerge more or less independently:</p>
+</div>
+<div class="tree-card">
+<div class="tree-head"><span class="tree-icon">📖</span><h3 class="tree-title">→ Lutheran</h3><span class="tree-date">Germany/Scandinavia, from 1517</span></div>
+<p class="tree-body">Justification by faith alone; "real presence" in communion without full transubstantiation (often called sacramental union or, imprecisely, "consubstantiation"); retained much traditional liturgy and church structure.</p>
+</div>
+<div class="tree-card">
+<div class="tree-head"><span class="tree-icon">✝️</span><h3 class="tree-title">→ Reformed / Calvinist</h3><span class="tree-date">Switzerland, from 1520s–1530s</span></div>
+<p class="tree-body">God's sovereignty and predestination emphasized; communion as a real but spiritual (not physical) feeding on Christ; simplified, "regulated" worship. Branches into Presbyterian (Scotland, via John Knox) and Congregationalist (England, later New England Puritan) polities.</p>
+</div>
+<div class="tree-card">
+<div class="tree-head"><span class="tree-icon">👑</span><h3 class="tree-title">→ Anglican</h3><span class="tree-date">England, from 1534</span></div>
+<p class="tree-body">Initially a political break under Henry VIII rather than a theological one; developed its own "via media" blending Catholic liturgical form with increasingly Reformed theology over the following century.</p>
+</div>
+<div class="tree-card">
+<div class="tree-head"><span class="tree-icon">💧</span><h3 class="tree-title">→ Anabaptist (Radical Reformation)</h3><span class="tree-date">Zurich, from 1525</span></div>
+<p class="tree-body">Believer's baptism only, strict church/state separation, and often pacifism; persecuted by Catholics and mainstream Protestants alike. Surviving branches include the Mennonites, Amish, and Hutterites.</p>
+</div>
+<div class="tree-card">
+<div class="tree-head"><span class="tree-icon">🔥</span><h3 class="tree-title">Anglican → Methodist</h3><span class="tree-date">England, from 1738</span></div>
+<p class="tree-body">John Wesley's revival movement, emphasizing personal conversion and holiness/sanctification, begins inside the Church of England and formally separates in America in 1784.</p>
+</div>
+<div class="tree-card">
+<div class="tree-head"><span class="tree-icon">💦</span><h3 class="tree-title">Separatist/Puritan roots → Baptist</h3><span class="tree-date">England/Holland, from 1609</span></div>
+<p class="tree-body">Believer's baptism by immersion and congregational polity, developing independently of but with some influence from Anabaptist ideas; becomes one of the largest Protestant families worldwide, especially in America.</p>
+</div>
+<div class="tree-card">
+<div class="tree-head"><span class="tree-icon">🕊️</span><h3 class="tree-title">Methodist/Holiness → Pentecostal</h3><span class="tree-date">Los Angeles (Azusa Street), from 1906</span></div>
+<p class="tree-body">Emerges from the Wesleyan Holiness movement's "second blessing" theology, adding an emphasis on tongues and other sign gifts as normal Christian experience; becomes one of the fastest-growing global Christian movements of the 20th century.</p>
+</div>
+<div class="tree-card">
+<div class="tree-head"><span class="tree-icon">🌊</span><h3 class="tree-title">Cross-denominational → Charismatic Movement</h3><span class="tree-date">1960s onward</span></div>
+<p class="tree-body">Pentecostal-style spiritual gifts spread into mainline Protestant and even Catholic parishes without those believers leaving their home denominations — a movement that crosses, rather than creates, denominational lines.</p>
+</div>
+<div class="tree-card">
+<div class="tree-head"><span class="tree-icon">🧭</span><h3 class="tree-title">American revivalism → Restoration Movement → Non-Denominational</h3><span class="tree-date">America, from early 1800s onward</span></div>
+<p class="tree-body">A reaction against denominational division itself: Stone and the Campbells sought a return to simple New Testament Christianity without denominational labels, birthing the Churches of Christ and Disciples of Christ — and anticipating the instinct behind today's large, independent non-denominational church movement.</p>
+</div>
+
+</main>
+
+<script src="../lib/living-waters.js"></script>
+<script>
+lwInitBackdrop('lw-backdrop');
+lwBuildMarquee('lw-top-ticker', [
+  { icon: 'fa-solid fa-water text-sky-300', text: '[CHURCH HISTORY &AMP; DOCTRINAL DEVELOPMENT]: How Christian doctrine took shape across two thousand years — the councils and creeds that defined it, what changed and why, and the family tree of who went where.' }
+]);
+</script>
+
+<div class="rt-toolbar" id="rtToolbar">
+<button id="rtBtnHighlight" type="button">🖍 Highlight</button>
+<button id="rtBtnNote" type="button">📝 Note</button>
+</div>
+<button class="rt-fab" id="rtFab" onclick="rtOpenPanel()" type="button">🖍 <span id="rtFabCount">0</span></button>
+<div class="rt-panel-overlay" id="rtPanelOverlay" onclick="if(event.target===this) rtClosePanel()">
+<div class="rt-panel">
+<div class="rt-panel-head"><h3>Highlights &amp; Notes — This Page</h3><button class="rt-panel-close" onclick="rtClosePanel()">✕</button></div>
+<div id="rtPanelList"></div>
+</div>
+</div>
+<div class="rt-note-editor" id="rtNoteEditor">
+<div class="rt-note-editor-box">
+<p style="color:var(--text-muted);font-size:0.85rem;margin:0 0 8px 0;">Note on: <span id="rtNoteEditorSnippet" style="color:var(--text-main);font-style:italic;"></span></p>
+<textarea id="rtNoteEditorText" placeholder="Your note..."></textarea>
+<div class="rt-ne-btns">
+<button class="rt-ne-cancel" onclick="rtCancelNote()" type="button">Cancel</button>
+<button class="rt-ne-save" onclick="rtSaveNote()" type="button">Save Note</button>
+</div>
+</div>
+</div>
+<div class="verse-modal-overlay" id="rtDefOverlay" onclick="if(event.target===this) rtCloseDef()" style="z-index:1400;">
+<div aria-modal="true" class="verse-modal" role="dialog">
+<button aria-label="Close" class="verse-modal-close" onclick="rtCloseDef()">✕</button>
+<p class="verse-modal-ref" id="rtDefTerm"></p>
+<p class="verse-modal-text" id="rtDefText"></p>
+</div>
+</div>
+<script>
+(function() {
+  var RT_PAGE = 'rt:' + location.pathname;
+  var pendingRange = null;
+
+  function rtLoad() {
+    try { return JSON.parse(localStorage.getItem(RT_PAGE) || '[]'); } catch(e) { return []; }
+  }
+  function rtSaveAll(items) {
+    try { localStorage.setItem(RT_PAGE, JSON.stringify(items)); } catch(e) {}
+    rtUpdateFab();
+  }
+  function rtUpdateFab() {
+    var el = document.getElementById('rtFabCount');
+    if (el) el.textContent = rtLoad().length;
+  }
+
+  function rtShowToolbar(x, y) {
+    var tb = document.getElementById('rtToolbar');
+    tb.style.left = x + 'px';
+    tb.style.top = y + 'px';
+    tb.classList.add('open');
+  }
+  function rtHideToolbar() {
+    document.getElementById('rtToolbar').classList.remove('open');
+  }
+
+  document.addEventListener('mouseup', function(e) {
+    if (e.target.closest('.rt-toolbar, .rt-note-editor, .rt-panel-overlay, .verse-modal-overlay')) return;
+    setTimeout(function() {
+      var sel = window.getSelection();
+      if (sel && sel.toString().trim().length > 2 && sel.rangeCount > 0) {
+        pendingRange = sel.getRangeAt(0).cloneRange();
+        var rect = pendingRange.getBoundingClientRect();
+        rtShowToolbar(window.scrollX + rect.left, window.scrollY + rect.top - 44);
+      } else {
+        rtHideToolbar();
+      }
+    }, 10);
+  });
+  document.addEventListener('mousedown', function(e) {
+    if (!e.target.closest('.rt-toolbar')) rtHideToolbar();
+  });
+
+  function rtWrapRange(range, cls, extraAttrs) {
+    try {
+      var mark = document.createElement('mark');
+      mark.className = cls;
+      if (extraAttrs) for (var k in extraAttrs) mark.setAttribute(k, extraAttrs[k]);
+      range.surroundContents(mark);
+      return mark;
+    } catch (e) {
+      // Multi-element selection: fall back to extracting + wrapping (loses inner tags, keeps text)
+      try {
+        var frag = range.extractContents();
+        var mark2 = document.createElement('mark');
+        mark2.className = cls;
+        if (extraAttrs) for (var k2 in extraAttrs) mark2.setAttribute(k2, extraAttrs[k2]);
+        mark2.appendChild(frag);
+        range.insertNode(mark2);
+        return mark2;
+      } catch (e2) { return null; }
+    }
+  }
+
+  document.getElementById('rtBtnHighlight').addEventListener('click', function() {
+    if (!pendingRange) return;
+    var text = pendingRange.toString();
+    var id = 'hl' + Date.now();
+    var mark = rtWrapRange(pendingRange.cloneRange(), 'rt-highlight', {'data-rt-id': id});
+    if (mark) {
+      mark.addEventListener('click', function() { rtOpenPanel(); });
+      var items = rtLoad();
+      items.push({id: id, type: 'highlight', text: text, ts: Date.now()});
+      rtSaveAll(items);
+    }
+    rtHideToolbar();
+    window.getSelection().removeAllRanges();
+  });
+
+  document.getElementById('rtBtnNote').addEventListener('click', function() {
+    if (!pendingRange) return;
+    document.getElementById('rtNoteEditorSnippet').textContent = '"' + pendingRange.toString().slice(0, 80) + (pendingRange.toString().length > 80 ? '…' : '') + '"';
+    document.getElementById('rtNoteEditorText').value = '';
+    document.getElementById('rtNoteEditor').classList.add('open');
+    rtHideToolbar();
+  });
+
+  window.rtCancelNote = function() {
+    document.getElementById('rtNoteEditor').classList.remove('open');
+    window.getSelection().removeAllRanges();
+  };
+  window.rtSaveNote = function() {
+    var noteText = document.getElementById('rtNoteEditorText').value.trim();
+    if (!pendingRange || !noteText) { rtCancelNote(); return; }
+    var text = pendingRange.toString();
+    var id = 'nt' + Date.now();
+    var mark = rtWrapRange(pendingRange.cloneRange(), 'rt-note', {'data-rt-id': id});
+    if (mark) {
+      mark.title = noteText;
+      mark.addEventListener('click', function() { rtOpenPanel(); });
+      var items = rtLoad();
+      items.push({id: id, type: 'note', text: text, note: noteText, ts: Date.now()});
+      rtSaveAll(items);
+    }
+    document.getElementById('rtNoteEditor').classList.remove('open');
+    window.getSelection().removeAllRanges();
+  };
+
+  window.rtOpenPanel = function() {
+    var items = rtLoad();
+    var list = document.getElementById('rtPanelList');
+    if (!items.length) {
+      list.innerHTML = '<p class="rt-empty">No highlights or notes on this page yet. Select any text to add one.</p>';
+    } else {
+      list.innerHTML = items.slice().reverse().map(function(it) {
+        return '<div class="rt-item">' +
+          '<div class="rt-item-type ' + (it.type === 'note' ? 'note' : 'hl') + '">' + (it.type === 'note' ? '📝 Note' : '🖍 Highlight') + '</div>' +
+          '<div class="rt-item-text">"' + it.text.replace(/</g,'&lt;') + '"</div>' +
+          (it.note ? '<div class="rt-item-note">' + it.note.replace(/</g,'&lt;') + '</div>' : '') +
+          '<div class="rt-item-actions"><button class="rt-del" onclick="rtDelete(\'' + it.id + '\')">Delete</button></div>' +
+          '</div>';
+      }).join('');
+    }
+    document.getElementById('rtPanelOverlay').classList.add('open');
+  };
+  window.rtClosePanel = function() {
+    document.getElementById('rtPanelOverlay').classList.remove('open');
+  };
+  window.rtDelete = function(id) {
+    var items = rtLoad().filter(function(it) { return it.id !== id; });
+    rtSaveAll(items);
+    var mark = document.querySelector('[data-rt-id="' + id + '"]');
+    if (mark) {
+      var parent = mark.parentNode;
+      while (mark.firstChild) parent.insertBefore(mark.firstChild, mark);
+      parent.removeChild(mark);
+    }
+    rtOpenPanel();
+  };
+
+  function rtRestoreOnLoad() {
+    var items = rtLoad();
+    if (!items.length) { rtUpdateFab(); return; }
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    items.forEach(function(it) {
+      if (document.querySelector('[data-rt-id="' + it.id + '"]')) return; // already there
+      var node;
+      walker.currentNode = document.body;
+      while ((node = walker.nextNode())) {
+        var idx = node.nodeValue.indexOf(it.text);
+        if (idx !== -1 && node.parentNode && !node.parentNode.closest('mark, script, style, .rt-toolbar, .rt-panel-overlay')) {
+          var range = document.createRange();
+          range.setStart(node, idx);
+          range.setEnd(node, idx + it.text.length);
+          var mark = rtWrapRange(range, it.type === 'note' ? 'rt-note' : 'rt-highlight', {'data-rt-id': it.id});
+          if (mark) {
+            if (it.note) mark.title = it.note;
+            mark.addEventListener('click', function() { rtOpenPanel(); });
+          }
+          break;
+        }
+      }
+    });
+    rtUpdateFab();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', rtRestoreOnLoad);
+  } else {
+    rtRestoreOnLoad();
+  }
+
+  window.rtCloseDef = function() {
+    document.getElementById('rtDefOverlay').classList.remove('open');
+  };
+  window.showDef = function(el) {
+    var term = el.getAttribute('data-term') || el.textContent;
+    var def = el.getAttribute('data-def') || '';
+    document.getElementById('rtDefTerm').textContent = term;
+    document.getElementById('rtDefText').textContent = def;
+    document.getElementById('rtDefOverlay').classList.add('open');
+  };
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { rtCloseDef(); rtClosePanel(); rtCancelNote(); }
+  });
+})();
+</script>
+
+<script>
+(function(){
+  function scMakeUnavailable(el, extraClass){
+    var span=document.createElement('span');
+    span.className=(extraClass||el.className||'')+' sc-unavailable';
+    span.textContent='Content not available right now';
+    el.replaceWith(span);
+    return span;
+  }
+  function scRestoreLink(el){
+    if(el.dataset.scOrigHtml){
+      var tmp=document.createElement('div');
+      tmp.innerHTML=el.dataset.scOrigHtml;
+      var restored=tmp.firstElementChild;
+      el.replaceWith(restored);
+      return restored;
+    }
+    return el;
+  }
+  function scHandleSimple(selector){
+    document.querySelectorAll(selector).forEach(function(el){
+      if(el.tagName==='A' && !el.dataset.scOrigHtml){ el.dataset.scOrigHtml = el.outerHTML; }
+      if(navigator.onLine){
+        if(el.tagName!=='A'){ scRestoreLink(el); }
+      } else {
+        if(el.tagName==='A'){ scMakeUnavailable(el); }
+      }
+    });
+  }
+  function scPopulateRef(el){
+    if(el.tagName!=='A' || el.dataset.scTried) return;
+    if(el.href.indexOf('wikipedia.org/wiki/')===-1) return;
+    el.dataset.scTried='1';
+    if(!el.dataset.scOrigHtml){ el.dataset.scOrigHtml = el.outerHTML; }
+    var title=decodeURIComponent(el.href.split('/wiki/')[1]);
+    fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+title)
+      .then(function(r){ if(!r.ok) throw new Error('bad'); return r.json(); })
+      .then(function(data){
+        var box=document.createElement('div');
+        box.className='ref-populated';
+        var t=document.createElement('div'); t.className='ref-populated-title'; t.textContent='🌐 '+(data.title||title.replace(/_/g,' '));
+        var ex=document.createElement('div'); ex.className='ref-populated-extract'; ex.textContent=data.extract||'';
+        var link=document.createElement('a'); link.className='ref-link-sm'; link.href=el.href; link.target='_blank'; link.rel='noopener'; link.textContent='Read full article ↗';
+        box.appendChild(t); box.appendChild(ex); box.appendChild(link);
+        el.replaceWith(box);
+      })
+      .catch(function(){ /* fetch failed despite navigator.onLine (e.g. captive portal) - leave link as-is */ });
+  }
+  function scHandleRefLinks(){
+    document.querySelectorAll('.ref-link, span.ref-link').forEach(function(el){
+      if(navigator.onLine){
+        if(el.tagName!=='A'){ el=scRestoreLink(el); }
+        scPopulateRef(el);
+      } else {
+        if(el.tagName==='A'){ scMakeUnavailable(el); }
+      }
+    });
+  }
+  function scRefresh(){
+    scHandleSimple('.fact-check-link');
+    scHandleSimple('.research-link');
+    scHandleRefLinks();
+  }
+  window.addEventListener('online', scRefresh);
+  window.addEventListener('offline', scRefresh);
+  document.addEventListener('DOMContentLoaded', scRefresh);
+})();
+</script>
+<script src="../data/passage-data.js"></script>
+<script src="../lib/hub-ui.js"></script>
+<script src="../lib/hub-modules.js"></script>
+</body>
+</html>

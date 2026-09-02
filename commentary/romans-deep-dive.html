@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" class="v19-type-1">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Romans — Deep Dive</title>
+<link rel="stylesheet" href="../lib/hub-ui.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Cinzel:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../lib/living-waters.css">
+<style>
+  body{ margin:0; background:var(--v19-paper); color:var(--v19-ink); font-family:var(--v19-sans); }
+  .wrap{ max-width:900px; margin:0 auto; padding:0 22px 40px; }
+
+  header.bk{
+    background:var(--v19-ink); color:var(--v19-paper);
+    border-bottom:2px solid var(--v19-brass); padding:26px 0 22px; margin-bottom:26px;
+  }
+  header.bk .wrap{ padding-bottom:0; }
+  .bk-eyebrow{ font:600 10px/1 var(--v19-mono); letter-spacing:.16em; text-transform:uppercase; color:var(--v19-brass-lt); }
+  header.bk h1{ font:600 2.1rem/1.1 var(--v19-serif); margin:8px 0 6px; letter-spacing:-.01em; }
+  .bk-line{ font:400 1rem/1.5 var(--v19-serif); color:#C4CBD6; max-width:60ch; }
+  header.bk a{ color:var(--v19-brass-lt); font-size:.82rem; }
+
+  .profile{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:0;
+    border:1px solid var(--v19-rule); border-left:4px solid var(--v19-brass);
+    border-radius:0 4px 4px 0; background:var(--v19-vellum); margin:0 0 30px;
+  }
+  .profile div{ padding:13px 15px; border-right:1px solid var(--v19-rule); }
+  .profile div:last-child{ border-right:0; }
+  .profile dt{ font:600 9px/1 var(--v19-mono); letter-spacing:.12em; text-transform:uppercase; color:var(--v19-ink-soft); }
+  .profile dd{ margin:6px 0 0; font:400 .9rem/1.45 var(--v19-serif); }
+
+  h2{ font:600 10px/1 var(--v19-mono); letter-spacing:.15em; text-transform:uppercase;
+      color:var(--v19-indigo); margin:36px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--v19-rule); }
+  h3{ font:600 1.08rem/1.35 var(--v19-serif); margin:22px 0 6px; }
+  p{ font:400 1rem/1.65 var(--v19-serif); max-width:66ch; }
+
+  .takeaway{ font:600 1rem/1.5 var(--v19-sans); color:var(--v19-indigo); margin:0 0 10px; }
+
+  .theme-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:10px; }
+  .card{
+    background:var(--v19-vellum); border:1px solid var(--v19-rule);
+    border-left:3px solid var(--v19-indigo); border-radius:0 3px 3px 0; padding:13px 15px;
+  }
+  .card h4{ margin:0 0 5px; font:600 .95rem/1.35 var(--v19-sans); }
+  .card p{ margin:0; font-size:.9rem; line-height:1.55; }
+
+  .vbv{ border-top:1px solid var(--v19-rule); padding:15px 0 4px; }
+  .vbv .ref{ font:600 12px/1 var(--v19-mono); letter-spacing:.06em; color:var(--v19-brass); }
+  .vbv h4{ margin:6px 0 4px; font:600 1rem/1.35 var(--v19-serif); }
+  .vbv p{ margin:0; }
+  .lex{ font:400 .85rem/1.5 var(--v19-sans); color:var(--v19-ink-soft); margin-top:6px; }
+  .lex b{ color:var(--v19-indigo); font-family:var(--v19-mono); font-size:.8rem; }
+
+  .history{
+    background:#FAF6EA; border:1px solid #E4D9BC; border-left:4px solid var(--v19-brass);
+    border-radius:0 3px 3px 0; padding:15px 17px; margin:14px 0;
+  }
+  .history .tag{ font:700 9px/1 var(--v19-mono); letter-spacing:.11em; text-transform:uppercase;
+                 background:var(--v19-brass); color:#fff; padding:4px 7px; border-radius:2px; }
+  .history p{ margin:9px 0 0; font-size:.94rem; }
+
+  .xref{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+  .xref a, .xref span{
+    font:600 11px/1 var(--v19-mono); letter-spacing:.05em;
+    background:var(--v19-vellum); border:1px solid var(--v19-rule); border-radius:3px;
+    padding:8px 10px; color:var(--v19-indigo); text-decoration:none;
+  }
+  .xref a:hover{ border-color:var(--v19-brass); }
+</style>
+</head>
+<body data-passage="rom-3">
+
+<div id="lw-backdrop" class="lw-backdrop"></div>
+<div id="lw-photo-credit" class="lw-photo-credit"></div>
+
+<header class="w-full bg-slate-950/85 border-b border-sky-500/20 backdrop-blur-md sticky top-0 z-50">
+  <div class="bg-amber-500/10 border-b border-amber-500/10 text-amber-300 text-xs py-1 overflow-hidden">
+    <div id="lw-top-ticker" class="lw-marquee-track whitespace-nowrap flex items-center font-semibold tracking-wider"></div>
+  </div>
+  <div class="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between gap-3">
+    <a href="../index.html" class="flex items-center gap-2.5 no-underline">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-800 via-slate-600 to-amber-500 flex items-center justify-center border border-sky-300/30">
+        <i class="fa-solid fa-droplet text-white text-sm"></i>
+      </div>
+      <span class="lw-serif font-black text-base tracking-widest text-slate-100">LIVING WATERS</span>
+    </a>
+    <a href="../index.html" class="text-xs text-sky-300/90 hover:text-amber-300 no-underline font-semibold tracking-wide">&larr; Back to Reader</a>
+  </div>
+</header>
+
+<div class="max-w-4xl mx-auto px-6 pt-10 pb-2 text-center">
+  <div class="text-[0.68rem] font-bold uppercase tracking-widest text-amber-400 mb-2">New Testament · Pauline Epistles · Deep dive</div>
+  <h1 class="lw-serif text-3xl md:text-4xl font-black mb-2" style="color:var(--v19-ink);">Romans</h1>
+  <p class="text-base max-w-2xl mx-auto" style="color:var(--v19-ink-soft);">Paul's most sustained argument, written to a church he had never visited, about how God can forgive the guilty without ceasing to be just.</p>
+</div>
+
+
+<div class="wrap">
+
+  <dl class="profile"><div><dt>Author</dt><dd>Paul, dictated to Tertius (16:22)</dd></div><div><dt>Date</dt><dd>c. AD 57, from Corinth, before the trip to Jerusalem</dd></div><div><dt>Audience</dt><dd>A mixed Jewish and Gentile church in Rome, not founded by Paul</dd></div><div><dt>Immediate occasion</dt><dd>Support for a planned mission to Spain (15:24)</dd></div><div><dt>Underlying occasion</dt><dd>Jewish believers returning after Claudius&#x27;s expulsion, to a church that had become largely Gentile</dd></div><div><dt>Genre</dt><dd>Letter, but structured as sustained argument</dd></div></dl>
+
+  <h2>Context</h2>
+  <p>Claudius expelled the Jews from Rome around AD 49. When the edict lapsed and Jewish believers came back, they returned to congregations that had carried on without them and had become thoroughly Gentile. Chapters 14 and 15 — with their arguments about food, holy days, and who is judging whom — are not abstract ethics. They are Paul addressing a specific and awkward reunion.</p><p>That context reshapes the whole letter. The famous doctrinal chapters are not a systematic theology written in a vacuum; they are the foundation Paul lays for a practical problem. If Jew and Gentile are justified the same way, on the same terms, by the same faith, then neither group can look down on the other. Chapters 1–11 exist to make chapters 12–15 possible.</p>
+
+  <h2>Key themes</h2>
+  <div class="theme-grid"><div class="card"><h4>The righteousness of God</h4><p>The letter's key phrase, used about eight times. Luther's discovery was that it names a righteousness God gives, not only the standard he demands — though the phrase probably carries God's own covenant faithfulness as well.</p></div><div class="card"><h4>No distinction</h4><p>Repeated at 3:22 and 10:12. Everyone sinned; everyone is justified the same way. The phrase does double duty as doctrine and as social correction.</p></div><div class="card"><h4>Union with Christ</h4><p>Chapter 6 answers the obvious objection to grace — why not sin more? — not with a rule but with a fact: you died. 'In Christ' appears throughout and is arguably Paul's central category.</p></div><div class="card"><h4>The problem of Israel</h4><p>Chapters 9–11 are not a digression. If God's promises to Israel can fail, no promise is safe. Paul's answer runs through election, remnant, hardening, and ends in doxology rather than in a solved equation.</p></div><div class="card"><h4>Life in the Spirit</h4><p>Chapter 8 turns from the impasse of chapter 7 to the Spirit, and from personal deliverance to the groaning of creation itself. It is the widest angle in the letter.</p></div><div class="card"><h4>Worship as ethics</h4><p>12:1 makes the body the sacrifice and daily life the liturgy. Everything practical in the letter hangs from that one image.</p></div></div>
+
+  <h2>How the book moves</h2>
+  <p><b>1:1–17, thesis.</b> The gospel is God's power for salvation, to Jew first and also to Greek.</p><p><b>1:18–3:20, the indictment.</b> Gentiles condemned, then the moralist, then Israel. Nobody is left standing.</p><p><b>3:21–5:21, justification.</b> The hinge. Righteousness apart from law, demonstrated from Abraham, secured in Christ.</p><p><b>6–8, the new life.</b> Dead to sin, dead to the law, alive by the Spirit. Chapter 7's 'wretched man' and chapter 8's 'no condemnation' sit back to back on purpose.</p><p><b>9–11, Israel.</b> Election, remnant, and grafting. Paul ends with a warning to Gentile readers against arrogance.</p><p><b>12–16, the body.</b> Gifts, government, the weak and the strong, and a long list of names — a third of them women.</p>
+
+  <h2>Verse-by-verse insights</h2>
+  <div class="vbv"><div class="ref">Romans 1:16–17</div><h4>The just shall live by faith</h4><p>Quoting Habakkuk 2:4. Luther's account of reading this verse — 'I felt myself to be reborn and to have gone through open doors into paradise' — is the origin story of the Reformation. What changed for him was the genitive: not the righteousness God requires, but the righteousness God supplies.</p><p class="lex"><b>dikaiosyne theou (dik-ai-oh-SOO-nay theh-OO)</b> — righteousness of God — subjective or objective genitive, and the whole debate hangs on which</p></div><div class="vbv"><div class="ref">Romans 3:20</div><h4>By the law is the knowledge of sin</h4><p>The conclusion of the indictment. Paul's point is not that law is bad but that it was never the mechanism of rescue. It is diagnostic. The New Perspective adds that 'works of the law' may specifically mean the boundary markers — circumcision, food, sabbath — that separated Jew from Gentile.</p><p class="lex"><b>erga nomou (ER-gah NOM-oo)</b> — works of law — whether this means law-keeping generally or covenant badges specifically is the live question</p></div><div class="vbv"><div class="ref">Romans 3:24</div><h4>Justified freely by his grace</h4><p><i>Dorean</i>, the same word Jesus uses in John 15:25 for being hated 'without a cause.' Gratuitously, for no reason arising from the recipient. Paul stacks three metaphors in two verses: the courtroom (justified), the slave market (redemption), and the temple (propitiation).</p><p class="lex"><b>dorean (do-reh-AHN)</b> — as a gift, for nothing, without cause</p></div><div class="vbv"><div class="ref">Romans 3:25</div><h4>Whom God set forth to be a propitiation</h4><p><i>Hilasterion</i> is the Septuagint's word for the mercy seat, the lid of the ark where blood was sprinkled on the Day of Atonement. Paul is not merely saying the cross appeases God; he is saying the cross <i>is</i> the mercy seat, now set out in public where the old one was hidden behind a veil.</p><p class="lex"><b>hilasterion (hil-as-TAY-ree-on)</b> — mercy seat, place of atonement — Leviticus 16:14 in Greek</p></div><div class="vbv"><div class="ref">Romans 3:26</div><h4>That he might himself be just, and the justifier</h4><p>The sentence that states the problem the whole letter exists to solve. A judge who acquits the guilty is corrupt. Paul's claim is that the cross lets God do it without corruption — and 'the passing over of the sins done aforetime' concedes that until then there was an unresolved account.</p><p class="lex"><b>paresis (PAR-es-is)</b> — a passing over, a temporary suspension — not the same word as aphesis, forgiveness</p></div><div class="vbv"><div class="ref">Romans 5:12</div><h4>Death passed unto all men, for that all sinned</h4><p>The Greek <i>eph' ho</i> is notoriously ambiguous. The Latin Vulgate rendered it 'in whom,' which Augustine read as all sinning in Adam, and that reading built Western original sin. The Greek East read 'because,' yielding inherited mortality rather than inherited guilt. One preposition, two anthropologies.</p><p class="lex"><b>eph' ho (eff HO)</b> — because / in whom — the fault line between East and West</p></div><div class="vbv"><div class="ref">Romans 6:3–4</div><h4>Buried with him by baptism into death</h4><p>Paul's answer to antinomianism is not a warning but an identity. You cannot go on in what you died to. Note that baptism here is descriptive of a union already real, which is why this passage gets cited by every side of the baptism debate.</p><p class="lex"><b>synthapto (soon-THAP-toh)</b> — to bury together with</p></div><div class="vbv"><div class="ref">Romans 7:24</div><h4>O wretched man that I am!</h4><p>Is Paul describing himself as a Christian, as a pre-Christian Jew, or Israel under the law? Augustine changed his mind mid-career and landed on the Christian reading; the Greek Fathers generally did not. Your answer determines your whole doctrine of sanctification, which is why the argument never dies.</p><p class="lex"><b>talaiporos (tal-AH-ee-po-ross)</b> — wretched, miserable, worn out by struggle</p></div><div class="vbv"><div class="ref">Romans 8:1</div><h4>There is therefore now no condemnation</h4><p>The 'therefore' reaches back over the whole argument, not just chapter 7. And 'now' is temporal — the verdict of the last day has been announced early. Everything in chapter 8 flows from a sentence already passed.</p><p class="lex"><b>katakrima (kat-AK-ree-mah)</b> — condemnation, the sentence following a verdict</p></div><div class="vbv"><div class="ref">Romans 8:28</div><h4>All things work together for good</h4><p>Frequently misquoted as a promise that everything will turn out pleasantly. Verse 29 defines 'good' immediately: conformity to the image of Christ. The promise is real and it is not about comfort.</p><p class="lex"><b>synergeo (soon-erg-EH-oh)</b> — to work together with</p></div><div class="vbv"><div class="ref">Romans 9:16</div><h4>Not of him that willeth, nor of him that runneth</h4><p>The verse Calvin and Arminius both built on. Note where Paul goes next: not to a theory of individual salvation but to Israel's history, and then in chapter 11 to a warning against Gentile presumption. The pastoral aim shapes the doctrine.</p><p class="lex"><b>eleeo (el-eh-EH-oh)</b> — to show mercy</p></div><div class="vbv"><div class="ref">Romans 12:1</div><h4>Present your bodies a living sacrifice</h4><p>The turn from argument to life. <i>Logikos</i> — reasonable, rational, or spiritual — describes worship that follows logically from chapters 1–11. Bodies, not souls: for Paul, worship is what you do with your physical life.</p><p class="lex"><b>logike latreia (log-ik-AY lat-RY-ah)</b> — reasonable service / spiritual worship</p></div>
+
+  <h2>Historical development</h2>
+  <div class="history"><span class="tag">Early view</span><p>The Greek Fathers read Romans through the lens of participation and healing more than of courtroom acquittal. Chrysostom's homilies stress grace and gift but do not frame justification forensically. The Latin West, following Augustine and the Vulgate's rendering of 5:12, developed the doctrines of original sin and inherited guilt that the East never adopted.</p></div><div class="history"><span class="tag">When it changed</span><p>Luther's lectures on Romans in 1515–16 and the breakthrough on 1:17 made justification a strictly declarative act — an alien righteousness imputed, not infused. Trent's sixth session (1547) responded by anathematising imputation-only and affirming justification as real inward renewal. The confessional line held for four centuries.</p></div><div class="history"><span class="tag">Who changed it</span><p>Two later disruptions. The 1999 Joint Declaration between Lutherans and Catholics found substantial agreement on the basics while leaving real differences intact. Separately, from 1977 onward, E. P. Sanders, James Dunn, and N. T. Wright's New Perspective argued that first-century Judaism was not a works-righteousness religion and that 'works of the law' meant covenant boundary markers. That reading is contested — but it reopened a question everyone had assumed was closed.</p></div>
+
+  <h2>Scofield layer</h2>
+  <div data-scofield-slot></div>
+
+  <h2>Where this connects</h2>
+  <div class="xref"><a href="genesis-deep-dive.html">Romans 4 ↔ Genesis 15:6</a><span>Romans 3:25 ↔ Leviticus 16 · the mercy seat</span><span>Romans 1:17 ↔ Habakkuk 2:4</span><a href="acts-deep-dive.html">Romans 15 ↔ Acts 15 · Gentiles and the law</a><a href="revelation-deep-dive.html">Romans 8:19–22 ↔ Revelation 21</a></div>
+
+</div>
+
+<script src="../data/passage-data.js"></script>
+<script src="../lib/hub-ui.js"></script>
+<script src="../lib/hub-modules.js"></script>
+<script src="../lib/living-waters.js"></script>
+<script>
+lwInitBackdrop('lw-backdrop');
+lwBuildMarquee('lw-top-ticker', [
+  { icon: 'fa-solid fa-water text-sky-300', text: '[ROMANS]: Paul\u0027s most sustained argument, written to a church he had never visited, about how God can forgive the guilty without ceasing to be just.' }
+]);
+</script>
+</body>
+</html>

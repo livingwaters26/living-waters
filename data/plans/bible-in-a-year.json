@@ -1,0 +1,3602 @@
+{
+  "plan_id": "bible-in-a-year",
+  "name": "Bible in a Year (with Fr. Mike Schmitz)",
+  "description": "Ascension Press 365-day reading plan following the Great Adventure Bible Timeline.",
+  "cadence": "daily",
+  "start_date": "2026-01-01",
+  "meeting_days": [
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+    "Sun"
+  ],
+  "sessions": [
+    {
+      "session": 1,
+      "title": "Early World",
+      "readings": [
+        "Genesis 1-2",
+        "Psalm 19"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 2,
+      "title": "Early World",
+      "readings": [
+        "Genesis 3-4",
+        "Psalm 104"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 3,
+      "title": "Early World",
+      "readings": [
+        "Genesis 5-6",
+        "Psalm 136"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 4,
+      "title": "Early World",
+      "readings": [
+        "Genesis 7-9",
+        "Psalm 1"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 5,
+      "title": "Early World",
+      "readings": [
+        "Genesis 10-11",
+        "Psalm 2"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 6,
+      "title": "Patriarchs",
+      "readings": [
+        "Genesis 12-13",
+        "Job 1-2",
+        "Proverbs 1:1-7"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 7,
+      "title": "Patriarchs",
+      "readings": [
+        "Genesis 14-15",
+        "Job 3-4",
+        "Proverbs 1:8-19"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 8,
+      "title": "Patriarchs",
+      "readings": [
+        "Genesis 16-17",
+        "Job 5-6",
+        "Proverbs 1:20-33"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 9,
+      "title": "Patriarchs",
+      "readings": [
+        "Genesis 18-19",
+        "Job 7-8",
+        "Proverbs 2:1-5"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 10,
+      "title": "Patriarchs",
+      "readings": [
+        "Genesis 20-21",
+        "Job 9-10",
+        "Proverbs 2:6-8"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 11,
+      "title": "Patriarchs",
+      "readings": [
+        "Genesis 22-23",
+        "Job 11-12",
+        "Proverbs 2:9-15"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 12,
+      "title": "Patriarchs",
+      "readings": [
+        "Genesis 24",
+        "Job 13-14",
+        "Proverbs 2:16-19"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 13,
+      "title": "Patriarchs",
+      "readings": [
+        "Genesis 25-26",
+        "Job 15-16",
+        "Proverbs 2:20-22"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 14,
+      "title": "Patriarchs",
+      "readings": [
+        "Genesis 27-28",
+        "Job 17-18",
+        "Proverbs 3:1-4"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 15,
+      "title": "Patriarchs",
+      "readings": [
+        "Genesis 29-30",
+        "Job 19-20",
+        "Proverbs 3:5-8"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 16,
+      "title": "Patriarchs",
+      "readings": [
+        "Genesis 31-32",
+        "Job 21-22",
+        "Proverbs 3:9-12"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 17,
+      "title": "Patriarchs",
+      "readings": [
+        "Genesis 33-34",
+        "Job 23-24",
+        "Proverbs 3:13-18"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 18,
+      "title": "Patriarchs",
+      "readings": [
+        "Genesis 35-36",
+        "Job 25-26",
+        "Proverbs 3:19-24"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 19,
+      "title": "Patriarchs",
+      "readings": [
+        "Genesis 37",
+        "Job 27-28",
+        "Proverbs 3:25-27"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 20,
+      "title": "Patriarchs",
+      "readings": [
+        "Genesis 38",
+        "Job 29-30",
+        "Proverbs 3:28-32"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 21,
+      "title": "Patriarchs",
+      "readings": [
+        "Genesis 39-40",
+        "Job 31-32",
+        "Proverbs 3:33-35"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 22,
+      "title": "Patriarchs",
+      "readings": [
+        "Genesis 41-42",
+        "Job 33-34",
+        "Proverbs 4:1-9"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 23,
+      "title": "Patriarchs",
+      "readings": [
+        "Genesis 43-44",
+        "Job 35-36",
+        "Proverbs 4:10-19"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 24,
+      "title": "Patriarchs",
+      "readings": [
+        "Genesis 45-46",
+        "Job 37-38",
+        "Proverbs 4:20-27"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 25,
+      "title": "Patriarchs",
+      "readings": [
+        "Genesis 47-48",
+        "Job 39-40",
+        "Psalm 16"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 26,
+      "title": "Patriarchs",
+      "readings": [
+        "Genesis 49-50",
+        "Job 41-42",
+        "Psalm 17"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 27,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 1-2",
+        "Leviticus 1",
+        "Psalm 44"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 28,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 3",
+        "Leviticus 2-3",
+        "Psalm 45"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 29,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 4-5",
+        "Leviticus 4",
+        "Psalm 46"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 30,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 6-7",
+        "Leviticus 5",
+        "Psalm 47"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 31,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 8",
+        "Leviticus 6",
+        "Psalm 48"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 32,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 9",
+        "Leviticus 7",
+        "Psalm 49"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 33,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 10-11",
+        "Leviticus 8",
+        "Psalm 50"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 34,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 12",
+        "Leviticus 9",
+        "Psalm 114"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 35,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 13-14",
+        "Leviticus 10",
+        "Psalm 53"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 36,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 15-16",
+        "Leviticus 11",
+        "Psalm 71"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 37,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 17-18",
+        "Leviticus 12",
+        "Psalm 73"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 38,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 19-20",
+        "Leviticus 13",
+        "Psalm 74"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 39,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 21",
+        "Leviticus 14",
+        "Psalm 75"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 40,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 22",
+        "Leviticus 15",
+        "Psalm 76"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 41,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 23",
+        "Leviticus 16",
+        "Psalm 77"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 42,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 24",
+        "Leviticus 17-18",
+        "Psalm 78"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 43,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 25-26",
+        "Leviticus 19",
+        "Psalm 79"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 44,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 27-28",
+        "Leviticus 20",
+        "Psalm 119:1-88"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 45,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 29",
+        "Leviticus 21",
+        "Psalm 119:89-176"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 46,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 30-31",
+        "Leviticus 22",
+        "Psalm 115"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 47,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 32",
+        "Leviticus 23",
+        "Psalm 80"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 48,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 33-34",
+        "Leviticus 24",
+        "Psalm 81"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 49,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 35-36",
+        "Leviticus 25",
+        "Psalm 82"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 50,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 37-38",
+        "Leviticus 26",
+        "Psalm 83"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 51,
+      "title": "Egypt and Exodus",
+      "readings": [
+        "Exodus 39-40",
+        "Leviticus 27",
+        "Psalm 84"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 52,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 1",
+        "Deuteronomy 1",
+        "Psalm 85"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 53,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 2",
+        "Deuteronomy 2",
+        "Psalm 87"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 54,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 3",
+        "Deuteronomy 3",
+        "Psalm 88"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 55,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 4",
+        "Deuteronomy 4",
+        "Psalm 89"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 56,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 5",
+        "Deuteronomy 5",
+        "Psalm 90"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 57,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 6",
+        "Deuteronomy 6",
+        "Psalm 91"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 58,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 7",
+        "Deuteronomy 7",
+        "Psalm 92"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 59,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 8-9",
+        "Deuteronomy 8",
+        "Psalm 93"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 60,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 10",
+        "Deuteronomy 9",
+        "Psalm 10"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 61,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 11",
+        "Deuteronomy 10",
+        "Psalm 33"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 62,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 12-13",
+        "Deuteronomy 11",
+        "Psalm 94"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 63,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 14",
+        "Deuteronomy 12",
+        "Psalm 95"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 64,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 15",
+        "Deuteronomy 13-14",
+        "Psalm 96"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 65,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 16",
+        "Deuteronomy 15-16",
+        "Psalm 97"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 66,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 17",
+        "Deuteronomy 17-18",
+        "Psalm 98"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 67,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 18",
+        "Deuteronomy 19-20",
+        "Psalm 99"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 68,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 19-20",
+        "Deuteronomy 21",
+        "Psalm 100"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 69,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 21",
+        "Deuteronomy 22",
+        "Psalm 102"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 70,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 22",
+        "Deuteronomy 23",
+        "Psalm 105"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 71,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 23",
+        "Deuteronomy 24-25",
+        "Psalm 106"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 72,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 24-25",
+        "Deuteronomy 26",
+        "Psalm 107"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 73,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 26",
+        "Deuteronomy 27",
+        "Psalm 111"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 74,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 27-28",
+        "Deuteronomy 28",
+        "Psalm 112"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 75,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 29-30",
+        "Deuteronomy 29",
+        "Psalm 113"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 76,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 31",
+        "Deuteronomy 30",
+        "Psalm 116"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 77,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 32",
+        "Deuteronomy 31",
+        "Psalm 117"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 78,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 33",
+        "Deuteronomy 32",
+        "Psalm 118"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 79,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 34",
+        "Deuteronomy 33",
+        "Psalm 120"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 80,
+      "title": "Desert Wanderings",
+      "readings": [
+        "Numbers 35-36",
+        "Deuteronomy 34",
+        "Psalm 121"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 81,
+      "title": "Conquest and Judges",
+      "readings": [
+        "Joshua 1-4",
+        "Psalm 123"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 82,
+      "title": "Conquest and Judges",
+      "readings": [
+        "Joshua 5-7",
+        "Psalm 125"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 83,
+      "title": "Conquest and Judges",
+      "readings": [
+        "Joshua 8-9",
+        "Psalm 126"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 84,
+      "title": "Conquest and Judges",
+      "readings": [
+        "Joshua 10-11",
+        "Psalm 128"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 85,
+      "title": "Conquest and Judges",
+      "readings": [
+        "Joshua 12-14",
+        "Psalm 129"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 86,
+      "title": "Conquest and Judges",
+      "readings": [
+        "Joshua 15-18",
+        "Psalm 130"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 87,
+      "title": "Conquest and Judges",
+      "readings": [
+        "Joshua 19-21",
+        "Psalm 131"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 88,
+      "title": "Conquest and Judges",
+      "readings": [
+        "Joshua 22-24",
+        "Psalm 132"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 89,
+      "title": "Conquest and Judges",
+      "readings": [
+        "Judges 1-3",
+        "Ruth 1",
+        "Psalm 133"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 90,
+      "title": "Conquest and Judges",
+      "readings": [
+        "Judges 4-5",
+        "Ruth 2",
+        "Psalm 134"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 91,
+      "title": "Conquest and Judges",
+      "readings": [
+        "Judges 6-8",
+        "Ruth 3",
+        "Psalm 135"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 92,
+      "title": "Conquest and Judges",
+      "readings": [
+        "Judges 9-11",
+        "Ruth 4",
+        "Psalm 137"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 93,
+      "title": "Conquest and Judges",
+      "readings": [
+        "Judges 12-15",
+        "Psalm 146"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 94,
+      "title": "Conquest and Judges",
+      "readings": [
+        "Judges 16-18",
+        "Psalm 147"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 95,
+      "title": "Conquest and Judges",
+      "readings": [
+        "Judges 19-21",
+        "Psalm 148"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 96,
+      "title": "Conquest and Judges",
+      "readings": [
+        "1 Samuel 1-2",
+        "Psalm 149"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 97,
+      "title": "Conquest and Judges",
+      "readings": [
+        "1 Samuel 3-5",
+        "Psalm 150"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 98,
+      "title": "Conquest and Judges",
+      "readings": [
+        "1 Samuel 6-8",
+        "Psalm 86"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 99,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "John 1-3",
+        "Proverbs 5:1-6"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 100,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "John 4-6",
+        "Proverbs 5:7-14"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 101,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "John 7-9",
+        "Proverbs 5:15-23"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 102,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "John 10-12",
+        "Proverbs 6:1-11"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 103,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "John 13-15",
+        "Proverbs 6:12-19"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 104,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "John 16-18",
+        "Proverbs 6:20-24"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 105,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "John 19-21",
+        "Proverbs 6:25-35"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 106,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Samuel 9-10",
+        "Psalm 50"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 107,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Samuel 11-12",
+        "Psalm 55"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 108,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Samuel 13-14",
+        "Psalm 58"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 109,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Samuel 15-16",
+        "Psalm 61"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 110,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Samuel 17",
+        "Psalm 12"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 111,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Samuel 18-19",
+        "Psalm 59"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 112,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Samuel 20",
+        "Psalm 142"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 113,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Samuel 21-22",
+        "Psalm 52"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 114,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Samuel 23",
+        "Psalm 54"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 115,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Samuel 24",
+        "Psalm 57"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 116,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Samuel 25",
+        "Psalm 63"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 117,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Samuel 26",
+        "Psalm 56"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 118,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Samuel 27-28",
+        "Psalm 34"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 119,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Samuel 29-31",
+        "Psalm 18"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 120,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 1",
+        "1 Chronicles 1",
+        "Psalm 13"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 121,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 2",
+        "1 Chronicles 2",
+        "Psalm 24"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 122,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 3",
+        "1 Chronicles 3-4",
+        "Psalm 25"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 123,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 4",
+        "1 Chronicles 5-6",
+        "Psalm 26"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 124,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 5",
+        "1 Chronicles 7-8",
+        "Psalm 27"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 125,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 6-7",
+        "1 Chronicles 9",
+        "Psalm 89"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 126,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 8",
+        "1 Chronicles 10-11",
+        "Psalm 60"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 127,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 9",
+        "1 Chronicles 12",
+        "Psalm 28"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 128,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 10",
+        "1 Chronicles 13",
+        "Psalm 31"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 129,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 11",
+        "1 Chronicles 14-15",
+        "Psalm 32"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 130,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 12",
+        "1 Chronicles 16",
+        "Psalm 51"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 131,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 13",
+        "1 Chronicles 17",
+        "Psalm 35"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 132,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 14",
+        "1 Chronicles 18",
+        "Psalm 14"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 133,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 15",
+        "1 Chronicles 19-20",
+        "Psalm 3"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 134,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 16",
+        "1 Chronicles 21",
+        "Psalm 15"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 135,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 17",
+        "1 Chronicles 22",
+        "Psalm 36"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 136,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 18",
+        "1 Chronicles 23",
+        "Psalm 37"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 137,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 19",
+        "1 Chronicles 24",
+        "Psalm 38"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 138,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 20",
+        "1 Chronicles 25",
+        "Psalm 39"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 139,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 21",
+        "1 Chronicles 26",
+        "Psalm 40"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 140,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 22",
+        "1 Chronicles 27",
+        "Psalm 41"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 141,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 23",
+        "1 Chronicles 28",
+        "Psalm 42"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 142,
+      "title": "Royal Kingdom",
+      "readings": [
+        "2 Samuel 24",
+        "1 Chronicles 29",
+        "Psalm 30"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 143,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Kings 1",
+        "2 Chronicles 1",
+        "Psalm 43"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 144,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Kings 2",
+        "2 Chronicles 2-3",
+        "Psalm 62"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 145,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Kings 3",
+        "2 Chronicles 4-5",
+        "Psalm 64"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 146,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Kings 4",
+        "2 Chronicles 6",
+        "Psalm 65"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 147,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Kings 5",
+        "2 Chronicles 7-8",
+        "Psalm 66"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 148,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Kings 6",
+        "2 Chronicles 9",
+        "Psalm 4"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 149,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Kings 7",
+        "Ecclesiastes 1-2",
+        "Psalm 5"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 150,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Kings 8",
+        "Ecclesiastes 3-5",
+        "Psalm 6"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 151,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Kings 9",
+        "Ecclesiastes 6-7",
+        "Psalm 7"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 152,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Kings 10",
+        "Ecclesiastes 8-9",
+        "Psalm 8"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 153,
+      "title": "Royal Kingdom",
+      "readings": [
+        "1 Kings 11",
+        "Ecclesiastes 10-12",
+        "Psalm 9"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 154,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "Mark 1-2",
+        "Psalm 11"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 155,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "Mark 3-4",
+        "Psalm 20"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 156,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "Mark 5-6",
+        "Psalm 21"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 157,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "Mark 7-8",
+        "Psalm 23"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 158,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "Mark 9-10",
+        "Psalm 29"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 159,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "Mark 11-12",
+        "Psalm 67"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 160,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "Mark 13-14",
+        "Psalm 68"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 161,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "Mark 15-16",
+        "Psalm 22"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 162,
+      "title": "Divided Kingdom",
+      "readings": [
+        "1 Kings 12",
+        "2 Chronicles 10-11",
+        "Song of Solomon 1"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 163,
+      "title": "Divided Kingdom",
+      "readings": [
+        "1 Kings 13",
+        "2 Chronicles 12-13",
+        "Song of Solomon 2"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 164,
+      "title": "Divided Kingdom",
+      "readings": [
+        "1 Kings 14",
+        "2 Chronicles 14-15",
+        "Song of Solomon 3"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 165,
+      "title": "Divided Kingdom",
+      "readings": [
+        "1 Kings 15-16",
+        "2 Chronicles 16-17",
+        "Song of Solomon 4"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 166,
+      "title": "Divided Kingdom",
+      "readings": [
+        "1 Kings 17-18",
+        "2 Chronicles 18-19",
+        "Song of Solomon 5"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 167,
+      "title": "Divided Kingdom",
+      "readings": [
+        "1 Kings 19-20",
+        "2 Chronicles 20",
+        "Song of Solomon 6"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 168,
+      "title": "Divided Kingdom",
+      "readings": [
+        "1 Kings 21",
+        "2 Chronicles 21-22",
+        "Song of Solomon 7"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 169,
+      "title": "Divided Kingdom",
+      "readings": [
+        "1 Kings 22",
+        "2 Chronicles 23",
+        "Song of Solomon 8"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 170,
+      "title": "Divided Kingdom",
+      "readings": [
+        "2 Kings 1",
+        "2 Chronicles 24",
+        "Psalm 69"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 171,
+      "title": "Divided Kingdom",
+      "readings": [
+        "2 Kings 2",
+        "2 Chronicles 25",
+        "Psalm 70"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 172,
+      "title": "Divided Kingdom",
+      "readings": [
+        "2 Kings 3",
+        "2 Chronicles 26-27",
+        "Psalm 72"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 173,
+      "title": "Divided Kingdom",
+      "readings": [
+        "2 Kings 4",
+        "2 Chronicles 28",
+        "Psalm 127"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 174,
+      "title": "Divided Kingdom",
+      "readings": [
+        "2 Kings 5",
+        "Hosea 1-3",
+        "Psalm 101"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 175,
+      "title": "Divided Kingdom",
+      "readings": [
+        "2 Kings 6-7",
+        "Hosea 4-7",
+        "Psalm 103"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 176,
+      "title": "Divided Kingdom",
+      "readings": [
+        "2 Kings 8",
+        "Hosea 8-10",
+        "Psalm 108"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 177,
+      "title": "Divided Kingdom",
+      "readings": [
+        "2 Kings 9",
+        "Hosea 11-14",
+        "Psalm 109"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 178,
+      "title": "Divided Kingdom",
+      "readings": [
+        "2 Kings 10",
+        "Amos 1-3",
+        "Psalm 110"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 179,
+      "title": "Divided Kingdom",
+      "readings": [
+        "2 Kings 11-12",
+        "Amos 4-6",
+        "Psalm 122"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 180,
+      "title": "Divided Kingdom",
+      "readings": [
+        "2 Kings 13-14",
+        "Amos 7-9",
+        "Psalm 124"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 181,
+      "title": "Divided Kingdom",
+      "readings": [
+        "2 Kings 15",
+        "Jonah 1-4",
+        "Psalm 138"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 182,
+      "title": "Divided Kingdom",
+      "readings": [
+        "2 Kings 16",
+        "Micah 1-4",
+        "Psalm 139"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 183,
+      "title": "Divided Kingdom",
+      "readings": [
+        "2 Kings 17",
+        "Micah 5-7",
+        "Psalm 140"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 184,
+      "title": "Exile",
+      "readings": [
+        "2 Kings 18",
+        "2 Chronicles 29",
+        "Psalm 141"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 185,
+      "title": "Exile",
+      "readings": [
+        "2 Kings 19",
+        "2 Chronicles 30",
+        "Psalm 143"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 186,
+      "title": "Exile",
+      "readings": [
+        "2 Kings 20",
+        "2 Chronicles 31",
+        "Psalm 144"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 187,
+      "title": "Exile",
+      "readings": [
+        "2 Kings 21",
+        "2 Chronicles 32",
+        "Psalm 145"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 188,
+      "title": "Exile",
+      "readings": [
+        "2 Kings 22",
+        "2 Chronicles 33",
+        "Proverbs 7"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 189,
+      "title": "Exile",
+      "readings": [
+        "2 Kings 23",
+        "2 Chronicles 34",
+        "Proverbs 8:1-21"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 190,
+      "title": "Exile",
+      "readings": [
+        "2 Kings 24",
+        "2 Chronicles 35",
+        "Proverbs 8:22-36"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 191,
+      "title": "Exile",
+      "readings": [
+        "2 Kings 25",
+        "2 Chronicles 36",
+        "Proverbs 9:1-6"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 192,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 1-2",
+        "Tobit 1-2",
+        "Proverbs 9:7-12"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 193,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 3-4",
+        "Tobit 3-4",
+        "Proverbs 9:13-18"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 194,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 5-6",
+        "Tobit 5-6",
+        "Proverbs 10:1-4"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 195,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 7-8",
+        "Tobit 7-9",
+        "Proverbs 10:5-8"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 196,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 9-10",
+        "Tobit 10-12",
+        "Proverbs 10:9-12"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 197,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 11-13",
+        "Tobit 13-14",
+        "Proverbs 10:13-16"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 198,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 14-15",
+        "Joel 1-2",
+        "Proverbs 10:17-20"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 199,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 16-17",
+        "Joel 3",
+        "Proverbs 10:21-24"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 200,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 18-20",
+        "Nahum 1-2",
+        "Proverbs 10:25-28"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 201,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 21-22",
+        "Nahum 3",
+        "Proverbs 10:29-32"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 202,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 23-24",
+        "Habakkuk 1-2",
+        "Proverbs 11:1-4"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 203,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 25-27",
+        "Habakkuk 3",
+        "Proverbs 11:5-8"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 204,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 28-29",
+        "Zephaniah 1-2",
+        "Proverbs 11:9-12"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 205,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 30-31",
+        "Zephaniah 3",
+        "Proverbs 11:13-16"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 206,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 32-33",
+        "Baruch 1-2",
+        "Proverbs 11:17-20"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 207,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 34-36",
+        "Baruch 3-4",
+        "Proverbs 11:21-24"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 208,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 37-38",
+        "Baruch 5-6",
+        "Proverbs 11:25-28"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 209,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 39-40",
+        "Ezekiel 1",
+        "Proverbs 11:29-31"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 210,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 41-42",
+        "Ezekiel 2-3",
+        "Proverbs 12:1-4"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 211,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 43-44",
+        "Ezekiel 4-5",
+        "Proverbs 12:5-8"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 212,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 45-46",
+        "Ezekiel 6-7",
+        "Proverbs 12:9-12"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 213,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 47-48",
+        "Ezekiel 8-9",
+        "Proverbs 12:13-16"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 214,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 49-50",
+        "Ezekiel 10-11",
+        "Proverbs 12:17-20"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 215,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 51-52",
+        "Ezekiel 12-13",
+        "Proverbs 12:21-24"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 216,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 53-54",
+        "Ezekiel 14-15",
+        "Proverbs 12:25-28"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 217,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 55-56",
+        "Ezekiel 16",
+        "Proverbs 13:1-4"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 218,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 57-58",
+        "Ezekiel 17-18",
+        "Proverbs 13:5-8"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 219,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 59-60",
+        "Ezekiel 19",
+        "Proverbs 13:9-12"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 220,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 61-62",
+        "Ezekiel 20",
+        "Proverbs 13:13-16"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 221,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 63-64",
+        "Ezekiel 21-22",
+        "Proverbs 13:17-20"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 222,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 65",
+        "Ezekiel 23-24",
+        "Proverbs 13:21-25"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 223,
+      "title": "Exile",
+      "readings": [
+        "Isaiah 66",
+        "Ezekiel 25-26",
+        "Proverbs 14:1-4"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 224,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 1",
+        "Ezekiel 27",
+        "Proverbs 14:5-8"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 225,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 2",
+        "Ezekiel 28",
+        "Proverbs 14:9-12"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 226,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 3",
+        "Ezekiel 29-30",
+        "Proverbs 14:13-16"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 227,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 4",
+        "Ezekiel 31-32",
+        "Proverbs 14:17-20"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 228,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 5",
+        "Ezekiel 33",
+        "Proverbs 14:21-24"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 229,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 6",
+        "Ezekiel 34-35",
+        "Proverbs 14:25-28"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 230,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 7",
+        "Ezekiel 36",
+        "Proverbs 14:29-32"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 231,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 8",
+        "Ezekiel 37-38",
+        "Proverbs 14:33-35"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 232,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 9",
+        "Ezekiel 39",
+        "Proverbs 15:1-4"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 233,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 10-11",
+        "Ezekiel 40",
+        "Proverbs 15:5-8"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 234,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 12-13",
+        "Ezekiel 41-42",
+        "Proverbs 15:9-12"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 235,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 14-15",
+        "Ezekiel 43-44",
+        "Proverbs 15:13-16"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 236,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 16-17",
+        "Ezekiel 45-46",
+        "Proverbs 15:17-20"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 237,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 18-19",
+        "Ezekiel 47-48",
+        "Proverbs 15:21-24"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 238,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 20-21",
+        "Daniel 1-2",
+        "Proverbs 15:25-28"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 239,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 22",
+        "Daniel 3",
+        "Proverbs 15:29-33"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 240,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 23",
+        "Daniel 4-5",
+        "Proverbs 16:1-4"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 241,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 24-25",
+        "Daniel 6-7",
+        "Proverbs 16:5-8"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 242,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 26-27",
+        "Daniel 8-9",
+        "Proverbs 16:9-12"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 243,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 28-29",
+        "Daniel 10-11",
+        "Proverbs 16:13-16"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 244,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 30",
+        "Daniel 12-13",
+        "Proverbs 16:17-20"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 245,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 31",
+        "Daniel 14",
+        "Proverbs 16:21-24"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 246,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 32",
+        "Judith 1-2",
+        "Proverbs 16:25-28"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 247,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 33-34",
+        "Judith 3-5",
+        "Proverbs 16:29-33"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 248,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 35-36",
+        "Judith 6-7",
+        "Proverbs 17:1-4"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 249,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 37-38",
+        "Judith 8-9",
+        "Proverbs 17:5-8"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 250,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 39-40",
+        "Judith 10-11",
+        "Proverbs 17:9-12"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 251,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 41-42",
+        "Judith 12-14",
+        "Proverbs 17:13-16"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 252,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 43-44",
+        "Judith 15-16",
+        "Proverbs 17:17-20"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 253,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 45-46",
+        "Lamentations 1",
+        "Proverbs 17:21-24"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 254,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 47-48",
+        "Lamentations 2",
+        "Proverbs 18:1-4"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 255,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 49-50",
+        "Lamentations 3",
+        "Proverbs 18:5-8"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 256,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 51",
+        "Lamentations 4-5",
+        "Proverbs 18:9-12"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 257,
+      "title": "Exile",
+      "readings": [
+        "Jeremiah 52",
+        "Obadiah 1",
+        "Proverbs 18:13-16"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 258,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "Matthew 1-4",
+        "Proverbs 18:17-20"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 259,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "Matthew 5-7",
+        "Proverbs 18:21-24"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 260,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "Matthew 8-10",
+        "Proverbs 19:1-4"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 261,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "Matthew 11-13",
+        "Proverbs 19:5-8"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 262,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "Matthew 14-17",
+        "Proverbs 19:9-12"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 263,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "Matthew 18-21",
+        "Proverbs 19:13-16"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 264,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "Matthew 22-24",
+        "Proverbs 19:17-20"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 265,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "Matthew 25-26",
+        "Proverbs 19:21-24"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 266,
+      "title": "Messianic Checkpoint",
+      "readings": [
+        "Matthew 27-28",
+        "Proverbs 19:25-29"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 267,
+      "title": "Return",
+      "readings": [
+        "Ezra 1-2",
+        "Haggai 1-2",
+        "Proverbs 20:1-3"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 268,
+      "title": "Return",
+      "readings": [
+        "Ezra 3-4",
+        "Zechariah 1-3",
+        "Proverbs 20:4-7"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 269,
+      "title": "Return",
+      "readings": [
+        "Ezra 5-6",
+        "Zechariah 4-6",
+        "Proverbs 20:8-11"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 270,
+      "title": "Return",
+      "readings": [
+        "Ezra 7-8",
+        "Zechariah 7-8",
+        "Proverbs 20:12-15"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 271,
+      "title": "Return",
+      "readings": [
+        "Ezra 9-10",
+        "Zechariah 9-11",
+        "Proverbs 20:16-19"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 272,
+      "title": "Return",
+      "readings": [
+        "Nehemiah 1-2",
+        "Zechariah 12-13",
+        "Proverbs 20:20-22"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 273,
+      "title": "Return",
+      "readings": [
+        "Nehemiah 3",
+        "Zechariah 14",
+        "Proverbs 20:23-26"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 274,
+      "title": "Return",
+      "readings": [
+        "Nehemiah 4-5",
+        "Esther 1-2",
+        "Proverbs 20:27-30"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 275,
+      "title": "Return",
+      "readings": [
+        "Nehemiah 6-7",
+        "Esther 3, 13",
+        "Proverbs 21:1-4"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 276,
+      "title": "Return",
+      "readings": [
+        "Nehemiah 8",
+        "Esther 4, 14",
+        "Proverbs 21:5-8"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 277,
+      "title": "Return",
+      "readings": [
+        "Nehemiah 9",
+        "Esther 15, 6-7",
+        "Proverbs 21:9-12"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 278,
+      "title": "Return",
+      "readings": [
+        "Nehemiah 10",
+        "Esther 8, 16",
+        "Proverbs 21:13-16"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 279,
+      "title": "Return",
+      "readings": [
+        "Nehemiah 11",
+        "Esther 9-11",
+        "Proverbs 21:17-20"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 280,
+      "title": "Return",
+      "readings": [
+        "Nehemiah 12",
+        "Esther 10-12",
+        "Proverbs 21:21-24"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 281,
+      "title": "Return",
+      "readings": [
+        "Nehemiah 13",
+        "Malachi 1-4",
+        "Proverbs 21:25-28"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 282,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "1 Maccabees 1",
+        "Sirach 1-3",
+        "Proverbs 21:29-31"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 283,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "1 Maccabees 2",
+        "Sirach 4-6",
+        "Proverbs 22:1-4"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 284,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "1 Maccabees 3",
+        "Sirach 7-9",
+        "Proverbs 22:5-8"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 285,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "1 Maccabees 4",
+        "Sirach 10-12",
+        "Proverbs 22:9-12"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 286,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "1 Maccabees 5",
+        "Sirach 13-15",
+        "Proverbs 22:13-16"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 287,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "1 Maccabees 6",
+        "Sirach 16-18",
+        "Proverbs 22:17-21"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 288,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "1 Maccabees 7",
+        "Sirach 19-21",
+        "Proverbs 22:22-25"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 289,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "1 Maccabees 8",
+        "Sirach 22-23",
+        "Proverbs 22:26-29"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 290,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "1 Maccabees 9",
+        "Sirach 24-25",
+        "Proverbs 23:1-4"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 291,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "1 Maccabees 10",
+        "Sirach 26-27",
+        "Proverbs 23:5-8"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 292,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "1 Maccabees 11",
+        "Sirach 28-29",
+        "Proverbs 23:9-12"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 293,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "1 Maccabees 12",
+        "Sirach 30-31",
+        "Proverbs 23:13-16"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 294,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "1 Maccabees 13",
+        "Sirach 32-33",
+        "Proverbs 23:17-21"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 295,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "1 Maccabees 14",
+        "Sirach 34-35",
+        "Proverbs 23:22-25"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 296,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "1 Maccabees 15",
+        "Sirach 36-37",
+        "Proverbs 23:26-28"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 297,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "1 Maccabees 16",
+        "Sirach 38-39",
+        "Proverbs 23:29-35"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 298,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "2 Maccabees 1",
+        "Sirach 40-41",
+        "Proverbs 24:1-7"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 299,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "2 Maccabees 2",
+        "Sirach 42-44",
+        "Proverbs 24:8-9"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 300,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "2 Maccabees 3",
+        "Sirach 45-46",
+        "Proverbs 24:10-12"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 301,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "2 Maccabees 4",
+        "Sirach 47-49",
+        "Proverbs 24:13-16"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 302,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "2 Maccabees 5",
+        "Sirach 50-51",
+        "Proverbs 24:17-20"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 303,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "2 Maccabees 6",
+        "Wisdom 1-2",
+        "Proverbs 24:21-26"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 304,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "2 Maccabees 7",
+        "Wisdom 3-4",
+        "Proverbs 24:27-29"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 305,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "2 Maccabees 8",
+        "Wisdom 5-6",
+        "Proverbs 24:30-34"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 306,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "2 Maccabees 9",
+        "Wisdom 7-8",
+        "Proverbs 25:1-3"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 307,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "2 Maccabees 10",
+        "Wisdom 9-10",
+        "Proverbs 25:4-7"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 308,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "2 Maccabees 11",
+        "Wisdom 11-12",
+        "Proverbs 25:8-10"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 309,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "2 Maccabees 12",
+        "Wisdom 13-14",
+        "Proverbs 25:11-14"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 310,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "2 Maccabees 13",
+        "Wisdom 15-16",
+        "Proverbs 25:15-17"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 311,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "2 Maccabees 14",
+        "Wisdom 17-18",
+        "Proverbs 25:18-20"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 312,
+      "title": "Maccabean Revolt",
+      "readings": [
+        "2 Maccabees 15",
+        "Wisdom 19",
+        "Proverbs 25:21-23"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 313,
+      "title": "Messianic Fulfillment",
+      "readings": [
+        "Luke 1-2",
+        "Proverbs 25:24-26"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 314,
+      "title": "Messianic Fulfillment",
+      "readings": [
+        "Luke 3-5",
+        "Proverbs 25:27-28"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 315,
+      "title": "Messianic Fulfillment",
+      "readings": [
+        "Luke 6-8",
+        "Proverbs 26:1-3"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 316,
+      "title": "Messianic Fulfillment",
+      "readings": [
+        "Luke 9-10",
+        "Proverbs 26:4-6"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 317,
+      "title": "Messianic Fulfillment",
+      "readings": [
+        "Luke 11-12",
+        "Proverbs 26:7-9"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 318,
+      "title": "Messianic Fulfillment",
+      "readings": [
+        "Luke 13-16",
+        "Proverbs 26:10-12"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 319,
+      "title": "Messianic Fulfillment",
+      "readings": [
+        "Luke 17-19",
+        "Proverbs 26:13-16"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 320,
+      "title": "Messianic Fulfillment",
+      "readings": [
+        "Luke 20-22:38",
+        "Proverbs 26:17-19"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 321,
+      "title": "Messianic Fulfillment",
+      "readings": [
+        "Luke 22:39-24",
+        "Proverbs 26:20-23"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 322,
+      "title": "The Church",
+      "readings": [
+        "Acts 1",
+        "Romans 1",
+        "Proverbs 26:24-26"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 323,
+      "title": "The Church",
+      "readings": [
+        "Acts 2",
+        "Romans 2-3",
+        "Proverbs 26:27-28"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 324,
+      "title": "The Church",
+      "readings": [
+        "Acts 3",
+        "Romans 4-5",
+        "Proverbs 27:1-3"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 325,
+      "title": "The Church",
+      "readings": [
+        "Acts 4",
+        "Romans 6-7",
+        "Proverbs 27:4-6"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 326,
+      "title": "The Church",
+      "readings": [
+        "Acts 5",
+        "Romans 8",
+        "Proverbs 27:7-9"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 327,
+      "title": "The Church",
+      "readings": [
+        "Acts 6",
+        "Romans 9-10",
+        "Proverbs 27:10-12"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 328,
+      "title": "The Church",
+      "readings": [
+        "Acts 7",
+        "Romans 11-12",
+        "Proverbs 27:13-14"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 329,
+      "title": "The Church",
+      "readings": [
+        "Acts 8",
+        "Romans 13-14",
+        "Proverbs 27:15-17"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 330,
+      "title": "The Church",
+      "readings": [
+        "Acts 9",
+        "Romans 15-16",
+        "Proverbs 27:18-20"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 331,
+      "title": "The Church",
+      "readings": [
+        "Acts 10",
+        "1 Corinthians 1-2",
+        "Proverbs 27:21-22"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 332,
+      "title": "The Church",
+      "readings": [
+        "Acts 11",
+        "1 Corinthians 3-4",
+        "Proverbs 27:23-27"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 333,
+      "title": "The Church",
+      "readings": [
+        "Acts 12",
+        "1 Corinthians 5-6",
+        "Proverbs 28:1-3"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 334,
+      "title": "The Church",
+      "readings": [
+        "Acts 13",
+        "1 Corinthians 7-8",
+        "Proverbs 28:4-6"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 335,
+      "title": "The Church",
+      "readings": [
+        "Acts 14",
+        "1 Corinthians 9-10",
+        "Proverbs 28:7-9"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 336,
+      "title": "The Church",
+      "readings": [
+        "Acts 15",
+        "1 Corinthians 11-12",
+        "Proverbs 28:10-12"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 337,
+      "title": "The Church",
+      "readings": [
+        "Acts 16",
+        "1 Corinthians 13-14",
+        "Proverbs 28:13-15"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 338,
+      "title": "The Church",
+      "readings": [
+        "Acts 17",
+        "1 Corinthians 15",
+        "Proverbs 28:16-18"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 339,
+      "title": "The Church",
+      "readings": [
+        "Acts 18",
+        "1 Corinthians 16",
+        "Proverbs 28:19-21"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 340,
+      "title": "The Church",
+      "readings": [
+        "Acts 19",
+        "2 Corinthians 1-2",
+        "Proverbs 28:22-24"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 341,
+      "title": "The Church",
+      "readings": [
+        "Acts 20",
+        "2 Corinthians 3-5",
+        "Proverbs 28:25-28"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 342,
+      "title": "The Church",
+      "readings": [
+        "Acts 21",
+        "2 Corinthians 6-8",
+        "Proverbs 29:1-4"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 343,
+      "title": "The Church",
+      "readings": [
+        "Acts 22",
+        "2 Corinthians 9-11",
+        "Proverbs 29:5-7"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 344,
+      "title": "The Church",
+      "readings": [
+        "Acts 23",
+        "2 Corinthians 12-13",
+        "Proverbs 29:8-11"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 345,
+      "title": "The Church",
+      "readings": [
+        "Acts 24",
+        "Galatians 1-3",
+        "Proverbs 29:12-14"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 346,
+      "title": "The Church",
+      "readings": [
+        "Acts 25",
+        "Galatians 4-6",
+        "Proverbs 29:15-17"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 347,
+      "title": "The Church",
+      "readings": [
+        "Acts 26",
+        "Ephesians 1-3",
+        "Proverbs 29:18-21"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 348,
+      "title": "The Church",
+      "readings": [
+        "Acts 27",
+        "Ephesians 4-6",
+        "Proverbs 29:22-24"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 349,
+      "title": "The Church",
+      "readings": [
+        "Acts 28",
+        "Philippians 1-2",
+        "Proverbs 29:25-27"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 350,
+      "title": "The Church",
+      "readings": [
+        "James 1-2",
+        "Philippians 3-4",
+        "Proverbs 30: 1-6"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 351,
+      "title": "The Church",
+      "readings": [
+        "James 3-5",
+        "Colossians 1-2",
+        "Proverbs 30:7-9"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 352,
+      "title": "The Church",
+      "readings": [
+        "1 Peter 1-2",
+        "Colossians 3-4",
+        "Proverbs 30:10-14"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 353,
+      "title": "The Church",
+      "readings": [
+        "1 Peter 3-5",
+        "1 Thessalonians 1-3",
+        "Proverbs 30:15-16"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 354,
+      "title": "The Church",
+      "readings": [
+        "2 Peter 1-3",
+        "1 Thessalonians 4-5",
+        "Proverbs 30:17-19"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 355,
+      "title": "The Church",
+      "readings": [
+        "1 John 1-3",
+        "2 Thessalonians 1-3",
+        "Proverbs 30:20-23"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 356,
+      "title": "The Church",
+      "readings": [
+        "1 John 4-5",
+        "1 Timothy 1-3",
+        "Proverbs 30:24-28"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 357,
+      "title": "The Church",
+      "readings": [
+        "2 John, 3 John",
+        "1 Timothy 4-6",
+        "Proverbs 30:29-33"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 358,
+      "title": "The Church",
+      "readings": [
+        "Jude",
+        "2 Timothy 1-2",
+        "Proverbs 31: 1-7"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 359,
+      "title": "The Church",
+      "readings": [
+        "Revelation 1-3",
+        "2 Timothy 3-4",
+        "Proverbs 31:8-9"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 360,
+      "title": "The Church",
+      "readings": [
+        "Revelation 4-7",
+        "Titus 1-3",
+        "Proverbs 31:10-15"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 361,
+      "title": "The Church",
+      "readings": [
+        "Revelation 8-11",
+        "Philemon",
+        "Proverbs 31:16-18"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 362,
+      "title": "The Church",
+      "readings": [
+        "Revelation 12-14",
+        "Hebrews 1-4",
+        "Proverbs 31:19-22"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 363,
+      "title": "The Church",
+      "readings": [
+        "Revelation 15-17",
+        "Hebrews 5-8",
+        "Proverbs 31:23-25"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 364,
+      "title": "The Church",
+      "readings": [
+        "Revelation 18-20",
+        "Hebrews 9-10",
+        "Proverbs 31:26-29"
+      ],
+      "notes": ""
+    },
+    {
+      "session": 365,
+      "title": "The Church",
+      "readings": [
+        "Revelation 21-22",
+        "Hebrews 11-13",
+        "Proverbs 31:30-31"
+      ],
+      "notes": ""
+    }
+  ]
+}

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Isaiah 9 — Unto Us a Child Is Born</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,500;1,9..144,600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dark:      #0E121C;
+    --dark-deep: #070910;
+    --gold:      #C9A227;
+    --gold-soft: #D9BB5C;
+    --glow:      #F6E7C1;
+    --rubric:    #9A3324;
+    --ink:       #211C14;
+    --parchment: #F7EEDC;
+    --parchment-deep: #EFE1BF;
+    --body-on-dark: #D9DCE6;
+    --body-on-light: #3A3226;
+    --hairline: rgba(201,162,39,0.35);
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    font-family:'Source Serif 4', Georgia, serif;
+    background:
+      radial-gradient(ellipse 900px 500px at 50% 0%, #1a2135 0%, transparent 60%),
+      linear-gradient(180deg, var(--dark-deep) 0%, var(--dark) 22%, #26314F 46%, #6B5A2E 68%, var(--parchment-deep) 84%, var(--parchment) 100%);
+    color: var(--body-on-dark);
+    -webkit-text-size-adjust: 100%;
+  }
+  .reveal{ opacity:0; transform: translateY(22px); transition: opacity .9s ease, transform .9s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    html{ scroll-behavior:auto; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{ padding: 76px 24px 60px; text-align:center; position:relative; }
+  .eyebrow{
+    font-family:'Space Grotesk', sans-serif; font-size:0.72rem; font-weight:600;
+    letter-spacing:0.28em; text-transform:uppercase; color: var(--gold-soft); margin-bottom:22px;
+  }
+  .book-num{
+    font-family:'Fraunces', serif; font-weight:300; font-style:italic; font-size:5.2rem; line-height:0.9;
+    color: transparent; -webkit-text-stroke: 1.4px var(--gold); letter-spacing: -0.01em;
+    margin: 0 0 4px;
+  }
+  h1{
+    font-family:'Fraunces', serif; font-weight:600; font-size:2.9rem; line-height:1.05;
+    color: var(--glow); margin: 0 0 14px; letter-spacing: -0.01em;
+  }
+  .subtitle{
+    font-family:'Space Grotesk', sans-serif; font-size:0.95rem; color:#A9AFC4; letter-spacing:0.03em;
+  }
+  .rule{
+    width:64px; height:1px; background: var(--gold); margin: 30px auto 0; opacity:0.7;
+    position:relative;
+  }
+  .rule::before{
+    content:'✦'; position:absolute; top:-8px; left:50%; transform:translateX(-50%);
+    color:var(--gold); font-size:0.8rem; background: var(--dark); padding:0 8px;
+  }
+
+  /* ---------- Mountain horizon ---------- */
+  .horizon{ position:relative; height: 240px; overflow:hidden; margin-top:-10px; }
+  .horizon svg{ position:absolute; bottom:0; left:0; width:100%; height:100%; }
+  .ridge-back{ opacity:0.35; }
+  .ridge-mid{ opacity:0.6; }
+  .ridge-front path{ filter: drop-shadow(0 -1px 0 rgba(201,162,39,0.55)); }
+
+  /* ---------- Pull-quote (darkness to light) ---------- */
+  .pullquote-wrap{ padding: 50px 24px 70px; text-align:center; position:relative; }
+  .glow-orb{
+    position:absolute; top:-6%; left:50%; width:340px; height:340px; transform:translate(-50%,-50%);
+    background: radial-gradient(circle, rgba(246,231,193,0.28) 0%, rgba(246,231,193,0) 70%);
+    filter: blur(6px); pointer-events:none;
+    animation: breathe 7s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce){ .glow-orb{ animation:none; } }
+  @keyframes breathe{ 0%,100%{ opacity:0.7; } 50%{ opacity:1; } }
+  .pullquote{
+    position:relative; font-family:'Fraunces', serif; font-style:italic; font-weight:500;
+    font-size: clamp(1.5rem, 5vw, 2.3rem); line-height:1.4; max-width: 620px; margin: 0 auto;
+    color: var(--parchment);
+  }
+  .pullquote .ref{
+    display:block; margin-top:20px; font-family:'Space Grotesk', sans-serif; font-style:normal;
+    font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase; color: var(--gold-soft);
+  }
+
+  /* ---------- Passage leaf ---------- */
+  .leaf-wrap{ padding: 20px 20px 40px; display:flex; justify-content:center; }
+  .leaf{
+    max-width: 720px; width:100%; background: var(--parchment);
+    border-radius: 4px; padding: 52px 40px 46px; position:relative;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.35);
+  }
+  .corner{ position:absolute; width:34px; height:34px; opacity:0.65; }
+  .corner svg{ width:100%; height:100%; }
+  .corner.tl{ top:14px; left:14px; }
+  .corner.tr{ top:14px; right:14px; transform: scaleX(-1); }
+  .corner.bl{ bottom:14px; left:14px; transform: scaleY(-1); }
+  .corner.br{ bottom:14px; right:14px; transform: scale(-1,-1); }
+
+  .passage-label{
+    font-family:'Space Grotesk', sans-serif; font-size:0.72rem; font-weight:600; letter-spacing:0.16em;
+    text-transform:uppercase; color: var(--rubric); text-align:center; margin-bottom: 28px;
+  }
+  .dropcap-para{ color: var(--ink); font-size:1.28rem; line-height:1.75; }
+  .dropcap{
+    float:left; font-family:'Fraunces', serif; font-weight:600; font-size:5.2rem; line-height:0.78;
+    color: var(--gold); padding: 6px 12px 0 0; text-shadow: 1px 1px 0 rgba(0,0,0,0.08);
+  }
+  .vnum{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:0.68rem;
+    color: var(--rubric); vertical-align: super; margin: 0 3px 0 14px;
+  }
+  .vnum.first{ margin-left:0; }
+  .translation-tag{
+    display:inline-block; font-family:'Space Grotesk', sans-serif; font-size:0.68rem; font-weight:600;
+    letter-spacing:0.1em; color: var(--rubric); border:1px solid var(--rubric); border-radius:3px;
+    padding: 2px 7px; margin-bottom: 16px;
+  }
+
+  .titles-strip{
+    margin-top: 34px; padding-top: 28px; border-top: 1px solid rgba(154,51,36,0.25);
+    display:grid; grid-template-columns: repeat(2, 1fr); gap: 18px 22px;
+  }
+  .title-item{ text-align:center; }
+  .title-item .mark{ font-family:'Fraunces', serif; font-style:italic; color: var(--gold); font-size:1.5rem; display:block; margin-bottom:4px; }
+  .title-item .word{ font-family:'Space Grotesk', sans-serif; font-size:0.85rem; font-weight:600; letter-spacing:0.04em; color: var(--ink); }
+
+  /* ---------- Tiers ---------- */
+  .tiers{ max-width:720px; margin: 10px auto 0; padding: 0 20px 30px; }
+  .flourish{ text-align:center; margin: 34px 0; color: var(--gold-soft); opacity:0.8; font-size:1.1rem; letter-spacing:0.4em; }
+  .tier{ background: rgba(15,20,32,0.55); border:1px solid var(--hairline); border-radius: 14px; margin-bottom:16px; overflow:hidden; backdrop-filter: blur(2px); }
+  .tier summary{
+    list-style:none; cursor:pointer; padding: 20px 22px; display:flex; align-items:center; justify-content:space-between; gap:14px;
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:0.98rem; color: var(--glow);
+  }
+  .tier summary::-webkit-details-marker{ display:none; }
+  .tier summary .num{ font-family:'Fraunces', serif; font-style:italic; color: var(--gold); font-size:1.3rem; margin-right:10px; }
+  .tier summary .chev{ color: var(--gold); font-size:1.2rem; transition: transform .25s ease; flex-shrink:0; }
+  .tier[open] summary .chev{ transform: rotate(135deg); }
+  .tier .body{ padding: 0 22px 24px 54px; font-size:1.08rem; line-height:1.7; color: var(--body-on-dark); }
+  .tier .body p{ margin:0 0 14px; }
+
+  footer{ text-align:center; padding: 20px 20px 60px; }
+  .colophon{ font-family:'Fraunces', serif; font-style:italic; color: var(--gold-soft); font-size:0.95rem; opacity:0.85; }
+  .exp-tag{ margin-top:14px; font-family:'Space Grotesk', sans-serif; font-size:0.72rem; letter-spacing:0.14em; color:#6b7690; }
+
+  @media (min-width: 860px){
+    .leaf-wrap{ position:relative; }
+    .leaf{ padding: 64px 64px 56px; }
+    .dropcap{ font-size:6.4rem; }
+  }
+</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Cinzel:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../lib/living-waters.css">
+</head>
+<body class="lw">
+
+<div id="lw-backdrop" class="lw-backdrop"></div>
+<div id="lw-photo-credit" class="lw-photo-credit"></div>
+
+<header class="w-full bg-slate-950/85 border-b border-sky-500/20 backdrop-blur-md sticky top-0 z-50">
+  <div class="bg-amber-500/10 border-b border-amber-500/10 text-amber-300 text-xs py-1 overflow-hidden">
+    <div id="lw-top-ticker" class="lw-marquee-track whitespace-nowrap flex items-center font-semibold tracking-wider"></div>
+  </div>
+  <div class="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between gap-3">
+    <a href="../../../../index.html" class="flex items-center gap-2.5 no-underline">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-800 via-slate-600 to-amber-500 flex items-center justify-center border border-sky-300/30">
+        <i class="fa-solid fa-droplet text-white text-sm"></i>
+      </div>
+      <span class="lw-serif font-black text-base tracking-widest text-slate-100">LIVING WATERS</span>
+    </a>
+    <a href="../index.html" class="text-xs text-sky-300/90 hover:text-amber-300 no-underline font-semibold tracking-wide">&larr; Isaiah</a>
+  </div>
+</header>
+
+<div class="lw-horizon">
+  <div class="lw-horizon-sky"></div>
+  <div class="lw-horizon-rays"></div>
+  <div class="lw-horizon-glow"></div>
+  <svg class="lw-ridge-back" viewBox="0 0 1200 300" preserveAspectRatio="none">
+    <path fill="#0b2e28" d="M0,210 C60,180 110,175 160,195 C210,215 250,150 310,145 C370,140 400,190 460,185 C520,180 550,120 620,125 C690,130 715,175 780,178 C845,181 870,140 940,145 C1010,150 1040,190 1100,185 C1150,181 1170,160 1200,165 L1200,300 0,300 Z"/>
+  </svg>
+  <svg class="lw-ridge-mid" viewBox="0 0 1200 300" preserveAspectRatio="none">
+    <path fill="#062018" d="M0,250 C70,225 130,235 190,215 C250,195 290,240 350,235 C410,230 445,180 510,185 C575,190 600,230 660,232 C720,234 755,195 820,198 C885,201 915,240 980,238 C1045,236 1075,205 1140,210 C1170,213 1185,222 1200,225 L1200,300 0,300 Z"/>
+  </svg>
+  <svg class="lw-ridge-front" viewBox="0 0 1200 300" preserveAspectRatio="none">
+    <path fill="#040d0a" d="M0,300 L0,265 C55,245 100,255 155,238 C215,219 260,190 320,195 C385,200 410,240 470,238 C535,236 565,200 630,205 C695,210 720,245 780,244 C840,243 870,212 935,216 C1000,220 1030,250 1090,246 C1140,243 1165,228 1200,232 L1200,300 Z"/>
+  </svg>
+</div>
+
+<div class="max-w-3xl mx-auto px-6 pt-10 pb-2 text-center relative z-10">
+  <div class="text-[0.68rem] font-bold uppercase tracking-widest text-amber-400 mb-2">The Book of Isaiah · Prophetic Oracle</div>
+  <h1 class="lw-serif text-3xl md:text-4xl font-black text-slate-50 mb-2">Government Upon His Shoulder</h1>
+  <p class="text-slate-300 text-base max-w-2xl mx-auto">Isaiah 9:6–7</p>
+</div>
+
+
+  <section class="pullquote-wrap reveal">
+    <div class="glow-orb"></div>
+    <div class="pullquote">
+      &ldquo;The people that walked in darkness have seen a great light: they that dwelt in the
+      land of the shadow of death, upon them hath the light shined.&rdquo;
+      <span class="ref">Isaiah 9:2 · ASV</span>
+    </div>
+  </section>
+
+  <div class="leaf-wrap">
+    <div class="leaf reveal">
+      <div class="corner tl"><svg viewBox="0 0 34 34"><path d="M2 32 Q2 2 32 2" fill="none" stroke="#C9A227" stroke-width="1.4"/><circle cx="2" cy="32" r="2" fill="#C9A227"/></svg></div>
+      <div class="corner tr"><svg viewBox="0 0 34 34"><path d="M2 32 Q2 2 32 2" fill="none" stroke="#C9A227" stroke-width="1.4"/><circle cx="2" cy="32" r="2" fill="#C9A227"/></svg></div>
+      <div class="corner bl"><svg viewBox="0 0 34 34"><path d="M2 32 Q2 2 32 2" fill="none" stroke="#C9A227" stroke-width="1.4"/><circle cx="2" cy="32" r="2" fill="#C9A227"/></svg></div>
+      <div class="corner br"><svg viewBox="0 0 34 34"><path d="M2 32 Q2 2 32 2" fill="none" stroke="#C9A227" stroke-width="1.4"/><circle cx="2" cy="32" r="2" fill="#C9A227"/></svg></div>
+
+      <div class="passage-label">The Prophecy</div>
+      <span class="translation-tag">ASV</span>
+
+      <p class="dropcap-para">
+        <span class="dropcap">F</span><span class="vnum first">6</span>or unto us a child is
+        born, unto us a son is given; and the government shall be upon his shoulder: and his
+        name shall be called Wonderful, Counsellor, Mighty God, Everlasting Father, Prince of
+        Peace.
+        <span class="vnum">7</span>Of the increase of his government and of peace there shall
+        be no end, upon the throne of David, and upon his kingdom, to establish it, and to
+        uphold it with justice and with righteousness from henceforth even for ever. The zeal
+        of Jehovah of hosts will perform this.
+      </p>
+
+      <div class="titles-strip">
+        <div class="title-item"><span class="mark">I.</span><span class="word">Wonderful Counsellor</span></div>
+        <div class="title-item"><span class="mark">II.</span><span class="word">Mighty God</span></div>
+        <div class="title-item"><span class="mark">III.</span><span class="word">Everlasting Father</span></div>
+        <div class="title-item"><span class="mark">IV.</span><span class="word">Prince of Peace</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tiers">
+    <div class="flourish reveal">❧ ❧ ❧</div>
+
+    <details class="tier reveal" open>
+      <summary><span><span class="num">I</span>Cultural &amp; Historical Context</span><span class="chev">+</span></summary>
+      <div class="body">
+        <p>Delivered against the backdrop of Assyrian invasion and the collapse of the Northern
+        Kingdom's political hopes, this oracle promised a ruler from David's own line — not
+        a foreign deliverer, but one raised up from within the covenant people themselves.</p>
+      </div>
+    </details>
+
+    <details class="tier reveal">
+      <summary><span><span class="num">II</span>Core Theological Meaning</span><span class="chev">+</span></summary>
+      <div class="body">
+        <p>Four royal titles, each bearing weight no ordinary king could carry — "Mighty God"
+        and "Everlasting Father" push this figure beyond the category of a merely human
+        monarch, while "Prince of Peace" answers directly to a nation exhausted by war.</p>
+      </div>
+    </details>
+
+    <details class="tier reveal">
+      <summary><span><span class="num">III</span>Cross-References &amp; Canonical Links</span><span class="chev">+</span></summary>
+      <div class="body">
+        <p>Matthew 4:15–16 applies the "great light" of 9:2 directly to the beginning of Jesus'
+        Galilean ministry. Luke 1:32–33 echoes the throne-of-David, no-end language almost
+        verbatim in Gabriel's announcement to Mary.</p>
+      </div>
+    </details>
+  </div>
+
+  <footer>
+    <svg width="72" height="28" viewBox="0 0 72 28" style="opacity:0.6; margin-bottom:10px;">
+      <path d="M2,22 C10,14 16,20 22,15 C28,10 33,17 40,14 C47,11 52,18 58,14 C63,11 67,15 70,13" fill="none" stroke="#C9A227" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+    <div class="colophon reveal">Of the increase of his government there shall be no end.</div>
+    <div class="exp-tag">EXPERIMENT A+ — ILLUMINATED, REFINED · CARVED FROM THE BLUE RIDGE</div>
+  </footer>
+
+<script>
+  var els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
+</script>
+<script src="../../../../lib/living-waters.js"></script>
+<script>
+lwInitBackdrop('lw-backdrop');
+lwBuildMarquee('lw-top-ticker', [
+  { icon: 'fa-solid fa-water text-sky-300', text: '[ISAIAH 9]: Government Upon His Shoulder \u2014 Unto us a child is born' }
+]);
+</script>
+</body>
+</html>

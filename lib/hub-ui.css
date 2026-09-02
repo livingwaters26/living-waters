@@ -1,0 +1,388 @@
+/* ============================================================
+   Study Hub v19 — shared interface layer
+   Self-contained. No external fonts, no CDN, no network.
+   Palette is drawn from a gilt-edged study Bible:
+   binding indigo, gilt brass, vellum, oxblood ribbon.
+   ============================================================ */
+
+:root{
+  --v19-ink:      #1B2027;
+  --v19-ink-soft: #4A5361;
+  --v19-paper:    #FBFAF7;
+  --v19-vellum:   #F3EFE6;
+  --v19-rule:     #D9D2C4;
+  --v19-indigo:   #2F3E68;
+  --v19-brass:    #A8842C;
+  --v19-brass-lt: #E8D9A8;
+  --v19-sage:     #4A6B4F;
+  --v19-amber:    #B8862B;
+  --v19-oxblood:  #7B2E2E;
+
+  --v19-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --v19-sans:  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --v19-mono:  ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, monospace;
+
+  --v19-ticker-h: 44px;
+  --v19-rail-w: 340px;
+}
+
+/* ---- 1. Reading comfort ------------------------------------ */
+/* Base size is nudged up one step and is user-adjustable via the
+   A- / A+ control in the footer. Value persists per device.      */
+html.v19-type-0 { font-size: 100%; }
+html.v19-type-1 { font-size: 106.25%; }   /* default for v19 */
+html.v19-type-2 { font-size: 112.5%; }
+html.v19-type-3 { font-size: 120%; }
+
+body.v19{
+  line-height: 1.62;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  padding-bottom: calc(var(--v19-ticker-h) + 8px);
+}
+body.v19 p{ max-width: 68ch; }
+
+/* Footer clearance so the ticker never covers the last line. */
+body.v19.v19-ticker-on{ padding-bottom: calc(var(--v19-ticker-h) + 20px); }
+
+/* ---- 2. Zoom / focus modal --------------------------------- */
+.v19-zoomable{ position: relative; cursor: zoom-in; }
+.v19-zoomable:focus-visible{ outline: 2px solid var(--v19-brass); outline-offset: 3px; }
+
+.v19-zoom-tag{
+  position: absolute; top: 6px; right: 6px;
+  font: 600 11px/1 var(--v19-mono);
+  letter-spacing: .06em;
+  color: var(--v19-ink-soft);
+  background: rgba(255,255,255,.82);
+  border: 1px solid var(--v19-rule);
+  border-radius: 3px;
+  padding: 4px 6px;
+  opacity: 0; transition: opacity .18s ease;
+  pointer-events: none;
+}
+.v19-zoomable:hover .v19-zoom-tag,
+.v19-zoomable:focus-within .v19-zoom-tag{ opacity: 1; }
+
+.v19-overlay{
+  position: fixed; inset: 0; z-index: 900;
+  background: rgba(27,32,39,.90);
+  display: flex; align-items: stretch; justify-content: center;
+  padding: 3vh 3vw;
+  opacity: 0; pointer-events: none;
+  transition: opacity .2s ease;
+}
+.v19-overlay.open{ opacity: 1; pointer-events: auto; }
+
+.v19-sheet{
+  background: var(--v19-paper);
+  color: var(--v19-ink);
+  width: min(920px, 100%);
+  border-radius: 4px;
+  /* the gilt edge — the one ornament this layer allows itself */
+  border-left: 5px solid var(--v19-brass);
+  box-shadow: 0 24px 70px rgba(0,0,0,.45);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  transform: translateY(14px) scale(.985);
+  transition: transform .22s cubic-bezier(.2,.7,.3,1);
+}
+.v19-overlay.open .v19-sheet{ transform: none; }
+
+.v19-sheet-bar{
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--v19-rule);
+  background: var(--v19-vellum);
+  flex: none;
+}
+.v19-sheet-label{
+  font: 600 11px/1 var(--v19-mono);
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--v19-indigo);
+}
+.v19-sheet-body{
+  padding: 22px 26px 30px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.v19-sheet-body > :first-child{ margin-top: 0; }
+
+.v19-btn{
+  font: 600 13px/1 var(--v19-sans);
+  color: var(--v19-ink);
+  background: var(--v19-paper);
+  border: 1px solid var(--v19-rule);
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  min-height: 36px;
+}
+.v19-btn:hover{ border-color: var(--v19-brass); }
+.v19-btn:focus-visible{ outline: 2px solid var(--v19-brass); outline-offset: 2px; }
+.v19-btn-close{ margin-left: auto; font-weight: 700; }
+
+/* ---- 3. Footer ticker -------------------------------------- */
+.v19-ticker{
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 880;
+  height: var(--v19-ticker-h);
+  display: flex; align-items: stretch;
+  background: var(--v19-ink);
+  border-top: 2px solid var(--v19-brass);
+  color: var(--v19-paper);
+  font-family: var(--v19-sans);
+}
+.v19-ticker-key{
+  flex: none;
+  display: flex; align-items: center; gap: 8px;
+  padding: 0 12px;
+  background: var(--v19-indigo);
+  font: 600 10px/1 var(--v19-mono);
+  letter-spacing: .1em; text-transform: uppercase;
+  white-space: nowrap;
+}
+.v19-ticker-window{
+  flex: 1 1 auto; overflow: hidden; position: relative;
+}
+.v19-ticker-track{
+  display: flex; align-items: center; gap: 48px;
+  height: 100%;
+  white-space: nowrap;
+  will-change: transform;
+  animation: v19-scroll 64s linear infinite;
+  padding-left: 100%;
+}
+.v19-ticker.paused .v19-ticker-track{ animation-play-state: paused; }
+@keyframes v19-scroll{ to { transform: translateX(-100%); } }
+
+.v19-tick{
+  display: inline-flex; align-items: baseline; gap: 8px;
+  font-size: .82rem;
+}
+.v19-tick-src{
+  font: 600 9px/1 var(--v19-mono);
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 3px 5px; border-radius: 2px;
+  color: var(--v19-ink); background: var(--v19-brass-lt);
+  flex: none;
+}
+.v19-tick-src.fathers  { background: #D9C7A3; }
+.v19-tick-src.catholic { background: #C9B8D6; }
+.v19-tick-src.protestant{ background: #A9C6C0; }
+.v19-tick-src.scofield { background: #E0C48A; }
+.v19-tick-src.crossref { background: #C3CBDD; }
+.v19-tick a{ color: var(--v19-brass-lt); }
+
+.v19-ticker-tools{
+  flex: none; display: flex; align-items: center; gap: 4px; padding: 0 8px;
+  border-left: 1px solid rgba(255,255,255,.14);
+}
+.v19-ticker-tools button{
+  font: 600 12px/1 var(--v19-sans);
+  color: var(--v19-paper);
+  background: transparent; border: 1px solid rgba(255,255,255,.22);
+  border-radius: 3px; padding: 6px 8px; cursor: pointer; min-width: 34px; min-height: 30px;
+}
+.v19-ticker-tools button:hover{ border-color: var(--v19-brass); }
+.v19-ticker-tools button:focus-visible{ outline: 2px solid var(--v19-brass); outline-offset: 1px; }
+
+/* ---- 4. Right-hand insight rail ---------------------------- */
+.v19-rail{
+  position: fixed; top: 0; right: 0; z-index: 870;
+  width: var(--v19-rail-w); max-width: 88vw;
+  height: 100vh;
+  padding-bottom: var(--v19-ticker-h);
+  background: var(--v19-vellum);
+  border-left: 1px solid var(--v19-rule);
+  box-shadow: -10px 0 28px rgba(27,32,39,.10);
+  display: flex; flex-direction: column;
+  transform: translateX(100%);
+  transition: transform .24s cubic-bezier(.2,.7,.3,1);
+  font-family: var(--v19-sans);
+}
+.v19-rail.open{ transform: none; }
+
+.v19-rail-handle{
+  position: absolute; left: -34px; top: 96px;
+  width: 34px; padding: 14px 0;
+  writing-mode: vertical-rl;
+  font: 600 11px/1 var(--v19-mono);
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--v19-paper); background: var(--v19-indigo);
+  border: 0; border-radius: 4px 0 0 4px;
+  cursor: pointer;
+}
+.v19-rail-handle:focus-visible{ outline: 2px solid var(--v19-brass); outline-offset: 2px; }
+
+.v19-rail-head{
+  padding: 14px 16px; border-bottom: 1px solid var(--v19-rule);
+  display: flex; align-items: center; gap: 10px; flex: none;
+}
+.v19-rail-ref{
+  font: 600 12px/1.3 var(--v19-mono); letter-spacing: .06em;
+  color: var(--v19-indigo); text-transform: uppercase;
+}
+.v19-rail-body{ overflow-y: auto; padding: 14px 16px 26px; -webkit-overflow-scrolling: touch; }
+
+.v19-rail h3{
+  font: 600 10px/1 var(--v19-mono);
+  letter-spacing: .13em; text-transform: uppercase;
+  color: var(--v19-ink-soft);
+  margin: 20px 0 8px;
+}
+.v19-rail h3:first-child{ margin-top: 0; }
+
+/* Consensus ribbons — six sewn bookmark tabs, one per tradition. */
+.v19-ribbons{ display: flex; gap: 4px; margin-bottom: 10px; }
+.v19-ribbon{
+  flex: 1 1 0; height: 30px;
+  border: 0; border-radius: 2px 2px 5px 5px;
+  cursor: pointer; position: relative;
+  font: 600 9px/1 var(--v19-mono); color: #fff;
+  display: flex; align-items: flex-end; justify-content: center; padding-bottom: 4px;
+}
+.v19-ribbon[data-level="green"] { background: var(--v19-sage); }
+.v19-ribbon[data-level="yellow"]{ background: var(--v19-amber); }
+.v19-ribbon[data-level="red"]   { background: var(--v19-oxblood); }
+.v19-ribbon[aria-expanded="true"]{ box-shadow: inset 0 0 0 2px var(--v19-ink); }
+.v19-ribbon:focus-visible{ outline: 2px solid var(--v19-ink); outline-offset: 2px; }
+
+.v19-verdict{
+  font: 600 12px/1.5 var(--v19-sans);
+  padding: 8px 10px; border-radius: 3px;
+  background: var(--v19-paper); border-left: 4px solid var(--v19-rule);
+  margin-bottom: 10px;
+}
+.v19-verdict[data-level="green"] { border-left-color: var(--v19-sage); }
+.v19-verdict[data-level="yellow"]{ border-left-color: var(--v19-amber); }
+.v19-verdict[data-level="red"]   { border-left-color: var(--v19-oxblood); }
+
+.v19-breakdown{
+  font-size: .86rem; line-height: 1.55;
+  background: var(--v19-paper);
+  border: 1px solid var(--v19-rule); border-radius: 3px;
+  padding: 10px 12px; margin-bottom: 6px;
+}
+.v19-breakdown[hidden]{ display: none; }
+.v19-breakdown b{ color: var(--v19-indigo); }
+
+.v19-card{
+  background: var(--v19-paper);
+  border: 1px solid var(--v19-rule);
+  border-left: 3px solid var(--v19-brass);
+  border-radius: 3px;
+  padding: 10px 12px; margin-bottom: 8px;
+  font-size: .88rem; line-height: 1.55;
+}
+.v19-card-kind{
+  font: 600 9px/1 var(--v19-mono); letter-spacing: .11em; text-transform: uppercase;
+  color: var(--v19-ink-soft); display: block; margin-bottom: 5px;
+}
+.v19-card-save{
+  font: 600 11px/1 var(--v19-sans);
+  background: none; border: 1px solid var(--v19-rule); border-radius: 3px;
+  padding: 5px 8px; margin-top: 8px; cursor: pointer; color: var(--v19-indigo);
+}
+.v19-card-save:hover{ border-color: var(--v19-brass); }
+.v19-card-save.saved{ background: var(--v19-brass-lt); border-color: var(--v19-brass); }
+
+/* ---- 5. Compare translations ------------------------------- */
+.v19-compare-grid{
+  display: grid;
+  grid-template-columns: 56px 1fr 1fr;   /* overwritten inline by compare.js */
+  gap: 0;
+  font-family: var(--v19-serif);
+}
+.v19-cmp-head{
+  position: sticky; top: 0; z-index: 2;
+  background: var(--v19-vellum);
+  border-bottom: 2px solid var(--v19-brass);
+  padding: 8px 10px;
+  font: 600 11px/1.3 var(--v19-mono); letter-spacing: .08em; text-transform: uppercase;
+  color: var(--v19-indigo);
+}
+.v19-cmp-vn{
+  padding: 12px 8px;
+  font: 600 12px/1.4 var(--v19-mono);
+  color: var(--v19-ink-soft);
+  border-top: 1px solid var(--v19-rule);
+  text-align: right;
+}
+.v19-cmp-cell{
+  padding: 12px 12px;
+  border-top: 1px solid var(--v19-rule);
+  border-left: 1px solid var(--v19-rule);
+  font-size: .95rem;
+}
+.v19-cmp-cell mark{ background: #F6EBC8; }
+.v19-cmp-note{
+  font: 400 12px/1.5 var(--v19-sans);
+  color: var(--v19-ink-soft);
+  background: var(--v19-vellum);
+  border-left: 3px solid var(--v19-rule);
+  padding: 10px 12px; margin-top: 16px;
+}
+.v19-cmp-linkout{
+  font: 400 .88rem/1.5 var(--v19-sans);
+  color: var(--v19-ink-soft);
+}
+
+/* ---- 6. Scofield layer ------------------------------------- */
+.v19-tabs{ display: flex; gap: 4px; border-bottom: 1px solid var(--v19-rule); margin: 14px 0 0; flex-wrap: wrap; }
+.v19-tab{
+  font: 600 12px/1 var(--v19-sans);
+  background: none; border: 1px solid var(--v19-rule); border-bottom: none;
+  border-radius: 4px 4px 0 0; padding: 9px 13px; cursor: pointer;
+  color: var(--v19-ink-soft);
+}
+.v19-tab[aria-selected="true"]{
+  background: var(--v19-vellum); color: var(--v19-ink);
+  border-color: var(--v19-brass); border-bottom: 2px solid var(--v19-vellum);
+  margin-bottom: -1px;
+}
+.v19-scofield{
+  background: #FAF6EA;
+  border: 1px solid #E4D9BC;
+  border-left: 4px solid var(--v19-brass);
+  border-radius: 0 3px 3px 0;
+  padding: 14px 16px;
+  font-size: .93rem; line-height: 1.6;
+}
+.v19-badge{
+  display: inline-block;
+  font: 700 9px/1 var(--v19-mono); letter-spacing: .1em; text-transform: uppercase;
+  background: var(--v19-brass); color: #fff;
+  padding: 4px 7px; border-radius: 2px; margin-bottom: 8px;
+}
+.v19-badge.plain{ background: var(--v19-indigo); }
+.v19-chain{
+  font: 600 12px/1.5 var(--v19-mono);
+  color: var(--v19-indigo);
+  margin-top: 10px; padding-top: 8px; border-top: 1px dotted #D6C79E;
+}
+.v19-chain a{ color: var(--v19-indigo); }
+
+/* ---- 7. Utility -------------------------------------------- */
+.v19-sr{
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+.v19-offline-note{
+  font: 400 12px/1.5 var(--v19-sans); color: var(--v19-ink-soft); font-style: italic;
+}
+
+@media (max-width: 720px){
+  :root{ --v19-rail-w: 100vw; }
+  .v19-sheet-body{ overflow-x: auto; }
+  .v19-sheet-body{ padding: 16px 16px 24px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .v19-ticker-track{ animation: none; padding-left: 0; overflow-x: auto; }
+  .v19-overlay, .v19-sheet, .v19-rail{ transition: none; }
+}
+
+@media print{
+  .v19-ticker, .v19-rail, .v19-overlay, .v19-zoom-tag{ display: none !important; }
+  body.v19{ padding-bottom: 0; }
+}

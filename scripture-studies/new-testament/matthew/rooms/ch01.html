@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Matthew 1 - Study Hub</title>
+<style>
+:root {
+  --bg-color: #0f172a; --card-bg: #1e293b; --accent-gold: #f59e0b; --accent-blue: #38bdf8;
+  --text-main: #f8fafc; --text-muted: #94a3b8; --border-color: #334155;
+  --font-display: Georgia, 'Iowan Old Style', 'Palatino Linotype', Palatino, serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body { font-family: var(--font-body); background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; font-size: 1.06rem; }
+.container { width: 100%; max-width: 1150px; }
+.top-nav { width: 100%; margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+.back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-gold); text-decoration: none; font-weight: 600; background: var(--card-bg); padding: 10px 18px; border-radius: 20px; border: 1px solid var(--border-color); }
+.back-btn:hover, .back-btn:focus-visible { background: var(--accent-gold); color: #000; }
+.header { text-align: center; margin-bottom: 20px; }
+.header-icon { font-size: 2.4rem; margin-bottom: 6px; }
+.header h1 { font-family: var(--font-display); font-weight: 700; color: var(--accent-gold); font-size: 2rem; margin: 0 0 4px 0; }
+.header p { color: var(--text-muted); font-size: 1rem; margin: 0; }
+.intro-box { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px 18px; margin-bottom: 22px; font-size: 0.9rem; color: var(--text-muted); line-height: 1.55; }
+.section-title { font-family: var(--font-display); font-weight: 700; color: var(--accent-blue); font-size: 1.25rem; margin: 28px 0 12px 0; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+.section-note { color: var(--text-muted); font-size: 0.84rem; margin: -6px 0 12px 0; line-height: 1.5; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 10px; }
+table.compare-table { width: 100%; border-collapse: collapse; min-width: 640px; background: var(--card-bg); }
+.compare-table th, .compare-table td { padding: 11px 13px; text-align: left; font-size: 0.83rem; vertical-align: top; border-bottom: 1px solid var(--border-color); }
+.compare-table th { font-family: var(--font-display); font-size: 0.88rem; color: var(--text-main); background: rgba(15,23,42,0.5); }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table td.ref { font-weight: 700; color: var(--accent-gold); white-space: nowrap; }
+.compare-table td.agree { border-left: 3px solid #34d399; }
+.compare-table td.diverge { border-left: 3px solid #f472b6; }
+
+.passage-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 22px; margin-bottom: 22px; }
+.passage-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+.passage-icon { font-size: 1.7rem; }
+.passage-title { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--accent-gold); margin: 0; flex: 1; min-width: 180px; }
+.passage-ref { font-size: 0.75rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+.passage-text { line-height: 1.6; color: var(--text-muted); font-size: 0.89rem; margin-bottom: 14px; border-left: 3px solid var(--accent-blue); padding-left: 13px; }
+.vnum { font-weight: 700; color: var(--accent-blue); font-size: 0.72em; vertical-align: super; margin-right: 1px; }
+.agree-line, .diverge-line, .lang-note, .extra-note { font-size: 0.85rem; border-radius: 6px; padding: 9px 13px; margin-bottom: 8px; line-height: 1.5; }
+.agree-line { background: rgba(52,211,153,0.08); border-left: 3px solid #34d399; }
+.diverge-line { background: rgba(244,114,182,0.08); border-left: 3px solid #f472b6; margin-bottom: 16px; }
+.lang-note { background: rgba(167,139,250,0.08); border-left: 3px solid #a78bfa; margin-bottom: 16px; }
+.lang-note i { color: var(--text-main); font-style: italic; }
+.extra-note { background: rgba(148,163,184,0.08); border-left: 3px solid var(--text-muted); margin-bottom: 16px; }
+.agree-line b, .diverge-line b, .lang-note b, .extra-note b { color: var(--text-main); }
+.view-grid6 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; }
+.view-mini { border-radius: 8px; padding: 11px 13px; border-top: 3px solid; background: rgba(15,23,42,0.5); }
+.view-mini-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 4px; }
+.view-mini-text { font-size: 0.83rem; color: var(--text-main); line-height: 1.42; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
+@media (max-width: 480px) { .header h1 { font-size: 1.5rem; } body { padding: 14px; } }
+
+/* === Reader Tools v1: highlighting, notes, inline dictionary === */
+.verse-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 999; align-items: center; justify-content: center; padding: 20px; }
+.verse-modal-overlay.open { display: flex; }
+.verse-modal { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 22px 24px; max-width: 480px; width: 100%; max-height: 78vh; overflow-y: auto; position: relative; }
+.verse-modal-close { position: absolute; top: 12px; right: 12px; background: var(--border-color); border: none; color: var(--text-main); border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 0.95rem; }
+.verse-modal-close:hover, .verse-modal-close:focus-visible { background: var(--accent-gold); color: #000; }
+.verse-modal-ref { font-family: var(--font-display); font-weight: 700; color: var(--accent-gold); font-size: 1.15rem; margin: 0 26px 12px 0; }
+.verse-modal-text { color: var(--text-main); line-height: 1.65; font-size: 0.95rem; margin: 0; }
+.rt-toolbar { position: absolute; display: none; z-index: 1200; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.4); padding: 6px; gap: 4px; }
+.rt-toolbar.open { display: flex; }
+.rt-toolbar button { background: none; border: none; color: var(--text-main); font-size: 0.82rem; padding: 6px 10px; border-radius: 6px; cursor: pointer; white-space: nowrap; }
+.rt-toolbar button:hover, .rt-toolbar button:focus-visible { background: var(--accent-gold); color: #000; }
+mark.rt-highlight { background: rgba(245,158,11,0.35); color: inherit; border-radius: 2px; padding: 0 1px; cursor: pointer; }
+mark.rt-note { background: rgba(56,189,248,0.3); color: inherit; border-radius: 2px; padding: 0 1px; cursor: pointer; border-bottom: 2px dotted var(--accent-blue); }
+.rt-fab { position: fixed; right: 18px; bottom: 18px; z-index: 1100; background: var(--accent-gold); color: #000; border: none; border-radius: 24px; padding: 12px 18px; font-weight: 700; font-size: 0.85rem; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.4); }
+.rt-fab:hover, .rt-fab:focus-visible { filter: brightness(1.08); }
+.rt-panel-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 1300; align-items: flex-end; justify-content: center; padding: 0; }
+.rt-panel-overlay.open { display: flex; }
+.rt-panel { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px 16px 0 0; padding: 20px; max-width: 560px; width: 100%; max-height: 70vh; overflow-y: auto; }
+.rt-panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.rt-panel-head h3 { font-family: var(--font-display); color: var(--accent-gold); margin: 0; font-size: 1.15rem; }
+.rt-panel-close { background: var(--border-color); border: none; color: var(--text-main); border-radius: 50%; width: 30px; height: 30px; cursor: pointer; }
+.rt-item { border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; }
+.rt-item-type { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+.rt-item-type.hl { color: var(--accent-gold); }
+.rt-item-type.note { color: var(--accent-blue); }
+.rt-item-text { font-size: 0.85rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px; }
+.rt-item-note { font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-bottom: 8px; }
+.rt-item-actions { display: flex; gap: 10px; }
+.rt-item-actions button { background: none; border: none; color: var(--accent-blue); font-size: 0.78rem; cursor: pointer; padding: 0; }
+.rt-item-actions button.rt-del { color: #f87171; }
+.rt-empty { color: var(--text-muted); font-size: 0.85rem; text-align: center; padding: 20px 0; }
+.rt-note-editor { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 1300; align-items: center; justify-content: center; padding: 20px; }
+.rt-note-editor.open { display: flex; }
+.rt-note-editor-box { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; max-width: 440px; width: 100%; }
+.rt-note-editor-box textarea { width: 100%; min-height: 90px; background: rgba(15,23,42,0.6); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-main); padding: 10px; font-family: inherit; font-size: 0.9rem; resize: vertical; }
+.rt-note-editor-box .rt-ne-btns { display: flex; gap: 10px; margin-top: 12px; justify-content: flex-end; }
+.rt-note-editor-box button { border: none; border-radius: 8px; padding: 8px 16px; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
+.rt-ne-save { background: var(--accent-gold); color: #000; }
+.rt-ne-cancel { background: var(--border-color); color: var(--text-main); }
+.def-term { border-bottom: 1px dotted var(--accent-blue); cursor: pointer; }
+.def-term:hover, .def-term:focus-visible { color: var(--accent-blue); }
+.fact-check-link { text-decoration: none; opacity: 0.7; font-size: 0.85em; margin-left: 3px; }
+.fact-check-link:hover, .fact-check-link:focus-visible { opacity: 1; }
+
+
+.term-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; justify-content: center; }
+.term-chip { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 8px 14px; display: flex; flex-direction: column; align-items: center; cursor: pointer; font: inherit; max-width: 230px; }
+.term-chip:hover, .term-chip:focus-visible { border-color: var(--accent-gold); }
+.term-word { font-size: 1.05rem; color: #d8b4fe; font-weight: bold; }
+.term-def { font-size: 0.7rem; color: var(--text-muted); text-align: center; }
+.term-phon { font-style: italic; color: var(--text-muted); font-size: 0.78rem; }
+.term-note { display: block; margin-top: 4px; font-size: 0.7rem; color: var(--text-muted); white-space: normal; line-height: 1.4; }
+
+
+.research-link-box { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+.research-link-box a.research-link { color: var(--accent-blue); text-decoration: none; font-weight: 600; }
+.research-link-box a.research-link:hover, .research-link-box a.research-link:focus-visible { text-decoration: underline; }
+
+
+.cross-ref-box { background: rgba(56,189,248,0.06); border: 1px solid var(--border-color); border-left: 3px solid var(--accent-blue); border-radius: 10px; padding: 12px 16px; margin-bottom: 22px; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+.cross-ref-label { display: block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-blue); margin-bottom: 6px; }
+.cross-ref-box a { color: var(--accent-gold); text-decoration: none; font-weight: 600; }
+.cross-ref-box a:hover, .cross-ref-box a:focus-visible { text-decoration: underline; }
+
+
+.sc-unavailable{color:#8a8578;font-style:italic;cursor:default;opacity:.75;}
+.ref-populated{margin-top:.6rem;padding:.75rem .9rem;background:rgba(255,255,255,.04);border-left:3px solid #c9a75e;border-radius:4px;}
+.ref-populated-title{font-family:Georgia,serif;font-weight:600;color:#c9a75e;margin-bottom:.35rem;}
+.ref-populated-extract{font-size:.92em;line-height:1.5;color:#d9d4c7;margin-bottom:.5rem;}
+.ref-link-sm{font-size:.85em;color:#c9a75e;text-decoration:none;border-bottom:1px dotted #c9a75e;}
+.ref-link-sm:hover{border-bottom-style:solid;}
+</style>
+<link rel="stylesheet" href="../../../../lib/hub-ui.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Cinzel:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../lib/living-waters.css">
+</head>
+<body class="lw">
+<div id="lw-backdrop" class="lw-backdrop"></div>
+<div id="lw-photo-credit" class="lw-photo-credit"></div>
+
+<header class="w-full bg-slate-950/85 border-b border-sky-500/20 backdrop-blur-md sticky top-0 z-50">
+  <div class="bg-amber-500/10 border-b border-amber-500/10 text-amber-300 text-xs py-1 overflow-hidden">
+    <div id="lw-top-ticker" class="lw-marquee-track whitespace-nowrap flex items-center font-semibold tracking-wider"></div>
+  </div>
+  <div class="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between gap-3 flex-wrap">
+    <a href="../../../../index.html" class="flex items-center gap-2.5 no-underline">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-800 via-slate-600 to-amber-500 flex items-center justify-center border border-sky-300/30">
+        <i class="fa-solid fa-droplet text-white text-sm"></i>
+      </div>
+      <span class="lw-serif font-black text-base tracking-widest text-slate-100">LIVING WATERS</span>
+    </a>
+    <div class="flex gap-3 flex-wrap justify-end"><a href="../index.html" class="text-xs text-sky-300/90 hover:text-amber-300 no-underline font-semibold tracking-wide">⬅️ Matthew — Chapters</a><a href="../../../index.html" class="text-xs text-sky-300/90 hover:text-amber-300 no-underline font-semibold tracking-wide">🏠 Scripture Studies</a></div>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-6 py-10 w-full relative z-10">
+  <div class="text-center mb-8">
+    <div class="text-4xl mb-2">📜</div>
+    <h1 class="lw-serif text-3xl md:text-4xl font-black text-slate-50 mb-2">Matthew 1</h1>
+    <p class="text-slate-300 text-base max-w-2xl mx-auto">The Genealogy and the Virgin Birth</p>
+  </div>
+<div class="intro-box">Matthew opens not with a manger scene but with a family tree — a deliberate choice for a Gospel written primarily to a Jewish audience, who needed Jesus's credentials as Messiah and Son of David established before anything else. The chapter closes with the how: a virgin conception, announced to a bewildered Joseph.</div>
+<div class="term-bar">
+<button class="term-chip" onclick="playGreekAudio('génesis')"><span class="term-word">γένεσις</span><span class="term-def">génesis — genealogy / origin</span><span class="term-phon">GHEH-neh-sis</span><span class="term-note">The same word opens the Greek title of the Old Testament book Genesis (Γένεσις) — Matthew 1:1's "the book of the genesis of Jesus Christ" deliberately echoes the Bible's very first book.</span></button>
+<button class="term-chip" onclick="playGreekAudio('Emmanouēl')"><span class="term-word">Ἐμμανουήλ</span><span class="term-def">Emmanouēl — God with us</span><span class="term-phon">eh-mah-noo-EL</span><span class="term-note">A direct transliteration from the Septuagint's rendering of Isaiah 7:14's Immanuel, quoted in Matt 1:23.</span></button>
+</div><div class="cross-ref-box"><span class="cross-ref-label">🔗 Related</span>The virgin-birth prophecy this chapter fulfills is studied in full at <a href="../../../old-testament/isaiah/index.html">Isaiah</a> (Old Testament) and <a href="../../../topical-studies/messianic-prophecy/rooms/birth.html">Messianic Prophecy → Birth</a>.</div>
+<div class="section-title">📊 Six Traditions — Collection Chart</div>
+<p class="section-note">Catholic · Reformed/Calvinist · Lutheran · Baptist · Non-Denominational (Stephen Armstrong / VerseByVerseMinistry.org, and C. I. Scofield). Only shown separately where a tradition's reading actually differs — full breakdown for each passage is below.</p>
+<div class="table-wrap">
+<table class="compare-table">
+<thead><tr><th>Passage</th><th>Focus</th><th>Consensus</th><th>Key Divergence</th></tr></thead>
+<tbody>
+<tr>
+<td class="ref">Matthew 1:1-17</td>
+<td>The Genealogy of Jesus</td>
+<td class="agree">All five traditions read this as a real, historically-intended genealogy establishing Jesus's legal right to David's throne through Joseph — not merely symbolic literature.</td>
+<td class="diverge">Debate centers on the three sets of "fourteen" (which requires skipping several kings) and on how to reconcile this list with Luke's very different genealogy (Luke 3), which most traditions resolve by reading Matthew as Joseph's legal line and Luke as Mary's biological line — though this harmonization isn't universally embraced with equal confidence.</td>
+</tr>
+<tr>
+<td class="ref">Matthew 1:18-25</td>
+<td>The Virgin Birth Announced to Joseph</td>
+<td class="agree">All five affirm the virgin conception itself as a real, historical, miraculous event and essential to orthodox Christology — this is not a point of disagreement among these traditions (unlike some liberal/critical scholarship outside this comparison).</td>
+<td class="diverge">The sharpest divide is over verse 25's "till" (heos) and "firstborn": does it imply Mary had other children afterward, or is the wording simply not addressing the question either way? This tracks a much larger divide over Mary's perpetual virginity as a doctrine.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section-title">📖 Passages &amp; Five-Tradition Breakdown</div>
+<div class="passage-card">
+<div class="passage-head">
+<span class="passage-icon">📜</span>
+<h3 class="passage-title">The Genealogy of Jesus</h3>
+<span class="passage-ref">Matthew 1:1-17</span>
+</div>
+<div class="passage-text"><span class="vnum">1</span>The book of the generation of Jesus Christ, the son of David, the son of Abraham... <span class="vnum">16</span>and Jacob begat Joseph the husband of Mary, of whom was born Jesus, who is called Christ. <span class="vnum">17</span>So all the generations from Abraham unto David are fourteen generations; and from David unto the carrying away to Babylon fourteen generations; and from the carrying away to Babylon unto the Christ fourteen generations.</div>
+<div class="agree-line">📖 <b>What it says:</b> A formal legal genealogy tracing Jesus back through Joseph to King David and further back to Abraham, deliberately compressed into three matched sets of fourteen generations. <b>What it means:</b> Matthew is opening his Gospel with a legal document, not a story — establishing, before anything else, that Jesus has a real, traceable right to David's throne and stands in the line of Abraham's promise.</div>
+<div class="agree-line">🔗 <b>Scripture explaining Scripture:</b> The Davidic throne-right this genealogy establishes is the promise God made in <b>2 Samuel 7:12-16</b> ("I will raise up your offspring... I will establish the throne of his kingdom forever"). The Abrahamic line traces to God's promise in <b>Genesis 12:1-3</b> and <b>22:18</b> ("in your offspring shall all the nations of the earth be blessed") — the two covenants Matthew is claiming Jesus fulfills simply by existing at the end of this list.</div>
+<div class="agree-line">🤝 <b>Where the traditions agree:</b> All five traditions read this as a real, historically-intended genealogy establishing Jesus's legal right to David's throne through Joseph — not merely symbolic literature.</div>
+<div class="diverge-line">⚡ <b>Where they diverge, and why:</b> Debate centers on the three sets of "fourteen" (which requires skipping several kings) and on how to reconcile this list with Luke's very different genealogy (Luke 3), which most traditions resolve by reading Matthew as Joseph's legal line and Luke as Mary's biological line — though this harmonization isn't universally embraced with equal confidence.</div>
+<div class="lang-note">📝 <b>Word note:</b> "Begat" translates the Greek <i>egennēsen</i> (aorist of <i>gennaō</i>) — a legal/genealogical formula, not necessarily biological in every link (Hebrew genealogies routinely skip generations to hit a memorable count), which is part of why the "three fourteens" don't always match secular king-lists exactly.</div>
+<div class="view-grid6">
+<div class="view-mini" style="border-top-color:#fbbf24"><div class="view-mini-label" style="color:#fbbf24">Catholic</div><div class="view-mini-text">The Catechism affirms Jesus's true, historical Davidic descent as fulfillment of the covenant promises; the genealogy's inclusion of four women (Tamar, Rahab, Ruth, Bathsheba), several with irregular histories, is often read by Catholic commentators as foreshadowing the Church's inclusion of sinners and Gentiles.</div></div>
+<div class="view-mini" style="border-top-color:#a78bfa"><div class="view-mini-label" style="color:#a78bfa">Reformed</div><div class="view-mini-text">Calvin's own commentary on Matthew 1:3 reads Tamar's presence as the start of Christ's <i>kenosis</i> — his self-emptying (Philippians 2:7) — noting Christ "did not refuse to admit a stain into his genealogy," submitting even his ancestry to the humiliation the incarnation and cross would complete. The emphasis falls on Christ's willing descent, not primarily on election.</div></div>
+<div class="view-mini" style="border-top-color:#38bdf8"><div class="view-mini-label" style="color:#38bdf8">Lutheran</div><div class="view-mini-text">Lutheran preaching in this same vein reads the flawed ancestor-list through Luther's central theology of the cross (<i>theologia crucis</i>) — God revealing himself through what looks weak or shameful rather than through glory — with the genealogy's sinners as a foretaste of the cross's own scandal.</div></div>
+<div class="view-mini" style="border-top-color:#34d399"><div class="view-mini-label" style="color:#34d399">Baptist</div><div class="view-mini-text">Spurgeon's own sermon on this chapter calls it "the condescending grace which appointed our Lord such a pedigree" — he points out the line includes some thoroughly wicked kings, and draws out that this salvation ran on grace rather than pedigree, making Christ genuinely kin to sinners by blood.</div></div>
+<div class="view-mini" style="border-top-color:#fb923c"><div class="view-mini-label" style="color:#fb923c">Non-Denom.</div><div class="view-mini-text">VerseByVerseMinistry (Armstrong) stresses that the differences between Matthew's and Luke's genealogies are exactly what you'd expect from independent, honest eyewitness-based accounts rather than a scripted conspiracy. C. I. Scofield's notes stress the genealogy's legal function of establishing Jesus's unconditional right to David's throne through the Davidic Covenant — a covenant Scofield's system treats as still awaiting a literal, future fulfillment.</div></div>
+</div>
+</div>
+<div class="passage-card">
+<div class="passage-head">
+<span class="passage-icon">👼</span>
+<h3 class="passage-title">The Virgin Birth Announced to Joseph</h3>
+<span class="passage-ref">Matthew 1:18-25</span>
+</div>
+<div class="passage-text"><span class="vnum">18</span>Now the birth of Jesus Christ was on this wise: When as his mother Mary was espoused to Joseph, before they came together, she was found with child of the Holy Ghost... <span class="vnum">21</span>she shall bring forth a son, and thou shalt call his name JESUS: for it is he that shall save his people from their sins... <span class="vnum">23</span>Behold, a virgin shall be with child... <span class="vnum">25</span>and knew her not till she had brought forth her firstborn son: and he called his name JESUS.</div>
+<div class="agree-line">📖 <b>What it says:</b> Mary is found pregnant while only betrothed to Joseph; an angel tells Joseph in a dream the child is from the Holy Spirit, names him Jesus, and explains this fulfills Isaiah's virgin-birth prophecy. Joseph obeys without consummating the marriage until after the birth. <b>What it means:</b> Matthew is making a direct claim of miraculous, prophesied divine origin for Jesus — and showing Joseph's obedience as the model response to a command that costs him socially (an unexplained pregnancy in his betrothed).</div>
+<div class="agree-line">🤝 <b>Where the traditions agree:</b> All five affirm the virgin conception itself as a real, historical, miraculous event and essential to orthodox Christology — this is not a point of disagreement among these traditions (unlike some liberal/critical scholarship outside this comparison). Less widely known: on the perpetual-virginity question specifically, Catholic, Lutheran, and Reformed traditions actually agree at their historical root — see below.</div>
+<div class="diverge-line">⚡ <b>Where they diverge, and why — a historical-development story, not a clean Catholic/Protestant split:</b> Luther and Calvin, the founders of the Lutheran and Reformed traditions, both explicitly affirmed Mary's perpetual virginity, reading "till" (v.25) the same way Catholic teaching does — as an idiom that says nothing about what happened afterward. The real break came later: 19th–20th century Protestant biblical scholarship and the Baptist/non-denominational expository tradition read "till" and "firstborn" plainly, concluding Mary had other children. So the sharpest line isn't Catholic-vs-Protestant; it's the 16th-century Reformers (agreeing with Rome on this one point) vs. later Protestant tradition.</div>
+<div class="lang-note">📝 <b>Word note:</b> "Espoused" translates Greek <i>emnēsteuthē</i> — Jewish betrothal was a legally binding stage (breakable only by formal divorce) well short of the wedding itself, which is exactly why Joseph's private, non-public plan to "put her away" (v.19) reads as an act of real mercy rather than legal leniency.</div>
+<div class="extra-note">🕯️ <b>Early Church &amp; historical voices</b> <i>(context, not Scripture — these writings carry no canonical authority; included here as other ideas that were in circulation, not as sources for what the text itself means):</i> The <i>Protevangelium of James</i> (~2nd century AD), a non-canonical infancy narrative, is the earliest surviving text to explicitly assert Mary's perpetual virginity — including a midwife physically confirming it after the birth. It's the likely historical origin point of the doctrine three of the five traditions above trace back to, centuries before Luther and Calvin inherited and defended it.</div>
+<div class="view-grid6">
+<div class="view-mini" style="border-top-color:#fbbf24"><div class="view-mini-label" style="color:#fbbf24">Catholic</div><div class="view-mini-text">The Catechism holds Mary's perpetual virginity; "till" is read as a Semitic idiom not implying a change afterward, and the "brothers" of Jesus mentioned elsewhere are understood as cousins or kin in the wider sense common to Hebrew/Aramaic usage.</div></div>
+<div class="view-mini" style="border-top-color:#a78bfa"><div class="view-mini-label" style="color:#a78bfa">Reformed</div><div class="view-mini-text">Calvin affirmed perpetual virginity in his own commentary on this verse, calling the opposite reading "folly" and arguing "firstborn" only marks precedence, not a second child. Later Reformed/Presbyterian scholarship has largely moved away from Calvin's own position here, treating the question as genuinely open or leaning toward Mary having other children.</div></div>
+<div class="view-mini" style="border-top-color:#38bdf8"><div class="view-mini-label" style="color:#38bdf8">Lutheran</div><div class="view-mini-text">Luther affirmed perpetual virginity explicitly and repeatedly (Luther's Works vol. 45), using the same "until" logic as an idiom — he compared it to saying Pharaoh "believed not, until he was drowned in the Red Sea," which doesn't imply he believed afterward. Confessional Lutheranism has held this more consistently than the Reformed tradition has held Calvin's view.</div></div>
+<div class="view-mini" style="border-top-color:#34d399"><div class="view-mini-label" style="color:#34d399">Baptist</div><div class="view-mini-text">The Baptist expository tradition (Gill onward) reads "till" and "firstborn" plainly — as indicating Mary had other children after Jesus (matching the "brothers and sisters of Jesus" named elsewhere) — and treats perpetual virginity as a later church tradition without clear textual support, departing from both Luther's and Calvin's own reading of this verse.</div></div>
+<div class="view-mini" style="border-top-color:#fb923c"><div class="view-mini-label" style="color:#fb923c">Non-Denom.</div><div class="view-mini-text">Armstrong's grammatical-historical approach likewise reads "firstborn" and "till" plainly, aligning with the Baptist reading above rather than with Luther and Calvin's own historical position.</div></div>
+</div>
+</div>
+
+</main>
+
+<script src="../../../../lib/living-waters.js"></script>
+<script>
+lwInitBackdrop('lw-backdrop');
+lwBuildMarquee('lw-top-ticker', [
+  { icon: 'fa-solid fa-water text-sky-300', text: '[MATTHEW 1]: The Genealogy and the Virgin Birth' }
+]);
+</script>
+
+<div class="rt-toolbar" id="rtToolbar">
+<button id="rtBtnHighlight" type="button">🖍 Highlight</button>
+<button id="rtBtnNote" type="button">📝 Note</button>
+</div>
+<button class="rt-fab" id="rtFab" onclick="rtOpenPanel()" type="button">🖍 <span id="rtFabCount">0</span></button>
+<div class="rt-panel-overlay" id="rtPanelOverlay" onclick="if(event.target===this) rtClosePanel()">
+<div class="rt-panel">
+<div class="rt-panel-head"><h3>Highlights &amp; Notes — This Page</h3><button class="rt-panel-close" onclick="rtClosePanel()">✕</button></div>
+<div id="rtPanelList"></div>
+</div>
+</div>
+<div class="rt-note-editor" id="rtNoteEditor">
+<div class="rt-note-editor-box">
+<p style="color:var(--text-muted);font-size:0.85rem;margin:0 0 8px 0;">Note on: <span id="rtNoteEditorSnippet" style="color:var(--text-main);font-style:italic;"></span></p>
+<textarea id="rtNoteEditorText" placeholder="Your note..."></textarea>
+<div class="rt-ne-btns">
+<button class="rt-ne-cancel" onclick="rtCancelNote()" type="button">Cancel</button>
+<button class="rt-ne-save" onclick="rtSaveNote()" type="button">Save Note</button>
+</div>
+</div>
+</div>
+<div class="verse-modal-overlay" id="rtDefOverlay" onclick="if(event.target===this) rtCloseDef()" style="z-index:1400;">
+<div aria-modal="true" class="verse-modal" role="dialog">
+<button aria-label="Close" class="verse-modal-close" onclick="rtCloseDef()">✕</button>
+<p class="verse-modal-ref" id="rtDefTerm"></p>
+<p class="verse-modal-text" id="rtDefText"></p>
+</div>
+</div>
+<script>
+function playGreekAudio(word) {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(word);
+    u.rate = 0.8;
+    window.speechSynthesis.speak(u);
+  }
+}
+
+(function() {
+  var RT_PAGE = 'rt:' + location.pathname;
+  var pendingRange = null;
+
+  function rtLoad() {
+    try { return JSON.parse(localStorage.getItem(RT_PAGE) || '[]'); } catch(e) { return []; }
+  }
+  function rtSaveAll(items) {
+    try { localStorage.setItem(RT_PAGE, JSON.stringify(items)); } catch(e) {}
+    rtUpdateFab();
+  }
+  function rtUpdateFab() {
+    var el = document.getElementById('rtFabCount');
+    if (el) el.textContent = rtLoad().length;
+  }
+
+  function rtShowToolbar(x, y) {
+    var tb = document.getElementById('rtToolbar');
+    tb.style.left = x + 'px';
+    tb.style.top = y + 'px';
+    tb.classList.add('open');
+  }
+  function rtHideToolbar() {
+    document.getElementById('rtToolbar').classList.remove('open');
+  }
+
+  document.addEventListener('mouseup', function(e) {
+    if (e.target.closest('.rt-toolbar, .rt-note-editor, .rt-panel-overlay, .verse-modal-overlay')) return;
+    setTimeout(function() {
+      var sel = window.getSelection();
+      if (sel && sel.toString().trim().length > 2 && sel.rangeCount > 0) {
+        pendingRange = sel.getRangeAt(0).cloneRange();
+        var rect = pendingRange.getBoundingClientRect();
+        rtShowToolbar(window.scrollX + rect.left, window.scrollY + rect.top - 44);
+      } else {
+        rtHideToolbar();
+      }
+    }, 10);
+  });
+  document.addEventListener('mousedown', function(e) {
+    if (!e.target.closest('.rt-toolbar')) rtHideToolbar();
+  });
+
+  function rtWrapRange(range, cls, extraAttrs) {
+    try {
+      var mark = document.createElement('mark');
+      mark.className = cls;
+      if (extraAttrs) for (var k in extraAttrs) mark.setAttribute(k, extraAttrs[k]);
+      range.surroundContents(mark);
+      return mark;
+    } catch (e) {
+      // Multi-element selection: fall back to extracting + wrapping (loses inner tags, keeps text)
+      try {
+        var frag = range.extractContents();
+        var mark2 = document.createElement('mark');
+        mark2.className = cls;
+        if (extraAttrs) for (var k2 in extraAttrs) mark2.setAttribute(k2, extraAttrs[k2]);
+        mark2.appendChild(frag);
+        range.insertNode(mark2);
+        return mark2;
+      } catch (e2) { return null; }
+    }
+  }
+
+  document.getElementById('rtBtnHighlight').addEventListener('click', function() {
+    if (!pendingRange) return;
+    var text = pendingRange.toString();
+    var id = 'hl' + Date.now();
+    var mark = rtWrapRange(pendingRange.cloneRange(), 'rt-highlight', {'data-rt-id': id});
+    if (mark) {
+      mark.addEventListener('click', function() { rtOpenPanel(); });
+      var items = rtLoad();
+      items.push({id: id, type: 'highlight', text: text, ts: Date.now()});
+      rtSaveAll(items);
+    }
+    rtHideToolbar();
+    window.getSelection().removeAllRanges();
+  });
+
+  document.getElementById('rtBtnNote').addEventListener('click', function() {
+    if (!pendingRange) return;
+    document.getElementById('rtNoteEditorSnippet').textContent = '"' + pendingRange.toString().slice(0, 80) + (pendingRange.toString().length > 80 ? '…' : '') + '"';
+    document.getElementById('rtNoteEditorText').value = '';
+    document.getElementById('rtNoteEditor').classList.add('open');
+    rtHideToolbar();
+  });
+
+  window.rtCancelNote = function() {
+    document.getElementById('rtNoteEditor').classList.remove('open');
+    window.getSelection().removeAllRanges();
+  };
+  window.rtSaveNote = function() {
+    var noteText = document.getElementById('rtNoteEditorText').value.trim();
+    if (!pendingRange || !noteText) { rtCancelNote(); return; }
+    var text = pendingRange.toString();
+    var id = 'nt' + Date.now();
+    var mark = rtWrapRange(pendingRange.cloneRange(), 'rt-note', {'data-rt-id': id});
+    if (mark) {
+      mark.title = noteText;
+      mark.addEventListener('click', function() { rtOpenPanel(); });
+      var items = rtLoad();
+      items.push({id: id, type: 'note', text: text, note: noteText, ts: Date.now()});
+      rtSaveAll(items);
+    }
+    document.getElementById('rtNoteEditor').classList.remove('open');
+    window.getSelection().removeAllRanges();
+  };
+
+  window.rtOpenPanel = function() {
+    var items = rtLoad();
+    var list = document.getElementById('rtPanelList');
+    if (!items.length) {
+      list.innerHTML = '<p class="rt-empty">No highlights or notes on this page yet. Select any text to add one.</p>';
+    } else {
+      list.innerHTML = items.slice().reverse().map(function(it) {
+        return '<div class="rt-item">' +
+          '<div class="rt-item-type ' + (it.type === 'note' ? 'note' : 'hl') + '">' + (it.type === 'note' ? '📝 Note' : '🖍 Highlight') + '</div>' +
+          '<div class="rt-item-text">"' + it.text.replace(/</g,'&lt;') + '"</div>' +
+          (it.note ? '<div class="rt-item-note">' + it.note.replace(/</g,'&lt;') + '</div>' : '') +
+          '<div class="rt-item-actions"><button class="rt-del" onclick="rtDelete(\'' + it.id + '\')">Delete</button></div>' +
+          '</div>';
+      }).join('');
+    }
+    document.getElementById('rtPanelOverlay').classList.add('open');
+  };
+  window.rtClosePanel = function() {
+    document.getElementById('rtPanelOverlay').classList.remove('open');
+  };
+  window.rtDelete = function(id) {
+    var items = rtLoad().filter(function(it) { return it.id !== id; });
+    rtSaveAll(items);
+    var mark = document.querySelector('[data-rt-id="' + id + '"]');
+    if (mark) {
+      var parent = mark.parentNode;
+      while (mark.firstChild) parent.insertBefore(mark.firstChild, mark);
+      parent.removeChild(mark);
+    }
+    rtOpenPanel();
+  };
+
+  function rtRestoreOnLoad() {
+    var items = rtLoad();
+    if (!items.length) { rtUpdateFab(); return; }
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    items.forEach(function(it) {
+      if (document.querySelector('[data-rt-id="' + it.id + '"]')) return; // already there
+      var node;
+      walker.currentNode = document.body;
+      while ((node = walker.nextNode())) {
+        var idx = node.nodeValue.indexOf(it.text);
+        if (idx !== -1 && node.parentNode && !node.parentNode.closest('mark, script, style, .rt-toolbar, .rt-panel-overlay')) {
+          var range = document.createRange();
+          range.setStart(node, idx);
+          range.setEnd(node, idx + it.text.length);
+          var mark = rtWrapRange(range, it.type === 'note' ? 'rt-note' : 'rt-highlight', {'data-rt-id': it.id});
+          if (mark) {
+            if (it.note) mark.title = it.note;
+            mark.addEventListener('click', function() { rtOpenPanel(); });
+          }
+          break;
+        }
+      }
+    });
+    rtUpdateFab();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', rtRestoreOnLoad);
+  } else {
+    rtRestoreOnLoad();
+  }
+
+  window.rtCloseDef = function() {
+    document.getElementById('rtDefOverlay').classList.remove('open');
+  };
+  window.showDef = function(el) {
+    var term = el.getAttribute('data-term') || el.textContent;
+    var def = el.getAttribute('data-def') || '';
+    document.getElementById('rtDefTerm').textContent = term;
+    document.getElementById('rtDefText').textContent = def;
+    document.getElementById('rtDefOverlay').classList.add('open');
+  };
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { rtCloseDef(); rtClosePanel(); rtCancelNote(); }
+  });
+})();
+</script>
+
+<script>
+(function(){
+  function scMakeUnavailable(el, extraClass){
+    var span=document.createElement('span');
+    span.className=(extraClass||el.className||'')+' sc-unavailable';
+    span.textContent='Content not available right now';
+    el.replaceWith(span);
+    return span;
+  }
+  function scRestoreLink(el){
+    if(el.dataset.scOrigHtml){
+      var tmp=document.createElement('div');
+      tmp.innerHTML=el.dataset.scOrigHtml;
+      var restored=tmp.firstElementChild;
+      el.replaceWith(restored);
+      return restored;
+    }
+    return el;
+  }
+  function scHandleSimple(selector){
+    document.querySelectorAll(selector).forEach(function(el){
+      if(el.tagName==='A' && !el.dataset.scOrigHtml){ el.dataset.scOrigHtml = el.outerHTML; }
+      if(navigator.onLine){
+        if(el.tagName!=='A'){ scRestoreLink(el); }
+      } else {
+        if(el.tagName==='A'){ scMakeUnavailable(el); }
+      }
+    });
+  }
+  function scPopulateRef(el){
+    if(el.tagName!=='A' || el.dataset.scTried) return;
+    if(el.href.indexOf('wikipedia.org/wiki/')===-1) return;
+    el.dataset.scTried='1';
+    if(!el.dataset.scOrigHtml){ el.dataset.scOrigHtml = el.outerHTML; }
+    var title=decodeURIComponent(el.href.split('/wiki/')[1]);
+    fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+title)
+      .then(function(r){ if(!r.ok) throw new Error('bad'); return r.json(); })
+      .then(function(data){
+        var box=document.createElement('div');
+        box.className='ref-populated';
+        var t=document.createElement('div'); t.className='ref-populated-title'; t.textContent='🌐 '+(data.title||title.replace(/_/g,' '));
+        var ex=document.createElement('div'); ex.className='ref-populated-extract'; ex.textContent=data.extract||'';
+        var link=document.createElement('a'); link.className='ref-link-sm'; link.href=el.href; link.target='_blank'; link.rel='noopener'; link.textContent='Read full article ↗';
+        box.appendChild(t); box.appendChild(ex); box.appendChild(link);
+        el.replaceWith(box);
+      })
+      .catch(function(){ /* fetch failed despite navigator.onLine (e.g. captive portal) - leave link as-is */ });
+  }
+  function scHandleRefLinks(){
+    document.querySelectorAll('.ref-link, span.ref-link').forEach(function(el){
+      if(navigator.onLine){
+        if(el.tagName!=='A'){ el=scRestoreLink(el); }
+        scPopulateRef(el);
+      } else {
+        if(el.tagName==='A'){ scMakeUnavailable(el); }
+      }
+    });
+  }
+  function scRefresh(){
+    scHandleSimple('.fact-check-link');
+    scHandleSimple('.research-link');
+    scHandleRefLinks();
+  }
+  window.addEventListener('online', scRefresh);
+  window.addEventListener('offline', scRefresh);
+  document.addEventListener('DOMContentLoaded', scRefresh);
+})();
+</script>
+<script src="../../../../data/passage-data.js"></script>
+<script src="../../../../lib/hub-ui.js"></script>
+<script src="../../../../lib/hub-modules.js"></script>
+</body>
+</html>

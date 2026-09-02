@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genesis 1 — Panorama | Living Waters</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Cinzel:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../lib/living-waters.css">
+</head>
+<body class="lw">
+
+<div id="lw-backdrop" class="lw-backdrop"></div>
+<div id="lw-photo-credit" class="lw-photo-credit"></div>
+
+<!-- HEADER -->
+<header class="w-full bg-slate-950/85 border-b border-sky-500/20 backdrop-blur-md sticky top-0 z-50">
+  <div class="bg-amber-500/10 border-b border-amber-500/10 text-amber-300 text-xs py-1 overflow-hidden">
+    <div id="lw-top-ticker" class="lw-marquee-track whitespace-nowrap flex items-center font-semibold tracking-wider"></div>
+  </div>
+  <div class="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between gap-3">
+    <a href="../../../../index.html" class="flex items-center gap-2.5 no-underline">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-800 via-slate-600 to-amber-500 flex items-center justify-center border border-sky-300/30">
+        <i class="fa-solid fa-droplet text-white text-sm"></i>
+      </div>
+      <span class="lw-serif font-black text-base tracking-widest text-slate-100">LIVING WATERS</span>
+    </a>
+    <a href="../index.html" class="text-xs text-sky-300/90 hover:text-amber-300 no-underline font-semibold tracking-wide">&larr; Genesis</a>
+  </div>
+</header>
+
+<!-- PANORAMA INTRO STRIP -->
+<div class="max-w-4xl mx-auto px-6 pt-8 pb-3 text-center">
+  <div class="lw-stat-chip lw-stat-chip-amber mb-3"><i class="fa-solid fa-flask"></i> Prototype — Panorama View</div>
+  <h1 class="lw-serif text-2xl md:text-3xl font-black text-slate-50 mb-1">In the Beginning</h1>
+  <p class="text-slate-400 text-sm">Genesis 1:1 &ndash; 2:3 &middot; KJV &middot; laid out by what each passage <em>is</em>, not just what it says</p>
+</div>
+
+<!-- TOOLBAR: zoom + legend -->
+<div class="fl-toolbar">
+  <div class="fl-zoom-group">
+    <span class="text-xs text-slate-400 mr-1 hidden sm:inline">Text size</span>
+    <button class="fl-zoom-btn" id="fl-zoom-out" aria-label="Zoom out">&minus;</button>
+    <span class="fl-zoom-label" id="fl-zoom-label">100%</span>
+    <button class="fl-zoom-btn" id="fl-zoom-in" aria-label="Zoom in">+</button>
+  </div>
+  <div class="fl-legend">
+    <span class="fl-legend-chip"><span class="fl-legend-dot" style="background:#94a3b8"></span>Narrative</span>
+    <span class="fl-legend-chip"><span class="fl-legend-dot" style="background:#f59e0b"></span>Divine Speech</span>
+    <span class="fl-legend-chip"><span class="fl-legend-dot" style="background:#2dd4bf"></span>Refrain</span>
+  </div>
+</div>
+
+<!-- PASSAGE -->
+<main class="fl-passage" id="fl-passage">
+
+  <div class="fl-block fl-narrative">
+    <span class="fl-block-label">Narrative</span>
+    <span class="fl-vnum">1</span>In the beginning God created the heaven and the earth.
+    <span class="fl-vnum">2</span>And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.
+  </div>
+
+  <div class="fl-block fl-speech">
+    <span class="fl-block-label">Divine Speech &middot; Day One</span>
+    <span class="fl-vnum">3</span>And God said, Let there be light: and there was light.
+  </div>
+  <div class="fl-block fl-narrative">
+    <span class="fl-block-label">Narrative</span>
+    <span class="fl-vnum">4</span>And God saw the light, that it was good: and God divided the light from the darkness.
+    <span class="fl-vnum">5</span>And God called the light Day, and the darkness he called Night.
+  </div>
+  <div class="fl-block fl-refrain">
+    <span class="fl-block-label">Refrain</span>
+    And the evening and the morning were the first day.
+  </div>
+
+  <div class="fl-block fl-speech">
+    <span class="fl-block-label">Divine Speech &middot; Day Two</span>
+    <span class="fl-vnum">6</span>And God said, Let there be a firmament in the midst of the waters, and let it divide the waters from the waters.
+  </div>
+  <div class="fl-block fl-narrative">
+    <span class="fl-block-label">Narrative</span>
+    <span class="fl-vnum">7</span>And God made the firmament, and divided the waters which were under the firmament from the waters which were above the firmament: and it was so.
+    <span class="fl-vnum">8</span>And God called the firmament Heaven.
+  </div>
+  <div class="fl-block fl-refrain">
+    <span class="fl-block-label">Refrain</span>
+    And the evening and the morning were the second day.
+  </div>
+
+  <div class="fl-block fl-speech">
+    <span class="fl-block-label">Divine Speech &middot; Day Three</span>
+    <span class="fl-vnum">9</span>And God said, Let the waters under the heaven be gathered together unto one place, and let the dry land appear: and it was so.
+    <span class="fl-vnum">11</span>And God said, Let the earth bring forth grass, the herb yielding seed, and the fruit tree yielding fruit after his kind, whose seed is in itself, upon the earth: and it was so.
+  </div>
+  <div class="fl-block fl-list">
+    <span class="fl-block-label">Catalog &middot; What the Earth Brought Forth</span>
+    <span class="fl-vnum">12</span>
+    <ul>
+      <li>Grass</li>
+      <li>Herb yielding seed after his kind</li>
+      <li>The tree yielding fruit, whose seed was in itself, after his kind</li>
+    </ul>
+    <p class="mt-2">And God saw that it was good.</p>
+  </div>
+  <div class="fl-block fl-refrain">
+    <span class="fl-block-label">Refrain</span>
+    And the evening and the morning were the third day.
+  </div>
+
+  <div class="fl-block fl-speech">
+    <span class="fl-block-label">Divine Speech &middot; Day Four</span>
+    <span class="fl-vnum">14</span>And God said, Let there be lights in the firmament of the heaven to divide the day from the night; and let them be for signs, and for seasons, and for days, and years:
+    <span class="fl-vnum">15</span>And let them be for lights in the firmament of the heaven to give light upon the earth: and it was so.
+  </div>
+  <div class="fl-block fl-narrative">
+    <span class="fl-block-label">Narrative</span>
+    <span class="fl-vnum">16</span>And God made two great lights; the greater light to rule the day, and the lesser light to rule the night: he made the stars also.
+    <span class="fl-vnum">17</span>And God set them in the firmament of the heaven to give light upon the earth,
+    <span class="fl-vnum">18</span>And to rule over the day and over the night, and to divide the light from the darkness: and God saw that it was good.
+  </div>
+  <div class="fl-block fl-refrain">
+    <span class="fl-block-label">Refrain</span>
+    And the evening and the morning were the fourth day.
+  </div>
+
+  <div class="fl-block fl-speech">
+    <span class="fl-block-label">Divine Speech &middot; Day Five</span>
+    <span class="fl-vnum">20</span>And God said, Let the waters bring forth abundantly the moving creature that hath life, and fowl that may fly above the earth in the open firmament of heaven.
+  </div>
+  <div class="fl-block fl-narrative">
+    <span class="fl-block-label">Narrative &amp; Blessing</span>
+    <span class="fl-vnum">21</span>And God created great whales, and every living creature that moveth, which the waters brought forth abundantly, after their kind, and every winged fowl after his kind: and God saw that it was good.
+    <span class="fl-vnum">22</span>And God blessed them, saying, Be fruitful, and multiply, and fill the waters in the seas, and let fowl multiply in the earth.
+  </div>
+  <div class="fl-block fl-refrain">
+    <span class="fl-block-label">Refrain</span>
+    And the evening and the morning were the fifth day.
+  </div>
+
+  <div class="fl-block fl-speech">
+    <span class="fl-block-label">Divine Speech &middot; Day Six</span>
+    <span class="fl-vnum">24</span>And God said, Let the earth bring forth the living creature after his kind, cattle, and creeping thing, and beast of the earth after his kind: and it was so.
+  </div>
+  <div class="fl-block fl-narrative">
+    <span class="fl-block-label">Narrative</span>
+    <span class="fl-vnum">25</span>And God made the beast of the earth after his kind, and cattle after their kind, and every thing that creepeth upon the earth after his kind: and God saw that it was good.
+  </div>
+  <div class="fl-block fl-speech">
+    <span class="fl-block-label">Divine Speech &middot; The Creation of Man</span>
+    <span class="fl-vnum">26</span>And God said, Let us make man in our image, after our likeness: and let them have dominion over the fish of the sea, and over the fowl of the air, and over the cattle, and over all the earth, and over every creeping thing that creepeth upon the earth.
+  </div>
+  <div class="fl-block fl-narrative">
+    <span class="fl-block-label">Narrative</span>
+    <span class="fl-vnum">27</span>So God created man in his own image, in the image of God created he him; male and female created he them.
+  </div>
+  <div class="fl-block fl-speech">
+    <span class="fl-block-label">Divine Speech &middot; Blessing &amp; Provision</span>
+    <span class="fl-vnum">28</span>And God blessed them, and God said unto them, Be fruitful, and multiply, and replenish the earth, and subdue it: and have dominion over the fish of the sea, and over the fowl of the air, and over every living thing that moveth upon the earth.
+    <span class="fl-vnum">29</span>And God said, Behold, I have given you every herb bearing seed, which is upon the face of all the earth, and every tree, in the which is the fruit of a tree yielding seed; to you it shall be for meat.
+    <span class="fl-vnum">30</span>And to every beast of the earth, and to every fowl of the air, and to every thing that creepeth upon the earth, wherein there is life, I have given every green herb for meat: and it was so.
+  </div>
+  <div class="fl-block fl-narrative">
+    <span class="fl-block-label">Narrative</span>
+    <span class="fl-vnum">31</span>And God saw every thing that he had made, and, behold, it was very good.
+  </div>
+  <div class="fl-block fl-refrain">
+    <span class="fl-block-label">Refrain</span>
+    And the evening and the morning were the sixth day.
+  </div>
+
+  <div class="fl-block fl-narrative">
+    <span class="fl-block-label">Narrative &middot; The Seventh Day</span>
+    <span class="fl-vnum">2:1</span>Thus the heavens and the earth were finished, and all the host of them.
+    <span class="fl-vnum">2</span>And on the seventh day God ended his work which he had made; and he rested on the seventh day from all his work which he had made.
+    <span class="fl-vnum">3</span>And God blessed the seventh day, and sanctified it: because that in it he had rested from all his work which God created and made.
+  </div>
+
+  <div class="mt-10 pt-6 border-t border-sky-500/15 text-center">
+    <p class="text-xs text-slate-500 mb-3">This is a prototype of the panorama treatment for one chapter. Once approved, the same approach — full text, color-coded by literary type — would roll out across the built OT/NT books.</p>
+    <a href="../index.html" class="text-xs text-sky-300/90 hover:text-amber-300 no-underline font-semibold">&larr; Back to Genesis</a>
+  </div>
+
+</main>
+
+<script src="../../../../lib/living-waters.js"></script>
+<script>
+  // Zoom controls: scale the passage text size, remember nothing (prototype only)
+  (function(){
+    var scale = 1;
+    var min = 0.75, max = 1.6, step = 0.1;
+    var label = document.getElementById('fl-zoom-label');
+    var passage = document.getElementById('fl-passage');
+    function apply(){
+      passage.style.setProperty('--fl-scale', scale.toFixed(2));
+      label.textContent = Math.round(scale * 100) + '%';
+    }
+    document.getElementById('fl-zoom-in').addEventListener('click', function(){
+      scale = Math.min(max, +(scale + step).toFixed(2)); apply();
+    });
+    document.getElementById('fl-zoom-out').addEventListener('click', function(){
+      scale = Math.max(min, +(scale - step).toFixed(2)); apply();
+    });
+    apply();
+  })();
+</script>
+
+</body>
+</html>

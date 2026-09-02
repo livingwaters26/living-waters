@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" class="v19-type-1">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matthew — Deep Dive</title>
+<link rel="stylesheet" href="../lib/hub-ui.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Cinzel:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../lib/living-waters.css">
+<style>
+  body{ margin:0; background:var(--v19-paper); color:var(--v19-ink); font-family:var(--v19-sans); }
+  .wrap{ max-width:900px; margin:0 auto; padding:0 22px 40px; }
+
+  header.bk{
+    background:var(--v19-ink); color:var(--v19-paper);
+    border-bottom:2px solid var(--v19-brass); padding:26px 0 22px; margin-bottom:26px;
+  }
+  header.bk .wrap{ padding-bottom:0; }
+  .bk-eyebrow{ font:600 10px/1 var(--v19-mono); letter-spacing:.16em; text-transform:uppercase; color:var(--v19-brass-lt); }
+  header.bk h1{ font:600 2.1rem/1.1 var(--v19-serif); margin:8px 0 6px; letter-spacing:-.01em; }
+  .bk-line{ font:400 1rem/1.5 var(--v19-serif); color:#C4CBD6; max-width:60ch; }
+  header.bk a{ color:var(--v19-brass-lt); font-size:.82rem; }
+
+  .profile{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:0;
+    border:1px solid var(--v19-rule); border-left:4px solid var(--v19-brass);
+    border-radius:0 4px 4px 0; background:var(--v19-vellum); margin:0 0 30px;
+  }
+  .profile div{ padding:13px 15px; border-right:1px solid var(--v19-rule); }
+  .profile div:last-child{ border-right:0; }
+  .profile dt{ font:600 9px/1 var(--v19-mono); letter-spacing:.12em; text-transform:uppercase; color:var(--v19-ink-soft); }
+  .profile dd{ margin:6px 0 0; font:400 .9rem/1.45 var(--v19-serif); }
+
+  h2{ font:600 10px/1 var(--v19-mono); letter-spacing:.15em; text-transform:uppercase;
+      color:var(--v19-indigo); margin:36px 0 14px; padding-bottom:8px; border-bottom:1px solid var(--v19-rule); }
+  h3{ font:600 1.08rem/1.35 var(--v19-serif); margin:22px 0 6px; }
+  p{ font:400 1rem/1.65 var(--v19-serif); max-width:66ch; }
+
+  .takeaway{ font:600 1rem/1.5 var(--v19-sans); color:var(--v19-indigo); margin:0 0 10px; }
+
+  .theme-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:10px; }
+  .card{
+    background:var(--v19-vellum); border:1px solid var(--v19-rule);
+    border-left:3px solid var(--v19-indigo); border-radius:0 3px 3px 0; padding:13px 15px;
+  }
+  .card h4{ margin:0 0 5px; font:600 .95rem/1.35 var(--v19-sans); }
+  .card p{ margin:0; font-size:.9rem; line-height:1.55; }
+
+  .vbv{ border-top:1px solid var(--v19-rule); padding:15px 0 4px; }
+  .vbv .ref{ font:600 12px/1 var(--v19-mono); letter-spacing:.06em; color:var(--v19-brass); }
+  .vbv h4{ margin:6px 0 4px; font:600 1rem/1.35 var(--v19-serif); }
+  .vbv p{ margin:0; }
+  .lex{ font:400 .85rem/1.5 var(--v19-sans); color:var(--v19-ink-soft); margin-top:6px; }
+  .lex b{ color:var(--v19-indigo); font-family:var(--v19-mono); font-size:.8rem; }
+
+  .history{
+    background:#FAF6EA; border:1px solid #E4D9BC; border-left:4px solid var(--v19-brass);
+    border-radius:0 3px 3px 0; padding:15px 17px; margin:14px 0;
+  }
+  .history .tag{ font:700 9px/1 var(--v19-mono); letter-spacing:.11em; text-transform:uppercase;
+                 background:var(--v19-brass); color:#fff; padding:4px 7px; border-radius:2px; }
+  .history p{ margin:9px 0 0; font-size:.94rem; }
+
+  .xref{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+  .xref a, .xref span{
+    font:600 11px/1 var(--v19-mono); letter-spacing:.05em;
+    background:var(--v19-vellum); border:1px solid var(--v19-rule); border-radius:3px;
+    padding:8px 10px; color:var(--v19-indigo); text-decoration:none;
+  }
+  .xref a:hover{ border-color:var(--v19-brass); }
+</style>
+</head>
+<body data-passage="matt-5">
+
+<div id="lw-backdrop" class="lw-backdrop"></div>
+<div id="lw-photo-credit" class="lw-photo-credit"></div>
+
+<header class="w-full bg-slate-950/85 border-b border-sky-500/20 backdrop-blur-md sticky top-0 z-50">
+  <div class="bg-amber-500/10 border-b border-amber-500/10 text-amber-300 text-xs py-1 overflow-hidden">
+    <div id="lw-top-ticker" class="lw-marquee-track whitespace-nowrap flex items-center font-semibold tracking-wider"></div>
+  </div>
+  <div class="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between gap-3">
+    <a href="../index.html" class="flex items-center gap-2.5 no-underline">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-800 via-slate-600 to-amber-500 flex items-center justify-center border border-sky-300/30">
+        <i class="fa-solid fa-droplet text-white text-sm"></i>
+      </div>
+      <span class="lw-serif font-black text-base tracking-widest text-slate-100">LIVING WATERS</span>
+    </a>
+    <a href="../index.html" class="text-xs text-sky-300/90 hover:text-amber-300 no-underline font-semibold tracking-wide">&larr; Back to Reader</a>
+  </div>
+</header>
+
+<div class="max-w-4xl mx-auto px-6 pt-10 pb-2 text-center">
+  <div class="text-[0.68rem] font-bold uppercase tracking-widest text-amber-400 mb-2">New Testament · Gospels · Deep dive</div>
+  <h1 class="lw-serif text-3xl md:text-4xl font-black mb-2" style="color:var(--v19-ink);">Matthew</h1>
+  <p class="text-base max-w-2xl mx-auto" style="color:var(--v19-ink-soft);">A Gospel written to convince Jewish readers that the carpenter from Nazareth is the king Israel had been promised — and that his kingdom is not what anyone expected.</p>
+</div>
+
+
+<div class="wrap">
+
+  <dl class="profile"><div><dt>Traditional author</dt><dd>Matthew, the tax collector called in 9:9</dd></div><div><dt>Date</dt><dd>Usually 70–90; some argue for the 60s</dd></div><div><dt>First audience</dt><dd>A Jewish-Christian community, likely in Syria or Antioch</dd></div><div><dt>Setting</dt><dd>Written after the temple&#x27;s destruction, into a community defining itself</dd></div><div><dt>Genre</dt><dd>Ancient biography with heavy teaching blocks</dd></div><div><dt>Structure key</dt><dd>Five discourses, each closing &#x27;when Jesus had finished&#x27;</dd></div></dl>
+
+  <h2>Context</h2>
+  <p>Matthew writes for readers who know the Scriptures well enough to catch an allusion. He quotes the Old Testament directly around sixty times and alludes to it far more often, and he uses a formula — 'that it might be fulfilled which was spoken' — about a dozen times. The argument is cumulative: this is not a new religion but the continuation of an old story, and the story has a rightful heir.</p><p>The Gospel is shaped by five great teaching blocks, each ending with the same formula. Many readers see this as a deliberate echo of the five books of Moses, casting Jesus as a new lawgiver — though one who does not merely transmit the law but speaks with the authority behind it. 'Ye have heard that it was said… but I say unto you' is a claim no rabbi made.</p>
+
+  <h2>Key themes</h2>
+  <div class="theme-grid"><div class="card"><h4>Fulfilment</h4><p>Matthew's characteristic move. Prophecy is not simply predicted-then-verified; it is a pattern completed. Hosea 11:1 was about the exodus, and Matthew applies it to Jesus (2:15) because Jesus is doing what Israel was meant to do.</p></div><div class="card"><h4>The kingdom of heaven</h4><p>Matthew's preferred phrase, used about thirty-two times, where Mark and Luke say 'kingdom of God' — probably reverence for the divine name. The kingdom is present and future, hidden and coming, both at once.</p></div><div class="card"><h4>Righteousness that exceeds</h4><p>5:20 sets the bar above the Pharisees'. The Sermon on the Mount then relocates righteousness from behaviour to desire — anger is where murder starts, lust is where adultery starts.</p></div><div class="card"><h4>Jesus as the new Israel</h4><p>Out of Egypt, through the water, into the wilderness for forty, tested and faithful where Israel failed. Chapters 2–4 walk the exodus deliberately.</p></div><div class="card"><h4>The church</h4><p>The only Gospel to use the word <i>ekklesia</i> (16:18, 18:17). Matthew is interested in how the community handles conflict, discipline, and forgiveness — because he is writing to one that has to.</p></div><div class="card"><h4>Judgment and the nations</h4><p>The Gospel opens with foreign magi and closes with a commission to all nations. In between, the sharpest words of judgment fall on the insiders, not the outsiders.</p></div></div>
+
+  <h2>How the book moves</h2>
+  <p><b>1–4, the king arrives.</b> Genealogy, birth, baptism, temptation. The credentials are established before a word of teaching.</p><p><b>5–7, the Sermon on the Mount.</b> The kingdom's character. Discourse one.</p><p><b>8–10, authority and mission.</b> Ten miracles, then the sending of the Twelve. Discourse two.</p><p><b>11–13, opposition and parables.</b> As rejection hardens, the teaching goes indirect. Discourse three.</p><p><b>14–18, the community forms.</b> Peter's confession at Caesarea Philippi is the hinge of the whole book. Discourse four handles life together.</p><p><b>19–25, Jerusalem and the end.</b> The Olivet Discourse, discourse five, closes the teaching.</p><p><b>26–28, passion and commission.</b> Trial, cross, empty tomb, and eleven doubting men sent to the nations.</p>
+
+  <h2>Verse-by-verse insights</h2>
+  <div class="vbv"><div class="ref">Matthew 1:1</div><h4>The book of the generation of Jesus Christ</h4><p><i>Biblos geneseos</i> — the same phrase the Septuagint uses at Genesis 2:4 and 5:1. Matthew's first three words announce that he is writing a new book of beginnings. Then he traces the line through Tamar, Rahab, Ruth, and Bathsheba: four women, all outsiders or scandals, in a genealogy that did not have to name any women at all.</p><p class="lex"><b>biblos geneseos (BIB-loss geh-NES-eh-ohs)</b> — book of the genealogy / of the beginning</p></div><div class="vbv"><div class="ref">Matthew 1:23</div><h4>They shall call his name Immanuel</h4><p>Quoting Isaiah 7:14. The Hebrew <i>almah</i> means young woman of marriageable age; the Septuagint rendered it <i>parthenos</i>, virgin, two centuries before Christ. Matthew is quoting the Greek. The debate over which reading Isaiah intended is old and unresolved, but the Septuagint choice predates any Christian motive for it.</p><p class="lex"><b>Immanuel (im-man-oo-ALE)</b> — God with us — and note 28:20 closes the book on the same promise</p></div><div class="vbv"><div class="ref">Matthew 4:17</div><h4>Repent: for the kingdom of heaven is at hand</h4><p>The first words of Jesus' public ministry in Matthew are identical to John the Baptist's in 3:2. The continuity is the point. What changes is not the message but who is standing there when it is said.</p><p class="lex"><b>metanoeo (met-an-oh-EH-oh)</b> — to change one's mind, to turn — not primarily to feel sorry</p></div><div class="vbv"><div class="ref">Matthew 5:3</div><h4>Blessed are the poor in spirit</h4><p><i>Makarios</i> is stronger than 'happy'; it describes a settled state of divine favour, not a mood. And 'poor in spirit' is not humility as a personality trait — the underlying word describes the destitute, the crouching beggar. Jesus opens by pronouncing favour on those with nothing to bring.</p><p class="lex"><b>ptochos (pto-KHOSS)</b> — destitute, reduced to begging — not merely 'of modest means'</p></div><div class="vbv"><div class="ref">Matthew 5:17</div><h4>I came not to destroy, but to fulfil</h4><p>The interpretive key to the entire Sermon. Whatever the six antitheses that follow are doing, Jesus says up front they are not abolition. He is not lowering the law's demand or replacing it; he is pressing it inward to where it always pointed.</p><p class="lex"><b>pleroo (play-RAH-oh)</b> — to fill up, to complete, to bring to its intended fullness</p></div><div class="vbv"><div class="ref">Matthew 6:9–13</div><h4>After this manner therefore pray ye</h4><p>Six petitions, and the first three are about God. The prayer teaches its own order of concern before it teaches any content. Note also verse 12 — the only petition Jesus circles back to comment on, in verses 14–15.</p><p class="lex"><b>epiousios (ep-ee-OO-see-oss)</b> — 'daily' — a word found almost nowhere else in Greek; its exact sense is genuinely uncertain</p></div><div class="vbv"><div class="ref">Matthew 16:18</div><h4>Upon this rock I will build my church</h4><p>The most contested sentence in the Gospels. <i>Petros</i> and <i>petra</i> differ in Greek; in Aramaic both would be <i>kepha</i>. Catholic reading: the rock is Peter, and the Petrine office follows. Reformation reading: the rock is his confession, or Christ himself. Both readings are ancient — Augustine held each at different points in his life.</p><p class="lex"><b>Petros / petra (PET-ross / PET-rah)</b> — stone / rock — the wordplay is the whole argument</p></div><div class="vbv"><div class="ref">Matthew 16:21</div><h4>From that time forth began Jesus to shew</h4><p>The pivot of the book. Everything before Caesarea Philippi asks who he is; everything after explains what that means, and it means a cross. Peter gets the identity right in verse 16 and the implication catastrophically wrong in verse 22.</p></div><div class="vbv"><div class="ref">Matthew 21:9</div><h4>Hosanna to the son of David</h4><p>The crowd quotes Psalm 118, a pilgrimage psalm, and they are not wrong about who he is. They are wrong about what he came to do. Within five days the same city calls for his execution — Matthew lets that stand without comment.</p><p class="lex"><b>hosanna (ho-SAHN-nah)</b> — from Hebrew hoshi'ah-na, 'save now' — a plea that became an acclamation</p></div><div class="vbv"><div class="ref">Matthew 27:46</div><h4>My God, my God, why hast thou forsaken me</h4><p>Quoting Psalm 22:1 in Aramaic. Readers have divided sharply: a cry of genuine abandonment, or the opening line of a psalm that ends in vindication and is therefore an act of faith. The text gives no stage direction. Matthew reports the words and moves on.</p><p class="lex"><b>Eli, Eli, lama sabachthani</b> — Aramaic — the crowd mishears it as a call for Elijah</p></div><div class="vbv"><div class="ref">Matthew 28:17</div><h4>But some doubted</h4><p>Four words that most ancient biographies would have cut. Matthew puts doubt inside the resurrection appearance itself, three verses before the Great Commission, and the commission is given to the doubters too.</p><p class="lex"><b>distazo (dis-TAD-zoh)</b> — to waver, to hesitate — the same verb as Peter sinking in 14:31</p></div><div class="vbv"><div class="ref">Matthew 28:19–20</div><h4>Go ye therefore, and teach all nations</h4><p>The Gospel that began with a Jewish genealogy ends with the nations. The triadic name in verse 19 is one of the earliest Trinitarian formulas in the New Testament, and it sits in a baptismal command — which is where most early doctrine actually lived before it was ever a creed.</p><p class="lex"><b>matheteuo (math-ate-YOO-oh)</b> — to make disciples — the only imperative in the sentence; 'going,' 'baptizing,' 'teaching' are participles</p></div>
+
+  <h2>Historical development</h2>
+  <div class="history"><span class="tag">Early view</span><p>The Fathers universally read the Sermon on the Mount as binding on Christians now — demanding, requiring grace, but genuinely the rule of Christian life. Chrysostom preaches it as achievable; Augustine's <i>De sermone Domini in monte</i> treats it as the complete charter of the Christian life.</p></div><div class="history"><span class="tag">When it changed</span><p>In the nineteenth century John Nelson Darby's dispensational system distinguished sharply between Israel and the church. On that scheme the Sermon belongs to the kingdom offered to Israel and postponed after its rejection, with only secondary application to the church age. Scofield's 1917 notes carried this reading to an enormous readership.</p></div><div class="history"><span class="tag">Who changed it</span><p>Darby, then Scofield, then the Scofield Reference Bible's near-ubiquity in American evangelicalism through the twentieth century. The correction came from within: progressive dispensationalists such as Blaising and Bock, and reference works like the <i>New Scofield</i> (1967) and later revisions, moved substantially back toward present application. The postponement reading is now a minority even among dispensationalists.</p></div>
+
+  <h2>Scofield layer</h2>
+  <div data-scofield-slot></div>
+
+  <h2>Where this connects</h2>
+  <div class="xref"><span>Matthew 1 ↔ Isaiah 7:14 ↔ Messianic Prophecy: Birth</span><span>Matthew 2 ↔ Micah 5:2</span><span>Matthew 5 ↔ Isaiah 61</span><a href="revelation-deep-dive.html">Matthew 24 ↔ Daniel 9 ↔ Revelation</a><a href="acts-deep-dive.html">Matthew 28 ↔ Acts 1–2</a></div>
+
+</div>
+
+<script src="../data/passage-data.js"></script>
+<script src="../lib/hub-ui.js"></script>
+<script src="../lib/hub-modules.js"></script>
+<script src="../lib/living-waters.js"></script>
+<script>
+lwInitBackdrop('lw-backdrop');
+lwBuildMarquee('lw-top-ticker', [
+  { icon: 'fa-solid fa-water text-sky-300', text: '[MATTHEW]: A Gospel written to convince Jewish readers that the carpenter from Nazareth is the king Israel had been promised — and that his kingdom is not what anyone expected.' }
+]);
+</script>
+</body>
+</html>

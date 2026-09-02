@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Zechariah 9 - Study Hub</title>
+<style>
+:root {
+  --bg-color: #0f172a; --card-bg: #1e293b; --accent-gold: #f59e0b; --accent-blue: #38bdf8;
+  --text-main: #f8fafc; --text-muted: #94a3b8; --border-color: #334155;
+  --premil: #f472b6; --amil: #a78bfa; --postmil: #34d399;
+  --font-display: Georgia, 'Iowan Old Style', 'Palatino Linotype', Palatino, serif;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+body { font-family: var(--font-body); background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; font-size: 1.06rem; }
+.container { width: 100%; max-width: 1050px; }
+.top-nav { width: 100%; margin-bottom: 20px; display:flex; gap:10px; flex-wrap:wrap; }
+.back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-gold); text-decoration: none; font-weight: 600; background: var(--card-bg); padding: 10px 18px; border-radius: 20px; border: 1px solid var(--border-color); }
+.back-btn:hover, .back-btn:focus-visible { background: var(--accent-gold); color: #000; }
+.header { text-align: center; margin-bottom: 10px; }
+.header-icon { font-size: 2.6rem; margin-bottom: 8px; }
+.header h1 { font-family: var(--font-display); font-weight: 700; color: var(--accent-gold); font-size: 2.2rem; margin-bottom: 8px; }
+.header p { color: var(--text-muted); font-size: 1rem; max-width: 680px; margin: 0 auto; line-height: 1.55; }
+.info-banner { background: rgba(245,158,11,0.08); border: 1px solid var(--border-color); border-left: 3px solid var(--accent-gold); border-radius: 10px; padding: 12px 16px; margin: 18px 0; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+.info-banner-label { display:block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-gold); margin-bottom: 6px; }
+.history-callout { background: rgba(56,189,248,0.05); border: 1px solid var(--border-color); border-left: 3px solid #38bdf8; border-radius: 10px; padding: 12px 16px; margin: 18px 0; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+.history-callout-label { display:block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #38bdf8; margin-bottom: 6px; }
+.profile-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px 22px; margin-bottom: 24px; }
+.profile-card h2 { font-family: var(--font-display); color: var(--accent-gold); font-size: 1.15rem; margin: 0 0 4px 0; display: flex; align-items: center; gap: 8px; }
+.profile-card > p.profile-sub { color: var(--text-muted); font-size: 0.82rem; margin: 0 0 12px 0; }
+.profile-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px,1fr)); gap: 14px; }
+.profile-item-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-blue); margin-bottom: 3px; }
+.profile-item-text { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+.hebrew-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; justify-content: center; }
+.hebrew-chip { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 8px 14px; display: flex; flex-direction: column; align-items: center; cursor: pointer; font: inherit; max-width: 230px; }
+.hebrew-chip:hover, .hebrew-chip:focus-visible { border-color: var(--accent-gold); }
+.hebrew-word { font-size: 1.05rem; color: #d8b4fe; font-weight: bold; }
+.hebrew-def { font-size: 0.7rem; color: var(--text-muted); text-align: center; }
+.phon { font-style: italic; color: var(--text-muted); font-size: 0.78rem; }
+.ref-note { font-size: 0.7rem; color: var(--text-muted); }
+.cross-ref-box { background: rgba(56,189,248,0.06); border: 1px solid var(--border-color); border-left: 3px solid var(--accent-blue); border-radius: 10px; padding: 12px 16px; margin-bottom: 22px; font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+.cross-ref-label { display: block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-blue); margin-bottom: 6px; }
+.cross-ref-box a { color: var(--accent-gold); text-decoration: none; font-weight: 600; }
+.cross-ref-box a:hover, .cross-ref-box a:focus-visible { text-decoration: underline; }
+.section-title { font-family: var(--font-display); font-weight: 700; color: var(--accent-blue); font-size: 1.25rem; margin: 28px 0 12px 0; border-bottom: 1px solid var(--border-color); padding-bottom: 8px; }
+.section-note { color: var(--text-muted); font-size: 0.84rem; margin: -6px 0 12px 0; line-height: 1.5; }
+.legend { display:flex; gap:16px; flex-wrap:wrap; font-size:0.78rem; color:var(--text-muted); margin-bottom:10px; }
+.legend-dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 22px; }
+table.compare-table { width: 100%; border-collapse: collapse; min-width: 640px; background: var(--card-bg); }
+.compare-table th, .compare-table td { padding: 11px 13px; text-align: left; font-size: 0.83rem; vertical-align: top; border-bottom: 1px solid var(--border-color); }
+.compare-table th { font-family: var(--font-display); font-size: 0.88rem; color: var(--text-main); background: rgba(15,23,42,0.5); }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table td.ref { font-weight: 700; color: var(--accent-gold); white-space: nowrap; }
+.premil { color: var(--premil); } .amil { color: var(--amil); } .postmil { color: var(--postmil); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 18px; }
+.card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; text-decoration: none; color: inherit; }
+.card:hover, .card:focus-visible { border-color: var(--accent-gold); }
+.card.stub { opacity: 0.55; }
+.card-num { font-family: var(--font-display); color: var(--accent-gold); font-size: 1.3rem; font-weight: 700; }
+.card-title { color: var(--text-main); font-size: 0.82rem; margin: 4px 0 8px 0; line-height: 1.3; min-height: 2.2em; }
+.card-status { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent-blue); }
+.card.stub .card-status { color: var(--text-muted); }
+.source-note { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px 18px; margin-bottom: 26px; font-size: 0.83rem; color: var(--text-muted); line-height: 1.55; }
+.intro-box { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px 18px; margin-bottom: 22px; font-size: 0.9rem; color: var(--text-muted); line-height: 1.55; }
+.passage-card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; margin-bottom: 22px; }
+.passage-head { display:flex; align-items:center; gap:12px; margin-bottom:10px; flex-wrap:wrap; }
+.passage-icon { font-size: 1.7rem; }
+.passage-title { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--accent-gold); margin: 0; flex:1; min-width:180px; }
+.btn-read-passage { background: var(--border-color); color: var(--text-main); border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.78rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; font-family: inherit; }
+.btn-read-passage:hover, .btn-read-passage:focus-visible { background: var(--accent-blue); color: #000; }
+.btn-read-passage[aria-pressed="true"] { background: var(--accent-gold); color: #000; }
+.tldr { font-size: 1rem; font-weight: 700; color: var(--text-main); background: rgba(245,158,11,0.1); border-left: 3px solid var(--accent-gold); border-radius: 6px; padding: 8px 12px; margin-bottom: 14px; }
+.passage-text { line-height: 1.6; color: var(--text-muted); font-size: 0.89rem; margin-bottom: 14px; border-left: 3px solid var(--accent-blue); padding-left: 13px; }
+.vnum { font-weight: 700; color: var(--accent-blue); font-size: 0.72em; vertical-align: super; margin-right: 1px; }
+.translation-tag { font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--accent-blue); }
+.view-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 10px; }
+.view-mini { border-radius: 8px; padding: 10px 12px; border-top: 3px solid; background: rgba(15,23,42,0.5); }
+.view-mini.premil { border-color: var(--premil); } .view-mini.amil { border-color: var(--amil); } .view-mini.postmil { border-color: var(--postmil); }
+.view-mini-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 4px; }
+.view-mini-text { font-size: 0.83rem; color: var(--text-main); line-height: 1.42; }
+.ref-link { display:inline-flex; align-items:center; gap:6px; color: var(--accent-blue); text-decoration:none; font-size:0.85rem; font-weight:600; }
+.ref-link:hover, .ref-link:focus-visible { text-decoration:underline; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
+@media (max-width: 480px) { .header h1 { font-size: 1.8rem; } body { padding: 14px; } }
+
+/* === Reader Tools v1: highlighting, notes, inline dictionary === */
+.verse-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 999; align-items: center; justify-content: center; padding: 20px; }
+.verse-modal-overlay.open { display: flex; }
+.verse-modal { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 22px 24px; max-width: 480px; width: 100%; max-height: 78vh; overflow-y: auto; position: relative; }
+.verse-modal-close { position: absolute; top: 12px; right: 12px; background: var(--border-color); border: none; color: var(--text-main); border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 0.95rem; }
+.verse-modal-close:hover, .verse-modal-close:focus-visible { background: var(--accent-gold); color: #000; }
+.verse-modal-ref { font-family: var(--font-display); font-weight: 700; color: var(--accent-gold); font-size: 1.15rem; margin: 0 26px 12px 0; }
+.verse-modal-text { color: var(--text-main); line-height: 1.65; font-size: 0.95rem; margin: 0; }
+.rt-toolbar { position: absolute; display: none; z-index: 1200; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.4); padding: 6px; gap: 4px; }
+.rt-toolbar.open { display: flex; }
+.rt-toolbar button { background: none; border: none; color: var(--text-main); font-size: 0.82rem; padding: 6px 10px; border-radius: 6px; cursor: pointer; white-space: nowrap; }
+.rt-toolbar button:hover, .rt-toolbar button:focus-visible { background: var(--accent-gold); color: #000; }
+mark.rt-highlight { background: rgba(245,158,11,0.35); color: inherit; border-radius: 2px; padding: 0 1px; cursor: pointer; }
+mark.rt-note { background: rgba(56,189,248,0.3); color: inherit; border-radius: 2px; padding: 0 1px; cursor: pointer; border-bottom: 2px dotted var(--accent-blue); }
+.rt-fab { position: fixed; right: 18px; bottom: 18px; z-index: 1100; background: var(--accent-gold); color: #000; border: none; border-radius: 24px; padding: 12px 18px; font-weight: 700; font-size: 0.85rem; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.4); }
+.rt-fab:hover, .rt-fab:focus-visible { filter: brightness(1.08); }
+.rt-panel-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 1300; align-items: flex-end; justify-content: center; padding: 0; }
+.rt-panel-overlay.open { display: flex; }
+.rt-panel { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px 16px 0 0; padding: 20px; max-width: 560px; width: 100%; max-height: 70vh; overflow-y: auto; }
+.rt-panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.rt-panel-head h3 { font-family: var(--font-display); color: var(--accent-gold); margin: 0; font-size: 1.15rem; }
+.rt-panel-close { background: var(--border-color); border: none; color: var(--text-main); border-radius: 50%; width: 30px; height: 30px; cursor: pointer; }
+.rt-item { border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 14px; margin-bottom: 10px; }
+.rt-item-type { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+.rt-item-type.hl { color: var(--accent-gold); }
+.rt-item-type.note { color: var(--accent-blue); }
+.rt-item-text { font-size: 0.85rem; color: var(--text-main); line-height: 1.45; margin-bottom: 6px; }
+.rt-item-note { font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-bottom: 8px; }
+.rt-item-actions { display: flex; gap: 10px; }
+.rt-item-actions button { background: none; border: none; color: var(--accent-blue); font-size: 0.78rem; cursor: pointer; padding: 0; }
+.rt-item-actions button.rt-del { color: #f87171; }
+.rt-empty { color: var(--text-muted); font-size: 0.85rem; text-align: center; padding: 20px 0; }
+.rt-note-editor { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); z-index: 1300; align-items: center; justify-content: center; padding: 20px; }
+.rt-note-editor.open { display: flex; }
+.rt-note-editor-box { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; max-width: 440px; width: 100%; }
+.rt-note-editor-box textarea { width: 100%; min-height: 90px; background: rgba(15,23,42,0.6); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-main); padding: 10px; font-family: inherit; font-size: 0.9rem; resize: vertical; }
+.rt-note-editor-box .rt-ne-btns { display: flex; gap: 10px; margin-top: 12px; justify-content: flex-end; }
+.rt-note-editor-box button { border: none; border-radius: 8px; padding: 8px 16px; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
+.rt-ne-save { background: var(--accent-gold); color: #000; }
+.rt-ne-cancel { background: var(--border-color); color: var(--text-main); }
+.fact-check-link { text-decoration: none; opacity: 0.7; font-size: 0.85em; margin-left: 3px; }
+.fact-check-link:hover, .fact-check-link:focus-visible { opacity: 1; }
+.sc-unavailable{color:#8a8578;font-style:italic;cursor:default;opacity:.75;}
+.ref-populated{margin-top:.6rem;padding:.75rem .9rem;background:rgba(255,255,255,.04);border-left:3px solid #c9a75e;border-radius:4px;}
+.ref-populated-title{font-family:Georgia,serif;font-weight:600;color:#c9a75e;margin-bottom:.35rem;}
+.ref-populated-extract{font-size:.92em;line-height:1.5;color:#d9d4c7;margin-bottom:.5rem;}
+.ref-link-sm{font-size:.85em;color:#c9a75e;text-decoration:none;border-bottom:1px dotted #c9a75e;}
+.ref-link-sm:hover{border-bottom-style:solid;}
+</style>
+<link rel="stylesheet" href="../../../../lib/hub-ui.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Cinzel:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../lib/living-waters.css">
+</head>
+<body class="lw">
+<div id="lw-backdrop" class="lw-backdrop"></div>
+<div id="lw-photo-credit" class="lw-photo-credit"></div>
+
+<header class="w-full bg-slate-950/85 border-b border-sky-500/20 backdrop-blur-md sticky top-0 z-50">
+  <div class="bg-amber-500/10 border-b border-amber-500/10 text-amber-300 text-xs py-1 overflow-hidden">
+    <div id="lw-top-ticker" class="lw-marquee-track whitespace-nowrap flex items-center font-semibold tracking-wider"></div>
+  </div>
+  <div class="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between gap-3 flex-wrap">
+    <a href="../../../../index.html" class="flex items-center gap-2.5 no-underline">
+      <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-800 via-slate-600 to-amber-500 flex items-center justify-center border border-sky-300/30">
+        <i class="fa-solid fa-droplet text-white text-sm"></i>
+      </div>
+      <span class="lw-serif font-black text-base tracking-widest text-slate-100">LIVING WATERS</span>
+    </a>
+    <div class="flex gap-3 flex-wrap justify-end"><a href="../index.html" class="text-xs text-sky-300/90 hover:text-amber-300 no-underline font-semibold tracking-wide">⬅️ Zechariah — Chapters</a><a href="../../../index.html" class="text-xs text-sky-300/90 hover:text-amber-300 no-underline font-semibold tracking-wide">🏠 Scripture Studies</a></div>
+  </div>
+</header>
+
+<main class="max-w-4xl mx-auto px-6 py-10 w-full relative z-10">
+  <div class="text-center mb-8">
+    <div class="text-4xl mb-2">👑</div>
+    <h1 class="lw-serif text-3xl md:text-4xl font-black text-slate-50 mb-2">Zechariah 9</h1>
+    <p class="text-slate-300 text-base max-w-2xl mx-auto">The King on a Donkey</p>
+  </div>
+<div class="passage-card">
+<div class="passage-head">
+<span class="passage-icon">🐴</span>
+<h3 class="passage-title">The King on a Donkey (Zechariah 9:9–10)</h3>
+<button aria-pressed="false" class="btn-read-passage" onclick="readEnglishPassage('passage-1', this)">🎙️ Read</button>
+</div>
+<div class="tldr">Verse 9 is the Triumphal Entry; verse 10 is the still-future part of the promise — that's exactly where the three views split.</div>
+<div class="passage-text" id="passage-1"><span class="translation-tag">ASV</span><br/><span class="vnum">9</span>Rejoice greatly, O daughter of Zion; shout, O daughter of Jerusalem: behold, thy king cometh unto thee; he is just, and having salvation; lowly, and riding upon an ass, even upon a colt the foal of an ass. <span class="vnum">10</span>And I will cut off the chariot from Ephraim, and the horse from Jerusalem; and the battle bow shall be cut off; and he shall speak peace unto the nations: and his dominion shall be from sea to sea, and from the River to the ends of the earth.</div>
+<div class="view-grid">
+<div class="view-mini premil"><div class="view-mini-label">Premillennial</div><div class="view-mini-text">V.9 fulfilled at Christ's first coming; v.10's worldwide peaceful dominion awaits the future Millennium.</div></div>
+<div class="view-mini amil"><div class="view-mini-label">Amillennial</div><div class="view-mini-text">Both verses describe one unified kingdom, present spiritually now and consummated in eternity — no gap between them.</div></div>
+<div class="view-mini postmil"><div class="view-mini-label">Postmillennial</div><div class="view-mini-text">V.10's peace expands progressively through history as Christ's kingdom advances toward final worldwide triumph.</div></div>
+</div>
+</div>
+
+<script>
+let currentAudio = null;
+function playHebrewAudio(filePath, fallbackWord) {
+  if (currentAudio) { currentAudio.pause(); currentAudio.currentTime = 0; }
+  currentAudio = new Audio(filePath);
+  currentAudio.play().catch(() => {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(fallbackWord);
+      utterance.rate = 0.8;
+      window.speechSynthesis.speak(utterance);
+    }
+  });
+}
+function readEnglishPassage(elementId, btnEl) {
+  const el = document.getElementById(elementId);
+  if (!el || !('speechSynthesis' in window)) return;
+  const textContent = el.innerText;
+  window.speechSynthesis.cancel();
+  if (btnEl) btnEl.setAttribute('aria-pressed', 'true');
+  setTimeout(() => {
+    const utterance = new SpeechSynthesisUtterance(textContent);
+    utterance.rate = 0.9;
+    if (btnEl) {
+      utterance.onend = () => btnEl.setAttribute('aria-pressed', 'false');
+      utterance.onerror = () => btnEl.setAttribute('aria-pressed', 'false');
+    }
+    window.speechSynthesis.speak(utterance);
+  }, 50);
+}
+</script>
+<script>
+function openVerseModal(ref, text) {
+  document.getElementById('verseModalRef').textContent = ref;
+  document.getElementById('verseModalText').textContent = text;
+  document.getElementById('verseModalOverlay').classList.add('open');
+}
+function closeVerseModal() { document.getElementById('verseModalOverlay').classList.remove('open'); }
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeVerseModal(); });
+</script>
+<script>
+(function() {
+  var RT_PAGE = 'rt:' + location.pathname;
+  var pendingRange = null;
+
+  function rtLoad() {
+    try { return JSON.parse(localStorage.getItem(RT_PAGE) || '[]'); } catch(e) { return []; }
+  }
+  function rtSaveAll(items) {
+    try { localStorage.setItem(RT_PAGE, JSON.stringify(items)); } catch(e) {}
+    rtUpdateFab();
+  }
+  function rtUpdateFab() {
+    var el = document.getElementById('rtFabCount');
+    if (el) el.textContent = rtLoad().length;
+  }
+
+  function rtShowToolbar(x, y) {
+    var tb = document.getElementById('rtToolbar');
+    tb.style.left = x + 'px';
+    tb.style.top = y + 'px';
+    tb.classList.add('open');
+  }
+  function rtHideToolbar() {
+    document.getElementById('rtToolbar').classList.remove('open');
+  }
+
+  document.addEventListener('mouseup', function(e) {
+    if (e.target.closest('.rt-toolbar, .rt-note-editor, .rt-panel-overlay, .verse-modal-overlay')) return;
+    setTimeout(function() {
+      var sel = window.getSelection();
+      if (sel && sel.toString().trim().length > 2 && sel.rangeCount > 0) {
+        pendingRange = sel.getRangeAt(0).cloneRange();
+        var rect = pendingRange.getBoundingClientRect();
+        rtShowToolbar(window.scrollX + rect.left, window.scrollY + rect.top - 44);
+      } else {
+        rtHideToolbar();
+      }
+    }, 10);
+  });
+  document.addEventListener('mousedown', function(e) {
+    if (!e.target.closest('.rt-toolbar')) rtHideToolbar();
+  });
+
+  function rtWrapRange(range, cls, extraAttrs) {
+    try {
+      var mark = document.createElement('mark');
+      mark.className = cls;
+      if (extraAttrs) for (var k in extraAttrs) mark.setAttribute(k, extraAttrs[k]);
+      range.surroundContents(mark);
+      return mark;
+    } catch (e) {
+      // Multi-element selection: fall back to extracting + wrapping (loses inner tags, keeps text)
+      try {
+        var frag = range.extractContents();
+        var mark2 = document.createElement('mark');
+        mark2.className = cls;
+        if (extraAttrs) for (var k2 in extraAttrs) mark2.setAttribute(k2, extraAttrs[k2]);
+        mark2.appendChild(frag);
+        range.insertNode(mark2);
+        return mark2;
+      } catch (e2) { return null; }
+    }
+  }
+
+  document.getElementById('rtBtnHighlight').addEventListener('click', function() {
+    if (!pendingRange) return;
+    var text = pendingRange.toString();
+    var id = 'hl' + Date.now();
+    var mark = rtWrapRange(pendingRange.cloneRange(), 'rt-highlight', {'data-rt-id': id});
+    if (mark) {
+      mark.addEventListener('click', function() { rtOpenPanel(); });
+      var items = rtLoad();
+      items.push({id: id, type: 'highlight', text: text, ts: Date.now()});
+      rtSaveAll(items);
+    }
+    rtHideToolbar();
+    window.getSelection().removeAllRanges();
+  });
+
+  document.getElementById('rtBtnNote').addEventListener('click', function() {
+    if (!pendingRange) return;
+    document.getElementById('rtNoteEditorSnippet').textContent = '"' + pendingRange.toString().slice(0, 80) + (pendingRange.toString().length > 80 ? '…' : '') + '"';
+    document.getElementById('rtNoteEditorText').value = '';
+    document.getElementById('rtNoteEditor').classList.add('open');
+    rtHideToolbar();
+  });
+
+  window.rtCancelNote = function() {
+    document.getElementById('rtNoteEditor').classList.remove('open');
+    window.getSelection().removeAllRanges();
+  };
+  window.rtSaveNote = function() {
+    var noteText = document.getElementById('rtNoteEditorText').value.trim();
+    if (!pendingRange || !noteText) { rtCancelNote(); return; }
+    var text = pendingRange.toString();
+    var id = 'nt' + Date.now();
+    var mark = rtWrapRange(pendingRange.cloneRange(), 'rt-note', {'data-rt-id': id});
+    if (mark) {
+      mark.title = noteText;
+      mark.addEventListener('click', function() { rtOpenPanel(); });
+      var items = rtLoad();
+      items.push({id: id, type: 'note', text: text, note: noteText, ts: Date.now()});
+      rtSaveAll(items);
+    }
+    document.getElementById('rtNoteEditor').classList.remove('open');
+    window.getSelection().removeAllRanges();
+  };
+
+  window.rtOpenPanel = function() {
+    var items = rtLoad();
+    var list = document.getElementById('rtPanelList');
+    if (!items.length) {
+      list.innerHTML = '<p class="rt-empty">No highlights or notes on this page yet. Select any text to add one.</p>';
+    } else {
+      list.innerHTML = items.slice().reverse().map(function(it) {
+        return '<div class="rt-item">' +
+          '<div class="rt-item-type ' + (it.type === 'note' ? 'note' : 'hl') + '">' + (it.type === 'note' ? '📝 Note' : '🖍 Highlight') + '</div>' +
+          '<div class="rt-item-text">"' + it.text.replace(/</g,'&lt;') + '"</div>' +
+          (it.note ? '<div class="rt-item-note">' + it.note.replace(/</g,'&lt;') + '</div>' : '') +
+          '<div class="rt-item-actions"><button class="rt-del" onclick="rtDelete(\'' + it.id + '\')">Delete</button></div>' +
+          '</div>';
+      }).join('');
+    }
+    document.getElementById('rtPanelOverlay').classList.add('open');
+  };
+  window.rtClosePanel = function() {
+    document.getElementById('rtPanelOverlay').classList.remove('open');
+  };
+  window.rtDelete = function(id) {
+    var items = rtLoad().filter(function(it) { return it.id !== id; });
+    rtSaveAll(items);
+    var mark = document.querySelector('[data-rt-id="' + id + '"]');
+    if (mark) {
+      var parent = mark.parentNode;
+      while (mark.firstChild) parent.insertBefore(mark.firstChild, mark);
+      parent.removeChild(mark);
+    }
+    rtOpenPanel();
+  };
+
+  function rtRestoreOnLoad() {
+    var items = rtLoad();
+    if (!items.length) { rtUpdateFab(); return; }
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+    items.forEach(function(it) {
+      if (document.querySelector('[data-rt-id="' + it.id + '"]')) return; // already there
+      var node;
+      walker.currentNode = document.body;
+      while ((node = walker.nextNode())) {
+        var idx = node.nodeValue.indexOf(it.text);
+        if (idx !== -1 && node.parentNode && !node.parentNode.closest('mark, script, style, .rt-toolbar, .rt-panel-overlay')) {
+          var range = document.createRange();
+          range.setStart(node, idx);
+          range.setEnd(node, idx + it.text.length);
+          var mark = rtWrapRange(range, it.type === 'note' ? 'rt-note' : 'rt-highlight', {'data-rt-id': it.id});
+          if (mark) {
+            if (it.note) mark.title = it.note;
+            mark.addEventListener('click', function() { rtOpenPanel(); });
+          }
+          break;
+        }
+      }
+    });
+    rtUpdateFab();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', rtRestoreOnLoad);
+  } else {
+    rtRestoreOnLoad();
+  }
+
+  window.rtCloseDef = function() {
+    document.getElementById('rtDefOverlay').classList.remove('open');
+  };
+  window.showDef = function(el) {
+    var term = el.getAttribute('data-term') || el.textContent;
+    var def = el.getAttribute('data-def') || '';
+    document.getElementById('rtDefTerm').textContent = term;
+    document.getElementById('rtDefText').textContent = def;
+    document.getElementById('rtDefOverlay').classList.add('open');
+  };
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { rtCloseDef(); rtClosePanel(); rtCancelNote(); }
+  });
+})();
+</script>
+<script>
+(function(){
+  function scMakeUnavailable(el, extraClass){
+    var span=document.createElement('span');
+    span.className=(extraClass||el.className||'')+' sc-unavailable';
+    span.textContent='Content not available right now';
+    el.replaceWith(span);
+    return span;
+  }
+  function scRestoreLink(el){
+    if(el.dataset.scOrigHtml){
+      var tmp=document.createElement('div');
+      tmp.innerHTML=el.dataset.scOrigHtml;
+      var restored=tmp.firstElementChild;
+      el.replaceWith(restored);
+      return restored;
+    }
+    return el;
+  }
+  function scHandleSimple(selector){
+    document.querySelectorAll(selector).forEach(function(el){
+      if(el.tagName==='A' && !el.dataset.scOrigHtml){ el.dataset.scOrigHtml = el.outerHTML; }
+      if(navigator.onLine){
+        if(el.tagName!=='A'){ scRestoreLink(el); }
+      } else {
+        if(el.tagName==='A'){ scMakeUnavailable(el); }
+      }
+    });
+  }
+  function scPopulateRef(el){
+    if(el.tagName!=='A' || el.dataset.scTried) return;
+    if(el.href.indexOf('wikipedia.org/wiki/')===-1) return;
+    el.dataset.scTried='1';
+    if(!el.dataset.scOrigHtml){ el.dataset.scOrigHtml = el.outerHTML; }
+    var title=decodeURIComponent(el.href.split('/wiki/')[1]);
+    fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+title)
+      .then(function(r){ if(!r.ok) throw new Error('bad'); return r.json(); })
+      .then(function(data){
+        var box=document.createElement('div');
+        box.className='ref-populated';
+        var t=document.createElement('div'); t.className='ref-populated-title'; t.textContent='🌐 '+(data.title||title.replace(/_/g,' '));
+        var ex=document.createElement('div'); ex.className='ref-populated-extract'; ex.textContent=data.extract||'';
+        var link=document.createElement('a'); link.className='ref-link-sm'; link.href=el.href; link.target='_blank'; link.rel='noopener'; link.textContent='Read full article ↗';
+        box.appendChild(t); box.appendChild(ex); box.appendChild(link);
+        el.replaceWith(box);
+      })
+      .catch(function(){ /* fetch failed despite navigator.onLine (e.g. captive portal) - leave link as-is */ });
+  }
+  function scHandleRefLinks(){
+    document.querySelectorAll('.ref-link, span.ref-link').forEach(function(el){
+      if(navigator.onLine){
+        if(el.tagName!=='A'){ el=scRestoreLink(el); }
+        scPopulateRef(el);
+      } else {
+        if(el.tagName==='A'){ scMakeUnavailable(el); }
+      }
+    });
+  }
+  function scRefresh(){
+    scHandleSimple('.fact-check-link');
+    scHandleSimple('.research-link');
+    scHandleRefLinks();
+  }
+  window.addEventListener('online', scRefresh);
+  window.addEventListener('offline', scRefresh);
+  document.addEventListener('DOMContentLoaded', scRefresh);
+})();
+</script>
+<script src="../../../../data/passage-data.js"></script>
+<script src="../../../../lib/hub-ui.js"></script>
+</main>
+
+<script src="../../../../lib/living-waters.js"></script>
+<script>
+lwInitBackdrop('lw-backdrop');
+lwBuildMarquee('lw-top-ticker', [
+  { icon: 'fa-solid fa-water text-sky-300', text: '[ZECHARIAH 9]: The King on a Donkey' }
+]);
+</script>
+
+<script src="../../../../lib/hub-modules.js"></script>
+</body>
+</html>
