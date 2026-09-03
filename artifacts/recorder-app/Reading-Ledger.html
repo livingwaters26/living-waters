@@ -1,0 +1,1003 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reading Ledger</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --paper: #edeee5;
+    --paper-raised: #f6f6ef;
+    --ink: #202a22;
+    --ink-soft: #57624f;
+    --rule: #cdd0c0;
+    --rule-soft: #dcddd1;
+    --accent: #a8722f;
+    --accent-ink: #ffffff;
+    --recorded: #3f7d55;
+    --recorded-bg: #dbe9dd;
+    --partial: #c98a2c;
+    --partial-bg: #f2e2c4;
+    --missing-bg: #e2e1d5;
+    --missing-ink: #8b9080;
+    --override: #3e6fa6;
+    --override-bg: #d9e3ef;
+    --danger: #a14b3f;
+    --badge-bg: #a8722f;
+    --badge-ink: #ffffff;
+    --shadow: 0 1px 2px rgba(32,42,34,0.08), 0 6px 16px rgba(32,42,34,0.06);
+    --focus: #a8722f;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #141a15;
+      --paper-raised: #1c231d;
+      --ink: #e9e7db;
+      --ink-soft: #a3aa98;
+      --rule: #34402f;
+      --rule-soft: #29331f;
+      --accent: #d6a855;
+      --accent-ink: #1a1408;
+      --recorded: #6fbf87;
+      --recorded-bg: #1e3324;
+      --partial: #e0ac52;
+      --partial-bg: #3a2c14;
+      --missing-bg: #232a20;
+      --missing-ink: #6d7566;
+      --override: #7fa8d6;
+      --override-bg: #1c2c3d;
+      --danger: #d17a6a;
+      --badge-bg: #d6a855;
+      --badge-ink: #1a1408;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 20px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #141a15;
+    --paper-raised: #1c231d;
+    --ink: #e9e7db;
+    --ink-soft: #a3aa98;
+    --rule: #34402f;
+    --rule-soft: #29331f;
+    --accent: #d6a855;
+    --accent-ink: #1a1408;
+    --recorded: #6fbf87;
+    --recorded-bg: #1e3324;
+    --partial: #e0ac52;
+    --partial-bg: #3a2c14;
+    --missing-bg: #232a20;
+    --missing-ink: #6d7566;
+    --override: #7fa8d6;
+    --override-bg: #1c2c3d;
+    --danger: #d17a6a;
+    --badge-bg: #d6a855;
+    --badge-ink: #1a1408;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 20px rgba(0,0,0,0.35);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Work Sans', -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--accent); color: var(--accent-ink); }
+  a { color: inherit; }
+  button { font-family: inherit; }
+  button:focus-visible, input:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid var(--focus); outline-offset: 2px;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 28px 24px 80px; }
+
+  header.top {
+    display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+    gap: 12px 24px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 18px; margin-bottom: 22px;
+  }
+  header.top h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 30px;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  header.top .sub {
+    font-size: 13px; color: var(--ink-soft); margin-top: 2px;
+  }
+
+  .stats {
+    display: flex; gap: 22px; flex-wrap: wrap;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .stat { text-align: right; }
+  .stat .n { font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums; display: block; line-height: 1.1; }
+  .stat .l { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-soft); }
+
+  .panel {
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    padding: 18px 20px;
+    margin-bottom: 22px;
+  }
+  .panel h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 16px; font-weight: 600; margin: 0 0 4px;
+  }
+  .panel .hint { font-size: 12.5px; color: var(--ink-soft); margin: 0 0 12px; line-height: 1.5; }
+
+  textarea#importBox {
+    width: 100%; min-height: 96px; resize: vertical;
+    background: var(--paper); color: var(--ink);
+    border: 1px solid var(--rule); border-radius: 7px;
+    padding: 10px 12px; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px;
+    line-height: 1.5;
+  }
+  .import-row { display: flex; gap: 10px; margin-top: 10px; align-items: center; flex-wrap: wrap; }
+  .folder-connect { margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px dashed var(--rule); }
+  .divider-or {
+    font-size: 10.5px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.08em;
+    text-align: center; margin: 14px 0 2px;
+  }
+  button.primary {
+    background: var(--accent); color: var(--accent-ink); border: none;
+    padding: 9px 16px; border-radius: 7px; font-size: 13px; font-weight: 600;
+    cursor: pointer;
+  }
+  button.primary:hover { filter: brightness(1.06); }
+  button.ghost {
+    background: transparent; color: var(--ink-soft); border: 1px solid var(--rule);
+    padding: 8px 14px; border-radius: 7px; font-size: 12.5px; cursor: pointer;
+  }
+  button.ghost:hover { border-color: var(--ink-soft); color: var(--ink); }
+  .save-state { font-size: 11.5px; color: var(--ink-soft); font-family: 'IBM Plex Mono', monospace; }
+
+  .import-result { margin-top: 12px; font-size: 12.5px; }
+  .import-result .ok { color: var(--recorded); }
+  .import-result .warn { color: var(--danger); }
+  .review-list { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+  .review-list li {
+    font-family: 'IBM Plex Mono', monospace; font-size: 11.5px;
+    background: var(--partial-bg); color: var(--ink);
+    border-radius: 5px; padding: 5px 8px;
+  }
+
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 10px; }
+  .legend .item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-soft); }
+  .legend .swatch { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+
+  .translation-filter {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    margin: 4px 0 16px;
+  }
+  .translation-filter label {
+    font-size: 12px; color: var(--ink-soft); font-weight: 500;
+  }
+  .translation-filter select {
+    background: var(--paper-raised); color: var(--ink);
+    border: 1px solid var(--rule); border-radius: 7px;
+    padding: 7px 30px 7px 12px; font-family: 'Work Sans', sans-serif;
+    font-size: 12.5px; font-weight: 500; cursor: pointer;
+    appearance: none; -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%2357624f' d='M4 6l4 4 4-4' stroke='%2357624f' stroke-width='1.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 10px center; background-size: 11px;
+  }
+  .translation-filter select:hover { border-color: var(--ink-soft); }
+  .translation-filter .count {
+    font-size: 11.5px; color: var(--ink-soft); font-family: 'IBM Plex Mono', monospace;
+  }
+  .translations-note { font-size: 12px; color: var(--ink-soft); margin: 0 0 20px; line-height: 1.5; }
+  .translations-note .badge-sample {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--badge-bg); color: var(--badge-ink);
+    font-family: 'IBM Plex Mono', monospace; font-size: 8.5px; font-weight: 600;
+    vertical-align: middle; margin: 0 2px;
+  }
+
+  .section-title {
+    font-family: 'Fraunces', serif; font-size: 13px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.09em; color: var(--ink-soft);
+    margin: 30px 0 12px; padding-top: 4px; border-top: 1px solid var(--rule-soft);
+  }
+  .section-title:first-of-type { margin-top: 8px; border-top: none; padding-top: 0; }
+
+  .book-row {
+    display: grid; grid-template-columns: 168px 1fr; gap: 14px;
+    align-items: start; padding: 7px 0;
+  }
+  .book-name {
+    font-family: 'Fraunces', serif; font-size: 14.5px; font-weight: 500;
+    padding-top: 3px; line-height: 1.3;
+  }
+  .book-name .pct {
+    display: block; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px;
+    color: var(--ink-soft); font-weight: 400; margin-top: 1px;
+  }
+  .chapters { display: flex; flex-wrap: wrap; gap: 3px; }
+  .ch {
+    position: relative;
+    width: 21px; height: 21px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; font-variant-numeric: tabular-nums;
+    background: var(--missing-bg); color: var(--missing-ink);
+    cursor: pointer; border: 1px solid transparent;
+    user-select: none;
+    transition: transform 0.06s ease;
+  }
+  .ch:hover { transform: scale(1.14); border-color: var(--rule); z-index: 1; }
+  .ch.recorded { background: var(--recorded-bg); color: var(--recorded); font-weight: 600; }
+  .ch.partial { background: var(--partial-bg); color: var(--partial); font-weight: 600; }
+  .ch.override { background: var(--override-bg); color: var(--override); font-weight: 600; }
+  .ch .badge {
+    position: absolute; top: -5px; right: -5px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--badge-bg); color: var(--badge-ink);
+    font-family: 'IBM Plex Mono', monospace; font-size: 7.5px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    line-height: 1;
+  }
+
+  dialog#cellDialog {
+    border: 1px solid var(--rule); border-radius: 10px; padding: 0;
+    background: var(--paper-raised); color: var(--ink);
+    box-shadow: var(--shadow); max-width: 340px; width: 90vw;
+  }
+  dialog#cellDialog::backdrop { background: rgba(20,26,21,0.45); }
+  .dialog-body { padding: 18px 20px; }
+  .dialog-body h3 { font-family: 'Fraunces', serif; margin: 0 0 4px; font-size: 16px; }
+  .dialog-body .status-line { font-size: 12px; color: var(--ink-soft); margin-bottom: 10px; }
+  .source-list { list-style: none; margin: 0 0 14px; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  .source-list li {
+    font-size: 12.5px; background: var(--paper); border: 1px solid var(--rule-soft);
+    border-radius: 6px; padding: 7px 10px;
+  }
+  .source-list .tr { font-weight: 600; }
+  .source-list .fn { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--ink-soft); margin-top: 2px; }
+  .dialog-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+  .dialog-actions button { flex: 1 1 auto; }
+
+  footer.note {
+    margin-top: 34px; font-size: 11.5px; color: var(--ink-soft); line-height: 1.6;
+    border-top: 1px solid var(--rule-soft); padding-top: 14px;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>Reading Ledger</h1>
+      <div class="sub">Bible recording catalog &middot; 73 books, Catholic canon</div>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="n" id="statChapters">0</span><span class="l">Chapters recorded</span></div>
+      <div class="stat"><span class="n" id="statPct">0%</span><span class="l">Of Bible</span></div>
+      <div class="stat"><span class="n" id="statBooks">0</span><span class="l">Books started</span></div>
+    </div>
+  </header>
+
+  <div class="panel">
+    <h2>Import a listing</h2>
+
+    <div id="folderConnect" class="folder-connect" hidden>
+      <p class="hint">On this computer, in Chrome or Edge, you can connect the <code>mp3</code> folder directly and skip the copy/paste &mdash; works whether it's a local folder (Cinnamon) or a mapped drive (Windows). It only sees what this machine can see, so pick the folder from whichever computer you're cataloging on.</p>
+      <div class="import-row">
+        <button class="ghost" id="pickFolderBtn">Choose mp3 folder&hellip;</button>
+        <button class="primary" id="rescanBtn" hidden>Rescan folder now</button>
+        <button class="ghost" id="disconnectFolderBtn" hidden>Disconnect</button>
+        <span class="save-state" id="folderState"></span>
+      </div>
+      <div class="divider-or">or paste a listing instead</div>
+    </div>
+
+    <p class="hint">Paste a <code>Get-ChildItem "B:\mp3\*.mp3" | Select-Object Name</code> output, or just one filename per line. Matches against the <code>Translation_Book-start-end</code> naming convention &mdash; anything it can't confidently read gets flagged below instead of guessed at. Importing again is safe: it fills in new chapters and adds new translations without erasing anything.</p>
+    <textarea id="importBox" placeholder="ESV-_Genesis_1-18.mp3&#10;GAB-Father-Mike_Mark-Luke6_42.mp3&#10;GAB-FatherMike_Psalm-37-71.mp3&#10;..."></textarea>
+    <div class="import-row">
+      <button class="primary" id="importBtn">Import</button>
+      <button class="ghost" id="clearAllBtn">Clear all data&hellip;</button>
+      <span class="save-state" id="saveState"></span>
+    </div>
+    <div class="import-result" id="importResult"></div>
+  </div>
+
+  <div class="legend">
+    <div class="item"><span class="swatch" style="background:var(--recorded-bg);border:1px solid var(--recorded)"></span>Recorded</div>
+    <div class="item"><span class="swatch" style="background:var(--partial-bg);border:1px solid var(--partial)"></span>Partial (stopped mid&#8209;chapter)</div>
+    <div class="item"><span class="swatch" style="background:var(--override-bg);border:1px solid var(--override)"></span>Manual override</div>
+    <div class="item"><span class="swatch" style="background:var(--missing-bg);border:1px solid var(--rule)"></span>Not yet recorded</div>
+  </div>
+
+  <div class="translation-filter">
+    <label for="translationSelect">Show coverage for</label>
+    <select id="translationSelect">
+      <option value="">All translations</option>
+    </select>
+    <span class="count" id="translationCount"></span>
+  </div>
+
+  <p class="translations-note">A small number badge like <span class="badge-sample">2</span> means more than one translation covers that chapter &mdash; click it to see which ones.</p>
+
+  <div id="grid"></div>
+
+  <footer class="note">
+    Click any chapter to see every translation recorded for it, or to mark it recorded/missing by hand. Imports never erase a manual override, and never erase a translation you've already logged &mdash; they only add to what's there.
+  </footer>
+</div>
+
+<dialog id="cellDialog">
+  <div class="dialog-body">
+    <h3 id="dlgTitle">Genesis 1</h3>
+    <div class="status-line" id="dlgStatus">Not yet recorded</div>
+    <ul class="source-list" id="dlgSources"></ul>
+    <div class="dialog-actions">
+      <button class="primary" id="dlgMarkRecorded">Mark recorded</button>
+      <button class="ghost" id="dlgMarkMissing">Mark missing</button>
+      <button class="ghost" id="dlgClose">Close</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+// ---------------------------------------------------------------------
+// Canonical book list (Catholic canon, 73 books) — [key, chapters, aliases]
+// ---------------------------------------------------------------------
+const OT = [
+  ["Genesis", 50, ["gen"]],
+  ["Exodus", 40, ["exo", "ex"]],
+  ["Leviticus", 27, ["lev"]],
+  ["Numbers", 36, ["num"]],
+  ["Deuteronomy", 34, ["deut", "deu"]],
+  ["Joshua", 24, ["josh", "jos"]],
+  ["Judges", 21, ["judg", "jdg"]],
+  ["Ruth", 4, ["rut"]],
+  ["1 Samuel", 31, ["1samuel", "isamuel", "1sam", "isam", "i-samuel", "1-samuel"]],
+  ["2 Samuel", 24, ["2samuel", "iisamuel", "2sam", "ii-samuel", "2-samuel"]],
+  ["1 Kings", 22, ["1kings", "ikings", "1kgs", "i-kings"]],
+  ["2 Kings", 25, ["2kings", "iikings", "2kgs", "ii-kings"]],
+  ["1 Chronicles", 29, ["1chronicles", "1chron", "ichron", "i-chron", "1-chron"]],
+  ["2 Chronicles", 36, ["2chronicles", "2chron", "iichron", "ii-chron", "2-chron"]],
+  ["Ezra", 10, ["ezr"]],
+  ["Nehemiah", 13, ["neh"]],
+  ["Tobit", 14, ["tob"]],
+  ["Judith", 16, ["jdt", "judit"]],
+  ["Esther", 10, ["est", "esth"]],
+  ["1 Maccabees", 16, ["1maccabees", "1macc", "imacc", "i-maccabees"]],
+  ["2 Maccabees", 15, ["2maccabees", "2macc", "iimacc", "ii-maccabees"]],
+  ["Job", 42, ["jb"]],
+  ["Psalms", 150, ["psalm", "psa", "ps"]],
+  ["Proverbs", 31, ["prov", "prv"]],
+  ["Ecclesiastes", 12, ["eccl", "eccles", "qoheleth"]],
+  ["Song of Songs", 8, ["songofsongs", "song", "songofsolomon", "canticles"]],
+  ["Wisdom", 19, ["wis", "wisdomofsolomon"]],
+  ["Sirach", 51, ["sir", "ecclesiasticus"]],
+  ["Isaiah", 66, ["isa", "is"]],
+  ["Jeremiah", 52, ["jer"]],
+  ["Lamentations", 5, ["lam"]],
+  ["Baruch", 6, ["bar"]],
+  ["Ezekiel", 48, ["ezek", "eze"]],
+  ["Daniel", 14, ["dan"]],
+  ["Hosea", 14, ["hos"]],
+  ["Joel", 3, ["joe", "jl"]],
+  ["Amos", 9, ["amo", "am"]],
+  ["Obadiah", 1, ["obad", "oba"]],
+  ["Jonah", 4, ["jon"]],
+  ["Micah", 7, ["mic"]],
+  ["Nahum", 3, ["nah"]],
+  ["Habakkuk", 3, ["hab"]],
+  ["Zephaniah", 3, ["zeph", "zep"]],
+  ["Haggai", 2, ["hag"]],
+  ["Zechariah", 14, ["zech", "zec"]],
+  ["Malachi", 4, ["mal"]],
+];
+const NT = [
+  ["Matthew", 28, ["matt", "mat", "mt"]],
+  ["Mark", 16, ["mrk", "mk"]],
+  ["Luke", 24, ["luk", "lk"]],
+  ["John", 21, ["jn", "jhn"]],
+  ["Acts", 28, ["act"]],
+  ["Romans", 16, ["rom"]],
+  ["1 Corinthians", 16, ["1corinthians", "1cor", "icor", "i-corinthians"]],
+  ["2 Corinthians", 13, ["2corinthians", "2cor", "iicor", "ii-corinthians"]],
+  ["Galatians", 6, ["gala", "gal"]],
+  ["Ephesians", 6, ["ephes", "eph"]],
+  ["Philippians", 4, ["phil", "philipp"]],
+  ["Colossians", 4, ["col", "colos"]],
+  ["1 Thessalonians", 5, ["1thessalonians", "1thess", "ithess", "i-thessalonians"]],
+  ["2 Thessalonians", 3, ["2thessalonians", "2thess", "iithess", "ii-thessalonians"]],
+  ["1 Timothy", 6, ["1timothy", "1tim", "itim", "i-timothy"]],
+  ["2 Timothy", 4, ["2timothy", "2tim", "iitim", "ii-timothy"]],
+  ["Titus", 3, ["tit"]],
+  ["Philemon", 1, ["philem", "phlm"]],
+  ["Hebrews", 13, ["heb"]],
+  ["James", 5, ["jas", "jam"]],
+  ["1 Peter", 5, ["1peter", "1pet", "ipet", "i-peter"]],
+  ["2 Peter", 3, ["2peter", "2pet", "iipet", "ii-peter"]],
+  ["1 John", 5, ["1john", "1jn", "ijohn", "i-john"]],
+  ["2 John", 1, ["2john", "2jn", "iijohn", "ii-john"]],
+  ["3 John", 1, ["3john", "3jn", "iiijohn", "iii-john"]],
+  ["Jude", 1, ["jud"]],
+  ["Revelation", 22, ["rev", "apocalypse"]],
+];
+const BOOKS = [...OT, ...NT];
+
+function slug(s) { return s.toLowerCase().replace(/[^a-z0-9]/g, ""); }
+const BOOK_INDEX = {};
+BOOKS.forEach(([name, , aliases]) => {
+  BOOK_INDEX[slug(name)] = name;
+  aliases.forEach(a => { BOOK_INDEX[slug(a)] = name; });
+});
+const CHAPTERS = {}; BOOKS.forEach(([name, n]) => CHAPTERS[name] = n);
+
+// ---------------------------------------------------------------------
+// State: STATE[book][chapter] = { entries: [{status, translation, source, note}], override: null|'recorded'|'missing' }
+// entry.status: 'recorded' | 'partial'
+// ---------------------------------------------------------------------
+let STATE = {};
+let REVIEW = [];
+let currentFilter = ""; // "" = all translations; otherwise a translation string
+
+function seedState() {
+  applyRange("Genesis", 1, 18, "ESV-_Genesis_1-18.mp3", "ESV", {});
+  applyRange("Mark", 1, 16, "GAB-Father-Mike_Mark-Luke6_42.mp3", "GAB Father Mike", {});
+  applyRange("Luke", 1, 6, "GAB-Father-Mike_Mark-Luke6_42.mp3", "GAB Father Mike", { partialLastAt: 42 });
+  applyRange("Psalms", 37, 71, "GAB-FatherMike_Psalm-37-71.mp3", "GAB Father Mike", {});
+  applyRange("Psalms", 71, 101, "GAB-FAther-Mike_Psalms-71-101.mp3", "GAB Father Mike", {});
+  applyRange("Psalms", 102, 132, "GAB-FAther-Mike_Psalms-102-132.mp3", "GAB Father Mike", {});
+  applyRange("Genesis", 1, 17, "NASB1995-by-Dale-McConachie_Genesis-1-17.mp3", "NASB1995 by Dale McConachie", {});
+  applyRange("Genesis", 18, 30, "NASB1995-by-Dale-McConachie_Genesis-18-30.mp3", "NASB1995 by Dale McConachie", {});
+
+  // Second batch added Sept 1 (older GAB_FatherMike recordings moved into
+  // bigstorage/mp3). Will cleaned up the redundant/ambiguous files at the
+  // source (deleted Revelation-003.mp3, Revelation-005.mp3, and the
+  // A/B-suffixed files), so Revelation is just two clean back-to-back
+  // ranges below with no overlap. Translation label normalized to match
+  // the first batch's "GAB Father Mike" so this doesn't read as a second
+  // translation on chapters both batches happen to cover.
+  applyRange("Daniel", 1, 5, "GAB_FatherMike-Daniel-001-005.mp3", "GAB Father Mike", {});
+  applyRange("Daniel", 6, 14, "GAB_FatherMike-Daniel-006-014.mp3", "GAB Father Mike", {});
+  applyRange("Genesis", 1, 20, "GAB_FatherMike-Genesis-001-020.mp3", "GAB Father Mike", {});
+  applyRange("Genesis", 21, 32, "GAB_FatherMike-Genesis-021-032.mp3", "GAB Father Mike", {});
+  applyRange("Matthew", 1, 9, "GAB_FatherMike-Matthew-001-009.mp3", "GAB Father Mike", {});
+  applyRange("Revelation", 1, 5, "GAB_FatherMike-Revelation-001-005.mp3", "GAB Father Mike", {});
+  applyRange("Revelation", 6, 22, "GAB_FatherMike-Revelation-006-022.mp3", "GAB Father Mike", {});
+
+  // Third batch, Sept 1: two more recordings dropped into bigstorage/mp3.
+  applyRange("1 Samuel", 1, 14, "GAB-Father-Mike_I-Samuel_1-14.mp3", "GAB Father Mike", {});
+  applyRange("Psalms", 133, 150, "GAB-FAther-Mike_Psalms-133-Proverbs13.mp3", "GAB Father Mike", {});
+  applyRange("Proverbs", 1, 13, "GAB-FAther-Mike_Psalms-133-Proverbs13.mp3", "GAB Father Mike", {});
+}
+
+// Folds casing/spacing variants of the same translation label together
+// (e.g. "GAB Father Mike" / "GAB FAther Mike" / "GAB FatherMike") so they
+// don't show up as separate translations. First spelling seen wins as the
+// display form; seedState() runs before any import, so its clean labels
+// are what everything else folds into.
+const TRANSLATION_CANON = {};
+function canonTranslation(t) {
+  const clean = String(t).trim().replace(/\s+/g, " ");
+  const key = slug(clean);
+  if (!key) return clean;
+  if (!TRANSLATION_CANON[key]) TRANSLATION_CANON[key] = clean;
+  return TRANSLATION_CANON[key];
+}
+
+function applyRange(book, start, end, source, translation, opts) {
+  opts = opts || {};
+  translation = canonTranslation(translation);
+  if (!STATE[book]) STATE[book] = {};
+  for (let c = start; c <= end; c++) {
+    if (!STATE[book][c]) STATE[book][c] = { entries: [], override: null };
+    const cell = STATE[book][c];
+    if (cell.override) continue; // manual override always wins; imports never fight it
+    const isPartial = !!(opts.partialLastAt && c === end);
+    // Don't duplicate the exact same source+translation if imported twice
+    const already = cell.entries.some(e => e.source === source && e.translation === translation);
+    if (already) continue;
+    cell.entries.push({
+      status: isPartial ? "partial" : "recorded",
+      translation: translation,
+      source: source,
+      note: isPartial ? ("through verse " + opts.partialLastAt) : ""
+    });
+  }
+}
+
+// ---------------------------------------------------------------------
+// Parser
+// ---------------------------------------------------------------------
+function parseLine(raw) {
+  let line = raw.trim();
+  if (!line) return null;
+  let token = line.split(/\s+/)[0];
+  if (!/\.mp3$/i.test(token)) return null;
+  let base = token.replace(/\.mp3$/i, "");
+  let tokens = base.split(/[_\-]/).map(t => t.trim()).filter(Boolean);
+  // A book name glued directly to its chapter number with no separator
+  // (e.g. "Luke6", "Proverbs13") reads as one token from the split above --
+  // pull the trailing digits off so the book name can still be matched.
+  tokens = tokens.reduce((acc, t) => {
+    const m = t.match(/^([A-Za-z]+)(\d+)$/);
+    if (m) acc.push(m[1], m[2]); else acc.push(t);
+    return acc;
+  }, []);
+
+  let hits = [];
+  for (let i = 0; i < tokens.length; i++) {
+    for (let span = 1; span <= 3 && i + span <= tokens.length; span++) {
+      let candidate = slug(tokens.slice(i, i + span).join(""));
+      if (BOOK_INDEX[candidate]) {
+        hits.push({ book: BOOK_INDEX[candidate], at: i, span });
+        i += span - 1;
+        break;
+      }
+    }
+  }
+  if (hits.length === 0) return { error: "no book name recognized", raw: token };
+
+  let translation = tokens.slice(0, hits[0].at).join(" ").trim();
+  if (!translation) translation = "Unknown source";
+
+  const isNum = t => /^\d+$/.test(t);
+  const numsBetween = (loStart, hiEnd) => tokens.slice(loStart, hiEnd).filter(isNum).map(Number);
+
+  if (hits.length === 1) {
+    let book = hits[0].book;
+    let nums = numsBetween(hits[0].at + hits[0].span, tokens.length);
+    if (nums.length === 0) return { error: "no chapter number found", raw: token };
+    let start = nums[0];
+    let end = nums.length > 1 ? nums[1] : nums[0];
+    if (end < start) return { error: "chapter range looks reversed (" + start + "-" + end + ")", raw: token };
+    if (start > CHAPTERS[book] || end > CHAPTERS[book]) {
+      return { error: book + " only has " + CHAPTERS[book] + " chapters", raw: token };
+    }
+    return { book1: book, start1: start, end1: end, source: token, translation };
+  }
+
+  if (hits.length === 2) {
+    let book1 = hits[0].book, book2 = hits[1].book;
+    // Numbers between the two book names belong to book1 (a start chapter,
+    // if this recording picks up mid-book rather than at chapter 1).
+    // Numbers after book2 are its end chapter[, verse].
+    let numsBefore2 = numsBetween(hits[0].at + hits[0].span, hits[1].at);
+    let numsAfter2 = numsBetween(hits[1].at + hits[1].span, tokens.length);
+    let start1 = numsBefore2.length ? numsBefore2[0] : 1;
+    let endCh = numsAfter2.length ? numsAfter2[0] : null;
+    let endV = numsAfter2.length > 1 ? numsAfter2[1] : null;
+    if (!endCh) return { error: "couldn't find an ending chapter for " + book1 + "\u2192" + book2, raw: token };
+    if (start1 > CHAPTERS[book1]) return { error: book1 + " only has " + CHAPTERS[book1] + " chapters", raw: token };
+    if (endCh > CHAPTERS[book2]) return { error: book2 + " only has " + CHAPTERS[book2] + " chapters", raw: token };
+    return { book1, start1, end1: CHAPTERS[book1], book2, start2: 1, end2: endCh, endVerse: endV, source: token, translation };
+  }
+
+  return { error: "found " + hits.length + " book names, not sure how to read this", raw: token };
+}
+
+function runImport(text) {
+  let lines = text.split("\n");
+  let applied = 0, reviewed = [];
+  lines.forEach(line => {
+    let r = parseLine(line);
+    if (!r) return;
+    if (r.error) { reviewed.push(r.raw + " \u2014 " + r.error); return; }
+    applyRange(r.book1, r.start1, r.end1, r.source, r.translation, {});
+    if (r.book2) {
+      applyRange(r.book2, r.start2, r.end2, r.source, r.translation, r.endVerse ? { partialLastAt: r.endVerse } : {});
+    }
+    applied++;
+  });
+  REVIEW = reviewed;
+  return applied;
+}
+
+// ---------------------------------------------------------------------
+// Cell status helper
+// ---------------------------------------------------------------------
+function cellInfo(book, ch, filter) {
+  const cell = (STATE[book] || {})[ch];
+  if (!cell || (!cell.override && (!cell.entries || cell.entries.length === 0))) {
+    return { cls: "", count: 0, done: false };
+  }
+  if (!filter) {
+    if (cell.override === "recorded") return { cls: "override recorded", count: (cell.entries || []).length, done: true };
+    if (cell.override === "missing") return { cls: "override", count: 0, done: false };
+    const hasFull = cell.entries.some(e => e.status === "recorded");
+    return { cls: hasFull ? "recorded" : "partial", count: cell.entries.length, done: true };
+  }
+  // Filtered to one translation: manual overrides aren't tied to a
+  // translation, so they only count here if that translation also has
+  // its own logged entry for this chapter.
+  const matches = (cell.entries || []).filter(e => e.translation === filter);
+  if (matches.length === 0) return { cls: "", count: 0, done: false };
+  const hasFull = matches.some(e => e.status === "recorded");
+  return { cls: hasFull ? "recorded" : "partial", count: matches.length, done: true };
+}
+
+// ---------------------------------------------------------------------
+// Translation filter dropdown
+// ---------------------------------------------------------------------
+function getTranslations() {
+  const set = new Set();
+  Object.keys(STATE).forEach(book => {
+    Object.keys(STATE[book]).forEach(ch => {
+      (STATE[book][ch].entries || []).forEach(e => set.add(e.translation));
+    });
+  });
+  return Array.from(set).sort((a, b) => a.localeCompare(b));
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+function populateTranslationSelect() {
+  const sel = document.getElementById("translationSelect");
+  if (!sel) return;
+  const translations = getTranslations();
+  sel.innerHTML = '<option value="">All translations</option>' +
+    translations.map(t => '<option value="' + escapeHtml(t) + '">' + escapeHtml(t) + '</option>').join("");
+  if (translations.includes(currentFilter)) {
+    sel.value = currentFilter;
+  } else {
+    currentFilter = "";
+    sel.value = "";
+  }
+}
+
+// ---------------------------------------------------------------------
+// Rendering
+// ---------------------------------------------------------------------
+function renderGrid() {
+  populateTranslationSelect();
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
+  let totalCh = 0, recordedCh = 0, booksStarted = 0;
+
+  function section(title, list) {
+    const h = document.createElement("div");
+    h.className = "section-title";
+    h.textContent = title;
+    grid.appendChild(h);
+    list.forEach(([name, n]) => {
+      totalCh += n;
+      const row = document.createElement("div");
+      row.className = "book-row";
+
+      let doneCount = 0;
+      for (let c = 1; c <= n; c++) if (cellInfo(name, c, currentFilter).done) doneCount++;
+      if (doneCount > 0) booksStarted++;
+      recordedCh += doneCount;
+
+      const nameEl = document.createElement("div");
+      nameEl.className = "book-name";
+      nameEl.innerHTML = name + '<span class="pct">' + doneCount + ' / ' + n + '</span>';
+      row.appendChild(nameEl);
+
+      const chWrap = document.createElement("div");
+      chWrap.className = "chapters";
+      for (let c = 1; c <= n; c++) {
+        const info = cellInfo(name, c, currentFilter);
+        const cell = document.createElement("div");
+        cell.className = "ch " + info.cls;
+        cell.textContent = c;
+        if (info.count > 1) {
+          const badge = document.createElement("span");
+          badge.className = "badge";
+          badge.textContent = info.count;
+          cell.appendChild(badge);
+        }
+        const st = STATE[name] && STATE[name][c];
+        let titleText = name + " " + c;
+        if (st && st.override) titleText += " \u2014 manually marked " + st.override;
+        else if (st && st.entries && st.entries.length) {
+          titleText += " \u2014 " + st.entries.map(e => e.translation + (e.note ? " (" + e.note + ")" : "")).join(", ");
+        } else {
+          titleText += " \u2014 not yet recorded";
+        }
+        cell.title = titleText;
+        cell.addEventListener("click", () => openCellDialog(name, c));
+        chWrap.appendChild(cell);
+      }
+      row.appendChild(chWrap);
+      grid.appendChild(row);
+    });
+  }
+
+  section("Old Testament", OT);
+  section("New Testament", NT);
+
+  document.getElementById("statChapters").textContent = recordedCh;
+  document.getElementById("statPct").textContent = Math.round((recordedCh / totalCh) * 100) + "%";
+  document.getElementById("statBooks").textContent = booksStarted;
+
+  const countEl = document.getElementById("translationCount");
+  if (countEl) {
+    countEl.textContent = currentFilter
+      ? recordedCh + " of " + totalCh + " chapters (" + Math.round((recordedCh / totalCh) * 100) + "%) recorded in “" + currentFilter + "”"
+      : "";
+  }
+}
+
+function renderImportResult(applied) {
+  const box = document.getElementById("importResult");
+  if (applied === 0 && REVIEW.length === 0) { box.innerHTML = ""; return; }
+  let html = "";
+  if (applied > 0) html += '<div class="ok">Matched ' + applied + ' recording' + (applied === 1 ? "" : "s") + '.</div>';
+  if (REVIEW.length > 0) {
+    html += '<div class="warn">' + REVIEW.length + " line" + (REVIEW.length === 1 ? "" : "s") + " needs a manual look:</div>";
+    html += '<ul class="review-list">' + REVIEW.map(r => "<li>" + r.replace(/</g, "&lt;") + "</li>").join("") + "</ul>";
+  }
+  box.innerHTML = html;
+}
+
+// ---------------------------------------------------------------------
+// Cell dialog (view sources / manual override)
+// ---------------------------------------------------------------------
+let activeCell = null;
+function openCellDialog(book, ch) {
+  activeCell = { book, ch };
+  const st = (STATE[book] || {})[ch];
+  document.getElementById("dlgTitle").textContent = book + " " + ch;
+
+  const statusEl = document.getElementById("dlgStatus");
+  const listEl = document.getElementById("dlgSources");
+  listEl.innerHTML = "";
+
+  if (st && st.override) {
+    statusEl.textContent = "Manually marked " + st.override + ".";
+  } else if (st && st.entries && st.entries.length) {
+    statusEl.textContent = st.entries.length + " translation" + (st.entries.length === 1 ? "" : "s") + " on file:";
+    st.entries.forEach(e => {
+      const li = document.createElement("li");
+      li.innerHTML = '<span class="tr">' + e.translation + (e.status === "partial" ? " \u2014 partial" : "") + '</span>'
+        + '<span class="fn">' + e.source + (e.note ? " (" + e.note + ")" : "") + '</span>';
+      listEl.appendChild(li);
+    });
+  } else {
+    statusEl.textContent = "Not yet recorded.";
+  }
+  document.getElementById("cellDialog").showModal();
+}
+document.getElementById("dlgMarkRecorded").addEventListener("click", () => {
+  if (!activeCell) return;
+  if (!STATE[activeCell.book]) STATE[activeCell.book] = {};
+  if (!STATE[activeCell.book][activeCell.ch]) STATE[activeCell.book][activeCell.ch] = { entries: [], override: null };
+  STATE[activeCell.book][activeCell.ch].override = "recorded";
+  document.getElementById("cellDialog").close();
+  saveAndRender();
+});
+document.getElementById("dlgMarkMissing").addEventListener("click", () => {
+  if (!activeCell) return;
+  if (!STATE[activeCell.book]) STATE[activeCell.book] = {};
+  if (!STATE[activeCell.book][activeCell.ch]) STATE[activeCell.book][activeCell.ch] = { entries: [], override: null };
+  STATE[activeCell.book][activeCell.ch].override = "missing";
+  document.getElementById("cellDialog").close();
+  saveAndRender();
+});
+document.getElementById("dlgClose").addEventListener("click", () => document.getElementById("cellDialog").close());
+
+// ---------------------------------------------------------------------
+// Import / clear buttons
+// ---------------------------------------------------------------------
+document.getElementById("importBtn").addEventListener("click", () => {
+  const text = document.getElementById("importBox").value;
+  const applied = runImport(text);
+  renderImportResult(applied);
+  saveAndRender();
+});
+document.getElementById("clearAllBtn").addEventListener("click", () => {
+  if (!confirm("Clear all catalog data and start over? This can't be undone.")) return;
+  STATE = {};
+  REVIEW = [];
+  document.getElementById("importResult").innerHTML = "";
+  saveAndRender();
+});
+
+// ---------------------------------------------------------------------
+// Direct folder access (File System Access API — Chrome/Edge only).
+// Lets the mp3 folder be scanned in place instead of pasting a listing.
+// The picked folder handle is remembered per-browser via IndexedDB so it
+// doesn't need to be re-picked every visit (though read permission can
+// still lapse and need a click to reconfirm).
+// ---------------------------------------------------------------------
+let dirHandle = null;
+const FS_SUPPORTED = typeof window !== "undefined" && "showDirectoryPicker" in window;
+
+function idbOpen() {
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open("reading-ledger-fs", 1);
+    req.onupgradeneeded = () => req.result.createObjectStore("handles");
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
+}
+async function idbGetHandle() {
+  try {
+    const db = await idbOpen();
+    return await new Promise((resolve, reject) => {
+      const tx = db.transaction("handles", "readonly");
+      const req = tx.objectStore("handles").get("mp3dir");
+      req.onsuccess = () => resolve(req.result || null);
+      req.onerror = () => reject(req.error);
+    });
+  } catch (e) { return null; }
+}
+async function idbSetHandle(handle) {
+  try {
+    const db = await idbOpen();
+    await new Promise((resolve, reject) => {
+      const tx = db.transaction("handles", "readwrite");
+      tx.objectStore("handles").put(handle, "mp3dir");
+      tx.oncomplete = resolve;
+      tx.onerror = () => reject(tx.error);
+    });
+  } catch (e) {}
+}
+async function idbClearHandle() {
+  try {
+    const db = await idbOpen();
+    await new Promise((resolve, reject) => {
+      const tx = db.transaction("handles", "readwrite");
+      tx.objectStore("handles").delete("mp3dir");
+      tx.oncomplete = resolve;
+      tx.onerror = () => reject(tx.error);
+    });
+  } catch (e) {}
+}
+
+function folderStateEl() { return document.getElementById("folderState"); }
+
+function updateFolderButtons(connected) {
+  document.getElementById("pickFolderBtn").hidden = connected;
+  document.getElementById("rescanBtn").hidden = !connected;
+  document.getElementById("disconnectFolderBtn").hidden = !connected;
+}
+
+async function scanDirHandle(handle) {
+  const names = [];
+  for await (const entry of handle.values()) {
+    if (entry.kind === "file" && /\.mp3$/i.test(entry.name)) names.push(entry.name);
+  }
+  return names;
+}
+
+async function runFolderScan(handle, opts) {
+  opts = opts || {};
+  try {
+    let perm = await handle.queryPermission({ mode: "read" });
+    if (perm !== "granted" && !opts.silent) {
+      perm = await handle.requestPermission({ mode: "read" });
+    }
+    if (perm !== "granted") {
+      if (folderStateEl()) folderStateEl().textContent = "Permission needed — click Rescan and allow access.";
+      return;
+    }
+    const names = await scanDirHandle(handle);
+    const applied = runImport(names.join("\n"));
+    renderImportResult(applied);
+    saveAndRender();
+    if (folderStateEl()) {
+      const now = new Date();
+      folderStateEl().textContent = "Last scanned " + now.toLocaleTimeString() + " — " + names.length + " mp3 file" + (names.length === 1 ? "" : "s") + " found";
+    }
+  } catch (e) {
+    if (folderStateEl()) folderStateEl().textContent = "Couldn't read that folder: " + e.message;
+  }
+}
+
+async function initFolderAccess() {
+  const wrap = document.getElementById("folderConnect");
+  if (!FS_SUPPORTED) { if (wrap) wrap.hidden = true; return; }
+  wrap.hidden = false;
+
+  const saved = await idbGetHandle();
+  if (saved) {
+    dirHandle = saved;
+    updateFolderButtons(true);
+    const perm = await saved.queryPermission({ mode: "read" }).catch(() => "prompt");
+    if (perm === "granted") {
+      runFolderScan(saved, { silent: true });
+    } else if (folderStateEl()) {
+      folderStateEl().textContent = "Connected to “" + saved.name + "” — click Rescan to reconnect.";
+    }
+  } else {
+    updateFolderButtons(false);
+  }
+}
+
+if (document.getElementById("pickFolderBtn")) {
+  document.getElementById("pickFolderBtn").addEventListener("click", async () => {
+    try {
+      const handle = await window.showDirectoryPicker({ id: "mp3dir", mode: "read" });
+      dirHandle = handle;
+      await idbSetHandle(handle);
+      updateFolderButtons(true);
+      await runFolderScan(handle);
+    } catch (e) {
+      // User cancelled the picker, or it wasn't allowed here — nothing to report.
+    }
+  });
+  document.getElementById("rescanBtn").addEventListener("click", () => {
+    if (dirHandle) runFolderScan(dirHandle);
+  });
+  document.getElementById("disconnectFolderBtn").addEventListener("click", async () => {
+    dirHandle = null;
+    await idbClearHandle();
+    updateFolderButtons(false);
+    if (folderStateEl()) folderStateEl().textContent = "";
+  });
+}
+
+// ---------------------------------------------------------------------
+// Translation filter (view-only, not persisted)
+// ---------------------------------------------------------------------
+document.getElementById("translationSelect").addEventListener("change", (e) => {
+  currentFilter = e.target.value;
+  renderGrid();
+});
+
+// ---------------------------------------------------------------------
+// Persistence via the `artifact` capability
+// ---------------------------------------------------------------------
+let artifactApi = null;
+let saving = false;
+const saveStateEl = () => document.getElementById("saveState");
+
+async function initPersistence() {
+  try {
+    if (window.claude && window.claude.use) {
+      artifactApi = await window.claude.use("artifact");
+    }
+  } catch (e) { artifactApi = null; }
+  if (saveStateEl()) saveStateEl().textContent = artifactApi ? "" : "(changes won't be saved in this view)";
+}
+
+async function saveAndRender() {
+  renderGrid();
+  const dataScript = document.getElementById("catalog-data");
+  if (dataScript) dataScript.textContent = JSON.stringify(STATE);
+  if (!artifactApi || saving) return;
+  saving = true;
+  if (saveStateEl()) saveStateEl().textContent = "Saving\u2026";
+  try {
+    const html = "<!doctype html>\n" + document.documentElement.outerHTML;
+    const res = await artifactApi.publish(html);
+    if (saveStateEl()) saveStateEl().textContent = (res && res.conflict) ? "Someone else just saved \u2014 reloaded" : "Saved";
+    setTimeout(() => { if (saveStateEl()) saveStateEl().textContent = ""; }, 2500);
+  } catch (e) {
+    if (saveStateEl()) saveStateEl().textContent = "Couldn't save";
+  }
+  saving = false;
+}
+
+// ---------------------------------------------------------------------
+// Boot
+// ---------------------------------------------------------------------
+(function boot() {
+  const dataScript = document.getElementById("catalog-data");
+  let loaded = null;
+  if (dataScript && dataScript.textContent.trim()) {
+    try { loaded = JSON.parse(dataScript.textContent); } catch (e) { loaded = null; }
+  }
+  if (loaded && Object.keys(loaded).length > 0) {
+    STATE = loaded;
+  } else {
+    seedState();
+  }
+  renderGrid();
+  initPersistence();
+  initFolderAccess();
+})();
+</script>
+<script type="application/json" id="catalog-data"></script>
+</body>
+</html>
